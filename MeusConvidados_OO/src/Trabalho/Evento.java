@@ -288,7 +288,7 @@ public class Evento {
 	/*
 	 * Objetivo: Listar os gastos do evento;
 	 */
-	public void listarGastos() {
+	public void listarOrcamentos() {
 		System.out.printf("*** Lista de gastos para o Evento: " + nomeEvento + " ***");
 		for (int i = 0; i < bdOrcamentos.size(); i++) {
 			Orcamento aux = bdOrcamentos.get(i);
@@ -302,7 +302,7 @@ public class Evento {
 	 * Objetivo: Adicionar gastos do evento; 
 	 * Entrada: gasto;
 	 */
-	public void adicionarGasto(Orcamento orcamento) {
+	public void adicionarOrcamento(Orcamento orcamento) {
 		bdOrcamentos.add(orcamento);
 	}
 
@@ -310,7 +310,7 @@ public class Evento {
 	 * Objetivo:Remover gastos do evento; 
 	 * Entrada: descricao;
 	 */
-	public void removerGasto(String descricao) {
+	public void removerOrcamento(String descricao) {
 		int cont = 0;
 		for (int i = 0; i < bdOrcamentos.size(); i++) {
 			Orcamento aux = bdOrcamentos.get(i);
@@ -349,7 +349,7 @@ public class Evento {
 		System.out.println("Relatório do evento");
 		listarConvidados();
 		listarTarefas();
-		listarGastos();
+		listarOrcamentos();
 	}
 
 	/*
