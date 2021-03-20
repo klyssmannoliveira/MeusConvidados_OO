@@ -30,6 +30,20 @@ public class Tarefa {
 	
 	/*
 	Sintese
+	Objetivo: Construtor da classe Tarefa (sobrecarga; 
+	Entrada: descricao, data, concluido
+	*/
+	public Tarefa(String descricao, String dataLimite, boolean concluido) throws Exception {
+		super();
+		this.descricao = descricao;
+		this.dataLimite = formato.parse(dataLimite);
+		this.concluido = concluido;
+	}
+
+
+
+	/*
+	Sintese
 	Objetivo: Retorna se a tarefa está concluída ou não 
 	Saída: String (Sim ou Não)
 	*/
