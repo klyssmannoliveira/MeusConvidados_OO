@@ -14,7 +14,7 @@ public class Teste {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
-		e1 = new Evento("Casamento", "30/03/2021", 18, 23);
+		e1 = new Evento("Casamento", "30/03/2021", 18, 23, "Alvorada");
 		a1 = new Convidado("Klyssmann", 1);
 		a2 = new Convidado("Giovanna", 5);
 		a3 = new Convidado("Hiterson", 6);
