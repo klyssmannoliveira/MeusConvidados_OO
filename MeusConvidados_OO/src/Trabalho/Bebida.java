@@ -68,7 +68,7 @@ public class Bebida extends Orcamento {
 		this.valorUnitario = valorUnitario;
 	}
 
-	// get do boolean alcoolico referente a bebida;
+	// get do boolean alcoolico referente a bebida: True se for alcoolico e false se não for ;
 	public boolean isAlcoolico() {
 		return alcoolico;
 	}
@@ -78,7 +78,7 @@ public class Bebida extends Orcamento {
 		this.alcoolico = alcoolico;
 	}
 
-	// get do boolean BebidaQuente referente a bebida;
+	// get do boolean BebidaQuente referente a bebida: True se for bebida quente e false se não for ;
 	public boolean isBebidaQuente() {
 		return bebidaQuente;
 	}

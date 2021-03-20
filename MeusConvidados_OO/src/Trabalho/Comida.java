@@ -19,7 +19,6 @@ public class Comida extends Orcamento {
 	 */
 	public Comida(String descricao, double valorTotal) {
 		super(descricao, valorTotal);
-		// TODO Auto-generated constructor stub
 	}
 	
 	/*
@@ -41,7 +40,7 @@ public class Comida extends Orcamento {
 	 * 
 	 */
 	public String toString() {
-		return "Gasto: " + descricao + "\nQuantidade: " + quantidade + "\nValor unitário: R$ " + valorUnitario
+		return "Orçamento: " + descricao + "\nQuantidade: " + quantidade + "\nValor unitário: R$ " + valorUnitario
 				+ "\nValor total: R$ " + valorTotal;
 	}
 
