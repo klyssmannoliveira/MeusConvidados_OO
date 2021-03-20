@@ -18,7 +18,7 @@ public class Evento {
 	private int totalConvidados = 0; // inicializaçao do atributo total de convidados;
 	private static ArrayList<Tarefa> bdTarefas = new ArrayList<Tarefa>(); // cria arraylist de tarefas;
 	private double taxaTarefas = 0.0; // inicializaçao do atributo taxa de tarefas;
-	private static ArrayList<Gasto> bdGastos = new ArrayList<Gasto>(); // cria arraylist de Gastos;
+	private static ArrayList<Orcamento> bdOrcamentos = new ArrayList<Orcamento>(); // cria arraylist de Orcamento;
 	private double totalGasto = 0.0; // inicializaçao do atributo total de gastos;
 
 	/*
@@ -51,7 +51,6 @@ public class Evento {
 
 	/*
 	 * Objetivo: Adicionar um convidado para o evento desejado;
-	 * 
 	 */
 
 	public void adicionarConvidado(Convidado convidado) {
@@ -291,8 +290,8 @@ public class Evento {
 	 */
 	public void listarGastos() {
 		System.out.printf("*** Lista de gastos para o Evento: " + nomeEvento + " ***");
-		for (int i = 0; i < bdGastos.size(); i++) {
-			Gasto aux = bdGastos.get(i);
+		for (int i = 0; i < bdOrcamentos.size(); i++) {
+			Orcamento aux = bdOrcamentos.get(i);
 			System.out.printf(
 					"\nGasto " + (i + 1) + ": " + aux.getDescricao() + "\n   -> Valor: R$ " + aux.getValorTotal());
 		}
@@ -303,8 +302,8 @@ public class Evento {
 	 * Objetivo: Adicionar gastos do evento; 
 	 * Entrada: gasto;
 	 */
-	public void adicionarGasto(Gasto gasto) {
-		bdGastos.add(gasto);
+	public void adicionarGasto(Orcamento orcamento) {
+		bdOrcamentos.add(orcamento);
 	}
 
 	/*
@@ -313,10 +312,10 @@ public class Evento {
 	 */
 	public void removerGasto(String descricao) {
 		int cont = 0;
-		for (int i = 0; i < bdGastos.size(); i++) {
-			Gasto aux = bdGastos.get(i);
+		for (int i = 0; i < bdOrcamentos.size(); i++) {
+			Orcamento aux = bdOrcamentos.get(i);
 			if (aux.getDescricao() == descricao) {
-				bdGastos.remove(i);
+				bdOrcamentos.remove(i);
 				System.out.println("Gasto removido com sucesso!!\n");
 				cont--;
 				break;
@@ -324,7 +323,7 @@ public class Evento {
 			cont++;
 		}
 
-		if (cont == bdGastos.size()) {
+		if (cont == bdOrcamentos.size()) {
 
 			System.out.println("Gasto não encontrado!!\n");
 		}
@@ -337,8 +336,8 @@ public class Evento {
 
 	public void setTotalGasto() {
 		totalGasto = 0;
-		for (int i = 0; i < bdGastos.size(); i++) {
-			Gasto aux = bdGastos.get(i);
+		for (int i = 0; i < bdOrcamentos.size(); i++) {
+			Orcamento aux = bdOrcamentos.get(i);
 			totalGasto = totalGasto + aux.getValorTotal();
 		}
 	}
@@ -347,17 +346,14 @@ public class Evento {
 	 * Objetivo: Relatório do evento que lista os convidados, as tarefas e os gastos;
 	 */
 	public void relatorio() {
-
 		System.out.println("Relatório do evento");
 		listarConvidados();
 		listarTarefas();
 		listarGastos();
-
 	}
 
 	/*
 	 * Objetivo: Getters e Setters referentes ao evento;
-	 * 
 	 */
 	// get nome do evento;
 	public String getNomeEvento() {
