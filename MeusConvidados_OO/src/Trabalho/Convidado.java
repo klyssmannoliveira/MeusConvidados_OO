@@ -6,7 +6,7 @@ package Trabalho;
 
 public class Convidado {
 	private String nome; // Nome do convidado;
-	private InformacaoConvidado informacaoConvidado = new InformacaoConvidado(); // instacia a classe informacaoConvidado
+	private InformacaoConvidado informacaoConvidado = new InformacaoConvidado(); // instancia a classe informacaoConvidado
 	private int quantAcompanhante; // quantidade de acompanhantes;
 
 	/*
@@ -15,13 +15,15 @@ public class Convidado {
 	 * 
 	 */
 
-	public Convidado(String nome, int quantAcompanhante, String telefone, String email, String redeSocial, String endereco) {
+	public Convidado(String nome, int quantAcompanhante, String telefone, String email, String redeSocial, String endereco, int cep, String complemento) {
 		this.nome = nome;
 		this.quantAcompanhante = quantAcompanhante;
 		informacaoConvidado.setTelefone(telefone);
 		informacaoConvidado.setEmail(email);
 		informacaoConvidado.setRedesSociais(redeSocial);
 		informacaoConvidado.setEndereco(endereco);
+		informacaoConvidado.setCep(cep);
+		informacaoConvidado.setComplemento(complemento);
 	}
 
 	/*
@@ -75,12 +77,31 @@ public class Convidado {
 		informacaoConvidado.setEndereco(endereco);
 	}
 	/*
-	 * Objetivo: Atualiza q quantidade de acompanhantes do convidado
+	 * Objetivo: Atualiza  quantidade de acompanhantes do convidado
 	 *  Entrada: quantAcompanhante
 	 */
 	public void atualizarQuantAcompanhante (int quantAcompanhante) {
 		setQuantAcompanhante(quantAcompanhante);
 	}
+	
+	
+	/*
+	 * Objetivo: Atualiza o CEP do convidado;
+	 *  Entrada: cep
+	 */
+	public void atualizarCep(int cep) {
+		informacaoConvidado.setCep(cep);
+	}
+	
+
+	/*
+	 * Objetivo: Atualiza o CEP do convidado;
+	 *  Entrada: cep
+	 */
+	public void atualizarComplemento(String complemento) {
+		informacaoConvidado.setComplemento(complemento);
+	}
+	
 	
 	/*
 	 * Objetivo: Getters e Setters referentes aos atributos;
