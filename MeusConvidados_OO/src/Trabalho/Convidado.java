@@ -1,9 +1,10 @@
+package Trabalho;
 /*
    Sintese
    Objetivo: Classe denominada Convidado para as informações dos convidados do evento; 
 */
 
-package Trabalho;
+
 
 public class Convidado {
 	private String nome; // Nome do convidado;

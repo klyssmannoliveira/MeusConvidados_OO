@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+
+
 public class Tarefa {
 	private String descricao; // descricao da tarefa: pode ser qualquer tarefa
 	private Date dataLimite; // data no formato Date
