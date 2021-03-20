@@ -15,7 +15,6 @@ public class Programacao {
 	 * 
 	 */
 
-	
 	public Programacao(String descricao) {
 		this.descricao = descricao;
 	}
