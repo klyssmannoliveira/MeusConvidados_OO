@@ -4,25 +4,24 @@ package Trabalho;
    Objetivo: Classe denominada Convidado para as informações dos convidados do evento; 
 */
 
-
-
 public class Convidado {
 	private String nome; // Nome do convidado;
-	private String telefone; // Telefone;
-	private String email; // email;
+	private InformacaoConvidado informacaoConvidado = new InformacaoConvidado(); // instacia a classe informacaoConvidado
 	private int quantAcompanhante; // quantidade de acompanhantes;
 
 	/*
 	 * Objetivo: Construtor da Classe Convidado ; 
-	 * Entrada : nome, quantAcompanhante, telefone e email;
+	 * Entrada : nome, quantAcompanhante, telefone, email, redeSocial, endereco;
 	 * 
 	 */
 
-	public Convidado(String nome, int quantAcompanhante, String telefone, String email) {
+	public Convidado(String nome, int quantAcompanhante, String telefone, String email, String redeSocial, String endereco) {
 		this.nome = nome;
 		this.quantAcompanhante = quantAcompanhante;
-		this.telefone = telefone;
-		this.email = email;
+		informacaoConvidado.setTelefone(telefone);
+		informacaoConvidado.setEmail(email);
+		informacaoConvidado.setRedesSociais(redeSocial);
+		informacaoConvidado.setEndereco(endereco);
 	}
 
 	/*
@@ -49,7 +48,7 @@ public class Convidado {
 	 *  Entrada: telefone
 	 */
 	public void atualizarTelefone (String telefone) {
-		setTelefone(telefone);
+		informacaoConvidado.setTelefone(telefone);
 	}
 	
 	/*
@@ -57,13 +56,29 @@ public class Convidado {
 	 *  Entrada: email
 	 */
 	public void atualizarEmail (String email) {
-		setEmail(email);
+		informacaoConvidado.setEmail(email);
+	}
+	
+	/*
+	 * Objetivo: Atualiza a rede social do convidado
+	 *  Entrada: redeSocial
+	 */
+	public void atualizarRedeSocial (String redeSocial) {
+		informacaoConvidado.setRedesSociais(redeSocial);
+	}
+	
+	/*
+	 * Objetivo: Atualiza o endereco do convidado
+	 *  Entrada: endereco
+	 */
+	public void atualizarEnderco (String endereco) {
+		informacaoConvidado.setEndereco(endereco);
 	}
 	/*
 	 * Objetivo: Atualiza q quantidade de acompanhantes do convidado
 	 *  Entrada: quantAcompanhante
 	 */
-	public void atualizarEmail (int quantAcompanhante) {
+	public void atualizarQuantAcompanhante (int quantAcompanhante) {
 		setQuantAcompanhante(quantAcompanhante);
 	}
 	
@@ -71,39 +86,15 @@ public class Convidado {
 	 * Objetivo: Getters e Setters referentes aos atributos;
 	 * 
 	 */
-
-	
 	
 	// get do nome;
 	public String getNome() {
 		return nome;
 	}
 
-	
 	// set do nome;
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	
-	// get do telefone;
-	public String getTelefone() {
-		return telefone;
-	}
-
-	// set do telefone;
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-
-	// get do email;
-	public String getEmail() {
-		return email;
-	}
-
-	// set do email;
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	// get da quantidade de acompanhantes;
