@@ -36,6 +36,36 @@ public class Convidado {
 		this.quantAcompanhante = quantAcompanhante;
 	}
 
+	/*
+	 * Objetivo: Atualiza o nome do convidado
+	 *  Entrada: nome
+	 */
+	public void atualizarNome (String nome) {
+		setNome(nome);
+	}
+	
+	/*
+	 * Objetivo: Atualiza o telefone do convidado
+	 *  Entrada: telefone
+	 */
+	public void atualizarTelefone (String telefone) {
+		setTelefone(telefone);
+	}
+	
+	/*
+	 * Objetivo: Atualiza o email do convidado
+	 *  Entrada: email
+	 */
+	public void atualizarEmail (String email) {
+		setEmail(email);
+	}
+	/*
+	 * Objetivo: Atualiza q quantidade de acompanhantes do convidado
+	 *  Entrada: quantAcompanhante
+	 */
+	public void atualizarEmail (int quantAcompanhante) {
+		setQuantAcompanhante(quantAcompanhante);
+	}
 	
 	/*
 	 * Objetivo: Getters e Setters referentes aos atributos;
