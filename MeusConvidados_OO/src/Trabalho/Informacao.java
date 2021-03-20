@@ -8,6 +8,8 @@ Objetivo: Classe abstrata denominada Informacao para ser o endereço do evento e 
 public abstract class Informacao {
 
 	private String endereco; // endereço do evento ou convidado;
+	private int cep; // CEP com 8 digitos. EX: 72583250
+	private String complemento; // complemento do endereço
 
 	/*
 	 * Objetivo: Getters e Setters referente ao endereço;
@@ -23,5 +25,27 @@ public abstract class Informacao {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
+
+	// get do cep;
+	public int getCep() {
+		return cep;
+	}
+
+	// set do cep;
+	public void setCep(int cep) {
+		this.cep = cep;
+	}
+
+	// get do complemento;
+	public String getComplemento() {
+		return complemento;
+	}
+
+	// set do complemento;
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+	
+	
 
 }
