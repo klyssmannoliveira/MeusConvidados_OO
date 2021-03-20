@@ -6,8 +6,8 @@ Objetivo: Classe denominada Orcamento para ser a classe Pai de todos os gastos d
 */
 
 public class Orcamento {
-	private String descricao; // descricao do gasto
-	private double valorTotal; // valor total do gasto
+    protected String descricao; // descricao do gasto
+    protected double valorTotal; // valor total do gasto
 	
 	/*
 	 * Objetivo: Construtor da Classe Orcamento; 
