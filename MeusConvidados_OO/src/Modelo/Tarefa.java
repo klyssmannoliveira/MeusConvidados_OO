@@ -1,5 +1,5 @@
 
-package Trabalho;
+package Modelo;
 /*
 Sintese
 Objetivo: Classe denominada Tarefa para as informações das Tarefas para a organização do evento; 
