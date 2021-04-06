@@ -21,5 +21,8 @@ public class BancoEvento {
 		this.qtdEventos = qtdEventos;
 	}
 	
+	public void adicionarEvento(Evento evento) {
+		bdEventos.add(evento);
+	}
 	
 }
