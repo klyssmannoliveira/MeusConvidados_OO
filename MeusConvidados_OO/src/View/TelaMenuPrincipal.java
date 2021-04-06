@@ -6,57 +6,55 @@ import javax.swing.*;
 import Controle.*;
 
 public class TelaMenuPrincipal implements ActionListener {
-	
+
 	private static JFrame janela = new JFrame("Meus Convidados");
 	private static JLabel titulo = new JLabel("Menu Principal");
 	private static JButton gerenciarEvento = new JButton("Gerenciar Evento");
 	private static JButton criarEvento = new JButton("Novo Evento");
 	private static JButton relatorio = new JButton("Relatorio");
-	public static ControleBancoEvento dados = new ControleBancoEvento();
-	
+	public  static ControleBancoEvento dados = new ControleBancoEvento();
+
 	public TelaMenuPrincipal() {
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
 		titulo.setBounds(120, 40, 150, 30);
 		gerenciarEvento.setBounds(40, 100, 140, 30);
 		criarEvento.setBounds(220, 100, 140, 30);
 		relatorio.setBounds(130, 150, 140, 30);
-		
+
 		janela.setLayout(null);
-		
+
 		janela.add(titulo);
 		janela.add(gerenciarEvento);
 		janela.add(criarEvento);
 		janela.add(relatorio);
-		
+
 		janela.setSize(400, 250);
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		janela.setVisible(true);
 	}
-	
+
 	public static void main(String[] args) {
 		TelaMenuPrincipal menu = new TelaMenuPrincipal();
-		
+
 		gerenciarEvento.addActionListener(menu);
 		criarEvento.addActionListener(menu);
 		relatorio.addActionListener(menu);
 	}
-	
+
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
-		
-		if(src == gerenciarEvento)
-			JOptionPane.showMessageDialog(null, 
-					"Ainda precisam ser implementadas as funcionalidades\n"
-					+ "relacionadas gerenciar o Evento", null, 
+
+		if (src == gerenciarEvento)
+			new TelaEvento().mostrarDadosEventos(dados, 1);
+
+		if (src == criarEvento)
+			JOptionPane.showMessageDialog(null,
+					"Ainda precisam ser implementadas as funcionalidades\n" + "relacionadas gerenciar o Evento", null,
 					JOptionPane.INFORMATION_MESSAGE);
-		
-		if(src == criarEvento)
-			//new TelaPessoa().mostrarDados(dados, 2);
-		
-		if(src == relatorio)
-			JOptionPane.showMessageDialog(null, 
-					"Ainda precisam ser implementadas as funcionalidades\n"
-					+ "relacionadas ao relatório do evento", null, 
-					JOptionPane.INFORMATION_MESSAGE);
+
+		if (src == relatorio)
+			JOptionPane.showMessageDialog(null,
+					"Ainda precisam ser implementadas as funcionalidades\n" + "relacionadas ao relatório do evento",
+					null, JOptionPane.INFORMATION_MESSAGE);
 	}
 }

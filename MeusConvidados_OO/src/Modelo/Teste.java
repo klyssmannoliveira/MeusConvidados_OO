@@ -22,7 +22,7 @@ public class Teste {
 	public static void main(String[] args) throws Exception {
 
 		// Instanciando os objetos.
-		e1 = new Evento("Casamento", "30/03/2021", 18, 23, "Alvorada"); // argumentos: nomeEvento, data, horaInicio,
+		//e1 = new Evento("Casamento", "30/03/2021", 18, 23, "Alvorada"); // argumentos: nomeEvento, data, horaInicio,
 																		// horatermino, enderecao
 		a1 = new Convidado("Klyssmann", 4, "99996789", "klyssmannoliveira@gmail.com", "@Klyssmann", "Santa Maria",
 				72200300, "TotalVille"); // argumentos: (String nome, int quantAcompanhante, String telefone, String
