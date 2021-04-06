@@ -1,4 +1,4 @@
-package Trabalho;
+package Modelo;
 /*
 Sintese
 Objetivo: Classe denominada InformacaoConvidado para as informações dos convidados do evento; 
