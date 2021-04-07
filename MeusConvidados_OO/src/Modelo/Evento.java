@@ -7,6 +7,7 @@ Objetivo: Classe denominada Evento para ser a classe central para organização do
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class Evento {
@@ -27,12 +28,17 @@ public class Evento {
 	 * 
 	 */
 
-	public Evento(String nome, String data, int horai, int horaf, String endereco) throws Exception {
+	public Evento(String nome, String data, String horai, String horaf, String endereco, String cep, String complemen) {
 		nomeEvento = nome;
-		informacaoEvento.setDataEvento(formato.parse(data)); // transforma a String em formato date;
+		informacaoEvento.setDataEvento(data); 
 		informacaoEvento.setHoraInicio(horai);
 		informacaoEvento.setHoraTermino(horaf);
 		informacaoEvento.setEndereco(endereco);
+		informacaoEvento.setCep(cep);
+		informacaoEvento.setComplemento(complemen);
+	}
+	public Evento() {
+		
 	}
 
 	/*
@@ -363,6 +369,14 @@ public class Evento {
 	// set do nome do evento;
 	public void setNomeEvento(String nomeEvento) {
 		this.nomeEvento = nomeEvento;
+	}
+	// get informação do evento;
+	public InformacaoEvento getInformacaoEvento() {
+		return informacaoEvento;
+	}
+	// set informação do evento;
+	public void setInformacaoEvento(InformacaoEvento informacaoEvento) {
+		this.informacaoEvento = informacaoEvento;
 	}
 
 	// get do total de convidados do evento;

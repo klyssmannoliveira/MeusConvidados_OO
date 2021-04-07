@@ -15,7 +15,7 @@ public class Convidado {
 	 * 
 	 */
 
-	public Convidado(String nome, int quantAcompanhante, String telefone, String email, String redeSocial, String endereco, int cep, String complemento) {
+	public Convidado(String nome, int quantAcompanhante, String telefone, String email, String redeSocial, String endereco, String cep, String complemento) {
 		this.nome = nome;
 		this.quantAcompanhante = quantAcompanhante;
 		informacaoConvidado.setTelefone(telefone);
@@ -89,7 +89,7 @@ public class Convidado {
 	 * Objetivo: Atualiza o CEP do convidado;
 	 *  Entrada: cep
 	 */
-	public void atualizarCep(int cep) {
+	public void atualizarCep(String cep) {
 		informacaoConvidado.setCep(cep);
 	}
 	
