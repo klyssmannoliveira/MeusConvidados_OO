@@ -48,9 +48,7 @@ public class TelaMenuPrincipal implements ActionListener {
 			new TelaEvento().mostrarDadosEventos(dados, 1);
 
 		if (src == criarEvento)
-			JOptionPane.showMessageDialog(null,
-					"Ainda precisam ser implementadas as funcionalidades\n" + "relacionadas gerenciar o Evento", null,
-					JOptionPane.INFORMATION_MESSAGE);
+			new TelaDetalheEvento().inserirEditar(1, dados, null, 0);
 
 		if (src == relatorio)
 			JOptionPane.showMessageDialog(null,

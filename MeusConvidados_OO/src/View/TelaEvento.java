@@ -22,10 +22,8 @@ public class TelaEvento implements ActionListener, ListSelectionListener {
 
 		if (op == 1) {
 		
-			listaNomesEvento = new ControleEvento(dados).getNomeEvento();
-			
+			listaNomesEvento = new ControleBancoEvento(dados).getNomeEventos();
 			listaEventosCriados = new JList<String>(listaNomesEvento);
-			
 			janela = new JFrame("Eventos");
 			titulo = new JLabel("Eventos Cadastrados");
 			cadastroEvento = new JButton("Cadastrar");
@@ -65,22 +63,14 @@ public class TelaEvento implements ActionListener, ListSelectionListener {
 		Object src = e.getSource();
 		// Cadastro de novo aluno
 		if (src == cadastroEvento)
-			//new TelaDetalhePessoa().inserirEditar(1, dados, this, 0);
-
-		// Cadastro de novo professor
-		//if (src == cadastroProf)
-			//new TelaDetalhePessoa().inserirEditar(2, dados, this, 0);
+			new TelaDetalheEvento().inserirEditar(1, dados, null, 0);
 
 		// Atualiza a lista de nomes de alunos mostrada no JList
 		if (src == atualizarEvento) {
-			//listaAlunosCadastrados.setListData(new ControleAluno(dados).getNomeAluno());
-			//listaAlunosCadastrados.updateUI();
+			listaEventosCriados.setListData(new ControleBancoEvento(dados).getNomeEventos());
+			listaEventosCriados.updateUI();
 		}
 
-		// Atualiza a lista de nomes de professores mostrada no JList
-		//if (src == refreshProf) {
-			//listaProfsCadastrados.setListData(new ControleProfessor(dados).getNomeProf());
-			//listaProfsCadastrados.updateUI();
 		}
 
 

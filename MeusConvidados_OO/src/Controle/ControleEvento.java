@@ -1,32 +1,52 @@
 package Controle;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import Modelo.*;
 
 public class ControleEvento {
+	private Evento evento = new Evento();
 
-	//private static ArrayList<Evento> bdEventos = new ArrayList<Evento>();
-	private BancoEvento b = new BancoEvento();
-	private int qtdEventos;
-
-
-	
-	public String[] getNomeEvento() {
-		// ArrayList<Evento> aux = new ArrayList<Evento>();
-
-		String[] s = new String[b.getBdEventos().size()];
-		for (int i = 0; i < b.getBdEventos().size(); i++) {
-			s[i] = b.getBdEventos().get(i).getNomeEvento();
-
-		}
-		return s;
+	public ControleEvento(Evento evento) {
+		this.evento = evento;
 	}
 
-	public ControleEvento(ControleBancoEvento dados) {
-		b = dados.getB();
-		qtdEventos = dados.getQtdEventos();
+	public Evento getEvento() {
+		return evento;
 	}
 
+	public void setEvento(Evento evento) {
+		this.evento = evento;
+	}
+
+	public String getNomeEvento() {
+		return evento.getNomeEvento();
+	}
 	
+	public String getDataEvento() {
+		return evento.getInformacaoEvento().getDataEvento();
+	}
+	
+	public String getHoraiEvento() {
+		return evento.getInformacaoEvento().getHoraInicio();
+	}
+	
+	public String getHorafEvento() {
+		return evento.getInformacaoEvento().getHoraTermino();
+	}
+	
+	public String getEndereco() {
+		return evento.getInformacaoEvento().getEndereco();
+	}
+	
+	public String getCep() {
+		return evento.getInformacaoEvento().getCep();
+	}
+	
+	public String getComplemento() {
+		return evento.getInformacaoEvento().getComplemento();
+	}
 }
+	
+

@@ -28,12 +28,17 @@ public class Evento {
 	 * 
 	 */
 
-	public Evento(String nome, Date data, int horai, int horaf, String endereco) {
+	public Evento(String nome, String data, String horai, String horaf, String endereco, String cep, String complemen) {
 		nomeEvento = nome;
 		informacaoEvento.setDataEvento(data); 
 		informacaoEvento.setHoraInicio(horai);
 		informacaoEvento.setHoraTermino(horaf);
 		informacaoEvento.setEndereco(endereco);
+		informacaoEvento.setCep(cep);
+		informacaoEvento.setComplemento(complemen);
+	}
+	public Evento() {
+		
 	}
 
 	/*
@@ -364,6 +369,14 @@ public class Evento {
 	// set do nome do evento;
 	public void setNomeEvento(String nomeEvento) {
 		this.nomeEvento = nomeEvento;
+	}
+	// get informação do evento;
+	public InformacaoEvento getInformacaoEvento() {
+		return informacaoEvento;
+	}
+	// set informação do evento;
+	public void setInformacaoEvento(InformacaoEvento informacaoEvento) {
+		this.informacaoEvento = informacaoEvento;
 	}
 
 	// get do total de convidados do evento;
