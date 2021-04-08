@@ -6,21 +6,21 @@ import javax.swing.*;
 import Controle.*;
 
 public class TelaMenuPrincipal implements ActionListener {
-
+	//instancia os objetos da tela
 	private static JFrame janela = new JFrame("Meus Convidados");
 	private static JLabel titulo = new JLabel("Menu Principal");
 	private static JButton gerenciarEvento = new JButton("Gerenciar Evento");
 	private static JButton criarEvento = new JButton("Novo Evento");
 	private static JButton relatorio = new JButton("Relatorio");
 	public  static ControleBancoEvento dados = new ControleBancoEvento();
-
+	
 	public TelaMenuPrincipal() {
+		//Layout da janela: posicionamento, fonte e etc
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
 		titulo.setBounds(120, 40, 150, 30);
 		gerenciarEvento.setBounds(40, 100, 140, 30);
 		criarEvento.setBounds(220, 100, 140, 30);
 		relatorio.setBounds(130, 150, 140, 30);
-
 		janela.setLayout(null);
 
 		janela.add(titulo);

@@ -7,7 +7,6 @@ Objetivo: Classe denominada Evento para ser a classe central para organização do
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 
 public class Evento {

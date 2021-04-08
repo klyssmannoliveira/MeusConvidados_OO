@@ -61,11 +61,11 @@ public class TelaEvento implements ActionListener, ListSelectionListener {
 	// Captura eventos relacionados aos botões da interface
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
-		// Cadastro de novo aluno
+		// Cadastro do novo evento
 		if (src == cadastroEvento)
 			new TelaDetalheEvento().inserirEditar(1, dados, null, 0);
 
-		// Atualiza a lista de nomes de alunos mostrada no JList
+		// Atualiza a lista de nomes dos eventos mostrada no JList
 		if (src == atualizarEvento) {
 			listaEventosCriados.setListData(new ControleBancoEvento(dados).getNomeEventos());
 			listaEventosCriados.updateUI();

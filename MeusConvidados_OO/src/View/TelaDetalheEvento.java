@@ -47,8 +47,7 @@ public class TelaDetalheEvento implements ActionListener{
 
 		janela = new JFrame(s);
 
-		//Preenche dados com dados do aluno clicado
-		if (op == 2) {
+		if (op == 2) { // Edita um evento já cadastrado
 			valorNome = new JTextField(dados.getNomeEvento(pos), 200);
 			valorData = new JTextField(String.valueOf(dados.getDataEvento(pos)),28);
 			valorHorai = new JTextField(dados.getHoraiEvento(pos),5);
@@ -57,7 +56,7 @@ public class TelaDetalheEvento implements ActionListener{
 			valorCEP = new JTextField(dados.getCep(pos),11);
 			valorComplemen = new JTextField(dados.getComplemento(pos) ,200);
 		} 
-		else { //Não preenche com dados
+		else { //Cadastro de um novo evento: As caixas de textos aparecem vazias
 
 			valorNome = new JTextField(200);
 			valorData = new JTextField(8);
@@ -80,11 +79,12 @@ public class TelaDetalheEvento implements ActionListener{
 		valorHoraf.setBounds(180, 110, 180, 25);
 		labelEnd.setBounds(30, 140, 150, 25);
 		valorEnd.setBounds(180, 140, 180, 25);
-		labelCEP.setBounds(30, 170, 150, 25);
-		valorCEP.setBounds(180, 170, 180, 25);
-		labelComplemen.setBounds(30, 200, 150, 25);
-		valorComplemen.setBounds(180, 200, 180, 25);
-
+		labelComplemen.setBounds(30, 170, 150, 25);
+		valorComplemen.setBounds(180, 170, 180, 25);
+		labelCEP.setBounds(30, 200, 150, 25);
+		valorCEP.setBounds(180, 200, 180, 25);
+		
+		
 
 		//Coloca botoes de excluir e salvar
 		if (op == 2) {
@@ -155,7 +155,7 @@ public class TelaDetalheEvento implements ActionListener{
 		if(src == botaoExcluir) {
 			boolean res = false;
 
-			if (opcao == 2) {//exclui aluno
+			if (opcao == 2) {//exclui o evento
 				res = dados.removerEvento(novoDado);
 				if (res) mensagemSucessoExclusao(); 
 				else mensagemErroExclusaoEvento(); 
@@ -181,8 +181,10 @@ public class TelaDetalheEvento implements ActionListener{
 	public void mensagemErroCadastro() {
 		JOptionPane.showMessageDialog(null,"ERRO AO SALVAR OS DADOS!\n "
 				+ "Pode ter ocorrido um dos dois erros a seguir:  \n"
-				+ "1. Nem todos os campos foram preenchidos \n"
-				+ "2. Data, Hora do Início, Hora do Término e CEP não contém apenas números", null, 
+				+ "1. Nem todos os campos foram preenchidos; \n"
+				+ "2. A data não está no formato dd/mm/aaaa; \n"
+				+ "3. Os horários de início e término não estão no formado hh:mm; \n"
+				+ "4. O CEP não está no formato 12345-123;", null, 
 				JOptionPane.ERROR_MESSAGE);
 	}
 
