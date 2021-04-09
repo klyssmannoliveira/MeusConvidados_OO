@@ -20,7 +20,9 @@ public class Evento {
 	private double taxaTarefas = 0.0; // inicializaçao do atributo taxa de tarefas;
 	private static ArrayList<Orcamento> bdOrcamentos = new ArrayList<Orcamento>(); // cria arraylist de Orcamento;
 	private double totalGasto = 0.0; // inicializaçao do atributo total de gastos;
+	private double orcamentoPrevisto = 0.0; //  inicializaçao do atributo do orçamento Previsto;
 
+	
 	/*
 	 * Objetivo: Construtor da Classe Evento; 
 	 * Entrada : nome, data, horai, horaf;
@@ -395,5 +397,15 @@ public class Evento {
 		setTotalGasto();
 		return totalGasto;
 	}
+	// get do Orcamento Previsto do evento;
+	public double getOrcamentoPrevisto() {
+		return orcamentoPrevisto;
+	}
+	
+	// set Orcamento Previsto do evento;
+	public void setOrcamentoPrevisto(double orcamentoPrevisto) {
+		this.orcamentoPrevisto = orcamentoPrevisto;
+	}
+	
 
 }

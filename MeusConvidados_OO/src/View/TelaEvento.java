@@ -79,11 +79,10 @@ public class TelaEvento implements ActionListener, ListSelectionListener {
 		Object src = e.getSource();
 
 		if (e.getValueIsAdjusting() && src == listaEventosCriados ) {
-			//new TelaDetalhePessoa().inserirEditar(3, dados, this, listaAlunosCadastrados.getSelectedIndex());
+			new TelaMostraEvento().mostrarEvento(listaEventosCriados.getSelectedIndex(), this, dados);
 		}
 
-		//if (e.getValueIsAdjusting() && src == listaProfsCadastrados) {
-			//new TelaDetalhePessoa().inserirEditar(4, dados, this, listaProfsCadastrados.getSelectedIndex());
-		}
+		
 	}
+}
 

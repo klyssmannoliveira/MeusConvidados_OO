@@ -47,6 +47,25 @@ public class ControleEvento {
 	public String getComplemento() {
 		return evento.getInformacaoEvento().getComplemento();
 	}
+	
+	public int getTotalConvidados() {
+		return evento.getTotalConvidados();
+	}
+	
+	public double getTaxaTarefas() {
+		return evento.getTaxaTarefas();
+	}
+	
+	
+	public double getOrcamentoPrevisto() {
+		return evento.getOrcamentoPrevisto();
+	}
+	
+	public double getTotalGasto() {
+		return evento.getTotalGasto();
+	}
+	
+	
 }
 	
 

@@ -29,25 +29,16 @@ public class BancoEvento {
 		bdEventos.add(evento);
 	}
 	
-	public boolean removerEvento(String nomeEvento) {
-		int cont = 0;
-		for (int i = 0; i < bdEventos.size(); i++) {
-			Evento aux = bdEventos.get(i);
-			if (aux.getNomeEvento() == nomeEvento) {
-				bdEventos.remove(i);
-				cont--;
-				break;
-			}
-			cont++;
-		}
-
-		if (cont == bdEventos.size()) {
+	public boolean removerEvento(int posicao) {
+		if(posicao > bdEventos.size()) {
+			
 			return false;
-		}
-		else {
+		}else {
+			bdEventos.remove(posicao);
 			return true;
+			
 		}
-
+	
 	}
 	
 	public void fillWithSomeData() {
