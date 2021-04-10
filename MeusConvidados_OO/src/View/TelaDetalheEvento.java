@@ -35,7 +35,7 @@ public class TelaDetalheEvento implements ActionListener {
 	private int opcao;
 	private String s;
 
-	public void inserirEditar(int op, ControleBancoEvento d, TelaEvento p, int pos) {
+	public void inserirEditar(int op, int pos, ControleBancoEvento d) {
 
 		opcao = op;
 		posicao = pos;
@@ -44,7 +44,7 @@ public class TelaDetalheEvento implements ActionListener {
 		if (op == 1)
 			s = "Cadastro de Evento";
 		if (op == 2)
-			s = "Detalhe de Evento";
+			s = "Editar Evento";
 
 		janela = new JFrame(s);
 
@@ -134,7 +134,7 @@ public class TelaDetalheEvento implements ActionListener {
 				novoDado[6] = valorCEP.getText();
 				novoDado[7] = valorComplemen.getText();
 
-				res = dados.adicionarEditarEvento(novoDado);
+				res = dados.adicionarEditarEvento(opcao, posicao, novoDado);
 
 				if (res) {
 					mensagemSucessoCadastro();

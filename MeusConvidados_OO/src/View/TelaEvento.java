@@ -63,7 +63,7 @@ public class TelaEvento implements ActionListener, ListSelectionListener {
 		Object src = e.getSource();
 		// Cadastro do novo evento
 		if (src == cadastroEvento)
-			new TelaDetalheEvento().inserirEditar(1, dados, null, 0);
+			new TelaDetalheEvento().inserirEditar(1, 0, dados);
 
 		// Atualiza a lista de nomes dos eventos mostrada no JList
 		if (src == atualizarEvento) {

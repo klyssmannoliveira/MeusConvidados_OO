@@ -7,8 +7,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import Controle.*;
 
 public class TelaMostraEvento implements ActionListener {
@@ -52,17 +50,17 @@ public class TelaMostraEvento implements ActionListener {
 		dados = d;
 		s = "Detalhes do Evento";
 		janela = new JFrame(s);
-		valorNome = new JLabel(dados.getNomeEvento(pos));
-		valorData = new JLabel(String.valueOf(dados.getDataEvento(pos)));
-		valorHorai = new JLabel(dados.getHoraiEvento(pos));
-		valorHoraf = new JLabel(dados.getHorafEvento(pos));
-		valorEnd = new JLabel(dados.getEndereco(pos));
-		valorCEP = new JLabel(dados.getCep(pos));
-		valorComplemen = new JLabel(dados.getComplemento(pos));
-		valorTotalConvidados = new JLabel(Integer.toString(dados.getTotalConvidados(pos)));
-		valorTaxaTarefas = new JLabel(Double.toString(dados.getTaxaTarefas(pos)));
-		valorOrcamentoPrevisto = new JLabel(Double.toString(dados.getOrcamentoPrevisto(pos)));
-		valorTotalGasto = new JLabel(Double.toString(dados.getTotalGasto(pos)));
+		valorNome = new JLabel(dados.getNomeEvento(posicao));
+		valorData = new JLabel(String.valueOf(dados.getDataEvento(posicao)));
+		valorHorai = new JLabel(dados.getHoraiEvento(posicao));
+		valorHoraf = new JLabel(dados.getHorafEvento(posicao));
+		valorEnd = new JLabel(dados.getEndereco(posicao));
+		valorCEP = new JLabel(dados.getCep(posicao));
+		valorComplemen = new JLabel(dados.getComplemento(posicao));
+		valorTotalConvidados = new JLabel(Integer.toString(dados.getTotalConvidados(posicao)));
+		valorTaxaTarefas = new JLabel(Double.toString(dados.getTaxaTarefas(posicao)));
+		valorOrcamentoPrevisto = new JLabel(Double.toString(dados.getOrcamentoPrevisto(posicao)));
+		valorTotalGasto = new JLabel(Double.toString(dados.getTotalGasto(posicao)));
 		
 		valorNome.setFont(new Font("Arial", Font.BOLD, 30));
 		valorNome.setBounds(120, 20, 180, 25);
@@ -137,25 +135,19 @@ public class TelaMostraEvento implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if(src == botaoEditar) {
-			new TelaDetalheEvento().inserirEditar(2, dados, null, posicao);
+			new TelaDetalheEvento().inserirEditar(2, posicao, dados);
 		}
 
 		if(src == botaoConvidados) {
-			
-           // botão de acesso para janela de convidados
-		
+			new TelaListagem().mostrarDados(1, posicao, dados);
 		}
 		
 		if(src == botaoTarefas) {
-			
-	           // botão de acesso para janela de Tarefas
-			
+			new TelaListagem().mostrarDados(2, posicao, dados);
 			}
 		
 		if(src == botaoOrcamento) {
-			
-	           // botão de acesso para janela de Orçamento
-			
+			new TelaListagem().mostrarDados(3, posicao, dados);
 			}
 		
 		if(src == botaoProgramacao) {

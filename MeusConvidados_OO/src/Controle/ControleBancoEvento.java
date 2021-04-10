@@ -1,5 +1,10 @@
 package Controle;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
+
 import Modelo.*;
 
 public class ControleBancoEvento {
@@ -35,6 +40,26 @@ public class ControleBancoEvento {
 		}
 		return auxiliar;
 	}
+
+	// Retorna um vetor de strings com os nomes dos eventos
+	public String[] getNomesConvidados(int pos) {
+		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
+		return controlEvento.getNomesConvidados();
+	}
+
+	// Retorna um vetor de strings com os nomes dos eventos
+	public String[] getNomesTarefas(int pos) {
+		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
+		return controlEvento.getNomesTarefas();
+
+	}
+	
+	// Retorna um vetor de strings com os nomes dos eventos
+		public String[] getNomesOrcamento(int pos) {
+			ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
+			return controlEvento.getNomesOrcamento();
+
+		}
 
 	// Retorna uma String com o nome do evento
 	public String getNomeEvento(int pos) {
@@ -88,7 +113,6 @@ public class ControleBancoEvento {
 	// Retorna um inteiro com o Total de convidadados do evento
 	public int getTotalConvidados(int pos) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
-
 		return controlEvento.getTotalConvidados();
 
 	}
@@ -108,38 +132,48 @@ public class ControleBancoEvento {
 		return controlEvento.getOrcamentoPrevisto();
 
 	}
-	
+
 	// Retorna um double com o Gasto Total do evento
-		public double getTotalGasto(int pos) {
-			ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
+	public double getTotalGasto(int pos) {
+		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
 
-			return controlEvento.getTotalGasto();
+		return controlEvento.getTotalGasto();
 
-		}
-	
+	}
 
 	// Retorna um boolean com o erro de preenchimento
-	public boolean adicionarEditarEvento(String[] dadosEvento) {
+	public boolean adicionarEditarEvento(int op, int pos, String[] dadosEvento) {
 
-		if (!dadosEvento[2].matches("[0-9]+")) { // data
+		if (!validaData(dadosEvento[2])) { // data
 			return false;
 		}
 
-		if (!dadosEvento[3].matches("[0-9]+")) { // hora início
+		if (!validaHora(dadosEvento[3])) { // hora início
 			return false;
 		}
 
-		if (!dadosEvento[4].matches("[0-9]+")) { // hora término
+		if (!validaHora(dadosEvento[4])) { // hora término
 			return false;
 		}
-		if (!dadosEvento[6].matches("[0-9]+")) { // CEP
+		if (!validaCEP(dadosEvento[6])) { // CEP
 			return false;
 		}
 
 		else {
-			Evento e = new Evento(dadosEvento[1], dadosEvento[2], dadosEvento[3], dadosEvento[4], dadosEvento[5],
-					dadosEvento[6], dadosEvento[7]);
-			banco.adicionarEvento(e);
+			if (op == 1) {
+				Evento e = new Evento(dadosEvento[1], dadosEvento[2], dadosEvento[3], dadosEvento[4], dadosEvento[5],
+						dadosEvento[6], dadosEvento[7]);
+				banco.adicionarEvento(e);
+			} else {
+				ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
+				controlEvento.setNomeEvento(dadosEvento[1]);
+				controlEvento.setDataEvento(dadosEvento[2]);
+				controlEvento.setHoraiEvento(dadosEvento[3]);
+				controlEvento.setHorafEvento(dadosEvento[4]);
+				controlEvento.setEndereco(dadosEvento[5]);
+				controlEvento.setCep(dadosEvento[6]);
+				controlEvento.setComplemento(dadosEvento[7]);
+			}
 			return true;
 		}
 
@@ -155,18 +189,60 @@ public class ControleBancoEvento {
 
 	}
 
+	// Retorna um inteiro com a quantidade de eventos
 	public int getQtdEventos() {
 		setQtdEventos();
 		return qtdEventos;
 	}
 
+	// set da quantidade de eventos
 	public void setQtdEventos() {
 		this.qtdEventos = banco.getQtdEventos();
 		;
 	}
 
+	// Preenche o banco com alguns dados
 	public ControleBancoEvento() {
 		banco.fillWithSomeData();
+	}
+
+	// retorna verdadeiro se a data estiver no formato correto e dentro do padrão do
+	// localDate
+	public boolean validaData(String data) {
+		String formatoData = "dd/MM/uuuu";
+
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(formatoData) // define o padrão do formato
+																						// data // data
+				.withResolverStyle(ResolverStyle.STRICT); // compara o string com o formato estritamente
+		try { // se o parse der certo, retorna TRUE
+			LocalDate.parse(data, dateTimeFormatter);
+			return true;
+		} catch (DateTimeParseException e) { // se ocorrer algum erro no parse, retorn FALSE
+			return false;
+		}
+	}
+
+	// retorna verdadeiro se a hora estiver no formato correto
+	public boolean validaHora(String hora) {
+		String[] hm = hora.split(":"); // divide em um vetor de strings
+
+		int horas = Integer.parseInt(hm[0]); // transforma a string em int
+		int minutos = Integer.parseInt(hm[1]);
+
+		if (horas > 24 || horas < 0 || minutos > 59 || minutos < 0)
+			return false;
+		else
+			return true;
+	}
+
+	// retorna verdadeiro se a hora estiver no formato correto
+	public boolean validaCEP(String cep) {
+		String[] digitos = cep.split("-"); // divide em um vetor de strings
+
+		if (!digitos[0].matches("[0-9]+") || !digitos[1].matches("[0-9]+")) // se for diferente de número
+			return false;
+		else
+			return true;
 	}
 
 }

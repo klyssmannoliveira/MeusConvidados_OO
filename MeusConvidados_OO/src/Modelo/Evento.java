@@ -14,11 +14,11 @@ public class Evento {
 	SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");// instância o formato simples da data;
 	private String nomeEvento; // nome do evento dando liberdade ao usuario para colocar qualquer nome;
 	private InformacaoEvento informacaoEvento = new InformacaoEvento(); // instanciação da classe informacaoEvento;
-	private static ArrayList<Convidado> bdConvidados = new ArrayList<Convidado>(); // cria arraylist de convidados;
+	private ArrayList<Convidado> bdConvidados = new ArrayList<Convidado>(); // cria arraylist de convidados;
 	private int totalConvidados = 0; // inicializaçao do atributo total de convidados;
-	private static ArrayList<Tarefa> bdTarefas = new ArrayList<Tarefa>(); // cria arraylist de tarefas;
+	private ArrayList<Tarefa> bdTarefas = new ArrayList<Tarefa>(); // cria arraylist de tarefas;
 	private double taxaTarefas = 0.0; // inicializaçao do atributo taxa de tarefas;
-	private static ArrayList<Orcamento> bdOrcamentos = new ArrayList<Orcamento>(); // cria arraylist de Orcamento;
+	private ArrayList<Orcamento> bdOrcamentos = new ArrayList<Orcamento>(); // cria arraylist de Orcamento;
 	private double totalGasto = 0.0; // inicializaçao do atributo total de gastos;
 	private double orcamentoPrevisto = 0.0; //  inicializaçao do atributo do orçamento Previsto;
 
@@ -47,13 +47,14 @@ public class Evento {
 	 * 
 	 */
 
-	public void listarConvidados() {
-		System.out.print("*** Lista de convidados para o Evento: " + nomeEvento + " ***\n");
+	public String[] listarConvidados() {
+		String[] auxiliar = new String[bdConvidados.size()];
 		for (int i = 0; i < bdConvidados.size(); i++) {
-			Convidado aux = bdConvidados.get(i);
-			System.out.print(aux.getNome() + " e " + aux.getQuantAcompanhante() + " acompanhante(s)\n");
+			auxiliar[i] = bdConvidados.get(i).getNome() + " e " 
+						+ bdConvidados.get(i).getQuantAcompanhante()
+						+ " Acompanhante(s)";
 		}
-		System.out.println("Total de convidados: " + getTotalConvidados() + "\n");
+		return auxiliar;
 	}
 
 	/*
@@ -229,18 +230,13 @@ public class Evento {
 	/*
 	 * Objetivo: listar as tarefas realizadas para o evento;
 	 */
-	public void listarTarefas() {
-		int quantidade = 0;
-
-		System.out.print("*** Lista de tarefas para o Evento: " + nomeEvento + " ***\n");
+	public String[] listarTarefas() {
+		String[] auxiliar = new String[bdTarefas.size()];
 		for (int i = 0; i < bdTarefas.size(); i++) {
-			Tarefa aux = bdTarefas.get(i);
-			System.out.print("Tarefa " + (i + 1) + ": " + aux.getDescricao() + "\n    -> Data limite: "
-					+ formato.format(aux.getDataLimite()) + "\n    -> Concluído: " + aux.isConcluido() + "\n");
-			quantidade++;
+			auxiliar[i] = bdTarefas.get(i).getDescricao() + ". Data Limite: "
+					+ bdTarefas.get(i).getDataLimite();
 		}
-		System.out.println("Total de tarefas: " + quantidade);
-		System.out.printf("Taxa de tarefas concluídas:  %.2f%%\n\n", getTaxaTarefas());
+		return auxiliar;
 	}
 
 	/*
@@ -295,14 +291,13 @@ public class Evento {
 	/*
 	 * Objetivo: Listar os gastos do evento;
 	 */
-	public void listarOrcamentos() {
-		System.out.printf("*** Lista de gastos para o Evento: " + nomeEvento + " ***");
+	public String[] listarOrcamentos() {
+		String[] auxiliar = new String[bdOrcamentos.size()];
 		for (int i = 0; i < bdOrcamentos.size(); i++) {
-			Orcamento aux = bdOrcamentos.get(i);
-			System.out.printf(
-					"\nGasto " + (i + 1) + ": " + aux.getDescricao() + "\n   -> Valor: R$ " + aux.getValorTotal());
+			auxiliar[i] = bdOrcamentos.get(i).getDescricao() + ". Valor: R$"
+					+ bdOrcamentos.get(i).getValorTotal();
 		}
-		System.out.printf("\nTotal de gastos: %.2f\n", getTotalGasto());
+		return auxiliar;
 	}
 
 	/*
@@ -371,6 +366,7 @@ public class Evento {
 	public void setNomeEvento(String nomeEvento) {
 		this.nomeEvento = nomeEvento;
 	}
+	
 	// get informação do evento;
 	public InformacaoEvento getInformacaoEvento() {
 		return informacaoEvento;

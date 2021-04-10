@@ -13,19 +13,18 @@ import java.util.GregorianCalendar;
 
 public class Tarefa {
 	private String descricao; // descricao da tarefa: pode ser qualquer tarefa
-	private Date dataLimite; // data no formato Date
+	private String dataLimite; // data no formato Date
 	private long prazo; // diferença entre a data atual (agora) com a dataLimite
 	private boolean concluido; // True = Tarefa concluido
-	SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 	
 	/*
 	Sintese
 	Objetivo: Construtor da classe Tarefa; 
 	Entrada: descricao, data
 	*/
-	public Tarefa(String descricao, String data) throws Exception {
+	public Tarefa(String descricao, String data) {
 		this.descricao = descricao;
-		dataLimite = formato.parse(data); // transforma a string data no formato Date
+		dataLimite = data; // transforma a string data no formato Date
 	}
 	
 	/*
@@ -33,10 +32,10 @@ public class Tarefa {
 	Objetivo: Construtor da classe Tarefa (sobrecarga; 
 	Entrada: descricao, data, concluido
 	*/
-	public Tarefa(String descricao, String dataLimite, boolean concluido) throws Exception {
+	public Tarefa(String descricao, String dataLimite, boolean concluido) {
 		super();
 		this.descricao = descricao;
-		this.dataLimite = formato.parse(dataLimite);
+		this.dataLimite = dataLimite;
 		this.concluido = concluido;
 	}
 
@@ -68,8 +67,8 @@ public class Tarefa {
 	 * Objetivo: Atualiza a data limite, recebendo a data limite no formato String e transformando em date
 	 *  Entrada: data limite
 	 */
-	public void atualizarDataLimite (String data) throws Exception {
-		setDataLimite(formato.parse(data));
+	public void atualizarDataLimite (String data) {
+		setDataLimite(data);
 	}
 	
 	/*
@@ -90,9 +89,9 @@ public class Tarefa {
 	 * Objetivo: Retorna a uma string;
 	 *  Saida: descricao, dataLimite e prazo;
 	 */
-	public String toString() {
+	/*public String toString() {
 		return "Tarefa: " + descricao + "\nData Limite: " + formato.format(dataLimite) + "\nPrazo: " + prazo + " dia(s)";
-	}
+	}*/
 
 	// Calculo do prazo, retornando um long da quantidade de dias que faltam para realizar a tarefa;
 	/*
@@ -100,11 +99,11 @@ public class Tarefa {
 	 * retornando um long com a quantidade de dias
 	 *  Saida: prazo;
 	 */
-	public long setPrazo() { // calcula a direrença dos dia atual para a data limite
+	/*public long setPrazo() { // calcula a direrença dos dia atual para a data limite
 		GregorianCalendar d = new GregorianCalendar();
 		Date agora = d.getTime();
 		 return prazo = (dataLimite.getTime() - agora.getTime()) / (1000 * 60 * 60 * 24);
-	}
+	}*/
 
 
 	/*
@@ -122,12 +121,12 @@ public class Tarefa {
 	}
 
 	// get da Data Limite
-	public Date getDataLimite() {
+	public String getDataLimite() {
 		return dataLimite;
 	}
 
 	// set da Data Limite
-	public void setDataLimite(Date dataLimite) {
+	public void setDataLimite(String dataLimite) {
 		this.dataLimite = dataLimite;
 	}
 
