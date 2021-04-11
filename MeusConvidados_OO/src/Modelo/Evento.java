@@ -50,7 +50,7 @@ public class Evento {
 	public String[] listarConvidados() {
 		String[] auxiliar = new String[bdConvidados.size()];
 		for (int i = 0; i < bdConvidados.size(); i++) {
-			auxiliar[i] = bdConvidados.get(i).getNome() + " e " 
+			auxiliar[i] = i+1 + " - " + bdConvidados.get(i).getNome() + " e " 
 						+ bdConvidados.get(i).getQuantAcompanhante()
 						+ " Acompanhante(s)";
 		}
@@ -233,8 +233,7 @@ public class Evento {
 	public String[] listarTarefas() {
 		String[] auxiliar = new String[bdTarefas.size()];
 		for (int i = 0; i < bdTarefas.size(); i++) {
-			auxiliar[i] = bdTarefas.get(i).getDescricao() + ". Data Limite: "
-					+ bdTarefas.get(i).getDataLimite();
+			auxiliar[i] = i+1 + " - " + bdTarefas.get(i).getDescricao();
 		}
 		return auxiliar;
 	}
@@ -294,8 +293,7 @@ public class Evento {
 	public String[] listarOrcamentos() {
 		String[] auxiliar = new String[bdOrcamentos.size()];
 		for (int i = 0; i < bdOrcamentos.size(); i++) {
-			auxiliar[i] = bdOrcamentos.get(i).getDescricao() + ". Valor: R$"
-					+ bdOrcamentos.get(i).getValorTotal();
+			auxiliar[i] = i+1 + " - " + bdOrcamentos.get(i).getDescricao();
 		}
 		return auxiliar;
 	}

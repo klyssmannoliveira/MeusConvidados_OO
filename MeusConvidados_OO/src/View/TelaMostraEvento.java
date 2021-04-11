@@ -58,32 +58,32 @@ public class TelaMostraEvento implements ActionListener {
 		valorCEP = new JLabel(dados.getCep(posicao));
 		valorComplemen = new JLabel(dados.getComplemento(posicao));
 		valorTotalConvidados = new JLabel(Integer.toString(dados.getTotalConvidados(posicao)));
-		valorTaxaTarefas = new JLabel(Double.toString(dados.getTaxaTarefas(posicao)));
-		valorOrcamentoPrevisto = new JLabel(Double.toString(dados.getOrcamentoPrevisto(posicao)));
-		valorTotalGasto = new JLabel(Double.toString(dados.getTotalGasto(posicao)));
+		valorTaxaTarefas = new JLabel(String.format("%.2f",dados.getTaxaTarefas(posicao)) + " %");
+		valorOrcamentoPrevisto = new JLabel("R$ " + String.format("%.2f",dados.getOrcamentoPrevisto(posicao)));
+		valorTotalGasto = new JLabel("R$ " + String.format("%.2f",dados.getTotalGasto(posicao)));
 		
 		valorNome.setFont(new Font("Arial", Font.BOLD, 30));
-		valorNome.setBounds(120, 20, 180, 25);
+		valorNome.setBounds(90, 20, 180, 25);
 		labelData.setBounds(30, 50, 180, 25);
-		valorData.setBounds(70, 50, 180, 25);
-		labelHorai.setBounds(180, 50, 180, 25);
-		valorHorai.setBounds(220, 50, 180, 25);
+		valorData.setBounds(65, 50, 180, 25);
+		labelHorai.setBounds(230, 50, 180, 25);
+		valorHorai.setBounds(265, 50, 180, 25);
 		labelHoraf.setBounds(330, 50, 180, 25);
-		valorHoraf.setBounds(390, 50, 180, 25);
+		valorHoraf.setBounds(385, 50, 180, 25);
 		labelEnd.setBounds(30, 80 , 180, 25);
-		valorEnd.setBounds(100, 80, 180, 25);
+		valorEnd.setBounds(90, 80, 180, 25);
 		labelComplemen.setBounds(30, 110, 180, 25);
-		valorComplemen.setBounds(120, 110, 180, 25);
+		valorComplemen.setBounds(115, 110, 180, 25);
 		labelCEP.setBounds(265, 80, 180, 25);
 		valorCEP.setBounds(295, 80, 180, 25);
 		labelTotalConvidados.setBounds(30, 140, 180, 25);
-		valorTotalConvidados.setBounds(160, 140, 180, 25);
-		labelTaxaTarefas.setBounds(220, 140, 180, 25);
-		valorTaxaTarefas.setBounds(330, 140, 180, 25);
+		valorTotalConvidados.setBounds(150, 140, 180, 25);
+		labelTaxaTarefas.setBounds(265, 140, 180, 25);
+		valorTaxaTarefas.setBounds(365, 140, 180, 25);
 		labelOrcamentoPrevisto.setBounds(30, 170, 180, 25);
-		valorOrcamentoPrevisto.setBounds(200, 170, 180, 25);
-		labelTotalGasto.setBounds(250, 170, 180, 25);
-		valorTotalGasto.setBounds(350, 170, 180, 25);
+		valorOrcamentoPrevisto.setBounds(150, 170, 180, 25);
+		labelTotalGasto.setBounds(265, 170, 180, 25);
+		valorTotalGasto.setBounds(365, 170, 180, 25);
 
 		botaoEditar.setBounds(20, 200, 100, 30);
 		botaoConvidados.setBounds(125, 200, 100, 30);
@@ -121,7 +121,7 @@ public class TelaMostraEvento implements ActionListener {
 
 		this.janela.setLayout(null);
 
-		this.janela.setSize(500, 280);
+		this.janela.setSize(480, 280);
 		this.janela.setVisible(true);
 
 		botaoEditar.addActionListener(this);
@@ -155,7 +155,6 @@ public class TelaMostraEvento implements ActionListener {
 	           // botão de acesso para janela de Programação
 			
 			}
-		
 		
 	}
 

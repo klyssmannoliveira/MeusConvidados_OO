@@ -77,7 +77,7 @@ public class TelaListagem implements ActionListener, ListSelectionListener {
 			listaDadosCriados = new JList<String>(listaNomes);
 			titulo = new JLabel("Lista de Tarefas");
 			labelTotal = new JLabel("Taxa de tarefas: ");
-			valorTotal = new JLabel(Double.toString(dados.getTaxaTarefas(posicao)));
+			valorTotal = new JLabel(String.format("%.2f",dados.getTaxaTarefas(posicao)) + " %");
 			cadastro = new JButton("Cadastrar");
 			atualizar = new JButton("Atualizar");
 
@@ -87,7 +87,7 @@ public class TelaListagem implements ActionListener, ListSelectionListener {
 			listaDadosCriados.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 			listaDadosCriados.setVisibleRowCount(10);
 			labelTotal.setBounds(20, 167, 140, 30);
-			valorTotal.setBounds(140, 167, 100, 30);
+			valorTotal.setBounds(115, 167, 100, 30);
 
 			cadastro.setBounds(70, 197, 100, 30);
 			atualizar.setBounds(200, 197, 100, 30);
@@ -114,9 +114,9 @@ public class TelaListagem implements ActionListener, ListSelectionListener {
 			listaDadosCriados = new JList<String>(listaNomes);
 			titulo = new JLabel("Lista de Tarefas");
 			labelTotal = new JLabel("Total gasto: ");
-			valorTotal = new JLabel(Double.toString(dados.getTotalGasto(posicao)));
-			JLabel labelOrcamentoPrevisto = new JLabel("Orçamento Previsto");
-			JLabel valorOrcamentoPrevisto = new JLabel(Double.toString(dados.getOrcamentoPrevisto(posicao)));
+			valorTotal = new JLabel("R$ " + String.format("%.2f",dados.getTotalGasto(posicao)));
+			JLabel labelOrcamentoPrevisto = new JLabel("Orçamento Previsto: ");
+			JLabel valorOrcamentoPrevisto = new JLabel("R$ " + String.format("%.2f",dados.getOrcamentoPrevisto(posicao)));
 			cadastro = new JButton("Cadastrar");
 			atualizar = new JButton("Atualizar");
 
@@ -126,9 +126,9 @@ public class TelaListagem implements ActionListener, ListSelectionListener {
 			listaDadosCriados.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 			listaDadosCriados.setVisibleRowCount(10);
 			labelTotal.setBounds(20, 167, 140, 30);
-			valorTotal.setBounds(100, 167, 100, 30);
-			labelOrcamentoPrevisto.setBounds(150, 167, 140, 30);
-			valorOrcamentoPrevisto.setBounds(280, 167, 140, 30);
+			valorTotal.setBounds(90, 167, 100, 30);
+			labelOrcamentoPrevisto.setBounds(190, 167, 140, 30);
+			valorOrcamentoPrevisto.setBounds(310, 167, 140, 30);
 			cadastro.setBounds(70, 197, 100, 30);
 			atualizar.setBounds(200, 197, 100, 30);
 
