@@ -13,7 +13,7 @@ public class ControleBancoEvento {
 	// SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");// instância o
 	// formato simples da data;
 	private BancoEvento banco = new BancoEvento();
-	
+
 	private int qtdEventos;
 
 	// Construtor da classe ControleBancoEvento
@@ -54,13 +54,13 @@ public class ControleBancoEvento {
 		return controlEvento.getNomesTarefas();
 
 	}
-	
-	// Retorna um vetor de strings com os nomes dos eventos
-		public String[] getNomesOrcamento(int pos) {
-			ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
-			return controlEvento.getNomesOrcamento();
 
-		}
+	// Retorna um vetor de strings com os nomes dos eventos
+	public String[] getNomesOrcamento(int pos) {
+		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
+		return controlEvento.getNomesOrcamento();
+
+	}
 
 	// Retorna uma String com o nome do evento
 	public String getNomeEvento(int pos) {
@@ -180,6 +180,66 @@ public class ControleBancoEvento {
 
 	}
 
+	public boolean adicionarEditarConvidado(int op, int posEvento, int posConvidado, String[] dadosConvidados) {
+
+		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
+		ControleConvidado controlConvidado = new ControleConvidado(controlEvento.getBdConvidados().get(posConvidado));
+
+		//if (!validaCEP(dadosConvidados[6])) { // CEP
+			//return false;
+		//}
+
+		//else {
+			if (op == 1) {
+
+				Convidado e = new Convidado(dadosConvidados[1], Integer.parseInt(dadosConvidados[2]),
+						dadosConvidados[8], dadosConvidados[3], dadosConvidados[4], dadosConvidados[5],
+						dadosConvidados[6], dadosConvidados[7]);
+				controlEvento.adicionarConvidado(e);
+
+			} else {
+
+				controlConvidado.setNome(dadosConvidados[1]);
+				controlConvidado.setQuantAcompanhante(Integer.parseInt(dadosConvidados[2]));
+				controlConvidado.setEmail(dadosConvidados[3]);
+				controlConvidado.setRedeSocial(dadosConvidados[4]);
+				controlConvidado.setEnd(dadosConvidados[5]);
+				controlConvidado.setCEP(dadosConvidados[6]);
+				controlConvidado.setComplemenConvidado(dadosConvidados[7]);
+				controlConvidado.setTelefone(dadosConvidados[8]);
+
+			}
+			return true;
+		}
+
+	//}
+
+	public boolean adicionarEditarTarefa(int op, int posEvento, int posTarefa, String[] dadosTarefa) {
+
+		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
+		ControleTarefa controlTarefa = new ControleTarefa(controlEvento.getBdTarefas().get(posTarefa));
+
+		if (!validaData(dadosTarefa[2])) { // data
+			return false;
+		} else {
+
+			if (op == 2) {
+
+				Tarefa e = new Tarefa(dadosTarefa[1], dadosTarefa[2], Boolean.parseBoolean(dadosTarefa[3]));
+				controlEvento.adicionarTarefa(e);
+
+			} else {
+
+				controlTarefa.setDescricao(dadosTarefa[1]);
+				controlTarefa.setDataLimite(dadosTarefa[2]);
+				controlTarefa.setConcluidoTarefa(Boolean.parseBoolean(dadosTarefa[3]));
+
+			}
+			return true;
+		}
+
+	}
+
 	// retorna um boolean com erro de exclusao do evento
 	public boolean removerEvento(int posicao) {
 		if (banco.removerEvento(posicao)) {
@@ -190,6 +250,34 @@ public class ControleBancoEvento {
 
 	}
 
+	
+	public boolean removerConvidado( int posEvento, int posConvidado ) {
+		
+		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
+		if (controlEvento.removerConvidado(posConvidado)) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+	
+	
+public boolean removerTarefa( int posEvento, int posTarefa ) {
+		
+		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
+		if (controlEvento.removerTarefa(posTarefa)) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+	
+	
+	
+	
+	
 	// Retorna um inteiro com a quantidade de eventos
 	public int getQtdEventos() {
 		setQtdEventos();
@@ -199,88 +287,75 @@ public class ControleBancoEvento {
 	// set da quantidade de eventos
 	public void setQtdEventos() {
 		this.qtdEventos = banco.getQtdEventos();
-		
+
 	}
 
-	
 	public String getNomeConvidado(int posEvento, int posConvidado) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleConvidado controlConvidado = new ControleConvidado(controlEvento.getBdConvidados().get(posConvidado));
 		return controlConvidado.getNome();
 	}
-	
-	
+
 	public int getQuantAcompanhanteConvidado(int posEvento, int posConvidado) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleConvidado controlConvidado = new ControleConvidado(controlEvento.getBdConvidados().get(posConvidado));
 		return controlConvidado.getQuantAcompanhanteConvidado();
 	}
-	
+
 	public String getTelefone(int posEvento, int posConvidado) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleConvidado controlConvidado = new ControleConvidado(controlEvento.getBdConvidados().get(posConvidado));
 		return controlConvidado.getTelefone();
 	}
-	
-	
+
 	public String getEmail(int posEvento, int posConvidado) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleConvidado controlConvidado = new ControleConvidado(controlEvento.getBdConvidados().get(posConvidado));
 		return controlConvidado.getEmail();
 	}
-	
-	
+
 	public String getRedeSocial(int posEvento, int posConvidado) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleConvidado controlConvidado = new ControleConvidado(controlEvento.getBdConvidados().get(posConvidado));
 		return controlConvidado.getRedeSocial();
 	}
-	
-	
+
 	public String getEndConvidado(int posEvento, int posConvidado) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleConvidado controlConvidado = new ControleConvidado(controlEvento.getBdConvidados().get(posConvidado));
 		return controlConvidado.getEnd();
 	}
-	
-	
+
 	public String getCepConvidado(int posEvento, int posConvidado) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleConvidado controlConvidado = new ControleConvidado(controlEvento.getBdConvidados().get(posConvidado));
 		return controlConvidado.getCEP();
 	}
-	
-	
-	
+
 	public String getComplemenConvidado(int posEvento, int posConvidado) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleConvidado controlConvidado = new ControleConvidado(controlEvento.getBdConvidados().get(posConvidado));
 		return controlConvidado.getComplemenConvidado();
 	}
-	
-	
-	
-	
+
 	public String getDescricaoTarefa(int posEvento, int posTarefa) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleTarefa controlTarefa = new ControleTarefa(controlEvento.getBdTarefas().get(posTarefa));
 		return controlTarefa.getDescricao();
 	}
-	
+
 	public String getDataLimiteTarefa(int posEvento, int posTarefa) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleTarefa controlTarefa = new ControleTarefa(controlEvento.getBdTarefas().get(posTarefa));
 		return controlTarefa.getDataLimite();
 	}
-	
-	
-	public boolean getConcluidoTarefa (int posEvento, int posTarefa) {
+
+	public boolean getConcluidoTarefa(int posEvento, int posTarefa) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleTarefa controlTarefa = new ControleTarefa(controlEvento.getBdTarefas().get(posTarefa));
 		return controlTarefa.getConcluidoTarefa();
 	}
-	
-	
+
 	// Preenche o banco com alguns dados
 	public ControleBancoEvento() {
 		banco.fillWithSomeData();
@@ -324,15 +399,5 @@ public class ControleBancoEvento {
 		else
 			return true;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }

@@ -16,18 +16,39 @@ public class TelaCadastroAtualiza implements ActionListener {
 	private JFrame janela;
 	private JButton botaoExcluir = new JButton("Excluir");
 	private JButton botaoSalvar = new JButton("Salvar");
-	private String[] novoDado = new String[8];
+	private String[] novoDado = new String[9];
 	private static ControleBancoEvento dados;
 	private int opcao;
+	private JLabel labelNome = new JLabel("Nome: ");
+	private JTextField valorNome;
+	private JLabel labelQuantAcompanhante = new JLabel("N° de Acompanhantes: ");
+	private JTextField valorQuantAcompanhante;
+	private JLabel labelTelefone = new JLabel("Telefone: ");
+	private JTextField valorTelefone;
+	private JLabel labelEmail = new JLabel("Email: ");
+	private JTextField valorEmail;
+	private JLabel labelRedeSocial = new JLabel("Rede Social: ");
+	private JTextField valorRedeSocial;
+	private JLabel labelEnd = new JLabel("Endereco: ");
+	private JTextField valorEnd;
+	private JLabel labelCEP = new JLabel("CEP: ");
+	private JTextField valorCEP;
+	private JLabel labelComplemen = new JLabel("Complemento: ");
+	private JTextField valorComplemen;
+	private JLabel labelDescricao = new JLabel("Descrição: ");
+	private JTextField valorDescricao;
+	private JLabel labelDataLimite = new JLabel("Data Limite: ");
+	private JTextField valorDataLimite;
+	private JCheckBox valorConcluido = new JCheckBox(" Tarefa Concluída ");
 	private int posObjeto;
 	private int posEvento;
 	private String s;
 
-	public void inserirEditarConvTare(int op, int posEvento,  int posObjeto, ControleBancoEvento d) {
+	public void inserirEditarConvTare(int op, int posEvento, int posObjeto, ControleBancoEvento d) {
 
 		opcao = op;
 		this.posObjeto = posObjeto;
-		this.posEvento =  posEvento;
+		this.posEvento = posEvento;
 		dados = d;
 
 		if (op == 1)
@@ -42,23 +63,6 @@ public class TelaCadastroAtualiza implements ActionListener {
 		janela = new JFrame(s);
 
 		if (op == 1) {
-
-			JLabel labelNome = new JLabel("Nome: ");
-			JTextField valorNome;
-			JLabel labelQuantAcompanhante = new JLabel("N° de Acompanhantes: ");
-			JTextField valorQuantAcompanhante;
-			JLabel labelTelefone = new JLabel("Telefone: ");
-			JTextField valorTelefone;
-			JLabel labelEmail = new JLabel("Email: ");
-			JTextField valorEmail;
-			JLabel labelRedeSocial = new JLabel("Rede Social: ");
-			JTextField valorRedeSocial;
-			JLabel labelEnd = new JLabel("Endereco: ");
-			JTextField valorEnd;
-			JLabel labelCEP = new JLabel("CEP: ");
-			JTextField valorCEP;
-			JLabel labelComplemen = new JLabel("Complemento: ");
-			JTextField valorComplemen;
 
 			valorNome = new JTextField(200);
 			valorQuantAcompanhante = new JTextField(8);
@@ -111,12 +115,6 @@ public class TelaCadastroAtualiza implements ActionListener {
 		}
 		if (op == 2) {
 
-			JLabel labelDescricao = new JLabel("Descrição: ");
-			JTextField valorDescricao;
-			JLabel labelDataLimite = new JLabel("Data Limite: ");
-			JTextField valorDataLimite;
-			JCheckBox valorConcluido = new JCheckBox(" Tarefa Concluída ");
-
 			valorDescricao = new JTextField(200);
 			valorDataLimite = new JTextField(10);
 
@@ -158,9 +156,10 @@ public class TelaCadastroAtualiza implements ActionListener {
 			JLabel labelComplemen = new JLabel("Complemento: ");
 			JTextField valorComplemen;
 
-			valorNome = new JTextField(dados.getNomeConvidado(posEvento, posObjeto),200);
-			valorQuantAcompanhante = new JTextField(String.valueOf( dados.getQuantAcompanhanteConvidado(posEvento, posObjeto)),8);
-			valorTelefone = new JTextField( dados.getTelefone(posEvento, posObjeto), 20);
+			valorNome = new JTextField(dados.getNomeConvidado(posEvento, posObjeto), 200);
+			valorQuantAcompanhante = new JTextField(
+					String.valueOf(dados.getQuantAcompanhanteConvidado(posEvento, posObjeto)), 8);
+			valorTelefone = new JTextField(dados.getTelefone(posEvento, posObjeto), 20);
 			valorEmail = new JTextField(dados.getEmail(posEvento, posObjeto), 200);
 			valorRedeSocial = new JTextField(dados.getRedeSocial(posEvento, posObjeto), 200);
 			valorEnd = new JTextField(dados.getEndConvidado(posEvento, posObjeto), 200);
@@ -185,8 +184,7 @@ public class TelaCadastroAtualiza implements ActionListener {
 			valorTelefone.setBounds(180, 230, 180, 25);
 			botaoSalvar.setBounds(125, 265, 115, 30);
 			botaoExcluir.setBounds(245, 265, 115, 30);
-			
-			
+
 			this.janela.add(labelNome);
 			this.janela.add(valorNome);
 			this.janela.add(labelQuantAcompanhante);
@@ -208,8 +206,9 @@ public class TelaCadastroAtualiza implements ActionListener {
 			this.janela.add(botaoExcluir);
 			this.janela.setLayout(null);
 			this.janela.setSize(400, 360);
-			
-		}	if (op == 4) {
+
+		}
+		if (op == 4) {
 
 			JLabel labelDescricao = new JLabel("Descrição: ");
 			JTextField valorDescricao;
@@ -217,11 +216,11 @@ public class TelaCadastroAtualiza implements ActionListener {
 			JTextField valorDataLimite;
 			JCheckBox valorConcluido = new JCheckBox(" Tarefa Concluída ");
 
-			valorDescricao = new JTextField(dados.getDescricaoTarefa(posEvento, posObjeto),200);
-			valorDataLimite = new JTextField(dados.getDataLimiteTarefa(posEvento, posObjeto),10);
-			
-			if(dados.getConcluidoTarefa(posEvento, posObjeto)) {
-				valorConcluido.isSelected();
+			valorDescricao = new JTextField(dados.getDescricaoTarefa(posEvento, posObjeto), 200);
+			valorDataLimite = new JTextField(dados.getDataLimiteTarefa(posEvento, posObjeto), 10);
+
+			if (dados.getConcluidoTarefa(posEvento, posObjeto)) {
+				valorConcluido.setSelected(true);
 			}
 
 			labelDescricao.setBounds(30, 20, 150, 25);
@@ -245,8 +244,7 @@ public class TelaCadastroAtualiza implements ActionListener {
 			this.janela.setSize(400, 150);
 
 		}
-		
-	
+
 		this.janela.setVisible(true);
 		botaoSalvar.addActionListener(this);
 		botaoExcluir.addActionListener(this);
@@ -256,20 +254,26 @@ public class TelaCadastroAtualiza implements ActionListener {
 		Object src = e.getSource();
 		if (src == botaoSalvar) {
 			try {
-				boolean res;
-				if (opcao == 1) // cadastro de novo Evento
-					novoDado[0] = Integer.toString(dados.getQtdEventos());
-				else // edicao de Evento existente
-					novoDado[0] = Integer.toString(posObjeto);
+				boolean res = false;
+				if (opcao == 1 || opcao == 3) {
+					novoDado[1] = valorNome.getText();
 
-				/*
-				 * novoDado[1] = valorNome.getText(); novoDado[2] = valorData.getText();
-				 * novoDado[3] = valorHorai.getText(); novoDado[4] = valorHoraf.getText();
-				 * novoDado[5] = valorEnd.getText(); novoDado[6] = valorCEP.getText();
-				 * novoDado[7] = valorComplemen.getText();
-				 */
+					novoDado[2] = valorQuantAcompanhante.getText();
+					novoDado[3] = valorEmail.getText();
+					novoDado[4] = valorRedeSocial.getText();
+					novoDado[5] = valorEnd.getText();
+					novoDado[6] = valorCEP.getText();
+					novoDado[7] = valorComplemen.getText();
+					novoDado[8] = valorTelefone.getText();
+					res = dados.adicionarEditarConvidado(opcao, posEvento, posObjeto, novoDado);
+				}
+				if (opcao == 2 || opcao == 4) {
 
-				res = dados.adicionarEditarEvento(opcao,posObjeto, novoDado);
+					novoDado[1] = valorDescricao.getText();
+					novoDado[2] = valorDataLimite.getText();
+					novoDado[3] = valorConcluido.getText();
+					res = dados.adicionarEditarTarefa(opcao, posEvento, posObjeto, novoDado);
+				}
 
 				if (res) {
 					mensagemSucessoCadastro();
@@ -286,15 +290,17 @@ public class TelaCadastroAtualiza implements ActionListener {
 		if (src == botaoExcluir) {
 			boolean res = false;
 
-			if (opcao == 2) {// exclui o evento
-				res = dados.removerEvento(posObjeto);
-				if (res)
-					mensagemSucessoExclusao();
-				else
-					mensagemErroExclusaoEvento();
-			}
+			if (opcao == 3) // exclui o evento
+				res = dados.removerConvidado(posEvento, posObjeto);
 
+			if (opcao == 4)
+				res = dados.removerTarefa(posEvento, posObjeto);
+			if (res)
+				mensagemSucessoExclusao();
+			else
+				mensagemErroExclusaoEvento();
 		}
+
 	}
 
 	public void mensagemSucessoExclusao() {

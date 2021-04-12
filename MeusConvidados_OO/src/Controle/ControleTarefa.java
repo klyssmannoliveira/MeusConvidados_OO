@@ -24,6 +24,29 @@ public class ControleTarefa {
 
 		return tarefa.isConcluido();
 	}
+	
+	
+	public void setConcluidoTarefa( boolean concluido  ) {
 
+		tarefa.setConcluido(concluido);
+	}
+
+	
+	public void setDescricao( String descricao  ) {
+
+		tarefa.setDescricao(descricao);
+	}
+
+	
+	
+	public void setDataLimite( String dataLimite  ) {
+
+		tarefa.setDescricao(dataLimite );
+		
+	}
+
+	
+	
+	
 	
 }

@@ -20,7 +20,7 @@ public class Convidado {
 		this.quantAcompanhante = quantAcompanhante;
 		informacaoConvidado.setTelefone(telefone);
 		informacaoConvidado.setEmail(email);
-		informacaoConvidado.setRedesSociais(redeSocial);
+		informacaoConvidado.setRedeSocial(redeSocial);
 		informacaoConvidado.setEndereco(endereco);
 		informacaoConvidado.setCep(cep);
 		informacaoConvidado.setComplemento(complemento);
@@ -133,6 +133,35 @@ public class Convidado {
 		this.quantAcompanhante = quantAcompanhante;
 	}
 
+	
+	
+	public void setTelefone (String telefone) {
+	         informacaoConvidado.setTelefone(telefone);
+	}
+	
+	
+	public void setEmail (String email) {
+        informacaoConvidado.setEmail(email);
+}
+
+	
+	public void setRedeSocial (String redeSocial) {
+        informacaoConvidado.setRedeSocial(redeSocial);
+}
+
+	
+	public void setEndereco (String endereco) {
+        informacaoConvidado.setEndereco(endereco);
+}
+	
+	public void setComplemento (String complemento) {
+        informacaoConvidado.setComplemento(complemento);
+}	
+	
+	public void setCep (String cep) {
+        informacaoConvidado.setCep(cep);
+}	
+	
 	/*
 	 * Objetivo: Retorna a uma string;
 	 *  Saida: nome e quantAcompanhante;

@@ -38,7 +38,7 @@ public class InformacaoConvidado extends Informacao {
 	}
 	
 	// set da rede social
-	public void setRedesSociais(String redesSociais) {
+	public void setRedeSocial(String redesSociais) {
 		this.redesSociais = redesSociais;
 	}
 	

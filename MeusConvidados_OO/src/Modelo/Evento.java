@@ -73,24 +73,18 @@ public class Evento {
 	 * Entrada: Convidado;
 	 */
 
-	public void removerConvidado(String convidado) {
-		int cont = 0;
-		for (int i = 0; i < bdConvidados.size(); i++) {
-			Convidado aux = bdConvidados.get(i);
-			if (aux.getNome() == convidado) {
-				bdConvidados.remove(i);
-				System.out.println("Convidado removido com sucesso!!\n");
-				cont--;
-				break;
-			}
-			cont++;
+	public boolean removerConvidado(int posConvidado) {
+		
+		if( posConvidado > bdConvidados.size() ) {
+			
+			return false;
+			
+			
+		}else {
+			bdConvidados.remove(posConvidado);
+			return true;
 		}
-
-		if (cont == bdConvidados.size()) {
-
-			System.out.println("Convidado não encontrado!!\n");
-
-		}
+		
 
 	}
 
@@ -128,25 +122,16 @@ public class Evento {
 	 * Objetivo: Remover tarefas para não ser realizadas no evento; 
 	 * Entrada: descricao;
 	 */
-	public void removerTarefa(String descricao) {
-		int cont = 0;
-		for (int i = 0; i < bdTarefas.size(); i++) {
-			Tarefa aux = bdTarefas.get(i);
-
-			if (aux.getDescricao() == descricao) {
-				bdTarefas.remove(i);
-				System.out.println("Tarefa removida com sucesso!!\n");
-				cont--;
-				break;
-			}
-			cont++;
+	public boolean removerTarefa(int posTarefa) {
+	if( posTarefa > bdTarefas.size() ) {
+			
+			return false;
+			
+			
+		}else {
+			bdTarefas.remove(posTarefa);
+			return true;
 		}
-
-		if (cont == bdTarefas.size()) {
-
-			System.out.println("Tarefa não encontrada!!\n");
-		}
-
 	}
 
 	/*
