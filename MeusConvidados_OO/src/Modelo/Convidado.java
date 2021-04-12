@@ -25,6 +25,7 @@ public class Convidado {
 		informacaoConvidado.setCep(cep);
 		informacaoConvidado.setComplemento(complemento);
 	}
+	
 
 	/*
 	 * Objetivo: Construtor da Classe Convidado (sobrecarga)
@@ -35,6 +36,10 @@ public class Convidado {
 	public Convidado(String nome, int quantAcompanhante) {
 		this.nome = nome;
 		this.quantAcompanhante = quantAcompanhante;
+	}
+	
+	public Convidado() {
+	
 	}
 
 	/*
@@ -49,32 +54,32 @@ public class Convidado {
 	 * Objetivo: Atualiza o telefone do convidado
 	 *  Entrada: telefone
 	 */
-	public void atualizarTelefone (String telefone) {
-		informacaoConvidado.setTelefone(telefone);
+	public String getTelefone () {
+		return informacaoConvidado.getTelefone();
 	}
 	
 	/*
 	 * Objetivo: Atualiza o email do convidado
 	 *  Entrada: email
 	 */
-	public void atualizarEmail (String email) {
-		informacaoConvidado.setEmail(email);
+	public String getEmail () {
+		return informacaoConvidado.getEmail();
 	}
 	
 	/*
 	 * Objetivo: Atualiza a rede social do convidado
 	 *  Entrada: redeSocial
 	 */
-	public void atualizarRedeSocial (String redeSocial) {
-		informacaoConvidado.setRedesSociais(redeSocial);
+	public String getRedeSocial () {
+		return informacaoConvidado.getRedesSociais();
 	}
 	
 	/*
 	 * Objetivo: Atualiza o endereco do convidado
 	 *  Entrada: endereco
 	 */
-	public void atualizarEnderco (String endereco) {
-		informacaoConvidado.setEndereco(endereco);
+	public String getEnd () {
+		return informacaoConvidado.getEndereco();
 	}
 	/*
 	 * Objetivo: Atualiza  quantidade de acompanhantes do convidado
@@ -89,8 +94,8 @@ public class Convidado {
 	 * Objetivo: Atualiza o CEP do convidado;
 	 *  Entrada: cep
 	 */
-	public void atualizarCep(String cep) {
-		informacaoConvidado.setCep(cep);
+	public String getCEP() {
+		return informacaoConvidado.getCep();
 	}
 	
 
@@ -98,8 +103,8 @@ public class Convidado {
 	 * Objetivo: Atualiza o CEP do convidado;
 	 *  Entrada: cep
 	 */
-	public void atualizarComplemento(String complemento) {
-		informacaoConvidado.setComplemento(complemento);
+	public String getComplemento() {
+		return informacaoConvidado.getComplemento();
 	}
 	
 	

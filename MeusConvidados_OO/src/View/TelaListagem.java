@@ -70,14 +70,13 @@ public class TelaListagem implements ActionListener, ListSelectionListener {
 			atualizar.addActionListener(this);
 			listaDadosCriados.addListSelectionListener(this);
 
-		}
-		else if (opcao == 2) {
+		} else if (opcao == 2) {
 
 			listaNomes = new ControleBancoEvento(dados).getNomesTarefas(posicao);
 			listaDadosCriados = new JList<String>(listaNomes);
 			titulo = new JLabel("Lista de Tarefas");
 			labelTotal = new JLabel("Taxa de tarefas: ");
-			valorTotal = new JLabel(String.format("%.2f",dados.getTaxaTarefas(posicao)) + " %");
+			valorTotal = new JLabel(String.format("%.2f", dados.getTaxaTarefas(posicao)) + " %");
 			cadastro = new JButton("Cadastrar");
 			atualizar = new JButton("Atualizar");
 
@@ -108,15 +107,15 @@ public class TelaListagem implements ActionListener, ListSelectionListener {
 			atualizar.addActionListener(this);
 			listaDadosCriados.addListSelectionListener(this);
 
-		}
-		else if (opcao == 3) {
+		} else if (opcao == 3) {
 			listaNomes = new ControleBancoEvento(dados).getNomesOrcamento(posicao);
 			listaDadosCriados = new JList<String>(listaNomes);
-			titulo = new JLabel("Lista de Tarefas");
+			titulo = new JLabel("Lista de Orçamentos");
 			labelTotal = new JLabel("Total gasto: ");
-			valorTotal = new JLabel("R$ " + String.format("%.2f",dados.getTotalGasto(posicao)));
+			valorTotal = new JLabel("R$ " + String.format("%.2f", dados.getTotalGasto(posicao)));
 			JLabel labelOrcamentoPrevisto = new JLabel("Orçamento Previsto: ");
-			JLabel valorOrcamentoPrevisto = new JLabel("R$ " + String.format("%.2f",dados.getOrcamentoPrevisto(posicao)));
+			JLabel valorOrcamentoPrevisto = new JLabel(
+					"R$ " + String.format("%.2f", dados.getOrcamentoPrevisto(posicao)));
 			cadastro = new JButton("Cadastrar");
 			atualizar = new JButton("Atualizar");
 
@@ -150,8 +149,7 @@ public class TelaListagem implements ActionListener, ListSelectionListener {
 			atualizar.addActionListener(this);
 			listaDadosCriados.addListSelectionListener(this);
 
-		} 
-		else {
+		} else {
 			JOptionPane.showMessageDialog(null, "Opção não encontrada!", null, JOptionPane.ERROR_MESSAGE);
 		}
 
@@ -161,24 +159,32 @@ public class TelaListagem implements ActionListener, ListSelectionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		// Cadastro do novo evento
-		if (src == cadastro)
-			// new TelaDetalheEvento().inserirEditar(1, dados, null, 0);
+		if (src == cadastro) {
 
-			// Atualiza a lista de nomes dos eventos mostrada no JList
-			if (src == atualizar) {
-				if (opcao == 1) {
-					listaDadosCriados.setListData(new ControleBancoEvento(dados).getNomesConvidados(posicao));
-					listaDadosCriados.updateUI();
-				}
-				if (opcao == 2) {
-					listaDadosCriados.setListData(new ControleBancoEvento(dados).getNomesTarefas(posicao));
-					listaDadosCriados.updateUI();
-				}
-				if (opcao == 3) {
-					listaDadosCriados.setListData(new ControleBancoEvento(dados).getNomesOrcamento(posicao));
-					listaDadosCriados.updateUI();
-				}
+			if (opcao == 1) // Convidados
+               
+				new TelaCadastroAtualiza().inserirEditarConvTare(1, posicao, 0, dados);
+
+			if (opcao == 2) // Tarefas
+				
+				new TelaCadastroAtualiza().inserirEditarConvTare(2, posicao, 0, dados);
+
+		}
+		// Atualiza a lista de nomes dos eventos mostrada no JList
+		if (src == atualizar) {
+			if (opcao == 1) {
+				listaDadosCriados.setListData(new ControleBancoEvento(dados).getNomesConvidados(posicao));
+				listaDadosCriados.updateUI();
 			}
+			if (opcao == 2) {
+				listaDadosCriados.setListData(new ControleBancoEvento(dados).getNomesTarefas(posicao));
+				listaDadosCriados.updateUI();
+			}
+			if (opcao == 3) {
+				listaDadosCriados.setListData(new ControleBancoEvento(dados).getNomesOrcamento(posicao));
+				listaDadosCriados.updateUI();
+			}
+		}
 
 	}
 
@@ -187,8 +193,10 @@ public class TelaListagem implements ActionListener, ListSelectionListener {
 		Object src = e.getSource();
 
 		if (e.getValueIsAdjusting() && src == listaDadosCriados) {
-			// new TelaMostraEvento().mostrarEvento(listaEventosCriados.getSelectedIndex(),
-			// this, dados);
+			if (posicao == 1)
+			new TelaCadastroAtualiza().inserirEditarConvTare(3, posicao, listaDadosCriados.getSelectedIndex(), dados);
+			if (posicao == 2)
+			new TelaCadastroAtualiza().inserirEditarConvTare(4, posicao, listaDadosCriados.getSelectedIndex(), dados);
 		}
 
 	}

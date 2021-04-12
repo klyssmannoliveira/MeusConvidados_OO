@@ -65,6 +65,8 @@ public class BancoEvento {
 		//Evento 2
 		Evento e2 = new Evento("churrasco", "30/05/2021", "19:00", "24:00", "Alvorada24", "70000-260", "Sudeste");
 		adicionarEvento(e2);
+		Tarefa t12 = new Tarefa("Buscar alianças", "20/05/2021", true);
+		e2.adicionarTarefa(t12);
 		Convidado c12 = new Convidado("Klyssmann", 20, "(61)983490979", "klyssmannoliveira@gmail.com", "@klyssmannoliveira", "Santa Maria", "72583-250", "Norte");
 		e2.adicionarConvidado(c12);
 		Evento e3 = new Evento("niver", "18/01/2021", "18:00", "23:00", "Alvorada3", "72583-270", "Sul");

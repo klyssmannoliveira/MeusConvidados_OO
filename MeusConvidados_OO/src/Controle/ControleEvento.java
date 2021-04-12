@@ -1,5 +1,7 @@
 package Controle;
 
+import java.util.ArrayList;
+
 import Modelo.*;
 
 public class ControleEvento {
@@ -104,6 +106,18 @@ public class ControleEvento {
 	{
 		return evento.listarOrcamentos();
 	}
+	
+	
+	public ArrayList<Convidado> getBdConvidados() {
+		return evento.getBdConvidados();
+	}
+	
+	
+	
+	public ArrayList<Tarefa> getBdTarefas() {
+		return evento.getBdTarefas();
+	}
+	
 }
 	
 

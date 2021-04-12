@@ -17,6 +17,13 @@ public class Tarefa {
 	private long prazo; // diferença entre a data atual (agora) com a dataLimite
 	private boolean concluido; // True = Tarefa concluido
 	
+	
+	public Tarefa() {
+		
+	}
+	
+	
+	
 	/*
 	Sintese
 	Objetivo: Construtor da classe Tarefa; 
@@ -26,6 +33,7 @@ public class Tarefa {
 		this.descricao = descricao;
 		dataLimite = data; // transforma a string data no formato Date
 	}
+	
 	
 	/*
 	Sintese
@@ -46,12 +54,8 @@ public class Tarefa {
 	Objetivo: Retorna se a tarefa está concluída ou não 
 	Saída: String (Sim ou Não)
 	*/
-	public String isConcluido() { // retorna se a Tarfa está concluida
-		if (concluido == true) {
-			return "Sim";
-		} else {
-			return "Não";
-		}
+	public boolean isConcluido() { // retorna se a Tarfa está concluida
+		return concluido;
 
 	}
 	

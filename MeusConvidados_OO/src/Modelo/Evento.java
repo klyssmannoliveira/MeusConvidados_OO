@@ -65,130 +65,8 @@ public class Evento {
 		bdConvidados.add(convidado);
 	}
 
-	/*
-	 * Objetivo: Atualiza o nome do convidado para o evento desejado;
-	 *  Entrada: nomeAntigo, nomeNovo;
-	 */
 
-	public void atualizarNomeConvidado(String nomeAntigo, String nomeNovo) {
-		int cont = 0;
-		for (int i = 0; i < bdConvidados.size(); i++) {
-			Convidado aux = bdConvidados.get(i);
-			if (aux.getNome() == nomeAntigo) {
-				aux.atualizarNome(nomeNovo);
-				System.out.println("Nome do convidado atualizado com sucesso!!\n");
-				cont--;
-				break;
-			}
-			cont++;
-		}
-
-		if (cont == bdConvidados.size()) {
-			System.out.println("\"Nome do convidado não encontrado!!\n");
-
-		}
-
-	}
-
-	/*
-	 * Objetivo: Atualiza o telefone do convidado para o evento desejado; 
-	 * Entrada: nome e telefone;
-	 */
-
-	public void atualizarTelefoneConvidado(String nome, String telefone) {
-		int cont = 0;
-		for (int i = 0; i < bdConvidados.size(); i++) {
-			Convidado aux = bdConvidados.get(i);
-			if (aux.getNome() == nome) {
-				aux.atualizarTelefone(telefone);
-				System.out.println("Telefone do convidado atualizado com sucesso!!\n");
-				cont--;
-				break;
-			}
-			cont++;
-		}
-
-		if (cont == bdConvidados.size()) {
-			System.out.println("\"Nome do convidado não encontrado!!\n");
-
-		}
-
-	}
-
-	/*
-	 * Objetivo: Atualiza a quantidade de acompanhantes do convidado para o evento desejado; 
-	 * Entrada: nome e quantAcompanhante;
-	 */
-
-	public void atualizarQuantAcompanhanteConvidado(String nome, String quantAcompanhante) {
-		int cont = 0;
-		for (int i = 0; i < bdConvidados.size(); i++) {
-			Convidado aux = bdConvidados.get(i);
-			if (aux.getNome() == nome) {
-				aux.atualizarTelefone(quantAcompanhante);
-				System.out.println("Quantidade de acompanhates do convidado atualizado com sucesso!!\n");
-				cont--;
-				break;
-			}
-			cont++;
-		}
-
-		if (cont == bdConvidados.size()) {
-			System.out.println("\"Nome do convidado não encontrado!!\n");
-
-		}
-
-	}
-
-	/*
-	 * Objetivo: Atualiza o email do convidado para o evento desejado; 
-	 * Entrada: nome e email;
-	 */
-
-	public void atualizarEmailConvidado(String nome, String email) {
-		int cont = 0;
-		for (int i = 0; i < bdConvidados.size(); i++) {
-			Convidado aux = bdConvidados.get(i);
-			if (aux.getNome() == nome) {
-				aux.atualizarTelefone(email);
-				System.out.println("Email do convidado atualizado com sucesso!!\n");
-				cont--;
-				break;
-			}
-			cont++;
-		}
-
-		if (cont == bdConvidados.size()) {
-			System.out.println("\"Nome do convidado não encontrado!!\n");
-
-		}
-
-	}
-
-	/*
-	 * Objetivo: Atualiza a rede social do convidado para o evento desejado;
-	 * Entrada: nome e redeSocial;
-	 */
-
-	public void atualizarRedeSocialConvidado(String nome, String redeSocial) {
-		int cont = 0;
-		for (int i = 0; i < bdConvidados.size(); i++) {
-			Convidado aux = bdConvidados.get(i);
-			if (aux.getNome() == nome) {
-				aux.atualizarTelefone(redeSocial);
-				System.out.println("Rede Social do convidado atualizado com sucesso!!\n");
-				cont--;
-				break;
-			}
-			cont++;
-		}
-
-		if (cont == bdConvidados.size()) {
-			System.out.println("\"Nome do convidado não encontrado!!\n");
-
-		}
-
-	}
+	
 
 	/*
 	 * Objetivo: Remove o convidado do evento desejado; 
@@ -280,7 +158,7 @@ public class Evento {
 		for (int i = 0; i < bdTarefas.size(); i++) {
 			Tarefa aux = bdTarefas.get(i);
 			cont++;
-			if (aux.isConcluido() == "Sim") {
+			if (aux.isConcluido() == true) {
 				contadorSIM++;
 			}
 		}
@@ -401,5 +279,13 @@ public class Evento {
 		this.orcamentoPrevisto = orcamentoPrevisto;
 	}
 	
-
+	public ArrayList<Convidado> getBdConvidados() {
+		return bdConvidados;
+	}
+	
+	public ArrayList<Tarefa> getBdTarefas() {
+		return bdTarefas;
+	}
+	
+	
 }
