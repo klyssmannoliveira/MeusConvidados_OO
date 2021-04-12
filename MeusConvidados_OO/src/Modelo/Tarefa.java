@@ -5,10 +5,6 @@ Sintese
 Objetivo: Classe denominada Tarefa para as informações das Tarefas para a organização do evento; 
 */
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.GregorianCalendar;
-
 
 
 public class Tarefa {

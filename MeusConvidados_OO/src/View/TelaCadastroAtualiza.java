@@ -139,23 +139,6 @@ public class TelaCadastroAtualiza implements ActionListener {
 		}
 		if (op == 3) {
 
-			JLabel labelNome = new JLabel("Nome: ");
-			JTextField valorNome;
-			JLabel labelQuantAcompanhante = new JLabel("N° de Acompanhantes: ");
-			JTextField valorQuantAcompanhante;
-			JLabel labelTelefone = new JLabel("Telefone: ");
-			JTextField valorTelefone;
-			JLabel labelEmail = new JLabel("Email: ");
-			JTextField valorEmail;
-			JLabel labelRedeSocial = new JLabel("Rede Social: ");
-			JTextField valorRedeSocial;
-			JLabel labelEnd = new JLabel("Endereco: ");
-			JTextField valorEnd;
-			JLabel labelCEP = new JLabel("CEP: ");
-			JTextField valorCEP;
-			JLabel labelComplemen = new JLabel("Complemento: ");
-			JTextField valorComplemen;
-
 			valorNome = new JTextField(dados.getNomeConvidado(posEvento, posObjeto), 200);
 			valorQuantAcompanhante = new JTextField(
 					String.valueOf(dados.getQuantAcompanhanteConvidado(posEvento, posObjeto)), 8);
@@ -210,12 +193,6 @@ public class TelaCadastroAtualiza implements ActionListener {
 		}
 		if (op == 4) {
 
-			JLabel labelDescricao = new JLabel("Descrição: ");
-			JTextField valorDescricao;
-			JLabel labelDataLimite = new JLabel("Data Limite: ");
-			JTextField valorDataLimite;
-			JCheckBox valorConcluido = new JCheckBox(" Tarefa Concluída ");
-
 			valorDescricao = new JTextField(dados.getDescricaoTarefa(posEvento, posObjeto), 200);
 			valorDataLimite = new JTextField(dados.getDataLimiteTarefa(posEvento, posObjeto), 10);
 
@@ -229,8 +206,8 @@ public class TelaCadastroAtualiza implements ActionListener {
 			valorDataLimite.setBounds(140, 50, 200, 25);
 			valorConcluido.setBounds(120, 80, 180, 25);
 
-			botaoSalvar.setBounds(125, 265, 115, 30);
-			botaoExcluir.setBounds(245, 265, 115, 30);
+			botaoSalvar.setBounds(125, 110, 115, 30);
+			botaoExcluir.setBounds(245, 110, 115, 30);
 
 			this.janela.add(labelDescricao);
 			this.janela.add(valorDescricao);
@@ -241,7 +218,7 @@ public class TelaCadastroAtualiza implements ActionListener {
 			this.janela.add(botaoSalvar);
 			this.janela.add(botaoExcluir);
 			this.janela.setLayout(null);
-			this.janela.setSize(400, 150);
+			this.janela.setSize(400, 200);
 
 		}
 
@@ -254,10 +231,9 @@ public class TelaCadastroAtualiza implements ActionListener {
 		Object src = e.getSource();
 		if (src == botaoSalvar) {
 			try {
-				boolean res = false;
+				boolean res;
 				if (opcao == 1 || opcao == 3) {
 					novoDado[1] = valorNome.getText();
-
 					novoDado[2] = valorQuantAcompanhante.getText();
 					novoDado[3] = valorEmail.getText();
 					novoDado[4] = valorRedeSocial.getText();
@@ -267,13 +243,18 @@ public class TelaCadastroAtualiza implements ActionListener {
 					novoDado[8] = valorTelefone.getText();
 					res = dados.adicionarEditarConvidado(opcao, posEvento, posObjeto, novoDado);
 				}
-				if (opcao == 2 || opcao == 4) {
+				else if (opcao == 2 || opcao == 4) {
 
 					novoDado[1] = valorDescricao.getText();
 					novoDado[2] = valorDataLimite.getText();
-					novoDado[3] = valorConcluido.getText();
+					if(valorConcluido.isSelected()) 
+						novoDado[3] = "true";
+					else
+						novoDado[3] = "false";
+					
 					res = dados.adicionarEditarTarefa(opcao, posEvento, posObjeto, novoDado);
 				}
+				else res = false;
 
 				if (res) {
 					mensagemSucessoCadastro();

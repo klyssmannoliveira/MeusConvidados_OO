@@ -185,11 +185,11 @@ public class ControleBancoEvento {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleConvidado controlConvidado = new ControleConvidado(controlEvento.getBdConvidados().get(posConvidado));
 
-		//if (!validaCEP(dadosConvidados[6])) { // CEP
-			//return false;
-		//}
+		if (!validaCEP(dadosConvidados[6])) { // CEP
+			return false;
+		}
 
-		//else {
+		else {
 			if (op == 1) {
 
 				Convidado e = new Convidado(dadosConvidados[1], Integer.parseInt(dadosConvidados[2]),
@@ -212,7 +212,7 @@ public class ControleBancoEvento {
 			return true;
 		}
 
-	//}
+	}
 
 	public boolean adicionarEditarTarefa(int op, int posEvento, int posTarefa, String[] dadosTarefa) {
 

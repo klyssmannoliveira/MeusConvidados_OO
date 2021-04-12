@@ -14,6 +14,8 @@ public class TelaListagem implements ActionListener, ListSelectionListener {
 	private JButton atualizar;
 	private JLabel labelTotal;
 	private JLabel valorTotal;
+	private JLabel labelOrcamentoPrevisto;
+	private JLabel valorOrcamentoPrevisto;
 	private static ControleBancoEvento dados;
 	private JList<String> listaDadosCriados;
 	private String[] listaNomes = new String[50];
@@ -113,8 +115,8 @@ public class TelaListagem implements ActionListener, ListSelectionListener {
 			titulo = new JLabel("Lista de Orçamentos");
 			labelTotal = new JLabel("Total gasto: ");
 			valorTotal = new JLabel("R$ " + String.format("%.2f", dados.getTotalGasto(posicao)));
-			JLabel labelOrcamentoPrevisto = new JLabel("Orçamento Previsto: ");
-			JLabel valorOrcamentoPrevisto = new JLabel(
+			labelOrcamentoPrevisto = new JLabel("Orçamento Previsto: ");
+			valorOrcamentoPrevisto = new JLabel(
 					"R$ " + String.format("%.2f", dados.getOrcamentoPrevisto(posicao)));
 			cadastro = new JButton("Cadastrar");
 			atualizar = new JButton("Atualizar");
@@ -175,14 +177,22 @@ public class TelaListagem implements ActionListener, ListSelectionListener {
 			if (opcao == 1) {
 				listaDadosCriados.setListData(new ControleBancoEvento(dados).getNomesConvidados(posicao));
 				listaDadosCriados.updateUI();
+				valorTotal.setText(Integer.toString(dados.getTotalConvidados(posicao)));
+				valorTotal.updateUI();
 			}
 			if (opcao == 2) {
 				listaDadosCriados.setListData(new ControleBancoEvento(dados).getNomesTarefas(posicao));
 				listaDadosCriados.updateUI();
+				valorTotal.setText(String.format("%.2f", dados.getTaxaTarefas(posicao)) + " %");
+				valorTotal.updateUI();
 			}
 			if (opcao == 3) {
 				listaDadosCriados.setListData(new ControleBancoEvento(dados).getNomesOrcamento(posicao));
 				listaDadosCriados.updateUI();
+				valorTotal.setText("R$ " + String.format("%.2f", dados.getTotalGasto(posicao)));
+				valorOrcamentoPrevisto.setText("R$ " + String.format("%.2f", dados.getOrcamentoPrevisto(posicao)));
+				valorTotal.updateUI();
+				valorOrcamentoPrevisto.updateUI();
 			}
 		}
 
