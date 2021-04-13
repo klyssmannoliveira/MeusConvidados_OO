@@ -111,6 +111,10 @@ public class ControleEvento {
 		return evento.getBdTarefas();
 	}
 
+	public ArrayList<Orcamento> getBdOrcamentoss() {
+		return evento.getBdOrcamentos();
+	}
+	
 	public void adicionarConvidado(Convidado convidado) {
 
 		evento.adicionarConvidado(convidado);
@@ -120,6 +124,12 @@ public class ControleEvento {
 	public void adicionarTarefa(Tarefa tarefa) {
 
 		evento.adicionarTarefa(tarefa);
+
+	}
+	
+	public void adicionarOrcamento(Orcamento orcamento) {
+
+		evento.adicionarOrcamento(orcamento);
 
 	}
 
@@ -135,6 +145,15 @@ public class ControleEvento {
 	public boolean removerTarefa(int posTarefa) {
 
 		if (evento.removerTarefa(posTarefa))
+			return true;
+		else
+			return false;
+
+	}
+	
+	public boolean removerOrcamento(int posOrcamento) {
+
+		if (evento.removerOrcamento(posOrcamento))
 			return true;
 		else
 			return false;

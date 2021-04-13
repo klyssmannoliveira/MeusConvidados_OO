@@ -8,7 +8,6 @@ Objetivo: Classe denominada Evento para ser a classe central para organização do
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-
 public class Evento {
 
 	SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");// instância o formato simples da data;
@@ -20,39 +19,39 @@ public class Evento {
 	private double taxaTarefas = 0.0; // inicializaçao do atributo taxa de tarefas;
 	private ArrayList<Orcamento> bdOrcamentos = new ArrayList<Orcamento>(); // cria arraylist de Orcamento;
 	private double totalGasto = 0.0; // inicializaçao do atributo total de gastos;
-	private double orcamentoPrevisto = 0.0; //  inicializaçao do atributo do orçamento Previsto;
+	private double orcamentoPrevisto = 0.0; // inicializaçao do atributo do orçamento Previsto;
 
-	
 	/*
-	 * Objetivo: Construtor da Classe Evento; 
-	 * Entrada : nome, data, horai, horaf;
+	 * Objetivo: Construtor da Classe Evento; Entrada : nome, data, horai, horaf;
 	 * 
 	 */
 
 	public Evento(String nome, String data, String horai, String horaf, String endereco, String cep, String complemen) {
 		nomeEvento = nome;
-		informacaoEvento.setDataEvento(data); 
+		informacaoEvento.setDataEvento(data);
 		informacaoEvento.setHoraInicio(horai);
 		informacaoEvento.setHoraTermino(horaf);
 		informacaoEvento.setEndereco(endereco);
 		informacaoEvento.setCep(cep);
 		informacaoEvento.setComplemento(complemen);
 	}
+
+	// Sobrecarga do construtor
 	public Evento() {
-		
+
 	}
 
 	/*
-	 * Objetivo: Mostrar as listas de convidados com sua respectivas quantidades de  acompanhantes;
+	 * Objetivo: Mostrar as listas de convidados com sua respectivas quantidades de
+	 * acompanhantes;
 	 * 
 	 */
 
 	public String[] listarConvidados() {
 		String[] auxiliar = new String[bdConvidados.size()];
 		for (int i = 0; i < bdConvidados.size(); i++) {
-			auxiliar[i] = i+1 + " - " + bdConvidados.get(i).getNome() + " e " 
-						+ bdConvidados.get(i).getQuantAcompanhante()
-						+ " Acompanhante(s)";
+			auxiliar[i] = i + 1 + " - " + bdConvidados.get(i).getNome() + " e "
+					+ bdConvidados.get(i).getQuantAcompanhante() + " Acompanhante(s)";
 		}
 		return auxiliar;
 	}
@@ -65,38 +64,21 @@ public class Evento {
 		bdConvidados.add(convidado);
 	}
 
-
-	
-
 	/*
-	 * Objetivo: Remove o convidado do evento desejado; 
-	 * Entrada: Convidado;
+	 * Objetivo: Remove o convidado do evento desejado; Entrada: Convidado;
 	 */
 
 	public boolean removerConvidado(int posConvidado) {
-		
-		if( posConvidado > bdConvidados.size() ) {
-			
+
+		if (posConvidado > bdConvidados.size()) {
+
 			return false;
-			
-			
-		}else {
+
+		} else {
 			bdConvidados.remove(posConvidado);
 			return true;
 		}
-		
 
-	}
-
-	/*
-	 * Objetivo: Cálculo total dos convidados;
-	 */
-	public void setTotalConvidados() {
-		totalConvidados = 0;
-		for (int i = 0; i < bdConvidados.size(); i++) {
-			Convidado aux = bdConvidados.get(i);
-			totalConvidados = totalConvidados + 1 + aux.getQuantAcompanhante();
-		}
 	}
 
 	/*
@@ -105,49 +87,31 @@ public class Evento {
 	public String[] listarTarefas() {
 		String[] auxiliar = new String[bdTarefas.size()];
 		for (int i = 0; i < bdTarefas.size(); i++) {
-			auxiliar[i] = i+1 + " - " + bdTarefas.get(i).getDescricao();
+			auxiliar[i] = i + 1 + " - " + bdTarefas.get(i).getDescricao();
 		}
 		return auxiliar;
 	}
 
 	/*
-	 * Objetivo: Adicionar tarefas para ser realizadas no evento;
-	 *  Entrada: tarefa;
+	 * Objetivo: Adicionar tarefas para ser realizadas no evento; Entrada: tarefa;
 	 */
 	public void adicionarTarefa(Tarefa tarefa) {
 		bdTarefas.add(tarefa);
 	}
 
 	/*
-	 * Objetivo: Remover tarefas para não ser realizadas no evento; 
-	 * Entrada: descricao;
+	 * Objetivo: Remover tarefas para não ser realizadas no evento; Entrada:
+	 * descricao;
 	 */
 	public boolean removerTarefa(int posTarefa) {
-	if( posTarefa > bdTarefas.size() ) {
-			
+		if (posTarefa > bdTarefas.size()) {
+
 			return false;
-			
-			
-		}else {
+
+		} else {
 			bdTarefas.remove(posTarefa);
 			return true;
 		}
-	}
-
-	/*
-	 * Objetivo: Calcular as taxas de tarefas do evento. Ex: 100% das tarefas concluidas;
-	 */
-	public void setTaxaTarefas() {
-		double contadorSIM = 0;
-		int cont = 0;
-		for (int i = 0; i < bdTarefas.size(); i++) {
-			Tarefa aux = bdTarefas.get(i);
-			cont++;
-			if (aux.isConcluido() == true) {
-				contadorSIM++;
-			}
-		}
-		taxaTarefas = (contadorSIM / cont) * 100;
 	}
 
 	/*
@@ -156,63 +120,31 @@ public class Evento {
 	public String[] listarOrcamentos() {
 		String[] auxiliar = new String[bdOrcamentos.size()];
 		for (int i = 0; i < bdOrcamentos.size(); i++) {
-			auxiliar[i] = i+1 + " - " + bdOrcamentos.get(i).getDescricao();
+			auxiliar[i] = i + 1 + " - " + bdOrcamentos.get(i).getDescricao();
 		}
 		return auxiliar;
 	}
 
 	/*
-	 * Objetivo: Adicionar gastos do evento; 
-	 * Entrada: gasto;
+	 * Objetivo: Adicionar gastos do evento; Entrada: gasto;
 	 */
 	public void adicionarOrcamento(Orcamento orcamento) {
 		bdOrcamentos.add(orcamento);
 	}
 
 	/*
-	 * Objetivo:Remover gastos do evento; 
-	 * Entrada: descricao;
+	 * Objetivo:Remover gastos do evento; Entrada: descricao;
 	 */
-	public void removerOrcamento(String descricao) {
-		int cont = 0;
-		for (int i = 0; i < bdOrcamentos.size(); i++) {
-			Orcamento aux = bdOrcamentos.get(i);
-			if (aux.getDescricao() == descricao) {
-				bdOrcamentos.remove(i);
-				System.out.println("Gasto removido com sucesso!!\n");
-				cont--;
-				break;
-			}
-			cont++;
+	public boolean removerOrcamento(int posOrcamento) {
+		if (posOrcamento > bdOrcamentos.size()) {
+
+			return false;
+
+		} else {
+			bdOrcamentos.remove(posOrcamento);
+			return true;
 		}
 
-		if (cont == bdOrcamentos.size()) {
-
-			System.out.println("Gasto não encontrado!!\n");
-		}
-
-	}
-
-	/*
-	 * Objetivo: Cálculo total dos gastos do evento;
-	 */
-
-	public void setTotalGasto() {
-		totalGasto = 0;
-		for (int i = 0; i < bdOrcamentos.size(); i++) {
-			Orcamento aux = bdOrcamentos.get(i);
-			totalGasto = totalGasto + aux.getValorTotal();
-		}
-	}
-
-	/*
-	 * Objetivo: Relatório do evento que lista os convidados, as tarefas e os gastos;
-	 */
-	public void relatorio() {
-		System.out.println("Relatório do evento");
-		listarConvidados();
-		listarTarefas();
-		listarOrcamentos();
 	}
 
 	/*
@@ -227,14 +159,26 @@ public class Evento {
 	public void setNomeEvento(String nomeEvento) {
 		this.nomeEvento = nomeEvento;
 	}
-	
+
 	// get informação do evento;
 	public InformacaoEvento getInformacaoEvento() {
 		return informacaoEvento;
 	}
+
 	// set informação do evento;
 	public void setInformacaoEvento(InformacaoEvento informacaoEvento) {
 		this.informacaoEvento = informacaoEvento;
+	}
+
+	/*
+	 * Objetivo: Cálculo total dos convidados;
+	 */
+	public void setTotalConvidados() {
+		totalConvidados = 0;
+		for (int i = 0; i < bdConvidados.size(); i++) {
+			Convidado aux = bdConvidados.get(i);
+			totalConvidados = totalConvidados + 1 + aux.getQuantAcompanhante();
+		}
 	}
 
 	// get do total de convidados do evento;
@@ -243,10 +187,39 @@ public class Evento {
 		return totalConvidados;
 	}
 
+	/*
+	 * Objetivo: Calcular as taxas de tarefas do evento. Ex: 100% das tarefas
+	 * concluidas;
+	 */
+	public void setTaxaTarefas() {
+		double contadorSIM = 0;
+		int cont = 0;
+		for (int i = 0; i < bdTarefas.size(); i++) {
+			Tarefa aux = bdTarefas.get(i);
+			cont++;
+			if (aux.isConcluido() == true) {
+				contadorSIM++;
+			}
+		}
+		taxaTarefas = (contadorSIM / cont) * 100;
+	}
+
 	// get da taxa de tarefas do evento;
 	public double getTaxaTarefas() {
 		setTaxaTarefas();
 		return taxaTarefas;
+	}
+
+	/*
+	 * Objetivo: Cálculo total dos gastos do evento;
+	 */
+
+	public void setTotalGasto() {
+		totalGasto = 0;
+		for (int i = 0; i < bdOrcamentos.size(); i++) {
+			Orcamento aux = bdOrcamentos.get(i);
+			totalGasto = totalGasto + aux.getValorTotal();
+		}
 	}
 
 	// get do total de de gastos do evento;
@@ -254,23 +227,30 @@ public class Evento {
 		setTotalGasto();
 		return totalGasto;
 	}
+
 	// get do Orcamento Previsto do evento;
 	public double getOrcamentoPrevisto() {
 		return orcamentoPrevisto;
 	}
-	
+
 	// set Orcamento Previsto do evento;
 	public void setOrcamentoPrevisto(double orcamentoPrevisto) {
 		this.orcamentoPrevisto = orcamentoPrevisto;
 	}
-	
+
+	// retorna o banco de convidados
 	public ArrayList<Convidado> getBdConvidados() {
 		return bdConvidados;
 	}
-	
+
+	// retorna o banco de Tarefas
 	public ArrayList<Tarefa> getBdTarefas() {
 		return bdTarefas;
 	}
-	
-	
+
+	// retorna o banco de Orcamento
+	public ArrayList<Orcamento> getBdOrcamentos() {
+		return bdOrcamentos;
+	}
+
 }

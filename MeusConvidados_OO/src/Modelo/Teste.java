@@ -1,9 +1,5 @@
-package Modelo;
+/*package Modelo;
 
-/*
-Sintese
-Objetivo: Classe denominada Teste para testar as classes do programa inicial Meus_Convidados; 
-*/
 
 public class Teste {
 
@@ -68,4 +64,4 @@ public class Teste {
 		e1.listarConvidados();
 	}
 
-}
+}*/

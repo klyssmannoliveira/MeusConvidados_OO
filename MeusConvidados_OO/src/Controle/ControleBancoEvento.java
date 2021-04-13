@@ -9,9 +9,6 @@ import Modelo.*;
 
 public class ControleBancoEvento {
 
-	// private static ArrayList<Evento> = new ArrayList<Evento>();
-	// SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");// instância o
-	// formato simples da data;
 	private BancoEvento banco = new BancoEvento();
 
 	private int qtdEventos;
@@ -20,6 +17,11 @@ public class ControleBancoEvento {
 	public ControleBancoEvento(ControleBancoEvento dados) {
 		banco = dados.getBanco();
 		qtdEventos = dados.getQtdEventos();
+	}
+
+	// Construtor: Preenche o banco com alguns dados
+	public ControleBancoEvento() {
+		banco.fillWithSomeData();
 	}
 
 	// get da classe banco instanciada nessa classe
@@ -121,25 +123,19 @@ public class ControleBancoEvento {
 	// Retorna um double com a Taxa de Tarefas do evento
 	public double getTaxaTarefas(int pos) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
-
 		return controlEvento.getTaxaTarefas();
-
 	}
 
 	// Retorna um double com o orçamento Previsto do evento
 	public double getOrcamentoPrevisto(int pos) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
-
 		return controlEvento.getOrcamentoPrevisto();
-
 	}
 
 	// Retorna um double com o Gasto Total do evento
 	public double getTotalGasto(int pos) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
-
 		return controlEvento.getTotalGasto();
-
 	}
 
 	// Retorna um boolean com o erro de preenchimento
@@ -250,9 +246,8 @@ public class ControleBancoEvento {
 
 	}
 
-	
-	public boolean removerConvidado( int posEvento, int posConvidado ) {
-		
+	public boolean removerConvidado(int posEvento, int posConvidado) {
+
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		if (controlEvento.removerConvidado(posConvidado)) {
 			return true;
@@ -261,10 +256,9 @@ public class ControleBancoEvento {
 		}
 
 	}
-	
-	
-public boolean removerTarefa( int posEvento, int posTarefa ) {
-		
+
+	public boolean removerTarefa(int posEvento, int posTarefa) {
+
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		if (controlEvento.removerTarefa(posTarefa)) {
 			return true;
@@ -273,11 +267,7 @@ public boolean removerTarefa( int posEvento, int posTarefa ) {
 		}
 
 	}
-	
-	
-	
-	
-	
+
 	// Retorna um inteiro com a quantidade de eventos
 	public int getQtdEventos() {
 		setQtdEventos();
@@ -354,11 +344,6 @@ public boolean removerTarefa( int posEvento, int posTarefa ) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleTarefa controlTarefa = new ControleTarefa(controlEvento.getBdTarefas().get(posTarefa));
 		return controlTarefa.getConcluidoTarefa();
-	}
-
-	// Preenche o banco com alguns dados
-	public ControleBancoEvento() {
-		banco.fillWithSomeData();
 	}
 
 	// retorna verdadeiro se a data estiver no formato correto e dentro do padrão do

@@ -43,47 +43,6 @@ public class Tarefa {
 		this.concluido = concluido;
 	}
 
-
-
-	/*
-	Sintese
-	Objetivo: Retorna se a tarefa está concluída ou não 
-	Saída: String (Sim ou Não)
-	*/
-	public boolean isConcluido() { // retorna se a Tarfa está concluida
-		return concluido;
-
-	}
-	
-	/*
-	 * Objetivo: Atualiza a descrição
-	 *  Entrada: descricao
-	 */
-	public void atualizarDescricao (String descricao) {
-		setDescricao(descricao);
-	}
-	
-	/*
-	 * Objetivo: Atualiza a data limite, recebendo a data limite no formato String e transformando em date
-	 *  Entrada: data limite
-	 */
-	public void atualizarDataLimite (String data) {
-		setDataLimite(data);
-	}
-	
-	/*
-	 * Objetivo: Atualiza o status concluido, atribuindo a String concluido
-	 *  Entrada: concluido
-	 */
-	public void atualizarConcluido (String concluido) {
-		if(concluido == "Sim") {
-			setConcluido(true);
-		}
-		else {
-			setConcluido(false);
-		}
-	}
-	
 	
 	/*
 	 * Objetivo: Retorna a uma string;
@@ -110,6 +69,13 @@ public class Tarefa {
 	 * Objetivo: Getters e Setters referentes aos atributos;
 	 * 
 	 */
+
+	//Objetivo: Retorna se a tarefa está concluída ou não 
+	public boolean isConcluido() { // retorna se a Tarfa está concluida
+		return concluido;
+
+	}
+	
 	// get da descrição
 	public String getDescricao() {
 		return descricao;

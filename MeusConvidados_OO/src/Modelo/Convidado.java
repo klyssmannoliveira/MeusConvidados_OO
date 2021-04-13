@@ -29,70 +29,57 @@ public class Convidado {
 
 	/*
 	 * Objetivo: Construtor da Classe Convidado (sobrecarga)
-	 *  Entrada : nome e quantAcompanhante
+	 *  Entrada : sem entrada
 	 * 
 	 */
-
-	public Convidado(String nome, int quantAcompanhante) {
-		this.nome = nome;
-		this.quantAcompanhante = quantAcompanhante;
-	}
-	
 	public Convidado() {
 	
 	}
-
+	
 	/*
-	 * Objetivo: Atualiza o nome do convidado
-	 *  Entrada: nome
+	 * Objetivo: Retorna o nome do convidado;
 	 */
-	public void atualizarNome (String nome) {
-		setNome(nome);
+	public String getNome() {
+		return nome;
 	}
 	
 	/*
-	 * Objetivo: Atualiza o telefone do convidado
-	 *  Entrada: telefone
+	 * Objetivo: Retorna a qtd de acompanhantes do convidado;
+	 */
+	public int getQuantAcompanhante() {
+		return quantAcompanhante;
+	}
+	
+	/*
+	 * Objetivo: Retorna o telefone do convidado
 	 */
 	public String getTelefone () {
 		return informacaoConvidado.getTelefone();
 	}
 	
 	/*
-	 * Objetivo: Atualiza o email do convidado
-	 *  Entrada: email
+	 * Objetivo: Retorna o email do convidado
 	 */
 	public String getEmail () {
 		return informacaoConvidado.getEmail();
 	}
 	
 	/*
-	 * Objetivo: Atualiza a rede social do convidado
-	 *  Entrada: redeSocial
+	 * Objetivo: Retorna a rede social do convidado
 	 */
 	public String getRedeSocial () {
 		return informacaoConvidado.getRedesSociais();
 	}
 	
 	/*
-	 * Objetivo: Atualiza o endereco do convidado
-	 *  Entrada: endereco
+	 * Objetivo: Retorna o endereco do convidado
 	 */
 	public String getEnd () {
 		return informacaoConvidado.getEndereco();
 	}
-	/*
-	 * Objetivo: Atualiza  quantidade de acompanhantes do convidado
-	 *  Entrada: quantAcompanhante
-	 */
-	public void atualizarQuantAcompanhante (int quantAcompanhante) {
-		setQuantAcompanhante(quantAcompanhante);
-	}
-	
 	
 	/*
-	 * Objetivo: Atualiza o CEP do convidado;
-	 *  Entrada: cep
+	 * Objetivo: Retorna o CEP do convidado;
 	 */
 	public String getCEP() {
 		return informacaoConvidado.getCep();
@@ -100,64 +87,65 @@ public class Convidado {
 	
 
 	/*
-	 * Objetivo: Atualiza o CEP do convidado;
-	 *  Entrada: cep
+	 * Objetivo: Retorna o complemento do convidado;
 	 */
 	public String getComplemento() {
 		return informacaoConvidado.getComplemento();
 	}
 	
-	
-	/*
-	 * Objetivo: Getters e Setters referentes aos atributos;
-	 * 
-	 */
-	
-	// get do nome;
-	public String getNome() {
-		return nome;
-	}
 
-	// set do nome;
+	/*
+	 * Objetivo: Atualiza o nome do convidado;
+	 */
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-	// get da quantidade de acompanhantes;
-	public int getQuantAcompanhante() {
-		return quantAcompanhante;
-	}
 
-	// set da quantidade de acompanhantes;
+	/*
+	 * Objetivo: Atualiza a qtd de acompanhantes do convidado;
+	 */
 	public void setQuantAcompanhante(int quantAcompanhante) {
 		this.quantAcompanhante = quantAcompanhante;
 	}
 
-	
+	/*
+	 * Objetivo: Atualiza o telefone do convidado;
+	 */
 	
 	public void setTelefone (String telefone) {
 	         informacaoConvidado.setTelefone(telefone);
 	}
 	
-	
+	/*
+	 * Objetivo: Atualiza o email do convidado;
+	 */
 	public void setEmail (String email) {
         informacaoConvidado.setEmail(email);
 }
 
-	
+	/*
+	 * Objetivo: Atualiza a rede social do convidado;
+	 */
 	public void setRedeSocial (String redeSocial) {
         informacaoConvidado.setRedeSocial(redeSocial);
 }
 
-	
+	/*
+	 * Objetivo: Atualiza o endereco do convidado;
+	 */
 	public void setEndereco (String endereco) {
         informacaoConvidado.setEndereco(endereco);
 }
-	
+	/*
+	 * Objetivo: Atualiza o complemento do convidado;
+	 */
 	public void setComplemento (String complemento) {
         informacaoConvidado.setComplemento(complemento);
 }	
-	
+	/*
+	 * Objetivo: Atualiza o cep do convidado;
+	 */
 	public void setCep (String cep) {
         informacaoConvidado.setCep(cep);
 }	
