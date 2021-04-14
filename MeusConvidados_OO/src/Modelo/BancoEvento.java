@@ -50,9 +50,9 @@ public class BancoEvento {
 		Tarefa t1 = new Tarefa("Buscar flores", "30/05/2021"); 
 		Tarefa t2 = new Tarefa("Buscar alianças", "20/05/2021", true);
 		Tarefa t3 = new Tarefa("Pegar o uber", "10/05/2021");
-		Orcamento g1 = new Bebida("Cervejas", 22.30);
-		Orcamento g2 = new Comida("Salgados", 100.00);
-		Orcamento g3 = new Musica("The Beatles", 100.00);
+		Orcamento g1 = new Bebida(1,"Cervejas", 22.30);
+		Orcamento g2 = new Comida(2,"Salgados", 100.00);
+		Orcamento g3 = new Musica(4,"The Beatles", 100.00);
 		e1.adicionarConvidado(c1);
 		e1.adicionarConvidado(c2);
 		e1.adicionarTarefa(t1);

@@ -14,8 +14,8 @@ public class Musica extends Orcamento {
 	 * Entrada : descricao e valorTotal;
 	 * 
 	 */
-	public Musica(String descricao, double valorTotal) {
-		super(descricao, valorTotal);
+	public Musica(int tipo, String descricao, double valorTotal) {
+		super(tipo, descricao, valorTotal);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -23,8 +23,8 @@ public class Musica extends Orcamento {
 	 * Objetivo: Construtor da Classe Musica (sobrecarga); 
 	 * Entrada : descricao, quantidade, generoMusical, banda, dj;
 	 */
-	public Musica(String descricao, double valorTotal, String generoMusical, boolean banda, boolean dj) {
-		super(descricao, valorTotal);
+	public Musica(int tipo,String descricao, double valorTotal, String generoMusical, boolean banda, boolean dj) {
+		super(tipo,descricao, valorTotal);
 		this.generoMusical = generoMusical;
 		this.banda = banda;
 		this.dj = dj;

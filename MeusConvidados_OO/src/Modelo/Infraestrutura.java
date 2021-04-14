@@ -18,8 +18,8 @@ public class Infraestrutura extends Orcamento {
 	 * valorTotal;
 	 * 
 	 */
-	public Infraestrutura(String descricao, double valorTotal) {
-		super(descricao, valorTotal);
+	public Infraestrutura(int tipo, String descricao, double valorTotal) {
+		super(tipo,descricao, valorTotal);
 
 	}
 
@@ -29,9 +29,9 @@ public class Infraestrutura extends Orcamento {
 	 * internet, equipamento, toalete;
 	 */
 
-	public Infraestrutura(String descricao, double valorTotal, boolean decoracao, boolean estacionamento,
+	public Infraestrutura(int tipo, String descricao, double valorTotal, boolean decoracao, boolean estacionamento,
 			boolean imobiliario, boolean internet, boolean equipamento, boolean toalete) {
-		super(descricao, valorTotal);
+		super(tipo, descricao, valorTotal);
 		this.decoracao = decoracao;
 		this.estacionamento = estacionamento;
 		this.imobiliario = imobiliario;

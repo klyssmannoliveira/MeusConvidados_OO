@@ -8,15 +8,17 @@ Objetivo: Classe denominada Orcamento para ser a classe Pai de todos os gastos d
 public class Orcamento {
     protected String descricao; // descricao do gasto
     protected double valorTotal; // valor total do gasto
+    protected int tipo; // se tipo == 1: bebida, tipo == 2: comida;  tipo == 3: infraestrutura;  tipo == 4: musica; 
 	
 	/*
 	 * Objetivo: Construtor da Classe Orcamento; 
 	 * Entrada : descricao, valorTotal;
 	 * 
 	 */
-	public Orcamento(String descricao, double valorTotal) {
+	public Orcamento(int tipo, String descricao ,double valorTotal) {
 		this.descricao = descricao;
 		this.valorTotal = valorTotal;
+		this.tipo = tipo;
 	}
 	
 	/*
@@ -42,5 +44,14 @@ public class Orcamento {
 	public void setValorTotal(double valorTotal) {
 		this.valorTotal = valorTotal;
 	}
+
+	public int getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
+	}
+	
 
 }

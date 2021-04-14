@@ -41,7 +41,7 @@ public class ControleTarefa {
 	
 	public void setDataLimite(String dataLimite) {
 
-		tarefa.setDescricao(dataLimite );
+		tarefa.setDataLimite(dataLimite );
 		
 	}
 

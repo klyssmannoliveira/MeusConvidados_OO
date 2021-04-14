@@ -170,6 +170,10 @@ public class TelaListagem implements ActionListener, ListSelectionListener {
 			if (opcao == 2) // Tarefas
 				
 				new TelaCadastroAtualiza().inserirEditarConvTare(2, posicao, 0, dados);
+			
+             if (opcao == 3) // Orçamento
+				
+				new TelaEscolhaOrcamento().TelaMenuOrcamento(posicao, dados);
 
 		}
 		// Atualiza a lista de nomes dos eventos mostrada no JList
