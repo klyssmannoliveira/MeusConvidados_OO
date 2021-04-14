@@ -364,25 +364,37 @@ public class ControleBancoEvento {
 
 	// retorna verdadeiro se a hora estiver no formato correto
 	public boolean validaHora(String hora) {
-		String[] hm = hora.split(":"); // divide em um vetor de strings
-
-		int horas = Integer.parseInt(hm[0]); // transforma a string em int
-		int minutos = Integer.parseInt(hm[1]);
-
-		if (horas > 24 || horas < 0 || minutos > 59 || minutos < 0)
+		int horas, minutos;
+		try{ 
+			String[] hm = hora.split(":"); // divide em um vetor de strings
+			horas = Integer.parseInt(hm[0]); // transforma a string em int
+			minutos = Integer.parseInt(hm[1]);
+			if (horas > 24 || horas < 0 || minutos > 59 || minutos < 0)
+				return false;
+			else
+				return true;
+		}
+		catch (IndexOutOfBoundsException iob) {
 			return false;
-		else
-			return true;
+		}
+
+		
 	}
 
 	// retorna verdadeiro se a hora estiver no formato correto
 	public boolean validaCEP(String cep) {
-		String[] digitos = cep.split("-"); // divide em um vetor de strings
-
-		if (!digitos[0].matches("[0-9]+") || !digitos[1].matches("[0-9]+")) // se for diferente de número
+		try{ 
+			String[] digitos = cep.split("-"); // divide em um vetor de strings
+			if (!digitos[0].matches("[0-9]+") || !digitos[1].matches("[0-9]+")) // se for diferente de número
+				return false;
+			else
+				return true;
+		}
+		catch (IndexOutOfBoundsException iob) {
 			return false;
-		else
-			return true;
+		}
+
+		
 	}
 
 }
