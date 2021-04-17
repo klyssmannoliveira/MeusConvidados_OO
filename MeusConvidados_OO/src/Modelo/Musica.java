@@ -29,6 +29,9 @@ public class Musica extends Orcamento {
 		this.banda = banda;
 		this.dj = dj;
 	}
+	
+	public Musica() {
+	}
 
 	/*
 	 * Objetivo: Retorna a uma string; Saida: descrição, valorTotal;

@@ -39,6 +39,9 @@ public class Infraestrutura extends Orcamento {
 		this.equipamento = equipamento;
 		this.toalete = toalete;
 	}
+	
+	public Infraestrutura() {
+	}
 
 	/*
 	 * Objetivo: Retorna a uma string; Saida: descrição, valorTotal;

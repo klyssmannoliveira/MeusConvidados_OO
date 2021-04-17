@@ -25,13 +25,16 @@ public class Comida extends Orcamento {
 	 * Objetivo: Construtor da Classe Bebida (sobrecarga); 
 	 * Entrada : descricao, quantidade, valorTotal, valorUnitario, principal, degustativo, sobremesa;
 	 */
-	public Comida(int tipo, String descricao, double valorTotal, int quantidade, double valorUnitario, boolean principal, boolean degustativo, boolean sobremesa) {
+	public Comida(int tipo, String descricao, int quantidade, double valorUnitario, double valorTotal, boolean principal, boolean degustativo, boolean sobremesa) {
 		super(tipo,descricao, valorTotal);
 		this.quantidade = quantidade;
 		this.valorUnitario = valorUnitario;
 		this.principal = principal;
 		this.degustativo = degustativo;
 		this.sobremesa = sobremesa;
+	}
+	
+	public Comida() {
 	}
 
 	/*

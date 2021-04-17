@@ -119,6 +119,17 @@ public class ControleEvento {
 		return evento.getBdBebida();
 	}
 
+	public ArrayList<Comida> getBdComida() {
+		return evento.getBdComida();
+	}
+	
+	public ArrayList<Infraestrutura> getBdInfraestrutura() {
+		return evento.getBdInfraestrutura();
+	}
+	
+	public ArrayList<Musica> getBdMusica() {
+		return evento.getBdMusica();
+	}
 	
 	
 	
@@ -137,6 +148,27 @@ public class ControleEvento {
 	public void adicionarOrcamento(Orcamento orcamento) {
 
 		evento.adicionarOrcamento(orcamento);
+
+	}
+	
+	public void adicionarBebida(Bebida bebida) {
+
+		evento.adicionarBebida(bebida);
+
+	}
+	public void adicionarComida(Comida comida) {
+
+		evento.adicionarComida(comida);
+
+	}
+	public void adicionarInfraestrutura(Infraestrutura infraestrutura) {
+
+		evento.adicionarInfraestrutura(infraestrutura);
+
+	}
+	public void adicionarMusica(Musica musica) {
+
+		evento.adicionarMusica(musica);
 
 	}
 
@@ -161,6 +193,39 @@ public class ControleEvento {
 	public boolean removerOrcamento(int posOrcamento) {
 
 		if (evento.removerOrcamento(posOrcamento))
+			return true;
+		else
+			return false;
+
+	}
+	
+	public boolean removerBebida(int posBebida) {
+
+		if (evento.removerBebida(posBebida))
+			return true;
+		else
+			return false;
+
+	}
+	public boolean removerComida(int posComida) {
+
+		if (evento.removerComida(posComida))
+			return true;
+		else
+			return false;
+
+	}
+	public boolean removerInfraestrutura(int posInfraestrutura) {
+
+		if (evento.removerInfraestrutura(posInfraestrutura))
+			return true;
+		else
+			return false;
+
+	}
+	public boolean removerMusica(int posMusica) {
+
+		if (evento.removerMusica(posMusica))
 			return true;
 		else
 			return false;

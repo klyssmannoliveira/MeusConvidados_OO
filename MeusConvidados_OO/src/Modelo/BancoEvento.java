@@ -53,7 +53,9 @@ public class BancoEvento {
 		Orcamento g1 = new Bebida(1,"Cervejas", 22 , 22.50 , 0.0 ,false, true);
 		Bebida b1 = new Bebida(1,"Cervejas", 22 , 22.50 , 0.0 ,false, true);
 		Orcamento g2 = new Comida(2,"Salgados", 100.00);
+		Comida cc2 = new Comida(2,"Salgados", 100.00);
 		Orcamento g3 = new Musica(4,"The Beatles", 100.00);
+		Musica m3 = new Musica(4,"The Beatles", 100.00);
 		e1.adicionarConvidado(c1);
 		e1.adicionarConvidado(c2);
 		e1.adicionarTarefa(t1);
@@ -63,6 +65,8 @@ public class BancoEvento {
 		e1.adicionarOrcamento(g2);
 		e1.adicionarOrcamento(g3);
 		e1.adicionarBebida(b1);
+		e1.adicionarComida(cc2);
+		e1.adicionarMusica(m3);
 		
 		//Evento 2
 		Evento e2 = new Evento("churrasco", "30/05/2021", "19:00", "24:00", "Alvorada24", "70000-260", "Sudeste");
