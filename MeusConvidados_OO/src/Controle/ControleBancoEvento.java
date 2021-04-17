@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
+import java.util.ArrayList;
+import java.util.ResourceBundle.Control;
 
 import Modelo.*;
 
@@ -346,6 +348,127 @@ public class ControleBancoEvento {
 		return controlTarefa.getConcluidoTarefa();
 	}
 
+	// orçamento
+
+	// bebida
+
+	public int validaOrcamento(int tipo, Evento evento, Orcamento orcamento) {
+		int i;
+		int retorno = -1;
+		if (tipo == 1) {
+
+			ArrayList<Bebida> bdBebida = evento.getBdBebida();
+			for (i = 0; i < bdBebida.size(); i++) {
+
+				if (orcamento.getDescricao() == bdBebida.get(i).getDescricao())
+					retorno = i;
+
+				else
+					retorno = -1;
+
+			}
+
+		} else if (tipo == 2) {
+
+			ArrayList<Comida> bdComida = evento.getBdComida();
+			for (i = 0; i < bdComida.size(); i++) {
+
+				if (orcamento.getDescricao() == bdComida.get(i).getDescricao())
+					retorno = i;
+
+				else
+					retorno = -1;
+
+			}
+
+		} else if (tipo == 3) {
+
+			ArrayList<Infraestrutura> bdInfraestrutura = evento.getBdInfraestrutura();
+			for (i = 0; i < bdInfraestrutura.size(); i++) {
+
+				if (orcamento.getDescricao() == bdInfraestrutura.get(i).getDescricao())
+					retorno = i;
+
+				else
+					retorno = -1;
+
+			}
+
+		} else if (tipo == 4) {
+
+			ArrayList<Musica> bdMusica = evento.getBdMusica();
+			for (i = 0; i < bdMusica.size(); i++) {
+
+				if (orcamento.getDescricao() == bdMusica.get(i).getDescricao())
+					retorno = i;
+
+				else
+					retorno = -1;
+
+			}
+
+		} else
+			retorno = -1;
+		return retorno;
+
+	}
+
+	public int getTipoOrcamento(int posEvento, int posOrcamento) {
+
+		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
+		ControleOrcamento controlOrcamento = new ControleOrcamento(controlEvento.getBdOrcamentos().get(posOrcamento));
+		return controlOrcamento.getTipoOrcamento();
+
+	}
+
+
+	public String getDescricaoBebida(int posEvento, int posOrcamento) {
+		int aux;
+        int tipo = getTipoOrcamento( posEvento, posOrcamento);
+		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
+		ControleOrcamento controlOrcamento = new ControleOrcamento(controlEvento.getBdOrcamentos().get(posOrcamento));
+		aux = validaOrcamento( tipo, controlEvento.getEvento(), controlOrcamento.getOrcamento()); 
+        ControleBebida controlBebida  = new ControleBebida(controlEvento.getBdBebida().get(aux));
+        
+        return controlBebida.getDescricao();
+	}
+	
+	
+
+	public double getValorTotalBebida(int posEvento, int posOrcamento) {
+		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
+		ControleOrcamento controlOrcamento = new ControleOrcamento(controlEvento.getBdOrcamentos().get(posOrcamento));
+		return controlOrcamento.getValorTotalOrcamento();
+	}
+
+	public double getValorUnitarioBebida(int posEvento, int posOrcamento) {
+		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
+		ControleOrcamento controlOrcamento = new ControleOrcamento(controlEvento.getBdOrcamentos().get(posOrcamento));
+		return controlOrcamento.getValorUnitarioOrcamento();
+	}
+
+	public int getValorQuantidadeBebida(int posEvento, int posOrcamento) {
+		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
+		ControleOrcamento controlOrcamento = new ControleOrcamento(controlEvento.getBdOrcamentos().get(posOrcamento));
+		return controlOrcamento.getValorQuantidadeOrcamento();
+	}
+
+	public boolean getBebidaQuente(int posEvento, int posTarefa) {
+		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
+		ControleOrcamento controlOrcamento = new ControleOrcamento(controlEvento.getBdOrcamentos().get(posTarefa));
+		return controlOrcamento.isBebidaQuente();
+	}
+
+	public boolean getAlcoolico(int posEvento, int posTarefa) {
+		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
+		ControleOrcamento controlOrcamento = new ControleOrcamento(controlEvento.getBdOrcamentos().get(posTarefa));
+		// controlOrcamento.setBebida(controlEvento.getBdOrcamentos().get(posTarefa));
+		return controlOrcamento.isAlcoolico();
+
+	}
+
+	// comida
+
 	// retorna verdadeiro se a data estiver no formato correto e dentro do padrão do
 	// localDate
 	public boolean validaData(String data) {
@@ -365,7 +488,7 @@ public class ControleBancoEvento {
 	// retorna verdadeiro se a hora estiver no formato correto
 	public boolean validaHora(String hora) {
 		int horas, minutos;
-		try{ 
+		try {
 			String[] hm = hora.split(":"); // divide em um vetor de strings
 			horas = Integer.parseInt(hm[0]); // transforma a string em int
 			minutos = Integer.parseInt(hm[1]);
@@ -373,28 +496,24 @@ public class ControleBancoEvento {
 				return false;
 			else
 				return true;
-		}
-		catch (IndexOutOfBoundsException iob) {
+		} catch (IndexOutOfBoundsException iob) {
 			return false;
 		}
 
-		
 	}
 
 	// retorna verdadeiro se a hora estiver no formato correto
 	public boolean validaCEP(String cep) {
-		try{ 
+		try {
 			String[] digitos = cep.split("-"); // divide em um vetor de strings
 			if (!digitos[0].matches("[0-9]+") || !digitos[1].matches("[0-9]+")) // se for diferente de número
 				return false;
 			else
 				return true;
-		}
-		catch (IndexOutOfBoundsException iob) {
+		} catch (IndexOutOfBoundsException iob) {
 			return false;
 		}
 
-		
 	}
 
 }

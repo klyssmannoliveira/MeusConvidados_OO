@@ -21,6 +21,11 @@ public class Orcamento {
 		this.tipo = tipo;
 	}
 	
+
+	public Orcamento() {
+	
+	}
+	
 	/*
 	 * Objetivo: Getters e Setters referentes ao evento;
 	 */

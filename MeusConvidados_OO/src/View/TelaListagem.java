@@ -211,6 +211,9 @@ public class TelaListagem implements ActionListener, ListSelectionListener {
 			new TelaCadastroAtualiza().inserirEditarConvTare(3, posicao, listaDadosCriados.getSelectedIndex(), dados);
 			if (opcao == 2)
 			new TelaCadastroAtualiza().inserirEditarConvTare(4, posicao, listaDadosCriados.getSelectedIndex(), dados);
+			if (opcao == 3)
+				new TelaCrudOrcamento().inserirEditarOrcamento(2,dados.getTipoOrcamento(posicao, listaDadosCriados.getSelectedIndex()),posicao, listaDadosCriados.getSelectedIndex(), dados);
+			
 		}
 
 	}

@@ -50,7 +50,8 @@ public class BancoEvento {
 		Tarefa t1 = new Tarefa("Buscar flores", "30/05/2021"); 
 		Tarefa t2 = new Tarefa("Buscar alianças", "20/05/2021", true);
 		Tarefa t3 = new Tarefa("Pegar o uber", "10/05/2021");
-		Orcamento g1 = new Bebida(1,"Cervejas", 22.30);
+		Orcamento g1 = new Bebida(1,"Cervejas", 22 , 22.50 , 0.0 ,false, true);
+		Bebida b1 = new Bebida(1,"Cervejas", 22 , 22.50 , 0.0 ,false, true);
 		Orcamento g2 = new Comida(2,"Salgados", 100.00);
 		Orcamento g3 = new Musica(4,"The Beatles", 100.00);
 		e1.adicionarConvidado(c1);
@@ -61,6 +62,7 @@ public class BancoEvento {
 		e1.adicionarOrcamento(g1);
 		e1.adicionarOrcamento(g2);
 		e1.adicionarOrcamento(g3);
+		e1.adicionarBebida(b1);
 		
 		//Evento 2
 		Evento e2 = new Evento("churrasco", "30/05/2021", "19:00", "24:00", "Alvorada24", "70000-260", "Sudeste");

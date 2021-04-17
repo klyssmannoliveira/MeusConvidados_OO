@@ -217,13 +217,112 @@ public class TelaCrudOrcamento implements ActionListener {
 			this.janela.setLayout(null);
 			this.janela.setSize(400, 360);
 			
+		} if (op == 2 && tipo == 1) {    //Editar bebidas
+
+			valorDescricao = new JTextField(dados.getDescricaoBebida(posEvento, posObjeto),200);
+			valorValorTotal = new JTextField(String.valueOf(dados.getValorTotalBebida( posEvento, posObjeto)),20);
+			valorValorUnitario  = new JTextField(String.valueOf(dados.getValorUnitarioBebida( posEvento, posObjeto)),200);
+			valorQuantidade = new JTextField(String.valueOf(dados.getValorQuantidadeBebida( posEvento, posObjeto)),200);
+			if (dados.getBebidaQuente(posEvento, posObjeto)) {
+				valorBebidaQuente.setSelected(true);
+				}
+	
+			if (dados.getAlcoolico(posEvento, posObjeto)) {
+				valorAlcoolico.setSelected(true);
+				}
+			
+			labelDescricao.setBounds(30, 20, 180, 25);
+			valorDescricao.setBounds(120, 20, 180, 25);
+			labelQuantidade.setBounds(30, 50, 180, 25);
+			valorQuantidade.setBounds(120, 50, 180, 25);
+			valorValorUnitario.setBounds(120, 80, 180, 25);
+			labelValorUnitario.setBounds(30, 80, 180, 25);
+			
+			labelValorTotal.setBounds(30, 110, 180, 25);
+			valorValorTotal.setBounds(120, 110, 180, 25);
+			valorBebidaQuente.setBounds(30, 140, 180, 25);
+			valorAlcoolico.setBounds(30, 170, 180, 25);
+			
+			botaoSalvar.setBounds(245, 265, 115, 30);
+
+			this.janela.add(labelDescricao);
+			this.janela.add(valorDescricao);
+			this.janela.add(labelQuantidade);
+			this.janela.add(valorQuantidade);
+			this.janela.add(valorBebidaQuente);
+			this.janela.add(valorValorUnitario);
+			this.janela.add(labelValorUnitario);
+			this.janela.add(valorAlcoolico);
+			this.janela.add(valorValorTotal);
+			this.janela.add(labelValorTotal);
+			
+
+			this.janela.add(botaoSalvar);
+			this.janela.setLayout(null);
+			this.janela.setSize(400, 360);
+
+		}if (op == 1 && tipo == 2 ) { // cadastro comida
+
+			/* valorDescricao = new JTextField(dados.getDescricaoComida(posEvento, posObjeto),200);
+			valorValorTotal = new JTextField(String.valueOf(dados.getValorTotalComida( posEvento, posObjeto)),20);
+			valorValorUnitario  = new JTextField(String.valueOf(dados.getValorUnitarioComida( posEvento, posObjeto)),200);
+			valorQuantidade = new JTextField(String.valueOf(dados.getValorQuantidadeComida( posEvento, posObjeto)),200);
+	
+			if (dados.getBebidaQuente(posEvento, posObjeto)) {
+				valorBebidaQuente.setSelected(true);
+				}
+	
+			if (dados.getAlcoolico(posEvento, posObjeto)) {
+				valorAlcoolico.setSelected(true);
+				}
+			
+			
+			
+			labelDescricao.setBounds(30, 20, 180, 25);
+			valorDescricao.setBounds(120, 20, 180, 25);
+			labelQuantidade.setBounds(30, 50, 180, 25);
+			valorQuantidade.setBounds(120, 50, 180, 25);
+			valorValorUnitario.setBounds(120, 80, 180, 25);
+			labelValorUnitario.setBounds(30, 80, 180, 25);
+			labelValorTotal.setBounds(30, 110, 180, 25);
+			valorValorTotal.setBounds(120, 110, 180, 25);
+			
+			valorPrincipal.setBounds(30, 140, 180, 25);
+			valorDegustativo.setBounds(30, 170, 180, 25);
+			valorSobremessa.setBounds(30, 200, 180, 25);
+			
+			botaoSalvar.setBounds(245, 265, 115, 30);
+
+			this.janela.add(labelDescricao);
+			this.janela.add(valorDescricao);
+			this.janela.add(labelQuantidade);
+			this.janela.add(valorQuantidade);
+			this.janela.add(valorDegustativo);
+			this.janela.add(valorValorUnitario);
+			this.janela.add(labelValorUnitario);
+			this.janela.add(valorPrincipal);
+			this.janela.add(valorValorTotal);
+			this.janela.add(labelValorTotal);
+			this.janela.add(valorSobremessa);
+			
+
+			this.janela.add(botaoSalvar);
+			this.janela.setLayout(null);
+			this.janela.setSize(400, 360);
+			
+		}*/
+		
 		}
 
 		this.janela.setVisible(true);
 		botaoSalvar.addActionListener(this);
 		botaoExcluir.addActionListener(this);
-	}
 
+	
+	} 
+
+	
+	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if (src == botaoSalvar) {

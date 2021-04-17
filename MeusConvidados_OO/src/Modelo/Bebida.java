@@ -33,6 +33,12 @@ public class Bebida extends Orcamento {
 		this.bebidaQuente = bebidaQuente;
 	}
 
+	
+	public Bebida() {
+		
+	}
+	
+	
 	/*
 	 * Objetivo: Retorna a uma string; 
 	 * Saida: descrição, quantidade, valorUnitario, valorTotal;

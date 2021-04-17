@@ -18,6 +18,10 @@ public class Evento {
 	private ArrayList<Tarefa> bdTarefas = new ArrayList<Tarefa>(); // cria arraylist de tarefas;
 	private double taxaTarefas = 0.0; // inicializaçao do atributo taxa de tarefas;
 	private ArrayList<Orcamento> bdOrcamentos = new ArrayList<Orcamento>(); // cria arraylist de Orcamento;
+	private ArrayList<Bebida> bdBebida = new ArrayList<Bebida>(); // cria arraylist de Orcamento;
+	private ArrayList<Comida> bdComida = new ArrayList<Comida>(); // cria arraylist de Orcamento;
+	private ArrayList<Infraestrutura> bdInfraestrutura= new ArrayList<Infraestrutura>(); // cria arraylist de Orcamento;
+	private ArrayList<Musica> bdMusica = new ArrayList<Musica>(); // cria arraylist de Orcamento;
 	private double totalGasto = 0.0; // inicializaçao do atributo total de gastos;
 	private double orcamentoPrevisto = 0.0; // inicializaçao do atributo do orçamento Previsto;
 
@@ -131,6 +135,24 @@ public class Evento {
 	public void adicionarOrcamento(Orcamento orcamento) {
 		bdOrcamentos.add(orcamento);
 	}
+	
+	
+	public void adicionarBebida(Bebida bebida) {
+		bdBebida.add(bebida);
+	}
+	
+	public void adicionarComida(Comida comida) {
+		bdComida.add(comida);
+	}
+	
+	public void adicionarInfraestrutura(Infraestrutura infraestrutura) {
+		bdInfraestrutura.add(infraestrutura);
+	}
+	
+	public void adicionarMusica(Musica musica) {
+		bdMusica.add(musica);
+	}
+	
 
 	/*
 	 * Objetivo:Remover gastos do evento; Entrada: descricao;
@@ -147,6 +169,61 @@ public class Evento {
 
 	}
 
+	
+	public boolean removerBebida(int posBebida) {
+		if (posBebida > bdBebida.size()) {
+
+			return false;
+
+		} else {
+			bdBebida.remove(posBebida);
+			return true;
+		}
+
+	}
+
+	
+	public boolean removerComida(int posComida) {
+		if (posComida > bdComida.size()) {
+
+			return false;
+
+		} else {
+			bdComida.remove(posComida);
+			return true;
+		}
+
+	}
+
+	
+	public boolean removerInfraestrutura(int posInfraestrutura) {
+		if (posInfraestrutura > bdInfraestrutura.size()) {
+
+			return false;
+
+		} else {
+			bdInfraestrutura.remove(posInfraestrutura);
+			return true;
+		}
+
+	}
+
+	
+	public boolean removerMusica(int posMusica) {
+		if (posMusica > bdMusica.size()) {
+
+			return false;
+
+		} else {
+			bdMusica.remove(posMusica);
+			return true;
+		}
+
+	}
+
+	
+	
+	
 	/*
 	 * Objetivo: Getters e Setters referentes ao evento;
 	 */
@@ -252,5 +329,23 @@ public class Evento {
 	public ArrayList<Orcamento> getBdOrcamentos() {
 		return bdOrcamentos;
 	}
+	
+	public ArrayList<Bebida> getBdBebida() {
+		return bdBebida;
+	}
+	
+	public ArrayList<Comida> getBdComida() {
+		return bdComida;
+	}
+	
+	public ArrayList<Infraestrutura> getBdInfraestrutura() {
+		return bdInfraestrutura;
+	}
+	
+	public ArrayList<Musica> getBdMusica() {
+		return bdMusica;
+	}
+	
+	
 
 }

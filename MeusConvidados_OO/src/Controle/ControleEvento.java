@@ -111,9 +111,16 @@ public class ControleEvento {
 		return evento.getBdTarefas();
 	}
 
-	public ArrayList<Orcamento> getBdOrcamentoss() {
+	public ArrayList<Orcamento> getBdOrcamentos() {
 		return evento.getBdOrcamentos();
 	}
+	
+	public ArrayList<Bebida> getBdBebida() {
+		return evento.getBdBebida();
+	}
+
+	
+	
 	
 	public void adicionarConvidado(Convidado convidado) {
 
@@ -159,6 +166,9 @@ public class ControleEvento {
 			return false;
 
 	}
+	
+	
+	
 
 	
 	
