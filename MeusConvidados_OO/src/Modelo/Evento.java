@@ -5,25 +5,23 @@ Sintese
 Objetivo: Classe denominada Evento para ser a classe central para organização do evento; 
 */
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class Evento {
 
-	SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");// instância o formato simples da data;
 	private String nomeEvento; // nome do evento dando liberdade ao usuario para colocar qualquer nome;
 	private InformacaoEvento informacaoEvento = new InformacaoEvento(); // instanciação da classe informacaoEvento;
 	private ArrayList<Convidado> bdConvidados = new ArrayList<Convidado>(); // cria arraylist de convidados;
 	private int totalConvidados = 0; // inicializaçao do atributo total de convidados;
+	private ArrayList<Orcamento> bdOrcamentos = new ArrayList<Orcamento>(); // cria arraylist de Orcamento;
+	private ArrayList<Bebida> bdBebida = new ArrayList<Bebida>(); // cria arraylist de Orcamento/bebida;
+	private ArrayList<Comida> bdComida = new ArrayList<Comida>(); // cria arraylist de Orcamento/comida;
+	private ArrayList<Infraestrutura> bdInfraestrutura = new ArrayList<Infraestrutura>(); // cria arraylist de
+	private ArrayList<Musica> bdMusica = new ArrayList<Musica>(); // cria arraylist de Orcamento/musica;
+	private double totalGasto = 0.0; // inicializaçao do atributo total de gastos;
 	private ArrayList<Tarefa> bdTarefas = new ArrayList<Tarefa>(); // cria arraylist de tarefas;
 	private double taxaTarefas = 0.0; // inicializaçao do atributo taxa de tarefas;
-	private ArrayList<Orcamento> bdOrcamentos = new ArrayList<Orcamento>(); // cria arraylist de Orcamento;
-	private ArrayList<Bebida> bdBebida = new ArrayList<Bebida>(); // cria arraylist de Orcamento;
-	private ArrayList<Comida> bdComida = new ArrayList<Comida>(); // cria arraylist de Orcamento;
-	private ArrayList<Infraestrutura> bdInfraestrutura= new ArrayList<Infraestrutura>(); // cria arraylist de Orcamento;
-	private ArrayList<Musica> bdMusica = new ArrayList<Musica>(); // cria arraylist de Orcamento;
-	private ArrayList<Programacao> bdProgramacao = new ArrayList<Programacao>();
-	private double totalGasto = 0.0; // inicializaçao do atributo total de gastos;
+	private ArrayList<Programacao> bdProgramacao = new ArrayList<Programacao>(); // cria arraylist de Programação;
 	private double orcamentoPrevisto = 0.0; // inicializaçao do atributo do orçamento Previsto;
 
 	/*
@@ -31,7 +29,8 @@ public class Evento {
 	 * 
 	 */
 
-	public Evento(String nome, String data, String horai, String horaf, String endereco, String cep, String complemen, double orcamentoPrevisto) {
+	public Evento(String nome, String data, String horai, String horaf, String endereco, String cep, String complemen,
+			double orcamentoPrevisto) {
 		nomeEvento = nome;
 		informacaoEvento.setDataEvento(data);
 		informacaoEvento.setHoraInicio(horai);
@@ -42,7 +41,7 @@ public class Evento {
 		this.orcamentoPrevisto = orcamentoPrevisto;
 	}
 
-	// Sobrecarga do construtor
+	// Sobrecarga do construtor vazio
 	public Evento() {
 
 	}
@@ -87,7 +86,6 @@ public class Evento {
 
 	}
 
-
 	/*
 	 * Objetivo: listar as tarefas realizadas para o evento;
 	 */
@@ -121,9 +119,8 @@ public class Evento {
 		}
 	}
 
-	
 	/*
-	 * Objetivo: Listar os gastos do evento;
+	 * Objetivo: Listar os orçamentos dos eventos;
 	 */
 	public String[] listarOrcamentos() {
 		String[] auxiliar = new String[bdOrcamentos.size()];
@@ -133,57 +130,15 @@ public class Evento {
 		return auxiliar;
 	}
 
-	public String[] listarProgramacaoDescricao() {
-		String[] auxiliar = new String[bdProgramacao.size()];
-		for (int i = 0; i < bdProgramacao.size(); i++) {
-			auxiliar[i] =  bdProgramacao.get(i).getDescricao();
-		}
-		return auxiliar;
-	}
-	
-	
-	public String[] listarProgramacaoHora() {
-		String[] auxiliar = new String[bdProgramacao.size()];
-		for (int i = 0; i < bdProgramacao.size(); i++) {
-			auxiliar[i] =  bdProgramacao.get(i).getHora() + " >>> ";
-		}
-		return auxiliar;
-	}
-	
-	
 	/*
-	 * Objetivo: Adicionar gastos do evento; Entrada: gasto;
+	 * Objetivo: Adicionar Orçamento do evento; Entrada: Orçamento;
 	 */
 	public void adicionarOrcamento(Orcamento orcamento) {
 		bdOrcamentos.add(orcamento);
 	}
-	
-	
-	public void adicionarBebida(Bebida bebida) {
-		bdBebida.add(bebida);
-	}
-	
-	public void adicionarComida(Comida comida) {
-		bdComida.add(comida);
-	}
-	
-	public void adicionarInfraestrutura(Infraestrutura infraestrutura) {
-		bdInfraestrutura.add(infraestrutura);
-	}
-	
-	public void adicionarMusica(Musica musica) {
-		bdMusica.add(musica);
-	}
-	
-	public void adicionarProgramacao(Programacao programacao) {
-		bdProgramacao.add(programacao);
-	}
-	
-	
-	
-	
+
 	/*
-	 * Objetivo:Remover gastos do evento; Entrada: descricao;
+	 * Objetivo:Remover Orçamento do evento; Entrada: posOrcamento;
 	 */
 	public boolean removerOrcamento(int posOrcamento) {
 		if (posOrcamento > bdOrcamentos.size()) {
@@ -197,7 +152,16 @@ public class Evento {
 
 	}
 
-	
+	/*
+	 * Objetivo: Adicionar Bebida do evento; Entrada: bebida;
+	 */
+	public void adicionarBebida(Bebida bebida) {
+		bdBebida.add(bebida);
+	}
+
+	/*
+	 * Objetivo:Remover bebida do evento; Entrada: posBebida;
+	 */
 	public boolean removerBebida(int posBebida) {
 		if (posBebida > bdBebida.size()) {
 
@@ -210,7 +174,16 @@ public class Evento {
 
 	}
 
-	
+	/*
+	 * Objetivo: Adicionar comida do evento; Entrada: comida;
+	 */
+	public void adicionarComida(Comida comida) {
+		bdComida.add(comida);
+	}
+
+	/*
+	 * Objetivo:Remover Comida do evento; Entrada: posComida;
+	 */
 	public boolean removerComida(int posComida) {
 		if (posComida > bdComida.size()) {
 
@@ -223,7 +196,16 @@ public class Evento {
 
 	}
 
-	
+	/*
+	 * Objetivo: Adicionar Infraestrutura do evento; Entrada: Infraestrutura;
+	 */
+	public void adicionarInfraestrutura(Infraestrutura infraestrutura) {
+		bdInfraestrutura.add(infraestrutura);
+	}
+
+	/*
+	 * Objetivo:Remover Infraestrutura do evento; Entrada: posInfraestrutura;
+	 */
 	public boolean removerInfraestrutura(int posInfraestrutura) {
 		if (posInfraestrutura > bdInfraestrutura.size()) {
 
@@ -236,7 +218,16 @@ public class Evento {
 
 	}
 
-	
+	/*
+	 * Objetivo: Adicionar música do evento; Entrada: musica;
+	 */
+	public void adicionarMusica(Musica musica) {
+		bdMusica.add(musica);
+	}
+
+	/*
+	 * Objetivo:Remover Musica do evento; Entrada: posMusica;
+	 */
 	public boolean removerMusica(int posMusica) {
 		if (posMusica > bdMusica.size()) {
 
@@ -249,8 +240,38 @@ public class Evento {
 
 	}
 
-	
+	/*
+	 * Objetivo: Listar as descrições da programação do evento;
+	 */
+	public String[] listarProgramacaoDescricao() {
+		String[] auxiliar = new String[bdProgramacao.size()];
+		for (int i = 0; i < bdProgramacao.size(); i++) {
+			auxiliar[i] = bdProgramacao.get(i).getDescricao();
+		}
+		return auxiliar;
+	}
 
+	/*
+	 * Objetivo: Listar a hora da programação do evento;
+	 */
+	public String[] listarProgramacaoHora() {
+		String[] auxiliar = new String[bdProgramacao.size()];
+		for (int i = 0; i < bdProgramacao.size(); i++) {
+			auxiliar[i] = bdProgramacao.get(i).getHora() + " >>> ";
+		}
+		return auxiliar;
+	}
+
+	/*
+	 * Objetivo: Adicionar programação do evento; Entrada: programacao;
+	 */
+	public void adicionarProgramacao(Programacao programacao) {
+		bdProgramacao.add(programacao);
+	}
+
+	/*
+	 * Objetivo:Remover Programação do evento; Entrada: posProgramacao;
+	 */
 	public boolean removerProgramacao(int posProgramacao) {
 		if (posProgramacao > bdProgramacao.size()) {
 
@@ -263,7 +284,6 @@ public class Evento {
 
 	}
 
-	
 	/*
 	 * Objetivo: Getters e Setters referentes ao evento;
 	 */
@@ -287,8 +307,10 @@ public class Evento {
 		this.informacaoEvento = informacaoEvento;
 	}
 
+	
 	/*
 	 * Objetivo: Cálculo total dos convidados;
+	 * set do total de convidados do evento;
 	 */
 	public void setTotalConvidados() {
 		totalConvidados = 0;
@@ -369,30 +391,30 @@ public class Evento {
 	public ArrayList<Orcamento> getBdOrcamentos() {
 		return bdOrcamentos;
 	}
-	
+
+	// retorna o banco de bebidas
 	public ArrayList<Bebida> getBdBebida() {
 		return bdBebida;
 	}
-	
+
+	// retorna o banco de Comida
 	public ArrayList<Comida> getBdComida() {
 		return bdComida;
 	}
-	
+
+	// retorna o banco de Infraestrutura
 	public ArrayList<Infraestrutura> getBdInfraestrutura() {
 		return bdInfraestrutura;
 	}
-	
+
+	// retorna o banco de Musica
 	public ArrayList<Musica> getBdMusica() {
 		return bdMusica;
 	}
-	
-	
-	
+
+	// retorna o banco de Programacao
 	public ArrayList<Programacao> getBdProgramacao() {
 		return bdProgramacao;
 	}
-	
-	
-	
 
 }

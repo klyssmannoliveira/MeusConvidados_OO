@@ -12,8 +12,7 @@ public class Bebida extends Orcamento {
 	private boolean bebidaQuente; // se a bebida for quente ou não;
 
 	/*
-	 * Objetivo: Construtor da Classe Bebida; 
-	 * Entrada : descricao e valorTotal;
+	 * Objetivo: Construtor da Classe Bebida; Entrada : descricao e valorTotal;
 	 * 
 	 */
 	public Bebida(int tipo, String descricao, double valorTotal) {
@@ -21,8 +20,8 @@ public class Bebida extends Orcamento {
 	}
 
 	/*
-	 * Objetivo: Construtor da Classe Bebida (sobrecarga); 
-	 * Entrada : descricao, quantidade, valorTotal, valorUnitario, alcoolico, bebidaQuente;
+	 * Objetivo: Construtor da Classe Bebida (sobrecarga); Entrada : descricao,
+	 * quantidade, valorTotal, valorUnitario, alcoolico, bebidaQuente;
 	 */
 	public Bebida(int tipo, String descricao, int quantidade, double valorUnitario, double valorTotal,
 			boolean bebidaQuente, boolean alcoolico) {
@@ -33,20 +32,12 @@ public class Bebida extends Orcamento {
 		this.bebidaQuente = bebidaQuente;
 	}
 
-	
-	public Bebida() {
-		
-	}
-	
-	
 	/*
-	 * Objetivo: Retorna a uma string; 
-	 * Saida: descrição, quantidade, valorUnitario, valorTotal;
+	 * Objetivo: Construtor da Classe Bebida (sobrecarga) Entrada : sem entrada
 	 * 
 	 */
-	public String toString() {
-		return "Orçamento: " + descricao + "\nQuantidade: " + quantidade + "\nValor unitário: R$ " + valorUnitario
-				+ "\nValor total: R$ " + valorTotal;
+	public Bebida() {
+
 	}
 
 	/*
@@ -74,7 +65,8 @@ public class Bebida extends Orcamento {
 		this.valorUnitario = valorUnitario;
 	}
 
-	// get do boolean alcoolico referente a bebida: True se for alcoolico e false se não for ;
+	// get do boolean alcoolico referente a bebida: True se for alcoolico e false se
+	// não for ;
 	public boolean isAlcoolico() {
 		return alcoolico;
 	}
@@ -84,7 +76,8 @@ public class Bebida extends Orcamento {
 		this.alcoolico = alcoolico;
 	}
 
-	// get do boolean BebidaQuente referente a bebida: True se for bebida quente e false se não for ;
+	// get do boolean BebidaQuente referente a bebida: True se for bebida quente e
+	// false se não for ;
 	public boolean isBebidaQuente() {
 		return bebidaQuente;
 	}

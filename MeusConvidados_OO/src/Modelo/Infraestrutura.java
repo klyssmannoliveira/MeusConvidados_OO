@@ -19,7 +19,7 @@ public class Infraestrutura extends Orcamento {
 	 * 
 	 */
 	public Infraestrutura(int tipo, String descricao, double valorTotal) {
-		super(tipo,descricao, valorTotal);
+		super(tipo, descricao, valorTotal);
 
 	}
 
@@ -39,17 +39,13 @@ public class Infraestrutura extends Orcamento {
 		this.equipamento = equipamento;
 		this.toalete = toalete;
 	}
-	
-	public Infraestrutura() {
-	}
-
 	/*
-	 * Objetivo: Retorna a uma string; Saida: descrição, valorTotal;
+	 * Objetivo: Construtor da Classe Infraestrutura (sobrecarga) Entrada : sem
+	 * entrada
 	 * 
 	 */
 
-	public String toString() {
-		return "Orçamento: " + descricao + "\nValor total: R$ " + valorTotal;
+	public Infraestrutura() {
 	}
 
 	/*

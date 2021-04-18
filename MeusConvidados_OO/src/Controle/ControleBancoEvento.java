@@ -1,5 +1,10 @@
 package Controle;
 
+/*
+Sintese
+Objetivo: Classe denominada Controle Banco Evento para controlar os dados dos eventos; 
+*/
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -9,17 +14,24 @@ import Modelo.*;
 
 public class ControleBancoEvento {
 
-	private BancoEvento banco = new BancoEvento();
+	private BancoEvento banco = new BancoEvento(); // instanciação da classe banco evento
+	private int qtdEventos; // quantidade evento.
 
-	private int qtdEventos;
-
-	// Construtor da classe ControleBancoEvento
+	/*
+	 * Objetivo: Construtor da Classe Controle Banco Evento; Entrada :
+	 * ControleBancoEvento dados;
+	 * 
+	 */
 	public ControleBancoEvento(ControleBancoEvento dados) {
 		banco = dados.getBanco();
 		qtdEventos = dados.getQtdEventos();
 	}
 
-	// Construtor: Preenche o banco com alguns dados
+	/*
+	 * Objetivo: Construtor da Classe Controle Banco Evento; Entrada : sem entradas
+	 * Construtor: Preenche o banco com alguns dados
+	 */
+
 	public ControleBancoEvento() {
 		banco.fillWithSomeData();
 	}
@@ -34,7 +46,7 @@ public class ControleBancoEvento {
 		this.banco = banco;
 	}
 
-	// Retorna um vetor de strings com os nomes dos eventos
+	// get nome eventos. Retorna um vetor de strings com os nomes dos eventos
 	public String[] getNomeEventos() {
 		String[] auxiliar = new String[banco.getBdEventos().size()];
 
@@ -44,101 +56,103 @@ public class ControleBancoEvento {
 		return auxiliar;
 	}
 
-	// Retorna um vetor de strings com os nomes dos eventos
+	// get nomes convidadeos. Retorna um vetor de strings com os nomes dos eventos
 	public String[] getNomesConvidados(int pos) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
 		return controlEvento.getNomesConvidados();
 	}
 
-	// Retorna um vetor de strings com os nomes dos eventos
+	// get nomes tarefas. Retorna um vetor de strings com os nomes dos eventos
 	public String[] getNomesTarefas(int pos) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
 		return controlEvento.getNomesTarefas();
 
 	}
 
-	// Retorna um vetor de strings com os nomes dos eventos
+	// get nomes orcamento. Retorna um vetor de strings com os nomes dos eventos
 	public String[] getNomesOrcamento(int pos) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
 		return controlEvento.getNomesOrcamento();
 
 	}
 
-	// Retorna uma String com o nome do evento
+	// get nome eventos. Retorna uma String com o nome do evento
 	public String getNomeEvento(int pos) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
 		String s = controlEvento.getNomeEvento();
 		return s;
 	}
 
-	// Retorna uma String com a data do evento
+	// get data evento. Retorna uma String com a data do evento
 	public String getDataEvento(int pos) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
 		String s = controlEvento.getDataEvento();
 		return s;
 	}
 
-	// Retorna uma String com a hora do início do evento evento
+	// get hora inicio. Retorna uma String com a hora do início do evento evento
 	public String getHoraiEvento(int pos) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
 		String s = controlEvento.getHoraiEvento();
 		return s;
 	}
 
-	// Retorna uma String com a hora do término do evento
+	// get hora final. Retorna uma String com a hora do término do evento
 	public String getHorafEvento(int pos) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
 		String s = controlEvento.getHorafEvento();
 		return s;
 	}
 
-	// Retorna uma String com o endereço do evento
+	// get endereco. Retorna uma String com o endereço do evento
 	public String getEndereco(int pos) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
 		String s = controlEvento.getEndereco();
 		return s;
 	}
 
-	// Retorna uma String com o CEP do evento
+	// get CEP. Retorna uma String com o CEP do evento
 	public String getCep(int pos) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
 		String s = controlEvento.getCep();
 		return s;
 	}
 
-	// Retorna uma String com o complemento do evento
+	// get complemento. Retorna uma String com o complemento do evento
 	public String getComplemento(int pos) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
 		String s = controlEvento.getComplemento();
 		return s;
 	}
 
-	// Retorna um inteiro com o Total de convidadados do evento
+	// get total Convidados. Retorna um inteiro com o Total de convidadados do
+	// evento
 	public int getTotalConvidados(int pos) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
 		return controlEvento.getTotalConvidados();
 
 	}
 
-	// Retorna um double com a Taxa de Tarefas do evento
+	// get taxa tarefas. Retorna um double com a Taxa de Tarefas do evento
 	public double getTaxaTarefas(int pos) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
 		return controlEvento.getTaxaTarefas();
 	}
 
-	// Retorna um double com o orçamento Previsto do evento
+	// get orcamento previsto. Retorna um double com o orçamento Previsto do evento
 	public double getOrcamentoPrevisto(int pos) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
 		return controlEvento.getOrcamentoPrevisto();
 	}
 
-	// Retorna um double com o Gasto Total do evento
+	// get total gastos. Retorna um double com o Gasto Total do evento
 	public double getTotalGasto(int pos) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
 		return controlEvento.getTotalGasto();
 	}
 
-	// Retorna um boolean com o erro de preenchimento
+	// get adicionar e editar um evento. Retorna um boolean com o erro de
+	// preenchimento
 	public boolean adicionarEditarEvento(int op, int pos, String[] dadosEvento) {
 
 		if (!validaData(dadosEvento[2])) { // data
@@ -177,6 +191,7 @@ public class ControleBancoEvento {
 
 	}
 
+	// get adicionar e editar um convidado.
 	public boolean adicionarEditarConvidado(int op, int posEvento, int posConvidado, String[] dadosConvidados) {
 
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
@@ -211,6 +226,7 @@ public class ControleBancoEvento {
 
 	}
 
+	// get adicionar e editar tarefas.
 	public boolean adicionarEditarTarefa(int op, int posEvento, int posTarefa, String[] dadosTarefa) {
 
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
@@ -237,6 +253,7 @@ public class ControleBancoEvento {
 
 	}
 
+	// get adicionar e editar bebida.
 	public boolean adicionarEditarBebida(int op, int posEvento, int posOrcamento, String[] dadosBebida) {
 
 		int aux;
@@ -273,6 +290,7 @@ public class ControleBancoEvento {
 
 	}
 
+	// get adicionar e editar uma comida.
 	public boolean adicionarEditarComida(int op, int posEvento, int posOrcamento, String[] dadosComida) {
 
 		int aux;
@@ -312,6 +330,7 @@ public class ControleBancoEvento {
 
 	}
 
+	// get adicionar e editar infraestrutura.
 	public boolean adicionarEditarInfraestrutura(int op, int posEvento, int posOrcamento,
 			String[] dadosInfraestrutura) {
 
@@ -354,6 +373,7 @@ public class ControleBancoEvento {
 
 	}
 
+	// get adicionar e editar musica
 	public boolean adicionarEditarMusica(int op, int posEvento, int posOrcamento, String[] dadosMusica) {
 
 		int aux;
@@ -387,6 +407,7 @@ public class ControleBancoEvento {
 
 	}
 
+	// get adicionar e editar programacao.
 	public boolean adicionarEditarProgramacao(int op, int posEvento, int posProgramacao, String[] dadosProgramacao) {
 
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
@@ -408,7 +429,9 @@ public class ControleBancoEvento {
 
 	}
 
-	// retorna um boolean com erro de exclusao do evento
+	/*
+	 * Objetivo:Remover evento; Entrada: posicao;
+	 */
 	public boolean removerEvento(int posicao) {
 		if (banco.removerEvento(posicao)) {
 			return true;
@@ -418,6 +441,9 @@ public class ControleBancoEvento {
 
 	}
 
+	/*
+	 * Objetivo:Remover conviadado; Entrada: posEvento, posConvidado;
+	 */
 	public boolean removerConvidado(int posEvento, int posConvidado) {
 
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
@@ -429,6 +455,9 @@ public class ControleBancoEvento {
 
 	}
 
+	/*
+	 * Objetivo:Remover tarefa; Entrada: posEvento, posTarefa;
+	 */
 	public boolean removerTarefa(int posEvento, int posTarefa) {
 
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
@@ -440,6 +469,9 @@ public class ControleBancoEvento {
 
 	}
 
+	/*
+	 * Objetivo:Remover bebida; Entrada: posEvento, posOrcamento;
+	 */
 	public boolean removerBebida(int posEvento, int posOrcamento) {
 
 		int aux;
@@ -455,6 +487,9 @@ public class ControleBancoEvento {
 
 	}
 
+	/*
+	 * Objetivo:Remover comida; Entrada: posEvento, posOrcamento;
+	 */
 	public boolean removerComida(int posEvento, int posOrcamento) {
 
 		int aux;
@@ -470,6 +505,9 @@ public class ControleBancoEvento {
 
 	}
 
+	/*
+	 * Objetivo:Remover infraestrutura; Entrada: posEvento, posOrcamento;
+	 */
 	public boolean removerInfraestrutura(int posEvento, int posOrcamento) {
 
 		int aux;
@@ -485,6 +523,9 @@ public class ControleBancoEvento {
 
 	}
 
+	/*
+	 * Objetivo:Remover musica; Entrada: posEvento, posOrcamento;
+	 */
 	public boolean removerMusica(int posEvento, int posOrcamento) {
 
 		int aux;
@@ -499,8 +540,10 @@ public class ControleBancoEvento {
 		}
 
 	}
-	
-	
+
+	/*
+	 * Objetivo:Remover Programacao; Entrada: posEvento, posOrcamento;
+	 */
 	public boolean removerProgramacao(int posEvento, int posProgramacao) {
 
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
@@ -512,7 +555,7 @@ public class ControleBancoEvento {
 
 	}
 
-	// Retorna um inteiro com a quantidade de eventos
+	// get da quantidade de eventos
 	public int getQtdEventos() {
 		setQtdEventos();
 		return qtdEventos;
@@ -524,74 +567,87 @@ public class ControleBancoEvento {
 
 	}
 
+	// get Nome convidado
 	public String getNomeConvidado(int posEvento, int posConvidado) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleConvidado controlConvidado = new ControleConvidado(controlEvento.getBdConvidados().get(posConvidado));
 		return controlConvidado.getNome();
 	}
 
+	// get quantidade acompanante convidado
 	public int getQuantAcompanhanteConvidado(int posEvento, int posConvidado) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleConvidado controlConvidado = new ControleConvidado(controlEvento.getBdConvidados().get(posConvidado));
 		return controlConvidado.getQuantAcompanhanteConvidado();
 	}
 
+	// get Telefone
 	public String getTelefone(int posEvento, int posConvidado) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleConvidado controlConvidado = new ControleConvidado(controlEvento.getBdConvidados().get(posConvidado));
 		return controlConvidado.getTelefone();
 	}
 
+	// get Email
 	public String getEmail(int posEvento, int posConvidado) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleConvidado controlConvidado = new ControleConvidado(controlEvento.getBdConvidados().get(posConvidado));
 		return controlConvidado.getEmail();
 	}
 
+	// get rede Social
 	public String getRedeSocial(int posEvento, int posConvidado) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleConvidado controlConvidado = new ControleConvidado(controlEvento.getBdConvidados().get(posConvidado));
 		return controlConvidado.getRedeSocial();
 	}
 
+	// get endereco convidado
 	public String getEndConvidado(int posEvento, int posConvidado) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleConvidado controlConvidado = new ControleConvidado(controlEvento.getBdConvidados().get(posConvidado));
 		return controlConvidado.getEnd();
 	}
 
+	// get CEP convidado
 	public String getCepConvidado(int posEvento, int posConvidado) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleConvidado controlConvidado = new ControleConvidado(controlEvento.getBdConvidados().get(posConvidado));
 		return controlConvidado.getCEP();
 	}
 
+	// get Complemento convidado
 	public String getComplemenConvidado(int posEvento, int posConvidado) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleConvidado controlConvidado = new ControleConvidado(controlEvento.getBdConvidados().get(posConvidado));
 		return controlConvidado.getComplemenConvidado();
 	}
 
+	// get descricao tarefa
 	public String getDescricaoTarefa(int posEvento, int posTarefa) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleTarefa controlTarefa = new ControleTarefa(controlEvento.getBdTarefas().get(posTarefa));
 		return controlTarefa.getDescricao();
 	}
 
+	// get data limite tarefa
 	public String getDataLimiteTarefa(int posEvento, int posTarefa) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleTarefa controlTarefa = new ControleTarefa(controlEvento.getBdTarefas().get(posTarefa));
 		return controlTarefa.getDataLimite();
 	}
 
+	// getconcluido tarefa
 	public boolean getConcluidoTarefa(int posEvento, int posTarefa) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleTarefa controlTarefa = new ControleTarefa(controlEvento.getBdTarefas().get(posTarefa));
 		return controlTarefa.getConcluidoTarefa();
 	}
 
-	// orçamento
-
+	/*
+	 * Objetivo:Validar orçamento; Entrada: tipo, Evento evento, Orcamento
+	 * orcamento;
+	 */
 	public int validaOrcamento(int tipo, Evento evento, Orcamento orcamento) {
 		int i;
 		int retorno = -1;
@@ -653,6 +709,8 @@ public class ControleBancoEvento {
 
 	}
 
+	// get tipo orçamento; Entradas:posEvento, posOrcamento;
+
 	public int getTipoOrcamento(int posEvento, int posOrcamento) {
 
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
@@ -661,7 +719,7 @@ public class ControleBancoEvento {
 
 	}
 
-	// bebida
+	// get Descrição bebida; Entradas:posEvento, posOrcamento;
 	public String getDescricaoBebida(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -673,6 +731,7 @@ public class ControleBancoEvento {
 		return controlBebida.getDescricao();
 	}
 
+	// get valor total bebida; Entradas:posEvento, posOrcamento;
 	public double getValorTotalBebida(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -683,6 +742,7 @@ public class ControleBancoEvento {
 		return controlBebida.getValorTotalOrcamento();
 	}
 
+	// get valor unitario bebida; Entradas:posEvento, posOrcamento;
 	public double getValorUnitarioBebida(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -693,6 +753,7 @@ public class ControleBancoEvento {
 		return controlBebida.getValorUnitarioOrcamento();
 	}
 
+	// get valor quantidade bebida; Entradas:posEvento, posOrcamento;
 	public int getValorQuantidadeBebida(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -703,6 +764,7 @@ public class ControleBancoEvento {
 		return controlBebida.getValorQuantidadeOrcamento();
 	}
 
+	// get bebida quente; Entradas:posEvento, posOrcamento;
 	public boolean getBebidaQuente(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -714,6 +776,7 @@ public class ControleBancoEvento {
 		return controlBebida.isBebidaQuente();
 	}
 
+	// get bebida alcoolica; Entradas:posEvento, posOrcamento;
 	public boolean getAlcoolico(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -725,7 +788,7 @@ public class ControleBancoEvento {
 
 	}
 
-	// comida
+	// get descrição comida; Entradas:posEvento, posOrcamento;
 	public String getDescricaoComida(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -737,6 +800,7 @@ public class ControleBancoEvento {
 		return controlComida.getDescricao();
 	}
 
+	// get valor total comida; Entradas:posEvento, posOrcamento;
 	public double getValorTotalComida(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -747,6 +811,7 @@ public class ControleBancoEvento {
 		return controlComida.getValorTotalOrcamento();
 	}
 
+	// get valor unitario comida; Entradas:posEvento, posOrcamento;
 	public double getValorUnitarioComida(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -757,6 +822,7 @@ public class ControleBancoEvento {
 		return controlComida.getValorUnitarioOrcamento();
 	}
 
+	// get valor quantidade comida; Entradas:posEvento, posOrcamento;
 	public int getValorQuantidadeComida(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -767,6 +833,7 @@ public class ControleBancoEvento {
 		return controlComida.getValorQuantidadeOrcamento();
 	}
 
+	// get principal comida; Entradas:posEvento, posOrcamento;
 	public boolean getPrincipal(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -778,6 +845,7 @@ public class ControleBancoEvento {
 		return controlComida.isPrincipal();
 	}
 
+	// get degustativo comida; Entradas:posEvento, posOrcamento;
 	public boolean getDegustativo(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -789,6 +857,7 @@ public class ControleBancoEvento {
 		return controlComida.isDegustativo();
 	}
 
+	// get sobremessa da comida; Entradas:posEvento, posOrcamento;
 	public boolean getSobremesa(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -800,7 +869,7 @@ public class ControleBancoEvento {
 		return controlComida.isSobremesa();
 	}
 
-	// Infraestrutura
+	// get descrição infraestrutra; Entradas:posEvento, posOrcamento;
 	public String getDescricaoInfraestrutura(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -813,6 +882,7 @@ public class ControleBancoEvento {
 		return controlInfraestrutura.getDescricao();
 	}
 
+	// get valor total infraestrutra; Entradas:posEvento, posOrcamento;
 	public double getValorTotalInfraestrutura(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -824,6 +894,7 @@ public class ControleBancoEvento {
 		return controlInfraestrutura.getValorTotalInfraestrutura();
 	}
 
+	// get decoração infraestrutra; Entradas:posEvento, posOrcamento;
 	public boolean getDecoracao(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -836,6 +907,7 @@ public class ControleBancoEvento {
 		return controlInfraestrutura.isDecoracao();
 	}
 
+	// get estacionamento infraestrutra; Entradas:posEvento, posOrcamento;
 	public boolean getEstacionamento(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -848,6 +920,7 @@ public class ControleBancoEvento {
 		return controlInfraestrutura.isEstacionamento();
 	}
 
+	// get imobiliario infraestrutra; Entradas:posEvento, posOrcamento
 	public boolean getImobiliario(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -860,6 +933,7 @@ public class ControleBancoEvento {
 		return controlInfraestrutura.isImobiliario();
 	}
 
+	// get internet infraestrutra; Entradas:posEvento, posOrcamento
 	public boolean getInternet(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -872,6 +946,7 @@ public class ControleBancoEvento {
 		return controlInfraestrutura.isInternet();
 	}
 
+	// get equipamento infraestrutra; Entradas:posEvento, posOrcamento
 	public boolean getEquipamento(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -884,6 +959,7 @@ public class ControleBancoEvento {
 		return controlInfraestrutura.isEquipamento();
 	}
 
+	// get toalete infraestrutra; Entradas:posEvento, posOrcamento
 	public boolean getToalete(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -896,7 +972,7 @@ public class ControleBancoEvento {
 		return controlInfraestrutura.isToalete();
 	}
 
-	// Musica
+	// get descrição musica; Entradas:posEvento, posOrcamento
 	public String getDescricaoMusica(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -908,6 +984,7 @@ public class ControleBancoEvento {
 		return controlMusica.getDescricao();
 	}
 
+	// get Valor total musica; Entradas:posEvento, posOrcamento
 	public double getValorTotalMusica(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -918,6 +995,7 @@ public class ControleBancoEvento {
 		return controlMusica.getValorTotalMusica();
 	}
 
+	// get genero musical musica; Entradas:posEvento, posOrcamento
 	public String getGeneroMusical(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -929,6 +1007,7 @@ public class ControleBancoEvento {
 		return controlMusica.getGeneroMusical();
 	}
 
+	// get DJ musica; Entradas:posEvento, posOrcamento
 	public boolean getDj(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -940,6 +1019,7 @@ public class ControleBancoEvento {
 		return controlMusica.isDj();
 	}
 
+	// get banda musica; Entradas:posEvento, posOrcamento
 	public boolean getBanda(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
@@ -951,18 +1031,20 @@ public class ControleBancoEvento {
 		return controlMusica.isBanda();
 	}
 
-	// programaçao
+	// get descrição Programação; Entradas:pos
 
 	public String[] getDescricaoProgramacao(int pos) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
 		return controlEvento.getDescricaoProgramacao();
 	}
 
+	// get Hora Programação; Entradas:pos
 	public String[] getHoraProgramacao(int pos) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
 		return controlEvento.getHoraProgramacao();
 	}
 
+	// get descrição Pro; Entradas: posEvento, posProgramacao
 	public String getDescricaoPro(int posEvento, int posProgramacao) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleProgramacao controlProgramacao = new ControleProgramacao(
@@ -970,6 +1052,7 @@ public class ControleBancoEvento {
 		return controlProgramacao.getDescricao();
 	}
 
+	// get Hora Pro; Entradas: posEvento, posProgramacao
 	public String getHoraPro(int posEvento, int posProgramacao) {
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleProgramacao controlProgramacao = new ControleProgramacao(
@@ -977,8 +1060,12 @@ public class ControleBancoEvento {
 		return controlProgramacao.getHora();
 	}
 
-	// retorna verdadeiro se a data estiver no formato correto e dentro do padrão do
-	// localDate
+	/*
+	 * Objetivo: Validar a data se estiver informada incorretamente. retorna
+	 * verdadeiro se a data estiver no formato correto e dentro do padrão do
+	 * localDate
+	 */
+
 	public boolean validaData(String data) {
 		String formatoData = "dd/MM/uuuu";
 
@@ -992,8 +1079,11 @@ public class ControleBancoEvento {
 			return false;
 		}
 	}
+	/*
+	 * Objetivo: Validar a hora se estiver informada incorretamente. retorna
+	 * verdadeiro se a hora estiver no formato correto
+	 */
 
-	// retorna verdadeiro se a hora estiver no formato correto
 	public boolean validaHora(String hora) {
 		int horas, minutos;
 		try {
@@ -1009,8 +1099,11 @@ public class ControleBancoEvento {
 		}
 
 	}
+	/*
+	 * Objetivo: Validar o Cep se estiver informada incorretamente. retorna
+	 * verdadeiro se o Cep estiver no formato correto
+	 */
 
-	// retorna verdadeiro se a hora estiver no formato correto
 	public boolean validaCEP(String cep) {
 		try {
 			String[] digitos = cep.split("-"); // divide em um vetor de strings

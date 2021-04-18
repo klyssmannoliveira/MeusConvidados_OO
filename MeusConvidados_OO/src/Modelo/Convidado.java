@@ -11,7 +11,7 @@ public class Convidado {
 
 	/*
 	 * Objetivo: Construtor da Classe Convidado ; 
-	 * Entrada : nome, quantAcompanhante, telefone, email, redeSocial, endereco;
+	 * Entrada : nome, quantAcompanhante, telefone, email, redeSocial, endereco, cep, complemento;
 	 * 
 	 */
 

@@ -8,10 +8,9 @@ public class Musica extends Orcamento {
 	private String generoMusical; // Classifica o genero musical
 	private boolean banda; // classifica se é uma banda ou não
 	private boolean dj; // classifica se é um DJ ou não
-	
+
 	/*
-	 * Objetivo: Construtor da Classe Musica; 
-	 * Entrada : descricao e valorTotal;
+	 * Objetivo: Construtor da Classe Musica; Entrada : descricao e valorTotal;
 	 * 
 	 */
 	public Musica(int tipo, String descricao, double valorTotal) {
@@ -20,28 +19,23 @@ public class Musica extends Orcamento {
 	}
 
 	/*
-	 * Objetivo: Construtor da Classe Musica (sobrecarga); 
-	 * Entrada : descricao, quantidade, generoMusical, banda, dj;
+	 * Objetivo: Construtor da Classe Musica (sobrecarga); Entrada : descricao,
+	 * quantidade, generoMusical, banda, dj;
 	 */
-	public Musica(int tipo,String descricao, double valorTotal, String generoMusical, boolean banda, boolean dj) {
-		super(tipo,descricao, valorTotal);
+	public Musica(int tipo, String descricao, double valorTotal, String generoMusical, boolean banda, boolean dj) {
+		super(tipo, descricao, valorTotal);
 		this.generoMusical = generoMusical;
 		this.banda = banda;
 		this.dj = dj;
 	}
-	
-	public Musica() {
-	}
-
 	/*
-	 * Objetivo: Retorna a uma string; Saida: descrição, valorTotal;
+	 * Objetivo: Construtor da Classe Musica (sobrecarga) Entrada : sem entrada
 	 * 
 	 */
 
-	public String toString() {
-		return "Orçamento: " + descricao + "\nValor total: R$ " + valorTotal;
+	public Musica() {
 	}
-	
+
 	/*
 	 * Objetivo: Getters e Setters referentes a Bebida;
 	 * 
@@ -60,7 +54,7 @@ public class Musica extends Orcamento {
 	public boolean isBanda() {
 		return banda;
 	}
-	
+
 	// set da banda
 	public void setBanda(boolean banda) {
 		this.banda = banda;
@@ -75,7 +69,5 @@ public class Musica extends Orcamento {
 	public void setDj(boolean dj) {
 		this.dj = dj;
 	}
-	
-	
 
 }
