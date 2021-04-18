@@ -27,9 +27,11 @@ public class TelaDetalheEvento implements ActionListener {
 	private JTextField valorCEP;
 	private JLabel labelComplemen = new JLabel("Complemento: ");
 	private JTextField valorComplemen;
+	private JLabel labelOrcamentoPrevisto = new JLabel("Orçamento Previsto: ");
+	private JTextField valorOrcamentoPrevisto;
 	private JButton botaoExcluir = new JButton("Excluir");
 	private JButton botaoSalvar = new JButton("Salvar");
-	private String[] novoDado = new String[8];
+	private String[] novoDado = new String[9];
 	private static ControleBancoEvento dados;
 	private int posicao;
 	private int opcao;
@@ -56,6 +58,8 @@ public class TelaDetalheEvento implements ActionListener {
 			valorEnd = new JTextField(dados.getEndereco(pos), 200);
 			valorCEP = new JTextField(dados.getCep(pos), 11);
 			valorComplemen = new JTextField(dados.getComplemento(pos), 200);
+			valorOrcamentoPrevisto = new JTextField(String.format("%.2f",dados.getOrcamentoPrevisto(pos)), 200);
+		
 		} else { // Cadastro de um novo evento: As caixas de textos aparecem vazias
 
 			valorNome = new JTextField(200);
@@ -65,8 +69,9 @@ public class TelaDetalheEvento implements ActionListener {
 			valorEnd = new JTextField(200);
 			valorCEP = new JTextField(11);
 			valorComplemen = new JTextField(200);
-
-			botaoSalvar.setBounds(245, 235, 115, 30);
+			valorOrcamentoPrevisto =  new JTextField(200);
+			
+			botaoSalvar.setBounds(245, 265, 115, 30);
 		}
 
 		labelNome.setBounds(30, 20, 150, 25);
@@ -83,11 +88,13 @@ public class TelaDetalheEvento implements ActionListener {
 		valorComplemen.setBounds(180, 170, 180, 25);
 		labelCEP.setBounds(30, 200, 150, 25);
 		valorCEP.setBounds(180, 200, 180, 25);
+		labelOrcamentoPrevisto.setBounds(30, 230, 150, 25);
+		valorOrcamentoPrevisto.setBounds(180, 230, 180, 25);
 
 		// Coloca botoes de excluir e salvar
 		if (op == 2) {
-			botaoSalvar.setBounds(120, 235, 115, 30);
-			botaoExcluir.setBounds(245, 235, 115, 30);
+			botaoSalvar.setBounds(120, 265, 115, 30);
+			botaoExcluir.setBounds(245, 265, 115, 30);
 			this.janela.add(botaoExcluir);
 		}
 
@@ -105,11 +112,13 @@ public class TelaDetalheEvento implements ActionListener {
 		this.janela.add(valorCEP);
 		this.janela.add(labelComplemen);
 		this.janela.add(valorComplemen);
+		this.janela.add(labelOrcamentoPrevisto);
+		this.janela.add(valorOrcamentoPrevisto);
 		this.janela.add(botaoSalvar);
 
 		this.janela.setLayout(null);
 
-		this.janela.setSize(400, 335);
+		this.janela.setSize(400, 365);
 		this.janela.setVisible(true);
 
 		botaoSalvar.addActionListener(this);
@@ -133,6 +142,7 @@ public class TelaDetalheEvento implements ActionListener {
 				novoDado[5] = valorEnd.getText();
 				novoDado[6] = valorCEP.getText();
 				novoDado[7] = valorComplemen.getText();
+				novoDado[8] = valorOrcamentoPrevisto.getText();
 
 				res = dados.adicionarEditarEvento(opcao, posicao, novoDado);
 

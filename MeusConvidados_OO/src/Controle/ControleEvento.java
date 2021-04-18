@@ -26,6 +26,11 @@ public class ControleEvento {
 	public void setNomeEvento(String nome) {
 		evento.setNomeEvento(nome);
 	}
+	
+	public void setOrcamentoPrevisto(double orcamentoPrevisto) {
+		evento.setOrcamentoPrevisto(orcamentoPrevisto);
+	}
+
 
 	public String getDataEvento() {
 		return evento.getInformacaoEvento().getDataEvento();
@@ -131,6 +136,9 @@ public class ControleEvento {
 		return evento.getBdMusica();
 	}
 	
+	public ArrayList<Programacao> getBdProgramacao() {
+		return evento.getBdProgramacao();
+	}
 	
 	
 	public void adicionarConvidado(Convidado convidado) {
@@ -169,6 +177,12 @@ public class ControleEvento {
 	public void adicionarMusica(Musica musica) {
 
 		evento.adicionarMusica(musica);
+
+	}
+	
+	public void adicionarProgramacao(Programacao programacao) {
+
+		evento.adicionarProgramacao(programacao);
 
 	}
 
@@ -232,9 +246,24 @@ public class ControleEvento {
 
 	}
 	
-	
-	
+	public boolean removerProgramacao(int posProgramacao) {
 
+		if (evento.removerProgramacao(posProgramacao))
+			return true;
+		else
+			return false;
+
+	}
+	
+	public String[] getDescricaoProgramacao() {
+		return evento.listarProgramacaoDescricao();
+	}
+
+	public String[] getHoraProgramacao() {
+		return evento.listarProgramacaoHora();
+	}
+	
+	
 	
 	
 }

@@ -22,6 +22,7 @@ public class Evento {
 	private ArrayList<Comida> bdComida = new ArrayList<Comida>(); // cria arraylist de Orcamento;
 	private ArrayList<Infraestrutura> bdInfraestrutura= new ArrayList<Infraestrutura>(); // cria arraylist de Orcamento;
 	private ArrayList<Musica> bdMusica = new ArrayList<Musica>(); // cria arraylist de Orcamento;
+	private ArrayList<Programacao> bdProgramacao = new ArrayList<Programacao>();
 	private double totalGasto = 0.0; // inicializaçao do atributo total de gastos;
 	private double orcamentoPrevisto = 0.0; // inicializaçao do atributo do orçamento Previsto;
 
@@ -30,7 +31,7 @@ public class Evento {
 	 * 
 	 */
 
-	public Evento(String nome, String data, String horai, String horaf, String endereco, String cep, String complemen) {
+	public Evento(String nome, String data, String horai, String horaf, String endereco, String cep, String complemen, double orcamentoPrevisto) {
 		nomeEvento = nome;
 		informacaoEvento.setDataEvento(data);
 		informacaoEvento.setHoraInicio(horai);
@@ -38,6 +39,7 @@ public class Evento {
 		informacaoEvento.setEndereco(endereco);
 		informacaoEvento.setCep(cep);
 		informacaoEvento.setComplemento(complemen);
+		this.orcamentoPrevisto = orcamentoPrevisto;
 	}
 
 	// Sobrecarga do construtor
@@ -85,6 +87,7 @@ public class Evento {
 
 	}
 
+
 	/*
 	 * Objetivo: listar as tarefas realizadas para o evento;
 	 */
@@ -118,6 +121,7 @@ public class Evento {
 		}
 	}
 
+	
 	/*
 	 * Objetivo: Listar os gastos do evento;
 	 */
@@ -129,6 +133,24 @@ public class Evento {
 		return auxiliar;
 	}
 
+	public String[] listarProgramacaoDescricao() {
+		String[] auxiliar = new String[bdProgramacao.size()];
+		for (int i = 0; i < bdProgramacao.size(); i++) {
+			auxiliar[i] =  bdProgramacao.get(i).getDescricao();
+		}
+		return auxiliar;
+	}
+	
+	
+	public String[] listarProgramacaoHora() {
+		String[] auxiliar = new String[bdProgramacao.size()];
+		for (int i = 0; i < bdProgramacao.size(); i++) {
+			auxiliar[i] =  bdProgramacao.get(i).getHora() + " >>> ";
+		}
+		return auxiliar;
+	}
+	
+	
 	/*
 	 * Objetivo: Adicionar gastos do evento; Entrada: gasto;
 	 */
@@ -153,7 +175,13 @@ public class Evento {
 		bdMusica.add(musica);
 	}
 	
-
+	public void adicionarProgramacao(Programacao programacao) {
+		bdProgramacao.add(programacao);
+	}
+	
+	
+	
+	
 	/*
 	 * Objetivo:Remover gastos do evento; Entrada: descricao;
 	 */
@@ -222,7 +250,19 @@ public class Evento {
 	}
 
 	
-	
+
+	public boolean removerProgramacao(int posProgramacao) {
+		if (posProgramacao > bdProgramacao.size()) {
+
+			return false;
+
+		} else {
+			bdProgramacao.remove(posProgramacao);
+			return true;
+		}
+
+	}
+
 	
 	/*
 	 * Objetivo: Getters e Setters referentes ao evento;
@@ -345,6 +385,13 @@ public class Evento {
 	public ArrayList<Musica> getBdMusica() {
 		return bdMusica;
 	}
+	
+	
+	
+	public ArrayList<Programacao> getBdProgramacao() {
+		return bdProgramacao;
+	}
+	
 	
 	
 

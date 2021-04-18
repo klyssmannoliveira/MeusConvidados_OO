@@ -6,16 +6,16 @@ import javax.swing.*;
 import Controle.*;
 
 public class TelaMenuPrincipal implements ActionListener {
-	//instancia os objetos da tela
+	// instancia os objetos da tela
 	private static JFrame janela = new JFrame("Meus Convidados");
 	private static JLabel titulo = new JLabel("Menu Principal");
 	private static JButton gerenciarEvento = new JButton("Gerenciar Evento");
 	private static JButton criarEvento = new JButton("Novo Evento");
 	private static JButton relatorio = new JButton("Relatorio");
-	public  static ControleBancoEvento dados = new ControleBancoEvento();
-	
+	public static ControleBancoEvento dados = new ControleBancoEvento();
+
 	public TelaMenuPrincipal() {
-		//Layout da janela: posicionamento, fonte e etc
+		// Layout da janela: posicionamento, fonte e etc
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
 		titulo.setBounds(120, 40, 150, 30);
 		gerenciarEvento.setBounds(40, 100, 140, 30);
@@ -51,8 +51,7 @@ public class TelaMenuPrincipal implements ActionListener {
 			new TelaDetalheEvento().inserirEditar(1, 0, dados);
 
 		if (src == relatorio)
-			JOptionPane.showMessageDialog(null,
-					"Ainda precisam ser implementadas as funcionalidades\n" + "relacionadas ao relatório do evento",
-					null, JOptionPane.INFORMATION_MESSAGE);
+			new TelaEvento().mostrarDadosEventos(dados, 2);
+
 	}
 }

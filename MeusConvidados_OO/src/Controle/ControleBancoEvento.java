@@ -39,7 +39,7 @@ public class ControleBancoEvento {
 		String[] auxiliar = new String[banco.getBdEventos().size()];
 
 		for (int i = 0; i < banco.getBdEventos().size(); i++) {
-			auxiliar[i] = banco.getBdEventos().get(i).getNomeEvento();
+			auxiliar[i] = i + 1 + " - " + banco.getBdEventos().get(i).getNomeEvento();
 		}
 		return auxiliar;
 	}
@@ -159,7 +159,7 @@ public class ControleBancoEvento {
 		else {
 			if (op == 1) {
 				Evento e = new Evento(dadosEvento[1], dadosEvento[2], dadosEvento[3], dadosEvento[4], dadosEvento[5],
-						dadosEvento[6], dadosEvento[7]);
+						dadosEvento[6], dadosEvento[7], Double.parseDouble(dadosEvento[8]));
 				banco.adicionarEvento(e);
 			} else {
 				ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
@@ -170,6 +170,7 @@ public class ControleBancoEvento {
 				controlEvento.setEndereco(dadosEvento[5]);
 				controlEvento.setCep(dadosEvento[6]);
 				controlEvento.setComplemento(dadosEvento[7]);
+				controlEvento.setOrcamentoPrevisto(Double.parseDouble(dadosEvento[8]));
 			}
 			return true;
 		}
@@ -235,7 +236,7 @@ public class ControleBancoEvento {
 		}
 
 	}
-	
+
 	public boolean adicionarEditarBebida(int op, int posEvento, int posOrcamento, String[] dadosBebida) {
 
 		int aux;
@@ -244,33 +245,34 @@ public class ControleBancoEvento {
 		ControleOrcamento controlOrcamento = new ControleOrcamento(controlEvento.getBdOrcamentos().get(posOrcamento));
 		aux = validaOrcamento(tipo, controlEvento.getEvento(), controlOrcamento.getOrcamento());
 		ControleBebida controlBebida = new ControleBebida(controlEvento.getBdBebida().get(aux));
-			 
-				if (op == 1) {
 
-				Bebida e = new Bebida(1, dadosBebida[1], Integer.parseInt(dadosBebida[2]), Double.parseDouble(dadosBebida[3]), 
-						Double.parseDouble(dadosBebida[4]), Boolean.parseBoolean(dadosBebida[5]), Boolean.parseBoolean(dadosBebida[6]));
-				Orcamento o = new Bebida(1, dadosBebida[1], Integer.parseInt(dadosBebida[2]), Double.parseDouble(dadosBebida[3]), 
-						Double.parseDouble(dadosBebida[4]), Boolean.parseBoolean(dadosBebida[5]), Boolean.parseBoolean(dadosBebida[6]));
-				controlEvento.adicionarBebida(e);
-				controlEvento.adicionarOrcamento(o);
+		if (op == 1) {
 
-			} else {
+			Bebida e = new Bebida(1, dadosBebida[1], Integer.parseInt(dadosBebida[2]),
+					Double.parseDouble(dadosBebida[3]), Double.parseDouble(dadosBebida[4]),
+					Boolean.parseBoolean(dadosBebida[5]), Boolean.parseBoolean(dadosBebida[6]));
+			Orcamento o = new Bebida(1, dadosBebida[1], Integer.parseInt(dadosBebida[2]),
+					Double.parseDouble(dadosBebida[3]), Double.parseDouble(dadosBebida[4]),
+					Boolean.parseBoolean(dadosBebida[5]), Boolean.parseBoolean(dadosBebida[6]));
+			controlEvento.adicionarBebida(e);
+			controlEvento.adicionarOrcamento(o);
 
-				controlOrcamento.setDescricao(dadosBebida[1]);
-				controlOrcamento.setValorTotal(Double.parseDouble(dadosBebida[4]));
-				controlBebida.setDescricao(dadosBebida[1]);
-				controlBebida.setQuantidade(Integer.parseInt(dadosBebida[2]));
-				controlBebida.setValorUnitario(Double.parseDouble(dadosBebida[3]));
-				controlBebida.setValorTotal(Double.parseDouble(dadosBebida[4]));
-				controlBebida.setBebidaQuente(Boolean.parseBoolean(dadosBebida[5]));
-				controlBebida.setAlcoolico(Boolean.parseBoolean(dadosBebida[6]));
-				
+		} else {
 
-			}
-			return true;
+			controlOrcamento.setDescricao(dadosBebida[1]);
+			controlOrcamento.setValorTotal(Double.parseDouble(dadosBebida[4]));
+			controlBebida.setDescricao(dadosBebida[1]);
+			controlBebida.setQuantidade(Integer.parseInt(dadosBebida[2]));
+			controlBebida.setValorUnitario(Double.parseDouble(dadosBebida[3]));
+			controlBebida.setValorTotal(Double.parseDouble(dadosBebida[4]));
+			controlBebida.setBebidaQuente(Boolean.parseBoolean(dadosBebida[5]));
+			controlBebida.setAlcoolico(Boolean.parseBoolean(dadosBebida[6]));
+
+		}
+		return true;
 
 	}
-	
+
 	public boolean adicionarEditarComida(int op, int posEvento, int posOrcamento, String[] dadosComida) {
 
 		int aux;
@@ -280,78 +282,78 @@ public class ControleBancoEvento {
 		aux = validaOrcamento(tipo, controlEvento.getEvento(), controlOrcamento.getOrcamento());
 		ControleComida controlComida = new ControleComida(controlEvento.getBdComida().get(aux));
 
-			if (op == 1) {
+		if (op == 1) {
 
-				Comida e = new Comida(2, dadosComida[1], Integer.parseInt(dadosComida[2]), Double.parseDouble(dadosComida[3]), 
-						Double.parseDouble(dadosComida[4]), Boolean.parseBoolean(dadosComida[5]), 
-						Boolean.parseBoolean(dadosComida[6]), Boolean.parseBoolean(dadosComida[7]));
-				Orcamento o = new Comida(2, dadosComida[1], Integer.parseInt(dadosComida[2]), Double.parseDouble(dadosComida[3]), 
-						Double.parseDouble(dadosComida[4]), Boolean.parseBoolean(dadosComida[5]), 
-						Boolean.parseBoolean(dadosComida[6]), Boolean.parseBoolean(dadosComida[7]));
-				controlEvento.adicionarComida(e);
-				controlEvento.adicionarOrcamento(o);
+			Comida e = new Comida(2, dadosComida[1], Integer.parseInt(dadosComida[2]),
+					Double.parseDouble(dadosComida[3]), Double.parseDouble(dadosComida[4]),
+					Boolean.parseBoolean(dadosComida[5]), Boolean.parseBoolean(dadosComida[6]),
+					Boolean.parseBoolean(dadosComida[7]));
+			Orcamento o = new Comida(2, dadosComida[1], Integer.parseInt(dadosComida[2]),
+					Double.parseDouble(dadosComida[3]), Double.parseDouble(dadosComida[4]),
+					Boolean.parseBoolean(dadosComida[5]), Boolean.parseBoolean(dadosComida[6]),
+					Boolean.parseBoolean(dadosComida[7]));
+			controlEvento.adicionarComida(e);
+			controlEvento.adicionarOrcamento(o);
 
-			} else {
+		} else {
 
-				controlOrcamento.setDescricao(dadosComida[1]);
-				controlOrcamento.setValorTotal(Double.parseDouble(dadosComida[4]));
-				controlComida.setDescricao(dadosComida[1]);
-				controlComida.setQuantidade(Integer.parseInt(dadosComida[2]));
-				controlComida.setValorTotal(Double.parseDouble(dadosComida[3]));
-				controlComida.setValorUnitario(Double.parseDouble(dadosComida[4]));
-				controlComida.setPrincipal(Boolean.parseBoolean(dadosComida[5]));
-				controlComida.setDegustativo(Boolean.parseBoolean(dadosComida[6]));
-				controlComida.setSobremesa(Boolean.parseBoolean(dadosComida[7]));
-				
+			controlOrcamento.setDescricao(dadosComida[1]);
+			controlOrcamento.setValorTotal(Double.parseDouble(dadosComida[4]));
+			controlComida.setDescricao(dadosComida[1]);
+			controlComida.setQuantidade(Integer.parseInt(dadosComida[2]));
+			controlComida.setValorTotal(Double.parseDouble(dadosComida[3]));
+			controlComida.setValorUnitario(Double.parseDouble(dadosComida[4]));
+			controlComida.setPrincipal(Boolean.parseBoolean(dadosComida[5]));
+			controlComida.setDegustativo(Boolean.parseBoolean(dadosComida[6]));
+			controlComida.setSobremesa(Boolean.parseBoolean(dadosComida[7]));
 
-			}
-			return true;
-		
+		}
+		return true;
 
 	}
-	
-	public boolean adicionarEditarInfraestrutura(int op, int posEvento, int posOrcamento, String[] dadosInfraestrutura) {
+
+	public boolean adicionarEditarInfraestrutura(int op, int posEvento, int posOrcamento,
+			String[] dadosInfraestrutura) {
 
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleOrcamento controlOrcamento = new ControleOrcamento(controlEvento.getBdOrcamentos().get(posOrcamento));
 		aux = validaOrcamento(tipo, controlEvento.getEvento(), controlOrcamento.getOrcamento());
-		ControleInfraestrutura controlInfraestrutura = new ControleInfraestrutura(controlEvento.getBdInfraestrutura().get(aux));
+		ControleInfraestrutura controlInfraestrutura = new ControleInfraestrutura(
+				controlEvento.getBdInfraestrutura().get(aux));
 
-			if (op == 1) {
+		if (op == 1) {
 
-				Infraestrutura e = new Infraestrutura(3, dadosInfraestrutura[1], Double.parseDouble(dadosInfraestrutura[2]), 
-						Boolean.parseBoolean(dadosInfraestrutura[3]), Boolean.parseBoolean(dadosInfraestrutura[4]),
-						Boolean.parseBoolean(dadosInfraestrutura[5]), Boolean.parseBoolean(dadosInfraestrutura[6]),
-						Boolean.parseBoolean(dadosInfraestrutura[7]), Boolean.parseBoolean(dadosInfraestrutura[8]));
-				Orcamento o = new Infraestrutura(3, dadosInfraestrutura[1], Double.parseDouble(dadosInfraestrutura[2]), 
-						Boolean.parseBoolean(dadosInfraestrutura[3]), Boolean.parseBoolean(dadosInfraestrutura[4]),
-						Boolean.parseBoolean(dadosInfraestrutura[5]), Boolean.parseBoolean(dadosInfraestrutura[6]),
-						Boolean.parseBoolean(dadosInfraestrutura[7]), Boolean.parseBoolean(dadosInfraestrutura[8]));
-				controlEvento.adicionarInfraestrutura(e);
-				controlEvento.adicionarOrcamento(o);
+			Infraestrutura e = new Infraestrutura(3, dadosInfraestrutura[1], Double.parseDouble(dadosInfraestrutura[2]),
+					Boolean.parseBoolean(dadosInfraestrutura[3]), Boolean.parseBoolean(dadosInfraestrutura[4]),
+					Boolean.parseBoolean(dadosInfraestrutura[5]), Boolean.parseBoolean(dadosInfraestrutura[6]),
+					Boolean.parseBoolean(dadosInfraestrutura[7]), Boolean.parseBoolean(dadosInfraestrutura[8]));
+			Orcamento o = new Infraestrutura(3, dadosInfraestrutura[1], Double.parseDouble(dadosInfraestrutura[2]),
+					Boolean.parseBoolean(dadosInfraestrutura[3]), Boolean.parseBoolean(dadosInfraestrutura[4]),
+					Boolean.parseBoolean(dadosInfraestrutura[5]), Boolean.parseBoolean(dadosInfraestrutura[6]),
+					Boolean.parseBoolean(dadosInfraestrutura[7]), Boolean.parseBoolean(dadosInfraestrutura[8]));
+			controlEvento.adicionarInfraestrutura(e);
+			controlEvento.adicionarOrcamento(o);
 
-			} else {
+		} else {
 
-				controlOrcamento.setDescricao(dadosInfraestrutura[1]);
-				controlOrcamento.setValorTotal(Double.parseDouble(dadosInfraestrutura[2]));
-				controlInfraestrutura.setDescricao(dadosInfraestrutura[1]);
-				controlInfraestrutura.setValorTotal(Double.parseDouble(dadosInfraestrutura[2]));
-				controlInfraestrutura.setDecoracao(Boolean.parseBoolean(dadosInfraestrutura[3]));
-				controlInfraestrutura.setEstacionamento(Boolean.parseBoolean(dadosInfraestrutura[4]));
-				controlInfraestrutura.setImobiliario(Boolean.parseBoolean(dadosInfraestrutura[5]));
-				controlInfraestrutura.setInternet(Boolean.parseBoolean(dadosInfraestrutura[6]));
-				controlInfraestrutura.setEquipamento(Boolean.parseBoolean(dadosInfraestrutura[7]));
-				controlInfraestrutura.setToalete(Boolean.parseBoolean(dadosInfraestrutura[8]));
-				
+			controlOrcamento.setDescricao(dadosInfraestrutura[1]);
+			controlOrcamento.setValorTotal(Double.parseDouble(dadosInfraestrutura[2]));
+			controlInfraestrutura.setDescricao(dadosInfraestrutura[1]);
+			controlInfraestrutura.setValorTotal(Double.parseDouble(dadosInfraestrutura[2]));
+			controlInfraestrutura.setDecoracao(Boolean.parseBoolean(dadosInfraestrutura[3]));
+			controlInfraestrutura.setEstacionamento(Boolean.parseBoolean(dadosInfraestrutura[4]));
+			controlInfraestrutura.setImobiliario(Boolean.parseBoolean(dadosInfraestrutura[5]));
+			controlInfraestrutura.setInternet(Boolean.parseBoolean(dadosInfraestrutura[6]));
+			controlInfraestrutura.setEquipamento(Boolean.parseBoolean(dadosInfraestrutura[7]));
+			controlInfraestrutura.setToalete(Boolean.parseBoolean(dadosInfraestrutura[8]));
 
-			}
-			return true;
-		
+		}
+		return true;
 
 	}
-	
+
 	public boolean adicionarEditarMusica(int op, int posEvento, int posOrcamento, String[] dadosMusica) {
 
 		int aux;
@@ -361,31 +363,48 @@ public class ControleBancoEvento {
 		aux = validaOrcamento(tipo, controlEvento.getEvento(), controlOrcamento.getOrcamento());
 		ControleMusica controlMusica = new ControleMusica(controlEvento.getBdMusica().get(aux));
 
-			if (op == 1) {
+		if (op == 1) {
 
-				Musica e = new Musica(4, dadosMusica[1], Double.parseDouble(dadosMusica[2]), 
-						dadosMusica[3], Boolean.parseBoolean(dadosMusica[4]),
-						Boolean.parseBoolean(dadosMusica[5]));
-				Orcamento o = new  Musica(4, dadosMusica[1], Double.parseDouble(dadosMusica[2]), 
-						dadosMusica[3], Boolean.parseBoolean(dadosMusica[4]),
-						Boolean.parseBoolean(dadosMusica[5]));
-				controlEvento.adicionarMusica(e);
-				controlEvento.adicionarOrcamento(o);
+			Musica e = new Musica(4, dadosMusica[1], Double.parseDouble(dadosMusica[2]), dadosMusica[3],
+					Boolean.parseBoolean(dadosMusica[4]), Boolean.parseBoolean(dadosMusica[5]));
+			Orcamento o = new Musica(4, dadosMusica[1], Double.parseDouble(dadosMusica[2]), dadosMusica[3],
+					Boolean.parseBoolean(dadosMusica[4]), Boolean.parseBoolean(dadosMusica[5]));
+			controlEvento.adicionarMusica(e);
+			controlEvento.adicionarOrcamento(o);
 
-			} else {
+		} else {
 
-				controlOrcamento.setDescricao(dadosMusica[1]);
-				controlOrcamento.setValorTotal(Double.parseDouble(dadosMusica[2]));
-				controlMusica.setDescricao(dadosMusica[1]);
-				controlMusica.setValorTotal(Double.parseDouble(dadosMusica[2]));
-				controlMusica.setGeneroMusical(dadosMusica[3]);
-				controlMusica.setBanda(Boolean.parseBoolean(dadosMusica[4]));
-				controlMusica.setDj(Boolean.parseBoolean(dadosMusica[5]));
-				
+			controlOrcamento.setDescricao(dadosMusica[1]);
+			controlOrcamento.setValorTotal(Double.parseDouble(dadosMusica[2]));
+			controlMusica.setDescricao(dadosMusica[1]);
+			controlMusica.setValorTotal(Double.parseDouble(dadosMusica[2]));
+			controlMusica.setGeneroMusical(dadosMusica[3]);
+			controlMusica.setBanda(Boolean.parseBoolean(dadosMusica[4]));
+			controlMusica.setDj(Boolean.parseBoolean(dadosMusica[5]));
 
-			}
-			return true;
-		
+		}
+		return true;
+
+	}
+
+	public boolean adicionarEditarProgramacao(int op, int posEvento, int posProgramacao, String[] dadosProgramacao) {
+
+		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
+		ControleProgramacao controlProgramacao = new ControleProgramacao(
+				controlEvento.getBdProgramacao().get(posProgramacao));
+
+		if (op == 1) {
+
+			Programacao e = new Programacao(dadosProgramacao[0], dadosProgramacao[1]);
+			controlEvento.adicionarProgramacao(e);
+
+		} else {
+
+			controlProgramacao.setDescricao(dadosProgramacao[0]);
+			controlProgramacao.setHora(dadosProgramacao[1]);
+
+		}
+		return true;
 
 	}
 
@@ -420,7 +439,7 @@ public class ControleBancoEvento {
 		}
 
 	}
-	
+
 	public boolean removerBebida(int posEvento, int posOrcamento) {
 
 		int aux;
@@ -435,7 +454,7 @@ public class ControleBancoEvento {
 		}
 
 	}
-	
+
 	public boolean removerComida(int posEvento, int posOrcamento) {
 
 		int aux;
@@ -450,7 +469,7 @@ public class ControleBancoEvento {
 		}
 
 	}
-	
+
 	public boolean removerInfraestrutura(int posEvento, int posOrcamento) {
 
 		int aux;
@@ -465,7 +484,7 @@ public class ControleBancoEvento {
 		}
 
 	}
-	
+
 	public boolean removerMusica(int posEvento, int posOrcamento) {
 
 		int aux;
@@ -474,6 +493,18 @@ public class ControleBancoEvento {
 		ControleOrcamento controlOrcamento = new ControleOrcamento(controlEvento.getBdOrcamentos().get(posOrcamento));
 		aux = validaOrcamento(tipo, controlEvento.getEvento(), controlOrcamento.getOrcamento());
 		if (controlEvento.removerOrcamento(posOrcamento) && controlEvento.removerMusica(aux)) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+	
+	
+	public boolean removerProgramacao(int posEvento, int posProgramacao) {
+
+		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
+		if (controlEvento.removerProgramacao(posProgramacao)) {
 			return true;
 		} else {
 			return false;
@@ -918,6 +949,32 @@ public class ControleBancoEvento {
 		ControleMusica controlMusica = new ControleMusica(controlEvento.getBdMusica().get(aux));
 
 		return controlMusica.isBanda();
+	}
+
+	// programaçao
+
+	public String[] getDescricaoProgramacao(int pos) {
+		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
+		return controlEvento.getDescricaoProgramacao();
+	}
+
+	public String[] getHoraProgramacao(int pos) {
+		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(pos));
+		return controlEvento.getHoraProgramacao();
+	}
+
+	public String getDescricaoPro(int posEvento, int posProgramacao) {
+		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
+		ControleProgramacao controlProgramacao = new ControleProgramacao(
+				controlEvento.getBdProgramacao().get(posProgramacao));
+		return controlProgramacao.getDescricao();
+	}
+
+	public String getHoraPro(int posEvento, int posProgramacao) {
+		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
+		ControleProgramacao controlProgramacao = new ControleProgramacao(
+				controlEvento.getBdProgramacao().get(posProgramacao));
+		return controlProgramacao.getHora();
 	}
 
 	// retorna verdadeiro se a data estiver no formato correto e dentro do padrão do
