@@ -26,10 +26,6 @@ public class ControleEvento {
 	public void setNomeEvento(String nome) {
 		evento.setNomeEvento(nome);
 	}
-	
-	public void setOrcamentoPrevisto(double orcamentoPrevisto) {
-		evento.setOrcamentoPrevisto(orcamentoPrevisto);
-	}
 
 
 	public String getDataEvento() {
@@ -90,6 +86,10 @@ public class ControleEvento {
 
 	public double getOrcamentoPrevisto() {
 		return evento.getOrcamentoPrevisto();
+	}
+	
+	public void setOrcamentoPrevisto(double orcamentoPrevisto) {
+		evento.setOrcamentoPrevisto(orcamentoPrevisto);
 	}
 
 	public double getTotalGasto() {
