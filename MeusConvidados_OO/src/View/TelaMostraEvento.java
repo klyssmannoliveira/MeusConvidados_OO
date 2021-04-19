@@ -1,11 +1,14 @@
 package View;
+/*
+Sintese
+Objetivo: Classe denominada Tela mostra Evento mostrar a interface gráfica do evento; 
+*/
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -14,7 +17,6 @@ import Controle.*;
 public class TelaMostraEvento implements ActionListener {
 
 	private JFrame janela;
-	// private JLabel labelNome = new JLabel("Nome: ");
 	private JLabel valorNome;
 	private JLabel labelData = new JLabel("Data: ");
 	private JLabel valorData;
@@ -46,13 +48,16 @@ public class TelaMostraEvento implements ActionListener {
 
 	private int posicao;
 	private String s;
-	private int op;
 
+	/*
+	 * Objetivo: Método para mostrar o Evento. Entrada : op, pos, TelaEvento p,
+	 * ControleBancoEvento d;
+	 * 
+	 */
 	public void mostrarEvento(int op, int pos, TelaEvento p, ControleBancoEvento d) {
 
 		posicao = pos;
 		dados = d;
-		this.op = op;
 		s = "Detalhes do Evento";
 		janela = new JFrame(s);
 		if (op == 1) {
@@ -97,7 +102,6 @@ public class TelaMostraEvento implements ActionListener {
 			botaoTarefas.setBounds(230, 200, 100, 30);
 			botaoOrcamento.setBounds(335, 200, 100, 30);
 			botaoProgramacao.setBounds(300, 20, 130, 30);
-			
 
 			this.janela.add(valorNome);
 			this.janela.add(labelData);
@@ -140,8 +144,8 @@ public class TelaMostraEvento implements ActionListener {
 
 		}
 		if (op == 2) {
-			
-			frase = new JLabel("Compareça ao Meu Evento: " + dados.getNomeEvento(posicao) + ". Não Perca a Data !!!" );
+
+			frase = new JLabel("Compareça ao Meu Evento: " + dados.getNomeEvento(posicao) + ". Não Perca a Data !!!");
 			valorNome = new JLabel(dados.getNomeEvento(posicao));
 			valorData = new JLabel(String.valueOf(dados.getDataEvento(posicao)));
 			valorData.setFont(new Font("Arial", Font.BOLD, 12));
@@ -160,7 +164,7 @@ public class TelaMostraEvento implements ActionListener {
 			valorNome.setFont(new Font("Arial", Font.BOLD, 30));
 			frase.setFont(new Font("Arial", Font.BOLD, 15));
 			frase.setForeground(Color.green);
-			
+
 			valorNome.setBounds(150, 20, 180, 25);
 			labelData.setBounds(30, 50, 90, 25);
 			valorData.setBounds(65, 50, 90, 25);
@@ -216,6 +220,10 @@ public class TelaMostraEvento implements ActionListener {
 
 	}
 
+	/*
+	 * Objetivo: Método para clicar no botão da interface gráfica.
+	 * 
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if (src == botaoEditar) {

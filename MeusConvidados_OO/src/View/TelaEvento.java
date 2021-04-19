@@ -1,5 +1,9 @@
 package View;
 
+/*
+Sintese
+Objetivo: Classe denominada Tela Evento para mostrar a interface gráfica do evento; 
+*/
 import Controle.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -18,6 +22,11 @@ public class TelaEvento implements ActionListener, ListSelectionListener {
 	private String[] listaNomesEvento = new String[50];
 	private int op;
 
+	/*
+	 * Objetivo: Método que mostra os dados do Evento. Entrada : ControleBancoEvento
+	 * , op;
+	 * 
+	 */
 	public void mostrarDadosEventos(ControleBancoEvento d, int op) {
 		dados = d;
 		this.op = op;
@@ -105,13 +114,14 @@ public class TelaEvento implements ActionListener, ListSelectionListener {
 		if (op == 1) {
 
 			if (e.getValueIsAdjusting() && src == listaEventosCriados) {
-				new TelaMostraEvento().mostrarEvento(1,listaEventosCriados.getSelectedIndex(), this, dados);
+				new TelaMostraEvento().mostrarEvento(1, listaEventosCriados.getSelectedIndex(), this, dados);
 			}
 
-		} if (op == 2) {
-			
+		}
+		if (op == 2) {
+
 			if (e.getValueIsAdjusting() && src == listaEventosCriados) {
-				new TelaMostraEvento().mostrarEvento(2,listaEventosCriados.getSelectedIndex(), this, dados);
+				new TelaMostraEvento().mostrarEvento(2, listaEventosCriados.getSelectedIndex(), this, dados);
 			}
 
 		}

@@ -1,5 +1,10 @@
 package View;
 
+/*
+Sintese
+Objetivo: Classe denominada Tela Cadastro Atualiza para mostrar a interface gráfica do cadastro e atualização do evento; 
+*/
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -44,6 +49,11 @@ public class TelaCadastroAtualiza implements ActionListener {
 	private int posEvento;
 	private String s;
 
+	/*
+	 * Objetivo: Método para inserir e editar Convidados e tarefas. Entrada : op,
+	 * posEvento, posObjeto, ControleBancoEvento;
+	 * 
+	 */
 	public void inserirEditarConvTare(int op, int posEvento, int posObjeto, ControleBancoEvento d) {
 
 		opcao = op;
@@ -227,6 +237,10 @@ public class TelaCadastroAtualiza implements ActionListener {
 		botaoExcluir.addActionListener(this);
 	}
 
+	/*
+	 * Objetivo: Método para clicar no botão da interface gráfica.
+	 * 
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if (src == botaoSalvar) {
@@ -242,19 +256,18 @@ public class TelaCadastroAtualiza implements ActionListener {
 					novoDado[7] = valorComplemen.getText();
 					novoDado[8] = valorTelefone.getText();
 					res = dados.adicionarEditarConvidado(opcao, posEvento, posObjeto, novoDado);
-				}
-				else if (opcao == 2 || opcao == 4) {
+				} else if (opcao == 2 || opcao == 4) {
 
 					novoDado[1] = valorDescricao.getText();
 					novoDado[2] = valorDataLimite.getText();
-					if(valorConcluido.isSelected()) 
+					if (valorConcluido.isSelected())
 						novoDado[3] = "true";
 					else
 						novoDado[3] = "false";
-					
+
 					res = dados.adicionarEditarTarefa(opcao, posEvento, posObjeto, novoDado);
-				}
-				else res = false;
+				} else
+					res = false;
 
 				if (res) {
 					mensagemSucessoCadastro();
@@ -284,18 +297,30 @@ public class TelaCadastroAtualiza implements ActionListener {
 
 	}
 
+	/*
+	 * Objetivo: Método para mensagem de exclusão com sucesso
+	 * 
+	 */
 	public void mensagemSucessoExclusao() {
 		JOptionPane.showMessageDialog(null, "Os dados foram excluidos com sucesso!", null,
 				JOptionPane.INFORMATION_MESSAGE);
 		janela.dispose();
 	}
 
+	/*
+	 * Objetivo: Método para mensagem de Cadastro com sucesso
+	 * 
+	 */
 	public void mensagemSucessoCadastro() {
 		JOptionPane.showMessageDialog(null, "Os dados foram salvos com sucesso!", null,
 				JOptionPane.INFORMATION_MESSAGE);
 		janela.dispose();
 	}
 
+	/*
+	 * Objetivo: Método para mensagem de erro de Cadastro
+	 * 
+	 */
 	public void mensagemErroCadastro() {
 		JOptionPane.showMessageDialog(null,
 				"ERRO AO SALVAR OS DADOS!\n " + "Pode ter ocorrido um dos dois erros a seguir:  \n"
@@ -306,6 +331,10 @@ public class TelaCadastroAtualiza implements ActionListener {
 				null, JOptionPane.ERROR_MESSAGE);
 	}
 
+	/*
+	 * Objetivo: Método para mensagem de erro de exclusao do evento
+	 * 
+	 */
 	public void mensagemErroExclusaoEvento() {
 		JOptionPane.showMessageDialog(null,
 				"Ocorreu um erro ao excluir o dado.\n " + "Verifique se o nome do evento está correto\n", null,
@@ -313,3 +342,5 @@ public class TelaCadastroAtualiza implements ActionListener {
 	}
 
 }
+
+

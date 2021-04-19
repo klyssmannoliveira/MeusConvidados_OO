@@ -1,5 +1,10 @@
 package View;
 
+/*
+Sintese
+Objetivo: Classe denominada Tela Escolha Orcamento para mostrar a interface gráfica para escolha do orcamento do evento; 
+*/
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -14,9 +19,13 @@ public class TelaEscolhaOrcamento implements ActionListener {
 	private static JButton musica = new JButton("Música");
 	private static JButton infraestrutura = new JButton("Infraestrutura");
 	private int posEvento;
-
 	private static ControleBancoEvento dados;
 
+	/*
+	 * Objetivo: Método da tela menu do orcamento. Entrada : posEvento,
+	 * ControleBancoEvento d;
+	 * 
+	 */
 	public void TelaMenuOrcamento(int posEvento, ControleBancoEvento d) {
 
 		this.posEvento = posEvento;
@@ -46,6 +55,11 @@ public class TelaEscolhaOrcamento implements ActionListener {
 		infraestrutura.addActionListener(this);
 		musica.addActionListener(this);
 	}
+
+	/*
+	 * Objetivo: Método para clicar no botão da interface gráfica.
+	 * 
+	 */
 
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();

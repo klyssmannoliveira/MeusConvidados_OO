@@ -1,5 +1,9 @@
 package View;
 
+/*
+Sintese
+Objetivo: Classe denominada Tela Menu Principal  para mostrar a interface gráfica do menu principal do programa; 
+*/
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -14,6 +18,11 @@ public class TelaMenuPrincipal implements ActionListener {
 	private static JButton relatorio = new JButton("Relatorio");
 	public static ControleBancoEvento dados = new ControleBancoEvento();
 
+	/*
+	 * Objetivo: Método para layout da tela principal do programa. Entrada : sem
+	 * entrada
+	 * 
+	 */
 	public TelaMenuPrincipal() {
 		// Layout da janela: posicionamento, fonte e etc
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
@@ -33,6 +42,11 @@ public class TelaMenuPrincipal implements ActionListener {
 		janela.setVisible(true);
 	}
 
+	/*
+	 * Objetivo: Método para Tela menu principal com os seguintes botões: gerenciar
+	 * evento, criar evento e relatorio.
+	 * 
+	 */
 	public static void main(String[] args) {
 		TelaMenuPrincipal menu = new TelaMenuPrincipal();
 
@@ -41,6 +55,10 @@ public class TelaMenuPrincipal implements ActionListener {
 		relatorio.addActionListener(menu);
 	}
 
+	/*
+	 * Objetivo: Método para clicar no botão da interface gráfica.
+	 * 
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 

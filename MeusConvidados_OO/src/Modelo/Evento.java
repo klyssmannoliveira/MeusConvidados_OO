@@ -284,10 +284,7 @@ public class Evento {
 
 	}
 
-	/*
-	 * Objetivo: Getters e Setters referentes ao evento;
-	 */
-	// get nome do evento;
+	// get Nome Evento
 	public String getNomeEvento() {
 		return nomeEvento;
 	}
@@ -307,10 +304,8 @@ public class Evento {
 		this.informacaoEvento = informacaoEvento;
 	}
 
-	
 	/*
-	 * Objetivo: Cálculo total dos convidados;
-	 * set do total de convidados do evento;
+	 * Objetivo: Cálculo total dos convidados; set do total de convidados do evento;
 	 */
 	public void setTotalConvidados() {
 		totalConvidados = 0;

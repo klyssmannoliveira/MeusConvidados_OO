@@ -1,5 +1,9 @@
 package View;
 
+/*
+Sintese
+Objetivo: Classe denominada Tela Listagem para mostrar a interface gráfica das listas dos eventos; 
+*/
 import Controle.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -23,6 +27,11 @@ public class TelaListagem implements ActionListener, ListSelectionListener {
 	private int posicao;
 	private int opcao;
 
+	/*
+	 * Objetivo: Método para mostrar dos dados das listas do eventod. Entrada : op,
+	 * pos, ControleBancoEvento d;
+	 * 
+	 */
 	public void mostrarDados(int op, int pos, ControleBancoEvento d) {
 		dados = d;
 		posicao = pos;
@@ -116,8 +125,7 @@ public class TelaListagem implements ActionListener, ListSelectionListener {
 			labelTotal = new JLabel("Total gasto: ");
 			valorTotal = new JLabel("R$ " + String.format("%.2f", dados.getTotalGasto(posicao)));
 			labelOrcamentoPrevisto = new JLabel("Orçamento Previsto: ");
-			valorOrcamentoPrevisto = new JLabel(
-					"R$ " + String.format("%.2f", dados.getOrcamentoPrevisto(posicao)));
+			valorOrcamentoPrevisto = new JLabel("R$ " + String.format("%.2f", dados.getOrcamentoPrevisto(posicao)));
 			cadastro = new JButton("Cadastrar");
 			atualizar = new JButton("Atualizar");
 
@@ -164,15 +172,15 @@ public class TelaListagem implements ActionListener, ListSelectionListener {
 		if (src == cadastro) {
 
 			if (opcao == 1) // Convidados
-               
+
 				new TelaCadastroAtualiza().inserirEditarConvTare(1, posicao, 0, dados);
 
 			if (opcao == 2) // Tarefas
-				
+
 				new TelaCadastroAtualiza().inserirEditarConvTare(2, posicao, 0, dados);
-			
-             if (opcao == 3) // Orçamento
-				
+
+			if (opcao == 3) // Orçamento
+
 				new TelaEscolhaOrcamento().TelaMenuOrcamento(posicao, dados);
 
 		}
@@ -208,12 +216,16 @@ public class TelaListagem implements ActionListener, ListSelectionListener {
 
 		if (e.getValueIsAdjusting() && src == listaDadosCriados) {
 			if (opcao == 1)
-			new TelaCadastroAtualiza().inserirEditarConvTare(3, posicao, listaDadosCriados.getSelectedIndex(), dados);
+				new TelaCadastroAtualiza().inserirEditarConvTare(3, posicao, listaDadosCriados.getSelectedIndex(),
+						dados);
 			if (opcao == 2)
-			new TelaCadastroAtualiza().inserirEditarConvTare(4, posicao, listaDadosCriados.getSelectedIndex(), dados);
+				new TelaCadastroAtualiza().inserirEditarConvTare(4, posicao, listaDadosCriados.getSelectedIndex(),
+						dados);
 			if (opcao == 3)
-				new TelaCrudOrcamento().inserirEditarOrcamento(2,dados.getTipoOrcamento(posicao, listaDadosCriados.getSelectedIndex()),posicao, listaDadosCriados.getSelectedIndex(), dados);
-			
+				new TelaCrudOrcamento().inserirEditarOrcamento(2,
+						dados.getTipoOrcamento(posicao, listaDadosCriados.getSelectedIndex()), posicao,
+						listaDadosCriados.getSelectedIndex(), dados);
+
 		}
 
 	}

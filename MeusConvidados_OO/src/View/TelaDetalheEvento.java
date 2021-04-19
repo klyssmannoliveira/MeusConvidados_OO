@@ -1,5 +1,10 @@
 package View;
 
+/*
+Sintese
+Objetivo: Classe denominada Tela Detalhe Evento para mostrar a interface gráfica do detalhe  do evento; 
+*/
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -37,6 +42,11 @@ public class TelaDetalheEvento implements ActionListener {
 	private int opcao;
 	private String s;
 
+	/*
+	 * Objetivo: Método para inserir e editar Evento. Entrada : op, pos,
+	 * ControleBancoEvento;
+	 * 
+	 */
 	public void inserirEditar(int op, int pos, ControleBancoEvento d) {
 
 		opcao = op;
@@ -58,8 +68,8 @@ public class TelaDetalheEvento implements ActionListener {
 			valorEnd = new JTextField(dados.getEndereco(pos), 200);
 			valorCEP = new JTextField(dados.getCep(pos), 11);
 			valorComplemen = new JTextField(dados.getComplemento(pos), 200);
-			valorOrcamentoPrevisto = new JTextField(String.format("%.2f",dados.getOrcamentoPrevisto(pos)), 200);
-		
+			valorOrcamentoPrevisto = new JTextField(String.format("%.2f", dados.getOrcamentoPrevisto(pos)), 200);
+
 		} else { // Cadastro de um novo evento: As caixas de textos aparecem vazias
 
 			valorNome = new JTextField(200);
@@ -69,8 +79,8 @@ public class TelaDetalheEvento implements ActionListener {
 			valorEnd = new JTextField(200);
 			valorCEP = new JTextField(11);
 			valorComplemen = new JTextField(200);
-			valorOrcamentoPrevisto =  new JTextField(200);
-			
+			valorOrcamentoPrevisto = new JTextField(200);
+
 			botaoSalvar.setBounds(245, 265, 115, 30);
 		}
 
@@ -125,6 +135,11 @@ public class TelaDetalheEvento implements ActionListener {
 		botaoExcluir.addActionListener(this);
 	}
 
+	/*
+	 * Objetivo: Método para clicar no botão da interface gráfica.
+	 * 
+	 */
+
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if (src == botaoSalvar) {
@@ -172,19 +187,30 @@ public class TelaDetalheEvento implements ActionListener {
 		}
 	}
 
-
+	/*
+	 * Objetivo: Método para mensagem de exclusão com sucesso
+	 * 
+	 */
 	public void mensagemSucessoExclusao() {
 		JOptionPane.showMessageDialog(null, "Os dados foram excluidos com sucesso!", null,
 				JOptionPane.INFORMATION_MESSAGE);
 		janela.dispose();
 	}
 
+	/*
+	 * Objetivo: Método para mensagem de Cadastro com sucesso
+	 * 
+	 */
 	public void mensagemSucessoCadastro() {
 		JOptionPane.showMessageDialog(null, "Os dados foram salvos com sucesso!", null,
 				JOptionPane.INFORMATION_MESSAGE);
 		janela.dispose();
 	}
 
+	/*
+	 * Objetivo: Método para mensagem de erro de Cadastro
+	 * 
+	 */
 	public void mensagemErroCadastro() {
 		JOptionPane.showMessageDialog(null,
 				"ERRO AO SALVAR OS DADOS!\n " + "Pode ter ocorrido um dos dois erros a seguir:  \n"
@@ -195,6 +221,10 @@ public class TelaDetalheEvento implements ActionListener {
 				null, JOptionPane.ERROR_MESSAGE);
 	}
 
+	/*
+	 * Objetivo: Método para mensagem de erro de exclusao do evento
+	 * 
+	 */
 	public void mensagemErroExclusaoEvento() {
 		JOptionPane.showMessageDialog(null,
 				"Ocorreu um erro ao excluir o dado.\n " + "Verifique se o nome do evento está correto\n", null,
