@@ -229,7 +229,6 @@ public class TelaCadastroAtualiza implements ActionListener {
 			this.janela.add(botaoExcluir);
 			this.janela.setLayout(null);
 			this.janela.setSize(400, 200);
-
 		}
 
 		this.janela.setVisible(true);
