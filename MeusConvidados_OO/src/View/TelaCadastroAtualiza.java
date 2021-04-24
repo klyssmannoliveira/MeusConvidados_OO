@@ -134,7 +134,7 @@ public class TelaCadastroAtualiza implements ActionListener {
 			valorDataLimite.setBounds(140, 50, 200, 25);
 			valorConcluido.setBounds(120, 80, 180, 25);
 
-			botaoSalvar.setBounds(245, 265, 115, 30);
+			botaoSalvar.setBounds(245, 110, 115, 30);
 
 			this.janela.add(labelDescricao);
 			this.janela.add(valorDescricao);
@@ -144,7 +144,7 @@ public class TelaCadastroAtualiza implements ActionListener {
 
 			this.janela.add(botaoSalvar);
 			this.janela.setLayout(null);
-			this.janela.setSize(400, 150);
+			this.janela.setSize(400, 200);
 
 		}
 		if (op == 3) {
