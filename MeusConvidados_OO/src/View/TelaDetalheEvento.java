@@ -217,7 +217,8 @@ public class TelaDetalheEvento implements ActionListener {
 						+ "1. Nem todos os campos foram preenchidos; \n"
 						+ "2. A data não está no formato dd/mm/aaaa; \n"
 						+ "3. Os horários de início e término não estão no formado hh:mm; \n"
-						+ "4. O CEP não está no formato 12345-123;",
+						+ "4. O CEP não está no formato 12345-123;"
+						+ "5. O Orçamento previsto não contém um número do conjunto dos Reais;",
 				null, JOptionPane.ERROR_MESSAGE);
 	}
 

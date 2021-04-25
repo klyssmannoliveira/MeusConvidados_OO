@@ -10,6 +10,9 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import Modelo.*;
 
 public class ControleBancoEvento {
@@ -154,6 +157,10 @@ public class ControleBancoEvento {
 	// get adicionar e editar um evento. Retorna um boolean com o erro de
 	// preenchimento
 	public boolean adicionarEditarEvento(int op, int pos, String[] dadosEvento) {
+		
+		if (!validaCampo(dadosEvento[1])) { // Verfica descrição
+			return false;
+		}
 
 		if (!validaData(dadosEvento[2])) { // data
 			return false;
@@ -166,7 +173,20 @@ public class ControleBancoEvento {
 		if (!validaHora(dadosEvento[4])) { // hora término
 			return false;
 		}
+		
+		if (!validaCampo(dadosEvento[5])) { // Endereço
+			return false;
+		}
+		
 		if (!validaCEP(dadosEvento[6])) { // CEP
+			return false;
+		}
+		
+		if (!validaCampo(dadosEvento[7])) { // Complemento
+			return false;
+		}
+		
+		if (!validaDouble(dadosEvento[8])) { // Complemento
 			return false;
 		}
 
@@ -195,9 +215,37 @@ public class ControleBancoEvento {
 	public boolean adicionarEditarConvidado(int op, int posEvento, int posConvidado, String[] dadosConvidados) {
 
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
-		ControleConvidado controlConvidado = new ControleConvidado(controlEvento.getBdConvidados().get(posConvidado));
 
+		if(!validaCampo(dadosConvidados[1])) { // Nome
+			return false;
+		}
+		if(!validaInteiro(dadosConvidados[2])) { // Quantidade de acompanhantes
+			return false;
+		}
+		
+		if(!validaInteiro(dadosConvidados[2])) { // Quantidade de acompanhantes
+			return false;
+		}
+		
+		if(!validaEmail(dadosConvidados[3])) { // Email
+			return false;
+		}
+		
+		if(!validaCampo(dadosConvidados[4])) { // redeSocial
+			return false;
+		}
+		
+		if(!validaCampo(dadosConvidados[5])) { // Endereco
+			return false;
+		}
+		
+		if(!validaCampo(dadosConvidados[7])) { // complemento
+			return false;
+		}
 		if (!validaCEP(dadosConvidados[6])) { // CEP
+			return false;
+		}
+		if(!validaTelefone(dadosConvidados[8])) { //Telefone
 			return false;
 		}
 
@@ -210,7 +258,7 @@ public class ControleBancoEvento {
 				controlEvento.adicionarConvidado(e);
 
 			} else {
-
+				ControleConvidado controlConvidado = new ControleConvidado(controlEvento.getBdConvidados().get(posConvidado));
 				controlConvidado.setNome(dadosConvidados[1]);
 				controlConvidado.setQuantAcompanhante(Integer.parseInt(dadosConvidados[2]));
 				controlConvidado.setEmail(dadosConvidados[3]);
@@ -230,8 +278,10 @@ public class ControleBancoEvento {
 	public boolean adicionarEditarTarefa(int op, int posEvento, int posTarefa, String[] dadosTarefa) {
 
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
-		ControleTarefa controlTarefa = new ControleTarefa(controlEvento.getBdTarefas().get(posTarefa));
 
+		if (!validaCampo(dadosTarefa[1])) { // Descricao
+			return false;
+		}
 		if (!validaData(dadosTarefa[2])) { // data
 			return false;
 		} else {
@@ -242,7 +292,7 @@ public class ControleBancoEvento {
 				controlEvento.adicionarTarefa(e);
 
 			} else {
-
+				ControleTarefa controlTarefa = new ControleTarefa(controlEvento.getBdTarefas().get(posTarefa));
 				controlTarefa.setDescricao(dadosTarefa[1]);
 				controlTarefa.setDataLimite(dadosTarefa[2]);
 				controlTarefa.setConcluidoTarefa(Boolean.parseBoolean(dadosTarefa[3]));
@@ -259,34 +309,47 @@ public class ControleBancoEvento {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
-		ControleOrcamento controlOrcamento = new ControleOrcamento(controlEvento.getBdOrcamentos().get(posOrcamento));
-		aux = validaOrcamento(tipo, controlEvento.getEvento(), controlOrcamento.getOrcamento());
-		ControleBebida controlBebida = new ControleBebida(controlEvento.getBdBebida().get(aux));
-
-		if (op == 1) {
-
-			Bebida e = new Bebida(1, dadosBebida[1], Integer.parseInt(dadosBebida[2]),
-					Double.parseDouble(dadosBebida[3]), Double.parseDouble(dadosBebida[4]),
-					Boolean.parseBoolean(dadosBebida[5]), Boolean.parseBoolean(dadosBebida[6]));
-			Orcamento o = new Bebida(1, dadosBebida[1], Integer.parseInt(dadosBebida[2]),
-					Double.parseDouble(dadosBebida[3]), Double.parseDouble(dadosBebida[4]),
-					Boolean.parseBoolean(dadosBebida[5]), Boolean.parseBoolean(dadosBebida[6]));
-			controlEvento.adicionarBebida(e);
-			controlEvento.adicionarOrcamento(o);
-
-		} else {
-
-			controlOrcamento.setDescricao(dadosBebida[1]);
-			controlOrcamento.setValorTotal(Double.parseDouble(dadosBebida[4]));
-			controlBebida.setDescricao(dadosBebida[1]);
-			controlBebida.setQuantidade(Integer.parseInt(dadosBebida[2]));
-			controlBebida.setValorUnitario(Double.parseDouble(dadosBebida[3]));
-			controlBebida.setValorTotal(Double.parseDouble(dadosBebida[4]));
-			controlBebida.setBebidaQuente(Boolean.parseBoolean(dadosBebida[5]));
-			controlBebida.setAlcoolico(Boolean.parseBoolean(dadosBebida[6]));
-
+		
+		if(!validaCampo(dadosBebida[1])) { // Descricao
+			return false;
 		}
-		return true;
+		if(!validaInteiro(dadosBebida[2])) { // Quantidade
+			return false;
+		}
+		if(!validaDouble(dadosBebida[3])) { // Valor unitario
+			return false;
+		}
+		if(!validaDouble(dadosBebida[4])) { // Valor Total
+			return false;
+		}
+		else {
+			if (op == 1) {
+	
+				Bebida e = new Bebida(1, dadosBebida[1], Integer.parseInt(dadosBebida[2]),
+						Double.parseDouble(dadosBebida[3]), Double.parseDouble(dadosBebida[4]),
+						Boolean.parseBoolean(dadosBebida[5]), Boolean.parseBoolean(dadosBebida[6]));
+				Orcamento o = new Bebida(1, dadosBebida[1], Integer.parseInt(dadosBebida[2]),
+						Double.parseDouble(dadosBebida[3]), Double.parseDouble(dadosBebida[4]),
+						Boolean.parseBoolean(dadosBebida[5]), Boolean.parseBoolean(dadosBebida[6]));
+				controlEvento.adicionarBebida(e);
+				controlEvento.adicionarOrcamento(o);
+	
+			} else {
+				ControleOrcamento controlOrcamento = new ControleOrcamento(controlEvento.getBdOrcamentos().get(posOrcamento));
+				aux = validaOrcamento(tipo, controlEvento.getEvento(), controlOrcamento.getOrcamento());
+				ControleBebida controlBebida = new ControleBebida(controlEvento.getBdBebida().get(aux));
+				controlOrcamento.setDescricao(dadosBebida[1]);
+				controlOrcamento.setValorTotal(Double.parseDouble(dadosBebida[4]));
+				controlBebida.setDescricao(dadosBebida[1]);
+				controlBebida.setQuantidade(Integer.parseInt(dadosBebida[2]));
+				controlBebida.setValorUnitario(Double.parseDouble(dadosBebida[3]));
+				controlBebida.setValorTotal(Double.parseDouble(dadosBebida[4]));
+				controlBebida.setBebidaQuente(Boolean.parseBoolean(dadosBebida[5]));
+				controlBebida.setAlcoolico(Boolean.parseBoolean(dadosBebida[6]));
+	
+			}
+			return true;
+		}
 
 	}
 
@@ -296,37 +359,52 @@ public class ControleBancoEvento {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
-		ControleOrcamento controlOrcamento = new ControleOrcamento(controlEvento.getBdOrcamentos().get(posOrcamento));
-		aux = validaOrcamento(tipo, controlEvento.getEvento(), controlOrcamento.getOrcamento());
-		ControleComida controlComida = new ControleComida(controlEvento.getBdComida().get(aux));
-
-		if (op == 1) {
-
-			Comida e = new Comida(2, dadosComida[1], Integer.parseInt(dadosComida[2]),
-					Double.parseDouble(dadosComida[3]), Double.parseDouble(dadosComida[4]),
-					Boolean.parseBoolean(dadosComida[5]), Boolean.parseBoolean(dadosComida[6]),
-					Boolean.parseBoolean(dadosComida[7]));
-			Orcamento o = new Comida(2, dadosComida[1], Integer.parseInt(dadosComida[2]),
-					Double.parseDouble(dadosComida[3]), Double.parseDouble(dadosComida[4]),
-					Boolean.parseBoolean(dadosComida[5]), Boolean.parseBoolean(dadosComida[6]),
-					Boolean.parseBoolean(dadosComida[7]));
-			controlEvento.adicionarComida(e);
-			controlEvento.adicionarOrcamento(o);
-
-		} else {
-
-			controlOrcamento.setDescricao(dadosComida[1]);
-			controlOrcamento.setValorTotal(Double.parseDouble(dadosComida[4]));
-			controlComida.setDescricao(dadosComida[1]);
-			controlComida.setQuantidade(Integer.parseInt(dadosComida[2]));
-			controlComida.setValorTotal(Double.parseDouble(dadosComida[3]));
-			controlComida.setValorUnitario(Double.parseDouble(dadosComida[4]));
-			controlComida.setPrincipal(Boolean.parseBoolean(dadosComida[5]));
-			controlComida.setDegustativo(Boolean.parseBoolean(dadosComida[6]));
-			controlComida.setSobremesa(Boolean.parseBoolean(dadosComida[7]));
-
+		
+		if(!validaCampo(dadosComida[1])) { // Descricao
+			return false;
 		}
-		return true;
+		if(!validaInteiro(dadosComida[2])) { // Quantidade
+			return false;
+		}
+		if(!validaDouble(dadosComida[3])) { // Valor Unitario
+			return false;
+		}
+		if(!validaDouble(dadosComida[4])) { // Valor Total
+			return false;
+		}
+		
+		else {
+			if (op == 1) {
+	
+				Comida e = new Comida(2, dadosComida[1], Integer.parseInt(dadosComida[2]),
+						Double.parseDouble(dadosComida[3]), Double.parseDouble(dadosComida[4]),
+						Boolean.parseBoolean(dadosComida[5]), Boolean.parseBoolean(dadosComida[6]),
+						Boolean.parseBoolean(dadosComida[7]));
+				Orcamento o = new Comida(2, dadosComida[1], Integer.parseInt(dadosComida[2]),
+						Double.parseDouble(dadosComida[3]), Double.parseDouble(dadosComida[4]),
+						Boolean.parseBoolean(dadosComida[5]), Boolean.parseBoolean(dadosComida[6]),
+						Boolean.parseBoolean(dadosComida[7]));
+				controlEvento.adicionarComida(e);
+				controlEvento.adicionarOrcamento(o);
+	
+			} else {
+				ControleOrcamento controlOrcamento = new ControleOrcamento(controlEvento.getBdOrcamentos().get(posOrcamento));
+				aux = validaOrcamento(tipo, controlEvento.getEvento(), controlOrcamento.getOrcamento());
+				ControleComida controlComida = new ControleComida(controlEvento.getBdComida().get(aux));
+				
+				controlOrcamento.setDescricao(dadosComida[1]);
+				controlOrcamento.setValorTotal(Double.parseDouble(dadosComida[4]));
+				controlComida.setDescricao(dadosComida[1]);
+				controlComida.setQuantidade(Integer.parseInt(dadosComida[2]));
+				controlComida.setValorTotal(Double.parseDouble(dadosComida[3]));
+				controlComida.setValorUnitario(Double.parseDouble(dadosComida[4]));
+				controlComida.setPrincipal(Boolean.parseBoolean(dadosComida[5]));
+				controlComida.setDegustativo(Boolean.parseBoolean(dadosComida[6]));
+				controlComida.setSobremesa(Boolean.parseBoolean(dadosComida[7]));
+	
+			}
+			return true;
+		}
 
 	}
 
@@ -337,39 +415,47 @@ public class ControleBancoEvento {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
-		ControleOrcamento controlOrcamento = new ControleOrcamento(controlEvento.getBdOrcamentos().get(posOrcamento));
-		aux = validaOrcamento(tipo, controlEvento.getEvento(), controlOrcamento.getOrcamento());
-		ControleInfraestrutura controlInfraestrutura = new ControleInfraestrutura(
-				controlEvento.getBdInfraestrutura().get(aux));
-
-		if (op == 1) {
-
-			Infraestrutura e = new Infraestrutura(3, dadosInfraestrutura[1], Double.parseDouble(dadosInfraestrutura[2]),
-					Boolean.parseBoolean(dadosInfraestrutura[3]), Boolean.parseBoolean(dadosInfraestrutura[4]),
-					Boolean.parseBoolean(dadosInfraestrutura[5]), Boolean.parseBoolean(dadosInfraestrutura[6]),
-					Boolean.parseBoolean(dadosInfraestrutura[7]), Boolean.parseBoolean(dadosInfraestrutura[8]));
-			Orcamento o = new Infraestrutura(3, dadosInfraestrutura[1], Double.parseDouble(dadosInfraestrutura[2]),
-					Boolean.parseBoolean(dadosInfraestrutura[3]), Boolean.parseBoolean(dadosInfraestrutura[4]),
-					Boolean.parseBoolean(dadosInfraestrutura[5]), Boolean.parseBoolean(dadosInfraestrutura[6]),
-					Boolean.parseBoolean(dadosInfraestrutura[7]), Boolean.parseBoolean(dadosInfraestrutura[8]));
-			controlEvento.adicionarInfraestrutura(e);
-			controlEvento.adicionarOrcamento(o);
-
-		} else {
-
-			controlOrcamento.setDescricao(dadosInfraestrutura[1]);
-			controlOrcamento.setValorTotal(Double.parseDouble(dadosInfraestrutura[2]));
-			controlInfraestrutura.setDescricao(dadosInfraestrutura[1]);
-			controlInfraestrutura.setValorTotal(Double.parseDouble(dadosInfraestrutura[2]));
-			controlInfraestrutura.setDecoracao(Boolean.parseBoolean(dadosInfraestrutura[3]));
-			controlInfraestrutura.setEstacionamento(Boolean.parseBoolean(dadosInfraestrutura[4]));
-			controlInfraestrutura.setImobiliario(Boolean.parseBoolean(dadosInfraestrutura[5]));
-			controlInfraestrutura.setInternet(Boolean.parseBoolean(dadosInfraestrutura[6]));
-			controlInfraestrutura.setEquipamento(Boolean.parseBoolean(dadosInfraestrutura[7]));
-			controlInfraestrutura.setToalete(Boolean.parseBoolean(dadosInfraestrutura[8]));
-
+		
+		if(!validaCampo(dadosInfraestrutura[1])) { // Descricao
+			return false;
 		}
-		return true;
+		if(!validaDouble(dadosInfraestrutura[2])) { // Quantidade
+			return false;
+		}
+		else {
+			if (op == 1) {
+	
+				Infraestrutura e = new Infraestrutura(3, dadosInfraestrutura[1], Double.parseDouble(dadosInfraestrutura[2]),
+						Boolean.parseBoolean(dadosInfraestrutura[3]), Boolean.parseBoolean(dadosInfraestrutura[4]),
+						Boolean.parseBoolean(dadosInfraestrutura[5]), Boolean.parseBoolean(dadosInfraestrutura[6]),
+						Boolean.parseBoolean(dadosInfraestrutura[7]), Boolean.parseBoolean(dadosInfraestrutura[8]));
+				Orcamento o = new Infraestrutura(3, dadosInfraestrutura[1], Double.parseDouble(dadosInfraestrutura[2]),
+						Boolean.parseBoolean(dadosInfraestrutura[3]), Boolean.parseBoolean(dadosInfraestrutura[4]),
+						Boolean.parseBoolean(dadosInfraestrutura[5]), Boolean.parseBoolean(dadosInfraestrutura[6]),
+						Boolean.parseBoolean(dadosInfraestrutura[7]), Boolean.parseBoolean(dadosInfraestrutura[8]));
+				controlEvento.adicionarInfraestrutura(e);
+				controlEvento.adicionarOrcamento(o);
+	
+			} else {
+				ControleOrcamento controlOrcamento = new ControleOrcamento(controlEvento.getBdOrcamentos().get(posOrcamento));
+				aux = validaOrcamento(tipo, controlEvento.getEvento(), controlOrcamento.getOrcamento());
+				ControleInfraestrutura controlInfraestrutura = new ControleInfraestrutura(
+						controlEvento.getBdInfraestrutura().get(aux));
+				
+				controlOrcamento.setDescricao(dadosInfraestrutura[1]);
+				controlOrcamento.setValorTotal(Double.parseDouble(dadosInfraestrutura[2]));
+				controlInfraestrutura.setDescricao(dadosInfraestrutura[1]);
+				controlInfraestrutura.setValorTotal(Double.parseDouble(dadosInfraestrutura[2]));
+				controlInfraestrutura.setDecoracao(Boolean.parseBoolean(dadosInfraestrutura[3]));
+				controlInfraestrutura.setEstacionamento(Boolean.parseBoolean(dadosInfraestrutura[4]));
+				controlInfraestrutura.setImobiliario(Boolean.parseBoolean(dadosInfraestrutura[5]));
+				controlInfraestrutura.setInternet(Boolean.parseBoolean(dadosInfraestrutura[6]));
+				controlInfraestrutura.setEquipamento(Boolean.parseBoolean(dadosInfraestrutura[7]));
+				controlInfraestrutura.setToalete(Boolean.parseBoolean(dadosInfraestrutura[8]));
+	
+			}
+			return true;
+		}
 
 	}
 
@@ -379,58 +465,74 @@ public class ControleBancoEvento {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
-		ControleOrcamento controlOrcamento = new ControleOrcamento(controlEvento.getBdOrcamentos().get(posOrcamento));
-		aux = validaOrcamento(tipo, controlEvento.getEvento(), controlOrcamento.getOrcamento());
-		ControleMusica controlMusica = new ControleMusica(controlEvento.getBdMusica().get(aux));
-
-		if (op == 1) {
-
-			Musica e = new Musica(4, dadosMusica[1], Double.parseDouble(dadosMusica[2]), dadosMusica[3],
-					Boolean.parseBoolean(dadosMusica[4]), Boolean.parseBoolean(dadosMusica[5]));
-			Orcamento o = new Musica(4, dadosMusica[1], Double.parseDouble(dadosMusica[2]), dadosMusica[3],
-					Boolean.parseBoolean(dadosMusica[4]), Boolean.parseBoolean(dadosMusica[5]));
-			controlEvento.adicionarMusica(e);
-			controlEvento.adicionarOrcamento(o);
-
-		} else {
-
-			controlOrcamento.setDescricao(dadosMusica[1]);
-			controlOrcamento.setValorTotal(Double.parseDouble(dadosMusica[2]));
-			controlMusica.setDescricao(dadosMusica[1]);
-			controlMusica.setValorTotal(Double.parseDouble(dadosMusica[2]));
-			controlMusica.setGeneroMusical(dadosMusica[3]);
-			controlMusica.setBanda(Boolean.parseBoolean(dadosMusica[4]));
-			controlMusica.setDj(Boolean.parseBoolean(dadosMusica[5]));
-
+		
+		if(!validaCampo(dadosMusica[1])) {
+			return false;
 		}
-		return true;
-
-	}
+		if(!validaDouble(dadosMusica[2])) {
+			return false;
+		}
+		if(!validaCampo(dadosMusica[3])) {
+			return false;
+		}
+		else {
+			if (op == 1) {
+	
+				Musica e = new Musica(4, dadosMusica[1], Double.parseDouble(dadosMusica[2]), dadosMusica[3],
+						Boolean.parseBoolean(dadosMusica[4]), Boolean.parseBoolean(dadosMusica[5]));
+				Orcamento o = new Musica(4, dadosMusica[1], Double.parseDouble(dadosMusica[2]), dadosMusica[3],
+						Boolean.parseBoolean(dadosMusica[4]), Boolean.parseBoolean(dadosMusica[5]));
+				controlEvento.adicionarMusica(e);
+				controlEvento.adicionarOrcamento(o);
+	
+			} else {
+				ControleOrcamento controlOrcamento = new ControleOrcamento(controlEvento.getBdOrcamentos().get(posOrcamento));
+				aux = validaOrcamento(tipo, controlEvento.getEvento(), controlOrcamento.getOrcamento());
+				ControleMusica controlMusica = new ControleMusica(controlEvento.getBdMusica().get(aux));
+				controlOrcamento.setDescricao(dadosMusica[1]);
+				controlOrcamento.setValorTotal(Double.parseDouble(dadosMusica[2]));
+				controlMusica.setDescricao(dadosMusica[1]);
+				controlMusica.setValorTotal(Double.parseDouble(dadosMusica[2]));
+				controlMusica.setGeneroMusical(dadosMusica[3]);
+				controlMusica.setBanda(Boolean.parseBoolean(dadosMusica[4]));
+				controlMusica.setDj(Boolean.parseBoolean(dadosMusica[5]));
+			}
+				return true;
+				
+			}
+}
 
 	// get adicionar e editar programacao.
 	public boolean adicionarEditarProgramacao(int op, int posEvento, int posProgramacao, String[] dadosProgramacao) {
 
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
-		ControleProgramacao controlProgramacao = new ControleProgramacao(
-				controlEvento.getBdProgramacao().get(posProgramacao));
-
-		if (op == 1) {
-
-			Programacao e = new Programacao(dadosProgramacao[0], dadosProgramacao[1]);
-			controlEvento.adicionarProgramacao(e);
-
-		} else {
-
-			controlProgramacao.setDescricao(dadosProgramacao[0]);
-			controlProgramacao.setHora(dadosProgramacao[1]);
-
+		
+		if(!validaCampo(dadosProgramacao[0])) {
+			return false;
 		}
-		return true;
+		if(!validaHora(dadosProgramacao[1])) {
+			return false;
+		}
+		else {
+			if (op == 1) {
+	
+				Programacao e = new Programacao(dadosProgramacao[0], dadosProgramacao[1]);
+				controlEvento.adicionarProgramacao(e);
+	
+			} else {
+				ControleProgramacao controlProgramacao = new ControleProgramacao(
+				controlEvento.getBdProgramacao().get(posProgramacao));
+				controlProgramacao.setDescricao(dadosProgramacao[0]);
+				controlProgramacao.setHora(dadosProgramacao[1]);
+	
+			}
+			return true;
+		}
 
 	}
 
 	/*
-	 * Objetivo:Remover evento; Entrada: posicao;
+	 * Objetivo: Remover evento; Entrada: posicao;
 	 */
 	public boolean removerEvento(int posicao) {
 		if (banco.removerEvento(posicao)) {
@@ -1096,6 +1198,8 @@ public class ControleBancoEvento {
 				return true;
 		} catch (IndexOutOfBoundsException iob) {
 			return false;
+		} catch (NumberFormatException e) {
+			return false;
 		}
 
 	}
@@ -1116,5 +1220,81 @@ public class ControleBancoEvento {
 		}
 
 	}
+	
+	/*
+	 * Objetivo: Validar o Cep se estiver informada incorretamente. retorna
+	 * verdadeiro se o Cep estiver no formato correto
+	 */
+
+	public boolean validaCampo(String campo) {
+		try {
+			if (campo.isEmpty()) // se tiver vazio, retorna true dentro if
+				return false;
+			else
+				return true;
+		} catch (IndexOutOfBoundsException iob) {
+			return false;
+		}
+
+	}
+	
+	public boolean validaDouble(String dado) {
+		
+		try {
+			double d = Double.parseDouble(dado);
+				if(d >= 0.0) {
+					return true;
+				}
+				else
+					return false;
+			
+			} catch (NumberFormatException e) {
+			return false;
+			}
+	}
+	
+	public boolean validaInteiro(String dado) {
+		try {
+			int i = Integer.parseInt(dado);
+			if(i >= 0)
+				return true;
+			else
+				return false;
+		} catch (NumberFormatException e) {
+			return false;
+		}
+
+	}
+	
+	/*
+	 * Objetivo: Validar o Cep se estiver informada incorretamente. retorna
+	 * verdadeiro se o Cep estiver no formato correto
+	 */
+
+	public boolean validaEmail(String email) {
+		  boolean isEmailIdValid = false;
+	        if (email != null && email.length() > 0) {
+	        	String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+	            Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+	            Matcher matcher = pattern.matcher(email);
+	            if (matcher.matches()) {
+	                isEmailIdValid = true;
+	            }
+	        }
+	        return isEmailIdValid;
+    }
+	
+	public boolean validaTelefone(String telefone) {
+		  boolean isTelefoneIdValid = false;
+	        if (telefone != null && telefone.length() > 0) {
+	        	String expression = "^\\([1-9]{2}\\) (?:[2-8]|9[1-9])[0-9]{3}\\-[0-9]{4}$";
+	            Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+	            Matcher matcher = pattern.matcher(telefone);
+	            if (matcher.matches()) {
+	            	isTelefoneIdValid = true;
+	            }
+	        }
+	        return isTelefoneIdValid;
+  }
 
 }

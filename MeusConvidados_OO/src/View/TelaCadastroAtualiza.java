@@ -321,13 +321,23 @@ public class TelaCadastroAtualiza implements ActionListener {
 	 * 
 	 */
 	public void mensagemErroCadastro() {
-		JOptionPane.showMessageDialog(null,
-				"ERRO AO SALVAR OS DADOS!\n " + "Pode ter ocorrido um dos dois erros a seguir:  \n"
-						+ "1. Nem todos os campos foram preenchidos; \n"
-						+ "2. A data não está no formato dd/mm/aaaa; \n"
-						+ "3. Os horários de início e término não estão no formado hh:mm; \n"
-						+ "4. O CEP não está no formato 12345-123;",
-				null, JOptionPane.ERROR_MESSAGE);
+		if(opcao == 1 || opcao == 3) {
+			JOptionPane.showMessageDialog(null,
+					"ERRO AO SALVAR OS DADOS!\n " + "Pode ter ocorrido um dos dois erros a seguir:  \n"
+							+ "1. Nem todos os campos foram preenchidos; \n"
+							+ "2. A quantidade de acompanhantes está inválida; \n"
+							+ "3. O email está no formato inválido; \n"
+							+ "4. O CEP não está no formato 12345-123;\n"
+							+ "5. O telefone não está no formato (12) 12345-1234;",
+					null, JOptionPane.ERROR_MESSAGE);
+		}
+		if(opcao == 2 || opcao == 4) {
+			JOptionPane.showMessageDialog(null,
+					"ERRO AO SALVAR OS DADOS!\n " + "Pode ter ocorrido um dos dois erros a seguir:  \n"
+							+ "1. Nem todos os campos foram preenchidos;\n"
+							+ "2. A data não está no formato dd/mm/aaaa;",
+					null, JOptionPane.ERROR_MESSAGE);
+		}
 	}
 
 	/*

@@ -567,13 +567,30 @@ public class TelaCrudOrcamento implements ActionListener {
 	 * 
 	 */
 	public void mensagemErroCadastro() {
+		if (tipo == 1 || tipo == 2) { // bebida
 		JOptionPane.showMessageDialog(null,
 				"ERRO AO SALVAR OS DADOS!\n " + "Pode ter ocorrido um dos dois erros a seguir:  \n"
 						+ "1. Nem todos os campos foram preenchidos; \n"
-						+ "2. A data não está no formato dd/mm/aaaa; \n"
-						+ "3. Os horários de início e término não estão no formado hh:mm; \n"
-						+ "4. O CEP não está no formato 12345-123;",
+						+ "2. A quantidade deve ser um número maior que zero; \n"
+						+ "3. O valor unitário deve ser um número maior que zero; \n"
+						+ "4. O valor total deve ser um número maior que zero;",
 				null, JOptionPane.ERROR_MESSAGE);
+		}
+		if (tipo == 3) { // Infraestrutura
+			JOptionPane.showMessageDialog(null,
+					"ERRO AO SALVAR OS DADOS!\n " + "Pode ter ocorrido um dos dois erros a seguir:  \n"
+							+ "1. Nem todos os campos foram preenchidos; \n"
+							+ "2. O valor total deve ser um número maior que zero;",
+					null, JOptionPane.ERROR_MESSAGE);
+			
+		}
+		if (tipo == 4) { //Musica
+			JOptionPane.showMessageDialog(null,
+					"ERRO AO SALVAR OS DADOS!\n " + "Pode ter ocorrido um dos dois erros a seguir:  \n"
+							+ "1. Nem todos os campos foram preenchidos; \n"
+							+ "2. O valor total deve ser um número maior que zero;",
+					null, JOptionPane.ERROR_MESSAGE);
+		}
 	}
 
 	/*
