@@ -1,9 +1,9 @@
 package Modelo;
 
 /**
- * Classe denominada InformacaoEvento. Tem como objetivo descrever as
- * informações do evento, tais como: data e hora inicial e final. É a classe
- * filho que herda as informações de endereço da classe informacao.
+ * Classe denominada InformacaoEvento, é uma classe que herda as informações de endereço 
+ * da classe informacao, tem como objetivo descrever as
+ * informações do evento, tais como: data e hora inicial e final. 
  * 
  * @author HITER E KLYSSMANN
  * @version 1.0 [Maio 2021]

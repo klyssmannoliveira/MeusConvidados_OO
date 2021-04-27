@@ -1,8 +1,8 @@
 package Modelo;
 
 /**
- * Classe denominada Comida. Tem como objetivo descrever as informações da
- * comida do evento. Uma classe que herda da classe Orçamento.
+ * Classe denominada Comida que herda da classe Orçamento, tem como objetivo descrever as informações da
+ * comida do evento.
  * 
  * @author HITER E KLYSSMANN
  * @version 1.0 [Maio 2021]
@@ -19,10 +19,10 @@ public class Comida extends Orcamento {
 	/**
 	 * Construtor da Classe Comida.
 	 * 
-	 * @param tipo.       Inteiro que indica o tipo do orçamento (1 - Bebida, 2 -
+	 * @param tipo       Inteiro que indica o tipo do orçamento (1 - Bebida, 2 -
 	 *                    Comida, 3 - Infraestrutura, 4 - Música).
-	 * @param descricao.  String que realiza a descrição da comida.
-	 * @param valorTotal. Double que indica o valor total das comidas para o evento.
+	 * @param descricao  String que realiza a descrição da comida.
+	 * @param valorTotal Double que indica o valor total das comidas para o evento.
 	 */
 
 	public Comida(int tipo, String descricao, double valorTotal) {
@@ -32,20 +32,20 @@ public class Comida extends Orcamento {
 	/**
 	 * Construtor da Classe Comida com sobrecarga
 	 * 
-	 * @param tipo.          Inteiro que indica o tipo do orçamento (1 - Bebida, 2 -
+	 * @param tipo          Inteiro que indica o tipo do orçamento (1 - Bebida, 2 -
 	 *                       Comida, 3 - Infraestrutura, 4 - Música).
-	 * @param descricao.     String que realiza a descrição da comida.
-	 * @param quantidade.    Inteiro que indica a quantidade de comidas que será
+	 * @param descricao     String que realiza a descrição da comida.
+	 * @param quantidade    Inteiro que indica a quantidade de comidas que será
 	 *                       utilizada no evento.
-	 * @param valorUnitario. Double que mostra o valor de cada comida que será
+	 * @param valorUnitario Double que mostra o valor de cada comida que será
 	 *                       utilizada no evento.
-	 * @param valorTotal.    Double que indica o valor total das comidas para o
+	 * @param valorTotal    Double que indica o valor total das comidas para o
 	 *                       evento.
-	 * @param principal.     Boolean que indica se a comida é o prato principal ou
+	 * @param principal     Boolean que indica se a comida é o prato principal ou
 	 *                       não.
-	 * @param degustativo.   Boolean que indica se a comida é um prato degustativo
+	 * @param degustativo   Boolean que indica se a comida é um prato degustativo
 	 *                       ou não.
-	 * @param sobremesa.     Boolean que indica se a comida é uma sobremessa ou não.
+	 * @param sobremesa     Boolean que indica se a comida é uma sobremessa ou não.
 	 */
 
 	public Comida(int tipo, String descricao, int quantidade, double valorUnitario, double valorTotal,

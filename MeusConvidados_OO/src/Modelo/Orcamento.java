@@ -1,9 +1,8 @@
 package Modelo;
 
 /**
- * Classe denominada Orcamento. Tem como objetivo descrever os orçamentos
- * (gastos) do evento. Uma classe que pai das classes Musica, Infraestrutura,
- * Bebida e Comida.
+ * Classe denominada Orcamento que é uma superclasse, Tem como objetivo descrever os orçamentos
+ * (gastos) do evento.
  * 
  * @author HITER E KLYSSMANN
  * @version 1.0 [Maio 2021]
@@ -19,10 +18,10 @@ public class Orcamento {
 	/**
 	 * Construtor da Classe Orcamento.
 	 * 
-	 * @param tipo.       Inteiro que indica o tipo do orçamento (1 - Bebida, 2 -
+	 * @param tipo       Inteiro que indica o tipo do orçamento (1 - Bebida, 2 -
 	 *                    Comida, 3 - Infraestrutura, 4 - Música).
-	 * @param descricao.  String que realiza a descrição do orçamento.
-	 * @param valorTotal. Double que indica o valor total em reais do orçamento do
+	 * @param descricao  String que realiza a descrição do orçamento.
+	 * @param valorTotal Double que indica o valor total em reais do orçamento do
 	 *                    evento.
 	 */
 

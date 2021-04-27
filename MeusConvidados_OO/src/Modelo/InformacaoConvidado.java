@@ -1,10 +1,10 @@
 package Modelo;
 
 /**
- * Classe denominada InformacaoConvidado. Tem como objetivo descrever as
+ * Classe denominada InformacaoConvidado, é uma classe que herda as informações de endereço da classe
+ * informacao e tem como objetivo descrever as
  * informações de contato dos convidados, tais como: telefone, email, rede
- * social. É a classe filho que herda as informações de endereço da classe
- * informacao.
+ * social.
  * 
  * @author HITER E KLYSSMANN
  * @version 1.0 [Maio 2021]

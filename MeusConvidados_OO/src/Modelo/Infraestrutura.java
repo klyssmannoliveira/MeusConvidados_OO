@@ -1,8 +1,8 @@
 package Modelo;
 
 /**
- * Classe denominada Infraestrutura. Tem como objetivo descrever as informações
- * das infraestruturas do evento. Uma classe que herda da classe Orçamento.
+ * Classe denominada Infraestrutura que herda da classe Orçamento, 
+ * tem como objetivo descrever as informações da infraestrutura do evento.
  * 
  * @author HITER E KLYSSMANN
  * @version 1.0 [Maio 2021]
@@ -35,21 +35,21 @@ public class Infraestrutura extends Orcamento {
 	/**
 	 * Construtor da Classe Infraestrutura com sobrecarga.
 	 * 
-	 * @param tipo.           Inteiro que indica o tipo do orçamento (1 - Bebida, 2
+	 * @param tipo           Inteiro que indica o tipo do orçamento (1 - Bebida, 2
 	 *                        - Comida, 3 - Infraestrutura, 4 - Música).
-	 * @param descricao.      String que realiza a descrição da infraestrutura.
-	 * @param valorTotal.     Double que indica o valor total da infraestrutura para
+	 * @param descricao      String que realiza a descrição da infraestrutura.
+	 * @param valorTotal     Double que indica o valor total da infraestrutura para
 	 *                        o evento.
-	 * @param decoracao.      Boolean que indica se o gasto é referente a decoração ou não no evento.
-	 * @param estacionamento. Boolean que indica se o gasto é referente a estacionamento ou
+	 * @param decoracao      Boolean que indica se o gasto é referente a decoração ou não no evento.
+	 * @param estacionamento Boolean que indica se o gasto é referente a estacionamento ou
 	 *                        não no evento.
-	 * @param imobiliario.    Boolean que indica se o gasto é referente a mobiliário ou não
+	 * @param imobiliario    Boolean que indica se o gasto é referente a mobiliário ou não
 	 *                        no evento.
-	 * @param internet.       Boolean que indica se o gasto é referente a internet ou não no
+	 * @param internet       Boolean que indica se o gasto é referente a internet ou não no
 	 *                        evento.
-	 * @param equipamento.    Boolean que indica se o gasto é referente a equipamento ou não
+	 * @param equipamento    Boolean que indica se o gasto é referente a equipamento ou não
 	 *                        no evento.
-	 * @param toalete.        Boolean que indica se o gasto é referente a toalete ou não no
+	 * @param toalete        Boolean que indica se o gasto é referente a toalete ou não no
 	 *                        evento.
 	 */
 

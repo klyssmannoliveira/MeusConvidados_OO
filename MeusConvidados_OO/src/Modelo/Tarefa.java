@@ -2,7 +2,7 @@
 package Modelo;
 
 /**
- * Classe denominada Tarefa. Tem como objetivo descrever as informações das
+ * Classe denominada Tarefa, tem como objetivo descrever as informações das
  * Tarefas para a organização do evento.
  * 
  * @author HITER E KLYSSMANN
@@ -16,10 +16,10 @@ public class Tarefa {
 	private boolean concluido; // True = Tarefa concluido
 
 	/**
-	 * Construtor da classe Tarefa
+	 * Construtor da classe Tarefa.
 	 * 
-	 * @param descricao. String que descreve a tarefa a ser realizada no evento.
-	 * @param data.      String da data do evento.
+	 * @param descricao String que descreve a tarefa a ser realizada no evento.
+	 * @param data      String da data do evento.
 	 */
 
 	public Tarefa(String descricao, String data) {
@@ -28,11 +28,11 @@ public class Tarefa {
 	}
 
 	/**
-	 * Construtor da classe Tarefa sobrecarga
+	 * Construtor da classe Tarefa sobrecarga.
 	 * 
-	 * @param descricao.  String que descreve a tarefa a ser realizada no evento.
-	 * @param dataLimite. String da data limite para realização da Tarefano evento.
-	 * @param concluido.  Boolean se a tarefa está concluida ou não.
+	 * @param descricao  String que descreve a tarefa a ser realizada no evento.
+	 * @param dataLimite String da data limite para realização da Tarefano evento.
+	 * @param concluido  Boolean se a tarefa está concluida ou não.
 	 */
 
 	public Tarefa(String descricao, String dataLimite, boolean concluido) {

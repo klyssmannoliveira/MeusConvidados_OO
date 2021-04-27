@@ -1,7 +1,7 @@
 package Modelo;
 
 /**
- * Classe denominada Programacao. Tem como objetivo descrever as informações da
+ * Classe denominada Programacao, tem como objetivo descrever as informações da
  * programação do evento por meio da hora/descrição.
  * 
  * @author HITER E KLYSSMANN
@@ -17,8 +17,8 @@ public class Programacao {
 	/**
 	 * Construtor da classe Programacao.
 	 * 
-	 * @param descricao. String que descreve a programação do respectivo evento.
-	 * @param hora.      String que fornece a hora da programação do evento.
+	 * @param descricao String que descreve a programação do respectivo evento.
+	 * @param hora      String que fornece a hora da programação do evento.
 	 */
 	/*
 	 * Objetivo: Construtor da Classe Programaçao; Entrada : descricao, hora;

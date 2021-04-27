@@ -1,8 +1,8 @@
 package Modelo;
 
 /**
- * Classe denominada Bebida. Tem como objetivo descrever as informações de
- * bebida do evento. Uma classe que herda da classe Orçamento.
+ * Classe denominada Bebida que herda da classe Orcamento, tem como objetivo descrever as informações de
+ * bebida do evento.
  * 
  * @author HITER E KLYSSMANN
  * @version 1.0 [Maio 2021]
@@ -19,10 +19,10 @@ public class Bebida extends Orcamento {
 	/**
 	 * Construtor da Classe Bebida.
 	 * 
-	 * @param tipo.       Inteiro que indica o tipo do orçamento (1 - Bebida, 2 -
+	 * @param tipo       Inteiro que indica o tipo do orçamento (1 - Bebida, 2 -
 	 *                    Comida, 3 - Infraestrutura, 4 - Música).
-	 * @param descricao.  String que realiza a descrição da bebida.
-	 * @param valorTotal. Double que indica o valor total das bebidas para o evento.
+	 * @param descricao  String que realiza a descrição da bebida.
+	 * @param valorTotal Double que indica o valor total das bebidas para o evento.
 	 */
 
 	public Bebida(int tipo, String descricao, double valorTotal) {
@@ -32,17 +32,17 @@ public class Bebida extends Orcamento {
 	/**
 	 * Construtor da Classe Bebida realizando uma sobrecarga.
 	 * 
-	 * @param tipo.          Inteiro que indica o tipo do orçamento (1 - Bebida, 2 -
+	 * @param tipo          Inteiro que indica o tipo do orçamento (1 - Bebida, 2 -
 	 *                       Comida, 3 - Infraestrutura, 4 - Música).
-	 * @param descricao.     String que realiza a descrição da bebida.
-	 * @param quantidade.    Inteiro que indica a quantidade de bebidas que será
+	 * @param descricao     String que realiza a descrição da bebida.
+	 * @param quantidade    Inteiro que indica a quantidade de bebidas que será
 	 *                       utilizada no evento.
-	 * @param valorUnitario. Double que mostra o valor de cada bebida que será
+	 * @param valorUnitario Double que mostra o valor de cada bebida que será
 	 *                       utilizada no evento.
-	 * @param valorTotal.    Double que indica o valor total das bebidas para o
+	 * @param valorTotal    Double que indica o valor total das bebidas para o
 	 *                       evento.
-	 * @param bebidaQuente.  Boolean que indica se a bebida é quente ou não.
-	 * @param alcoolico.     Boolean que indica se a bebida é alcoolica ou não.
+	 * @param bebidaQuente  Boolean que indica se a bebida é quente ou não.
+	 * @param alcoolico     Boolean que indica se a bebida é alcoolica ou não.
 	 */
 
 	public Bebida(int tipo, String descricao, int quantidade, double valorUnitario, double valorTotal,

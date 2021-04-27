@@ -1,9 +1,9 @@
 package Modelo;
 
 /**
- * Classe denominada Informacao. Tem como objetivo descrever as informações dos
- * endereços do evento e dos convidados. É a classe pai das classes
- * informacaoConvidado e informacaoEvento. Ela também é uma classe abstrata.
+ * Classe abstrata denominada Informacao, é a classe pai das classes
+ * informacaoConvidado e informacaoEvento, tem como objetivo descrever as informações dos
+ * endereços do evento e dos convidados.
  * 
  * @author HITER E KLYSSMANN
  * @version 1.0 [Maio 2021]

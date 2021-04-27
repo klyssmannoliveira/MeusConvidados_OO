@@ -1,15 +1,15 @@
 package Modelo;
-
+import java.util.ArrayList;
 /**
- * Classe denominada Evento. Tem como objetivo descrever as informações do
- * evento. Essa classe é a classe principal do programa. As informações do convidado, orçamento, tarefa e programação estão armazenadas dentro desta classe.
+ * Classe denominada Evento é a classe principal do programa, tem como objetivo descrever as informações do
+ * evento, tais como: informações do convidado, orçamento, tarefa e programação estão armazenadas dentro desta classe.
  * 
  * @author HITER E KLYSSMANN
  * @version 1.0 [Maio 2021]
  * 
  */
 
-import java.util.ArrayList;
+
 
 public class Evento {
 
@@ -31,14 +31,14 @@ public class Evento {
 	/**
 	 * Construtor da Classe Evento
 	 * 
-	 * @param nome.              String do nome do evento.
-	 * @param data.              String da data do evento.
-	 * @param horai.             String da hora inicial do evento.
-	 * @param horaf.             String da hora final do evento.
-	 * @param endereco.          String do endereço do evento
-	 * @param cep.               String do CEP do endereço do evento.
-	 * @param complemen.         String do complemento do endereço do evento.
-	 * @param orcamentoPrevisto. Double do orçamento previsto do evento.
+	 * @param nome              String do nome do evento.
+	 * @param data              String da data do evento.
+	 * @param horai             String da hora inicial do evento.
+	 * @param horaf             String da hora final do evento.
+	 * @param endereco          String do endereço do evento
+	 * @param cep               String do CEP do endereço do evento.
+	 * @param complemen         String do complemento do endereço do evento.
+	 * @param orcamentoPrevisto Double do orçamento previsto do evento.
 	 */
 
 	public Evento(String nome, String data, String horai, String horaf, String endereco, String cep, String complemen,
@@ -64,7 +64,7 @@ public class Evento {
 	/**
 	 * Método que Mostra as listas de convidados do evento.
 	 * 
-	 * @return Uma string com a lista de convidados.
+	 * @return Retorna uma string com a lista de convidados.
 	 */
 
 	public String[] listarConvidados() {
@@ -79,7 +79,7 @@ public class Evento {
 	/**
 	 * Método que adiciona um convidado no banco de dados para o evento desejado.
 	 * 
-	 * @param convidado. Este parâmentro é da classe Convidado.
+	 * @param convidado Este parâmentro é da classe Convidado.
 	 */
 
 	public void adicionarConvidado(Convidado convidado) {
@@ -91,9 +91,9 @@ public class Evento {
 	 * se a posição passada é maior do que o arrayList se for maior retorna falso,
 	 * caso contrário remove um evento do arrayList na posição indicada.
 	 * 
-	 * @param posConvidado. Inteiro indicando a posição do convidado na arrayList
+	 * @param posConvidado Inteiro indicando a posição do convidado na arrayList
 	 *                      que será removida.
-	 * @return verdadeiro ou falso, indicando se o convidado foi removido ou não.
+	 * @return Retorna verdadeiro ou falso, indicando se o convidado foi removido ou não.
 	 */
 
 	public boolean removerConvidado(int posConvidado) {
@@ -112,7 +112,7 @@ public class Evento {
 	/**
 	 * Método que Mostra as listas de tarefas do evento
 	 * 
-	 * @return Uma string com as listas da tarefas.
+	 * @return Retorna uma string com as listas da tarefas.
 	 */
 
 	public String[] listarTarefas() {
@@ -126,7 +126,7 @@ public class Evento {
 	/**
 	 * Método que adiciona tarefas para realização do evento.
 	 * 
-	 * @param tarefa. Este parâmentro é da classe Tarefa.
+	 * @param tarefa Este parâmentro é da classe Tarefa.
 	 */
 
 	public void adicionarTarefa(Tarefa tarefa) {
@@ -138,9 +138,9 @@ public class Evento {
 	 * posição passada é maior do que o arrayList se for maior retorna falso, caso
 	 * contrário remove um evento do arrayList na posição indicada.
 	 * 
-	 * @param posTarefa. Inteiro indicando a posição da tarefa no arrayList que será
+	 * @param posTarefa Inteiro indicando a posição da tarefa no arrayList que será
 	 *                   removida.
-	 * @return verdadeiro ou falso, indicando se a tarefa foi removido ou não.
+	 * @return retorna verdadeiro ou falso, indicando se a tarefa foi removido ou não.
 	 */
 
 	public boolean removerTarefa(int posTarefa) {
@@ -157,7 +157,7 @@ public class Evento {
 	/**
 	 * Método que Mostra as listas de orçamentos do evento
 	 * 
-	 * @return Uma string com as listas dos orçamentos do evento.
+	 * @return Retorna uma string com as listas dos orçamentos do evento.
 	 */
 
 	public String[] listarOrcamentos() {
@@ -171,7 +171,7 @@ public class Evento {
 	/**
 	 * Método que adiciona um orçamento para realização do evento.
 	 * 
-	 * @param orcamento. Este parâmentro é da classe Orcamento.
+	 * @param orcamento Este parâmentro é da classe Orcamento.
 	 */
 
 	public void adicionarOrcamento(Orcamento orcamento) {
@@ -183,9 +183,9 @@ public class Evento {
 	 * verifica se a posição passada é maior do que o arrayList se for maior retorna
 	 * falso, caso contrário remove um evento do arrayList na posição indicada.
 	 * 
-	 * @param posOrcamento. Inteiro indicando a posição do orçamento no arrayList
+	 * @param posOrcamento Inteiro indicando a posição do orçamento no arrayList
 	 *                      que será removida.
-	 * @return verdadeiro ou falso, indicando se o orçamento foi removido ou não.
+	 * @return retorna verdadeiro ou falso, indicando se o orçamento foi removido ou não.
 	 */
 
 	public boolean removerOrcamento(int posOrcamento) {
@@ -203,7 +203,7 @@ public class Evento {
 	/**
 	 * Método que adiciona uma Bebida no evento.
 	 * 
-	 * @param bebida. Este parâmentro é da classe Bebida.
+	 * @param bebida Este parâmentro é da classe Bebida.
 	 */
 
 	public void adicionarBebida(Bebida bebida) {
@@ -215,9 +215,9 @@ public class Evento {
 	 * posição passada é maior do que o arrayList se for maior retorna falso, caso
 	 * contrário remove um evento do arrayList na posição indicada.
 	 * 
-	 * @param posBebida. Inteiro indicando a posição da bebida no arrayList que será
+	 * @param posBebida Inteiro indicando a posição da bebida no arrayList que será
 	 *                   removida.
-	 * @return verdadeiro ou falso, indicando se da bebida foi removido ou não.
+	 * @return Retorna verdadeiro ou falso, indicando se da bebida foi removido ou não.
 	 */
 
 	public boolean removerBebida(int posBebida) {
@@ -235,7 +235,7 @@ public class Evento {
 	/**
 	 * Método que adiciona uma comida no evento.
 	 * 
-	 * @param comida. Este parâmentro é da classe Comida.
+	 * @param comida Este parâmentro é da classe Comida.
 	 */
 
 	public void adicionarComida(Comida comida) {
@@ -247,9 +247,9 @@ public class Evento {
 	 * posição passada é maior do que o arrayList se for maior retorna falso, caso
 	 * contrário remove um evento do arrayList na posição indicada.
 	 * 
-	 * @param posComida. Inteiro indicando a posição da comida no arrayList que será
+	 * @param posComida Inteiro indicando a posição da comida no arrayList que será
 	 *                   removida.
-	 * @return verdadeiro ou falso, indicando se da comida foi removido ou não.
+	 * @return Retorna verdadeiro ou falso, indicando se da comida foi removido ou não.
 	 */
 
 	public boolean removerComida(int posComida) {
@@ -267,7 +267,7 @@ public class Evento {
 	/**
 	 * Método que adiciona uma infraestrutura no evento.
 	 * 
-	 * @param infraestrutura. Este parâmentro é da classe Infraestrutura.
+	 * @param infraestrutura Este parâmentro é da classe Infraestrutura.
 	 */
 	public void adicionarInfraestrutura(Infraestrutura infraestrutura) {
 		bdInfraestrutura.add(infraestrutura);
@@ -279,9 +279,9 @@ public class Evento {
 	 * maior retorna falso, caso contrário remove um evento do arrayList na posição
 	 * indicada.
 	 * 
-	 * @param posInfraestrutura. Inteiro indicando a posição da infraestrutura no
+	 * @param posInfraestrutura Inteiro indicando a posição da infraestrutura no
 	 *                           arrayList que será removida.
-	 * @return verdadeiro ou falso, indicando se a infraestrutura foi removido ou
+	 * @return Retorna verdadeiro ou falso, indicando se a infraestrutura foi removido ou
 	 *         não.
 	 */
 	public boolean removerInfraestrutura(int posInfraestrutura) {
@@ -299,7 +299,7 @@ public class Evento {
 	/**
 	 * Método que adiciona uma musica no evento.
 	 * 
-	 * @param musica. Este parâmentro é da classe Musica.
+	 * @param musica Este parâmentro é da classe Musica.
 	 */
 	public void adicionarMusica(Musica musica) {
 		bdMusica.add(musica);
@@ -310,9 +310,9 @@ public class Evento {
 	 * posição passada é maior do que o arrayList se for maior retorna falso, caso
 	 * contrário remove um evento do arrayList na posição indicada.
 	 * 
-	 * @param posMusica. Inteiro indicando a posição da musica no arrayList que será
+	 * @param posMusica Inteiro indicando a posição da musica no arrayList que será
 	 *                   removida.
-	 * @return verdadeiro ou falso, indicando se a musica foi removido ou não.
+	 * @return Retorna verdadeiro ou falso, indicando se a musica foi removido ou não.
 	 */
 	public boolean removerMusica(int posMusica) {
 		if (posMusica > bdMusica.size()) {
@@ -343,7 +343,7 @@ public class Evento {
 	/**
 	 * Método que Mostra as listas da hora da programação do evento.
 	 * 
-	 * @return Uma string com as listas da hora da programação.
+	 * @return Retorna uma string com as listas da hora da programação.
 	 */
 
 	public String[] listarProgramacaoHora() {
@@ -357,7 +357,7 @@ public class Evento {
 	/**
 	 * Método que adiciona uma programação no evento.
 	 * 
-	 * @param programacao. Este parâmentro é da classe Programacao.
+	 * @param programacao Este parâmentro é da classe Programacao.
 	 */
 	public void adicionarProgramacao(Programacao programacao) {
 		bdProgramacao.add(programacao);
@@ -368,9 +368,9 @@ public class Evento {
 	 * verifica se a posição passada é maior do que o arrayList se for maior retorna
 	 * falso, caso contrário remove um evento do arrayList na posição indicada.
 	 * 
-	 * @param posProgramacao. Inteiro indicando a posição da programação no
+	 * @param posProgramacao Inteiro indicando a posição da programação no
 	 *                        arrayList que será removida.
-	 * @return verdadeiro ou falso, indicando se a programação foi removido ou não.
+	 * @return Retorna verdadeiro ou falso, indicando se a programação foi removido ou não.
 	 */
 	public boolean removerProgramacao(int posProgramacao) {
 		if (posProgramacao > bdProgramacao.size()) {

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Classe denominada Banco Evento, tem como função armazenar os eventos em um
- * arrayList simulando um banco de dados ;
+ * arrayList simulando um banco de dados.
  * 
  * @author HITER E KLYSSMANN
  * @version 1.0 [Maio 2021]
@@ -38,9 +38,9 @@ public class BancoEvento {
 	}
 
 	/**
-	 * Adiciona um evento na arrayList banco de dados;
+	 * Adiciona um evento na arrayList banco de dados.
 	 * 
-	 * @param Classe Evento
+	 * @param evento Deve ser uma Classe Evento
 	 */
 
 	public void adicionarEvento(Evento evento) {
@@ -49,10 +49,10 @@ public class BancoEvento {
 
 	/**
 	 * Remove um evento no arrayList banco de dados. Primeiro verifica se a posição
-	 * passada é maior do que o arrayList Se for maior retorna falso, caso contrário
+	 * passada é maior do que o arrayList; Se for maior retorna falso, caso contrário
 	 * remove um evento do arrayList na posição indicada.
 	 * 
-	 * @param posicao. Inteiro indicando a posição do evento na arrayList que será
+	 * @param posicao Inteiro indicando a posição do evento na arrayList que será
 	 *                 removida.
 	 * @return verdadeiro ou falso, indicando se o evento foi removido ou não.
 	 */
@@ -72,7 +72,7 @@ public class BancoEvento {
 	}
 
 	/**
-	 * Inicializa o programa com alguns dados pré-definidos. Tais como evento 1-
+	 * Inicializa o programa com alguns dados pré-definidos. Tais como: evento 1-
 	 * Casamento, 2- Churrasco, 3 - Niver, 4 - pizzaria.
 	 */
 

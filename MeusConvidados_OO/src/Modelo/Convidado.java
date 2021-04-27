@@ -1,8 +1,8 @@
 package Modelo;
 
 /**
- * Classe denominada Condidado. Tem como objetivo descrever as informações dos
- * convidados do evento. Essas informações são nome, quantidade de acompanhante,
+ * Classe denominada Condidado, tem como objetivo descrever as informações dos
+ * convidados do evento, por exemplo: nome, quantidade de acompanhante,
  * além das informações da classe InformacaoConvidado.
  * 
  * @author HITER E KLYSSMANN
@@ -19,15 +19,15 @@ public class Convidado {
 	/**
 	 * Construtor da classe Convidado.
 	 * 
-	 * @param nome.              String que fornece o nome do convidado.
-	 * @param quantAcompanhante. Inteiro que fornece a quantidade de acompanhantes
+	 * @param nome              String que fornece o nome do convidado.
+	 * @param quantAcompanhante Inteiro que fornece a quantidade de acompanhantes
 	 *                           do convidado.
-	 * @param telefone.          String que fornece o telefone do convidado.
-	 * @param email.             String que fornece o email do convidado.
-	 * @param redeSocial.        String que fornece a rede social do convidado
-	 * @param endereco.          String que fornece o endereço do convidado.
-	 * @param cep.               String que fornece o CEP do endereço do convidado.
-	 * @param complemento.       String que fornece o complemento do endereço do
+	 * @param telefone          String que fornece o telefone do convidado.
+	 * @param email             String que fornece o email do convidado.
+	 * @param redeSocial        String que fornece a rede social do convidado
+	 * @param endereco          String que fornece o endereço do convidado.
+	 * @param cep               String que fornece o CEP do endereço do convidado.
+	 * @param complemento       String que fornece o complemento do endereço do
 	 *                           convidado.
 	 */
 
