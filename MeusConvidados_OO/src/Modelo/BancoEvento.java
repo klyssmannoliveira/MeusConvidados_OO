@@ -2,10 +2,14 @@ package Modelo;
 
 import java.util.ArrayList;
 
-/*
-Sintese
-Objetivo: Classe denominada Banco Evento para armazenar os dados dos eventos; 
-*/
+/**
+ * Classe denominada Banco Evento, tem como função armazenar os eventos em um
+ * arrayList simulando um banco de dados ;
+ * 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
 
 public class BancoEvento {
 
@@ -33,13 +37,25 @@ public class BancoEvento {
 		this.qtdEventos = bdEventos.size();
 	}
 
-	/*
-	 * Objetivo: Adicionar Evento; Entrada: Evento EVENTO;
+	/**
+	 * Adiciona um evento na arrayList banco de dados;
+	 * 
+	 * @param Classe Evento
 	 */
+
 	public void adicionarEvento(Evento evento) {
 		bdEventos.add(evento);
 	}
 
+	/**
+	 * Remove um evento no arrayList banco de dados. Primeiro verifica se a posição
+	 * passada é maior do que o arrayList Se for maior retorna falso, caso contrário
+	 * remove um evento do arrayList na posição indicada.
+	 * 
+	 * @param posicao. Inteiro indicando a posição do evento na arrayList que será
+	 *                 removida.
+	 * @return verdadeiro ou falso, indicando se o evento foi removido ou não.
+	 */
 	/*
 	 * Objetivo: Remover Evento; Entrada: posicao;
 	 */
@@ -55,7 +71,11 @@ public class BancoEvento {
 
 	}
 
-	// Inicializa o programa com alguns dados pré-definidos.
+	/**
+	 * Inicializa o programa com alguns dados pré-definidos. Tais como evento 1-
+	 * Casamento, 2- Churrasco, 3 - Niver, 4 - pizzaria.
+	 */
+
 	public void fillWithSomeData() {
 		// Evento 1
 		Evento e1 = new Evento("Casamento", "18/03/2020", "18:00", "23:00", "Alvorada", "72583-250", "Sul", 600.00);
@@ -96,11 +116,12 @@ public class BancoEvento {
 		Convidado c12 = new Convidado("Klyssmann", 20, "(61)983490979", "klyssmannoliveira@gmail.com",
 				"@klyssmannoliveira", "Santa Maria", "72583-250", "Norte");
 		e2.adicionarConvidado(c12);
+		// Evento 3
 		Evento e3 = new Evento("niver", "18/01/2021", "18:00", "23:00", "Alvorada3", "72583-270", "Sul", 180.00);
 		adicionarEvento(e3);
+		// Evento 4
 		Evento e4 = new Evento("pizzaria", "18/03/2021", "18:00", "23:00", "Alvorada4", "72583-280", "Sul", 50.00);
 		adicionarEvento(e4);
-
 	}
 
 }

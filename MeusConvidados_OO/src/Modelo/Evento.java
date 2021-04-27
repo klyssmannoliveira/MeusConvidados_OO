@@ -1,9 +1,13 @@
 package Modelo;
 
-/*
-Sintese
-Objetivo: Classe denominada Evento para ser a classe central para organização do evento; 
-*/
+/**
+ * Classe denominada Evento. Tem como objetivo descrever as informações do
+ * evento. Essa classe é a classe principal do programa. As informações do convidado, orçamento, tarefa e programação estão armazenadas dentro desta classe.
+ * 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
 
 import java.util.ArrayList;
 
@@ -24,9 +28,17 @@ public class Evento {
 	private ArrayList<Programacao> bdProgramacao = new ArrayList<Programacao>(); // cria arraylist de Programação;
 	private double orcamentoPrevisto = 0.0; // inicializaçao do atributo do orçamento Previsto;
 
-	/*
-	 * Objetivo: Construtor da Classe Evento; Entrada : nome, data, horai, horaf;
+	/**
+	 * Construtor da Classe Evento
 	 * 
+	 * @param nome.              String do nome do evento.
+	 * @param data.              String da data do evento.
+	 * @param horai.             String da hora inicial do evento.
+	 * @param horaf.             String da hora final do evento.
+	 * @param endereco.          String do endereço do evento
+	 * @param cep.               String do CEP do endereço do evento.
+	 * @param complemen.         String do complemento do endereço do evento.
+	 * @param orcamentoPrevisto. Double do orçamento previsto do evento.
 	 */
 
 	public Evento(String nome, String data, String horai, String horaf, String endereco, String cep, String complemen,
@@ -41,15 +53,18 @@ public class Evento {
 		this.orcamentoPrevisto = orcamentoPrevisto;
 	}
 
-	// Sobrecarga do construtor vazio
+	/**
+	 * Construtor padrão da Classe Evento. Sem parâmetros de entradas.
+	 */
+
 	public Evento() {
 
 	}
 
-	/*
-	 * Objetivo: Mostrar as listas de convidados com sua respectivas quantidades de
-	 * acompanhantes;
+	/**
+	 * Método que Mostra as listas de convidados do evento.
 	 * 
+	 * @return Uma string com a lista de convidados.
 	 */
 
 	public String[] listarConvidados() {
@@ -61,16 +76,24 @@ public class Evento {
 		return auxiliar;
 	}
 
-	/*
-	 * Objetivo: Adicionar um convidado para o evento desejado;
+	/**
+	 * Método que adiciona um convidado no banco de dados para o evento desejado.
+	 * 
+	 * @param convidado. Este parâmentro é da classe Convidado.
 	 */
 
 	public void adicionarConvidado(Convidado convidado) {
 		bdConvidados.add(convidado);
 	}
 
-	/*
-	 * Objetivo: Remove o convidado do evento desejado; Entrada: Convidado;
+	/**
+	 * Remove um convidado no arrayList banco de dados convidados. Primeiro verifica
+	 * se a posição passada é maior do que o arrayList se for maior retorna falso,
+	 * caso contrário remove um evento do arrayList na posição indicada.
+	 * 
+	 * @param posConvidado. Inteiro indicando a posição do convidado na arrayList
+	 *                      que será removida.
+	 * @return verdadeiro ou falso, indicando se o convidado foi removido ou não.
 	 */
 
 	public boolean removerConvidado(int posConvidado) {
@@ -86,9 +109,12 @@ public class Evento {
 
 	}
 
-	/*
-	 * Objetivo: listar as tarefas realizadas para o evento;
+	/**
+	 * Método que Mostra as listas de tarefas do evento
+	 * 
+	 * @return Uma string com as listas da tarefas.
 	 */
+
 	public String[] listarTarefas() {
 		String[] auxiliar = new String[bdTarefas.size()];
 		for (int i = 0; i < bdTarefas.size(); i++) {
@@ -97,17 +123,26 @@ public class Evento {
 		return auxiliar;
 	}
 
-	/*
-	 * Objetivo: Adicionar tarefas para ser realizadas no evento; Entrada: tarefa;
+	/**
+	 * Método que adiciona tarefas para realização do evento.
+	 * 
+	 * @param tarefa. Este parâmentro é da classe Tarefa.
 	 */
+
 	public void adicionarTarefa(Tarefa tarefa) {
 		bdTarefas.add(tarefa);
 	}
 
-	/*
-	 * Objetivo: Remover tarefas para não ser realizadas no evento; Entrada:
-	 * descricao;
+	/**
+	 * Remove uma tarefa no arrayList banco de dados tarefas. Primeiro verifica se a
+	 * posição passada é maior do que o arrayList se for maior retorna falso, caso
+	 * contrário remove um evento do arrayList na posição indicada.
+	 * 
+	 * @param posTarefa. Inteiro indicando a posição da tarefa no arrayList que será
+	 *                   removida.
+	 * @return verdadeiro ou falso, indicando se a tarefa foi removido ou não.
 	 */
+
 	public boolean removerTarefa(int posTarefa) {
 		if (posTarefa > bdTarefas.size()) {
 
@@ -119,9 +154,12 @@ public class Evento {
 		}
 	}
 
-	/*
-	 * Objetivo: Listar os orçamentos dos eventos;
+	/**
+	 * Método que Mostra as listas de orçamentos do evento
+	 * 
+	 * @return Uma string com as listas dos orçamentos do evento.
 	 */
+
 	public String[] listarOrcamentos() {
 		String[] auxiliar = new String[bdOrcamentos.size()];
 		for (int i = 0; i < bdOrcamentos.size(); i++) {
@@ -130,16 +168,26 @@ public class Evento {
 		return auxiliar;
 	}
 
-	/*
-	 * Objetivo: Adicionar Orçamento do evento; Entrada: Orçamento;
+	/**
+	 * Método que adiciona um orçamento para realização do evento.
+	 * 
+	 * @param orcamento. Este parâmentro é da classe Orcamento.
 	 */
+
 	public void adicionarOrcamento(Orcamento orcamento) {
 		bdOrcamentos.add(orcamento);
 	}
 
-	/*
-	 * Objetivo:Remover Orçamento do evento; Entrada: posOrcamento;
+	/**
+	 * Remove um orçamento no arrayList banco de dados do orçamento. Primeiro
+	 * verifica se a posição passada é maior do que o arrayList se for maior retorna
+	 * falso, caso contrário remove um evento do arrayList na posição indicada.
+	 * 
+	 * @param posOrcamento. Inteiro indicando a posição do orçamento no arrayList
+	 *                      que será removida.
+	 * @return verdadeiro ou falso, indicando se o orçamento foi removido ou não.
 	 */
+
 	public boolean removerOrcamento(int posOrcamento) {
 		if (posOrcamento > bdOrcamentos.size()) {
 
@@ -152,16 +200,26 @@ public class Evento {
 
 	}
 
-	/*
-	 * Objetivo: Adicionar Bebida do evento; Entrada: bebida;
+	/**
+	 * Método que adiciona uma Bebida no evento.
+	 * 
+	 * @param bebida. Este parâmentro é da classe Bebida.
 	 */
+
 	public void adicionarBebida(Bebida bebida) {
 		bdBebida.add(bebida);
 	}
 
-	/*
-	 * Objetivo:Remover bebida do evento; Entrada: posBebida;
+	/**
+	 * Remove uma bebida no arrayList banco de dados bebida. Primeiro verifica se a
+	 * posição passada é maior do que o arrayList se for maior retorna falso, caso
+	 * contrário remove um evento do arrayList na posição indicada.
+	 * 
+	 * @param posBebida. Inteiro indicando a posição da bebida no arrayList que será
+	 *                   removida.
+	 * @return verdadeiro ou falso, indicando se da bebida foi removido ou não.
 	 */
+
 	public boolean removerBebida(int posBebida) {
 		if (posBebida > bdBebida.size()) {
 
@@ -174,16 +232,26 @@ public class Evento {
 
 	}
 
-	/*
-	 * Objetivo: Adicionar comida do evento; Entrada: comida;
+	/**
+	 * Método que adiciona uma comida no evento.
+	 * 
+	 * @param comida. Este parâmentro é da classe Comida.
 	 */
+
 	public void adicionarComida(Comida comida) {
 		bdComida.add(comida);
 	}
 
-	/*
-	 * Objetivo:Remover Comida do evento; Entrada: posComida;
+	/**
+	 * Remove uma comida no arrayList banco de dados comida. Primeiro verifica se a
+	 * posição passada é maior do que o arrayList se for maior retorna falso, caso
+	 * contrário remove um evento do arrayList na posição indicada.
+	 * 
+	 * @param posComida. Inteiro indicando a posição da comida no arrayList que será
+	 *                   removida.
+	 * @return verdadeiro ou falso, indicando se da comida foi removido ou não.
 	 */
+
 	public boolean removerComida(int posComida) {
 		if (posComida > bdComida.size()) {
 
@@ -196,15 +264,25 @@ public class Evento {
 
 	}
 
-	/*
-	 * Objetivo: Adicionar Infraestrutura do evento; Entrada: Infraestrutura;
+	/**
+	 * Método que adiciona uma infraestrutura no evento.
+	 * 
+	 * @param infraestrutura. Este parâmentro é da classe Infraestrutura.
 	 */
 	public void adicionarInfraestrutura(Infraestrutura infraestrutura) {
 		bdInfraestrutura.add(infraestrutura);
 	}
 
-	/*
-	 * Objetivo:Remover Infraestrutura do evento; Entrada: posInfraestrutura;
+	/**
+	 * Remove uma infraestrutura no arrayList banco de dados infraestrutura.
+	 * Primeiro verifica se a posição passada é maior do que o arrayList se for
+	 * maior retorna falso, caso contrário remove um evento do arrayList na posição
+	 * indicada.
+	 * 
+	 * @param posInfraestrutura. Inteiro indicando a posição da infraestrutura no
+	 *                           arrayList que será removida.
+	 * @return verdadeiro ou falso, indicando se a infraestrutura foi removido ou
+	 *         não.
 	 */
 	public boolean removerInfraestrutura(int posInfraestrutura) {
 		if (posInfraestrutura > bdInfraestrutura.size()) {
@@ -218,15 +296,23 @@ public class Evento {
 
 	}
 
-	/*
-	 * Objetivo: Adicionar música do evento; Entrada: musica;
+	/**
+	 * Método que adiciona uma musica no evento.
+	 * 
+	 * @param musica. Este parâmentro é da classe Musica.
 	 */
 	public void adicionarMusica(Musica musica) {
 		bdMusica.add(musica);
 	}
 
-	/*
-	 * Objetivo:Remover Musica do evento; Entrada: posMusica;
+	/**
+	 * Remove uma musica no arrayList banco de dados musica. Primeiro verifica se a
+	 * posição passada é maior do que o arrayList se for maior retorna falso, caso
+	 * contrário remove um evento do arrayList na posição indicada.
+	 * 
+	 * @param posMusica. Inteiro indicando a posição da musica no arrayList que será
+	 *                   removida.
+	 * @return verdadeiro ou falso, indicando se a musica foi removido ou não.
 	 */
 	public boolean removerMusica(int posMusica) {
 		if (posMusica > bdMusica.size()) {
@@ -240,9 +326,12 @@ public class Evento {
 
 	}
 
-	/*
-	 * Objetivo: Listar as descrições da programação do evento;
+	/**
+	 * Método que Mostra as listas de descrição da programação do evento.
+	 * 
+	 * @return Uma string com as listas de descrição da programação.
 	 */
+
 	public String[] listarProgramacaoDescricao() {
 		String[] auxiliar = new String[bdProgramacao.size()];
 		for (int i = 0; i < bdProgramacao.size(); i++) {
@@ -251,9 +340,12 @@ public class Evento {
 		return auxiliar;
 	}
 
-	/*
-	 * Objetivo: Listar a hora da programação do evento;
+	/**
+	 * Método que Mostra as listas da hora da programação do evento.
+	 * 
+	 * @return Uma string com as listas da hora da programação.
 	 */
+
 	public String[] listarProgramacaoHora() {
 		String[] auxiliar = new String[bdProgramacao.size()];
 		for (int i = 0; i < bdProgramacao.size(); i++) {
@@ -262,15 +354,23 @@ public class Evento {
 		return auxiliar;
 	}
 
-	/*
-	 * Objetivo: Adicionar programação do evento; Entrada: programacao;
+	/**
+	 * Método que adiciona uma programação no evento.
+	 * 
+	 * @param programacao. Este parâmentro é da classe Programacao.
 	 */
 	public void adicionarProgramacao(Programacao programacao) {
 		bdProgramacao.add(programacao);
 	}
 
-	/*
-	 * Objetivo:Remover Programação do evento; Entrada: posProgramacao;
+	/**
+	 * Remove uma programação no arrayList banco de dados programação. Primeiro
+	 * verifica se a posição passada é maior do que o arrayList se for maior retorna
+	 * falso, caso contrário remove um evento do arrayList na posição indicada.
+	 * 
+	 * @param posProgramacao. Inteiro indicando a posição da programação no
+	 *                        arrayList que será removida.
+	 * @return verdadeiro ou falso, indicando se a programação foi removido ou não.
 	 */
 	public boolean removerProgramacao(int posProgramacao) {
 		if (posProgramacao > bdProgramacao.size()) {
@@ -304,9 +404,11 @@ public class Evento {
 		this.informacaoEvento = informacaoEvento;
 	}
 
-	/*
-	 * Objetivo: Cálculo total dos convidados; set do total de convidados do evento;
+	/**
+	 * Set Total Convidados que realiza a contagem dos convidados e dos
+	 * acompanhantes, ou seja, o total de pessoas no evento.
 	 */
+
 	public void setTotalConvidados() {
 		totalConvidados = 0;
 		for (int i = 0; i < bdConvidados.size(); i++) {
@@ -321,10 +423,11 @@ public class Evento {
 		return totalConvidados;
 	}
 
-	/*
-	 * Objetivo: Calcular as taxas de tarefas do evento. Ex: 100% das tarefas
-	 * concluidas;
+	/**
+	 * Set taxa tarefas que realiza a porcentagem de conlusão de um tarefa do
+	 * evento.
 	 */
+
 	public void setTaxaTarefas() {
 		double contadorSIM = 0;
 		int cont = 0;
@@ -344,8 +447,8 @@ public class Evento {
 		return taxaTarefas;
 	}
 
-	/*
-	 * Objetivo: Cálculo total dos gastos do evento;
+	/**
+	 * Set total gastos que realiza o somatório de gastos total do evento.
 	 */
 
 	public void setTotalGasto() {

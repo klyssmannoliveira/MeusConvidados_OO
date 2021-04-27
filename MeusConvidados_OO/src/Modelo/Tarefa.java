@@ -1,27 +1,40 @@
 
 package Modelo;
-/*
-Sintese
-Objetivo: Classe denominada Tarefa para as informações das Tarefas para a organização do evento; 
-*/
+
+/**
+ * Classe denominada Tarefa. Tem como objetivo descrever as informações das
+ * Tarefas para a organização do evento.
+ * 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
 
 public class Tarefa {
 	private String descricao; // descricao da tarefa: pode ser qualquer tarefa
 	private String dataLimite; // data no formato Date
 	private boolean concluido; // True = Tarefa concluido
 
-	/*
-	 * Sintese Objetivo: Construtor da classe Tarefa; Entrada: descricao, data
+	/**
+	 * Construtor da classe Tarefa
+	 * 
+	 * @param descricao. String que descreve a tarefa a ser realizada no evento.
+	 * @param data.      String da data do evento.
 	 */
+
 	public Tarefa(String descricao, String data) {
 		this.descricao = descricao;
 		dataLimite = data; // transforma a string data no formato Date
 	}
 
-	/*
-	 * Sintese Objetivo: Construtor da classe Tarefa (sobrecarga; Entrada:
-	 * descricao, data, concluido
+	/**
+	 * Construtor da classe Tarefa sobrecarga
+	 * 
+	 * @param descricao.  String que descreve a tarefa a ser realizada no evento.
+	 * @param dataLimite. String da data limite para realização da Tarefano evento.
+	 * @param concluido.  Boolean se a tarefa está concluida ou não.
 	 */
+
 	public Tarefa(String descricao, String dataLimite, boolean concluido) {
 		super();
 		this.descricao = descricao;
@@ -29,9 +42,8 @@ public class Tarefa {
 		this.concluido = concluido;
 	}
 
-	/*
-	 * Objetivo: Construtor da Classe Tarefa (sobrecarga) Entrada : sem entrada
-	 * 
+	/**
+	 * Construtor padrão da Classe Tarefa. Sem parâmetros de entradas.
 	 */
 
 	public Tarefa() {

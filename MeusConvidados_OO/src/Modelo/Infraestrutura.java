@@ -1,9 +1,13 @@
 package Modelo;
 
-/*
-Sintese
-Objetivo: Classe denominada Infraestrutura para descrever as informaçoes da infraestrutura do evento; 
-*/
+/**
+ * Classe denominada Infraestrutura. Tem como objetivo descrever as informações
+ * das infraestruturas do evento. Uma classe que herda da classe Orçamento.
+ * 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
 
 public class Infraestrutura extends Orcamento {
 	private boolean decoracao; // decoração do evento
@@ -13,20 +17,40 @@ public class Infraestrutura extends Orcamento {
 	private boolean equipamento; // equipamento do evento;
 	private boolean toalete; // toalete do evento;
 
-	/*
-	 * Objetivo: Construtor da Classe Infraestrutura; Entrada : descricao e
-	 * valorTotal;
+	/**
+	 * Construtor da Classe Infraestrutura.
 	 * 
+	 * @param tipo.       Inteiro que indica o tipo do orçamento (1 - Bebida, 2 -
+	 *                    Comida, 3 - Infraestrutura, 4 - Música).
+	 * @param descricao.  String que realiza a descrição da infraestrutura.
+	 * @param valorTotal. Double que indica o valor total da infraestrutura para o
+	 *                    evento.
 	 */
+
 	public Infraestrutura(int tipo, String descricao, double valorTotal) {
 		super(tipo, descricao, valorTotal);
 
 	}
 
-	/*
-	 * Objetivo: Construtor da Classe Infraestrutura (sobrecarga); Entrada :
-	 * descricao, quantidade, valorTotal, decoracao, estacionamento, imobiliario,
-	 * internet, equipamento, toalete;
+	/**
+	 * Construtor da Classe Infraestrutura com sobrecarga.
+	 * 
+	 * @param tipo.           Inteiro que indica o tipo do orçamento (1 - Bebida, 2
+	 *                        - Comida, 3 - Infraestrutura, 4 - Música).
+	 * @param descricao.      String que realiza a descrição da infraestrutura.
+	 * @param valorTotal.     Double que indica o valor total da infraestrutura para
+	 *                        o evento.
+	 * @param decoracao.      Boolean que indica se o gasto é referente a decoração ou não no evento.
+	 * @param estacionamento. Boolean que indica se o gasto é referente a estacionamento ou
+	 *                        não no evento.
+	 * @param imobiliario.    Boolean que indica se o gasto é referente a mobiliário ou não
+	 *                        no evento.
+	 * @param internet.       Boolean que indica se o gasto é referente a internet ou não no
+	 *                        evento.
+	 * @param equipamento.    Boolean que indica se o gasto é referente a equipamento ou não
+	 *                        no evento.
+	 * @param toalete.        Boolean que indica se o gasto é referente a toalete ou não no
+	 *                        evento.
 	 */
 
 	public Infraestrutura(int tipo, String descricao, double valorTotal, boolean decoracao, boolean estacionamento,
@@ -39,10 +63,9 @@ public class Infraestrutura extends Orcamento {
 		this.equipamento = equipamento;
 		this.toalete = toalete;
 	}
-	/*
-	 * Objetivo: Construtor da Classe Infraestrutura (sobrecarga) Entrada : sem
-	 * entrada
-	 * 
+
+	/**
+	 * Construtor padrão da Classe Infraestrutura. Sem parâmetros de entradas.
 	 */
 
 	public Infraestrutura() {

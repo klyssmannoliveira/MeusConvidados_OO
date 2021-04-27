@@ -1,10 +1,14 @@
 package Modelo;
 
-/*
-Sintese
-Objetivo: Classe denominada InformacaoEvento para guardar as informações evento; 
-*/
-
+/**
+ * Classe denominada InformacaoEvento. Tem como objetivo descrever as
+ * informações do evento, tais como: data e hora inicial e final. É a classe
+ * filho que herda as informações de endereço da classe informacao.
+ * 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
 
 public class InformacaoEvento extends Informacao {
 
@@ -13,7 +17,8 @@ public class InformacaoEvento extends Informacao {
 	private String horaTermino; // horario do termino do evento;
 
 	/*
-	 * Objetivo: Getters e Setters referente aos atributos das informaçoes do evento;
+	 * Objetivo: Getters e Setters referente aos atributos das informaçoes do
+	 * evento;
 	 * 
 	 */
 	// get da data do evento;

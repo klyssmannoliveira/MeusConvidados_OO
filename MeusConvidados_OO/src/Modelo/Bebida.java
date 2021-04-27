@@ -1,28 +1,50 @@
 package Modelo;
 
-/*
-Sintese
-Objetivo: Classe denominada Bebida para descrever as informaçoes de bebida do evento; 
-*/
+/**
+ * Classe denominada Bebida. Tem como objetivo descrever as informações de
+ * bebida do evento. Uma classe que herda da classe Orçamento.
+ * 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
 
 public class Bebida extends Orcamento {
+
 	private int quantidade; // quantidade de bebidas;
 	private double valorUnitario; // valor unitario de cada bebida do evento;
 	private boolean alcoolico; // se a bebida for alcoolica ou não;
 	private boolean bebidaQuente; // se a bebida for quente ou não;
 
-	/*
-	 * Objetivo: Construtor da Classe Bebida; Entrada : descricao e valorTotal;
+	/**
+	 * Construtor da Classe Bebida.
 	 * 
+	 * @param tipo.       Inteiro que indica o tipo do orçamento (1 - Bebida, 2 -
+	 *                    Comida, 3 - Infraestrutura, 4 - Música).
+	 * @param descricao.  String que realiza a descrição da bebida.
+	 * @param valorTotal. Double que indica o valor total das bebidas para o evento.
 	 */
+
 	public Bebida(int tipo, String descricao, double valorTotal) {
 		super(tipo, descricao, valorTotal);
 	}
 
-	/*
-	 * Objetivo: Construtor da Classe Bebida (sobrecarga); Entrada : descricao,
-	 * quantidade, valorTotal, valorUnitario, alcoolico, bebidaQuente;
+	/**
+	 * Construtor da Classe Bebida realizando uma sobrecarga.
+	 * 
+	 * @param tipo.          Inteiro que indica o tipo do orçamento (1 - Bebida, 2 -
+	 *                       Comida, 3 - Infraestrutura, 4 - Música).
+	 * @param descricao.     String que realiza a descrição da bebida.
+	 * @param quantidade.    Inteiro que indica a quantidade de bebidas que será
+	 *                       utilizada no evento.
+	 * @param valorUnitario. Double que mostra o valor de cada bebida que será
+	 *                       utilizada no evento.
+	 * @param valorTotal.    Double que indica o valor total das bebidas para o
+	 *                       evento.
+	 * @param bebidaQuente.  Boolean que indica se a bebida é quente ou não.
+	 * @param alcoolico.     Boolean que indica se a bebida é alcoolica ou não.
 	 */
+
 	public Bebida(int tipo, String descricao, int quantidade, double valorUnitario, double valorTotal,
 			boolean bebidaQuente, boolean alcoolico) {
 		super(tipo, descricao, valorTotal);
@@ -32,10 +54,10 @@ public class Bebida extends Orcamento {
 		this.bebidaQuente = bebidaQuente;
 	}
 
-	/*
-	 * Objetivo: Construtor da Classe Bebida (sobrecarga) Entrada : sem entrada
-	 * 
+	/**
+	 * Construtor padrão da Classe Bebida. Sem parâmetros de entradas.
 	 */
+
 	public Bebida() {
 
 	}

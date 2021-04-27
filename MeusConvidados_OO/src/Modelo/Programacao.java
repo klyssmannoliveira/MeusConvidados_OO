@@ -1,15 +1,25 @@
 package Modelo;
 
-/*
-Sintese
-Objetivo: Classe denominada Programação para descrever a programação do evento; 
-*/
+/**
+ * Classe denominada Programacao. Tem como objetivo descrever as informações da
+ * programação do evento por meio da hora/descrição.
+ * 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
 
 public class Programacao {
 
 	private String descricao; // Descrição da Programação
 	private String hora; // hora programação
 
+	/**
+	 * Construtor da classe Programacao.
+	 * 
+	 * @param descricao. String que descreve a programação do respectivo evento.
+	 * @param hora.      String que fornece a hora da programação do evento.
+	 */
 	/*
 	 * Objetivo: Construtor da Classe Programaçao; Entrada : descricao, hora;
 	 * 
@@ -20,9 +30,8 @@ public class Programacao {
 		this.hora = hora;
 	}
 
-	/*
-	 * Objetivo: Construtor da Classe Programaçao (sobrecarga) Entrada : sem entrada
-	 * 
+	/**
+	 * Construtor padrão da Classe Programacao. Sem parâmetros de entradas.
 	 */
 
 	public Programacao() {

@@ -1,9 +1,13 @@
 package Modelo;
 
-/*
-Sintese
-Objetivo: Classe denominada Comida para descrever as informaçoes da comida do evento; 
-*/
+/**
+ * Classe denominada Comida. Tem como objetivo descrever as informações da
+ * comida do evento. Uma classe que herda da classe Orçamento.
+ * 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
 
 public class Comida extends Orcamento {
 	private int quantidade; // quantidade
@@ -12,18 +16,38 @@ public class Comida extends Orcamento {
 	private boolean degustativo; // classificar se a comida se encaixa em prato degustativo
 	private boolean sobremesa; // classificar se a comida se encaixa em prato sobremesa
 
-	/*
-	 * Objetivo: Construtor da Classe Comida; Entrada : descricao e valorTotal;
+	/**
+	 * Construtor da Classe Comida.
 	 * 
+	 * @param tipo.       Inteiro que indica o tipo do orçamento (1 - Bebida, 2 -
+	 *                    Comida, 3 - Infraestrutura, 4 - Música).
+	 * @param descricao.  String que realiza a descrição da comida.
+	 * @param valorTotal. Double que indica o valor total das comidas para o evento.
 	 */
+
 	public Comida(int tipo, String descricao, double valorTotal) {
 		super(tipo, descricao, valorTotal);
 	}
 
-	/*
-	 * Objetivo: Construtor da Classe Bebida (sobrecarga); Entrada : descricao,
-	 * quantidade, valorTotal, valorUnitario, principal, degustativo, sobremesa;
+	/**
+	 * Construtor da Classe Comida com sobrecarga
+	 * 
+	 * @param tipo.          Inteiro que indica o tipo do orçamento (1 - Bebida, 2 -
+	 *                       Comida, 3 - Infraestrutura, 4 - Música).
+	 * @param descricao.     String que realiza a descrição da comida.
+	 * @param quantidade.    Inteiro que indica a quantidade de comidas que será
+	 *                       utilizada no evento.
+	 * @param valorUnitario. Double que mostra o valor de cada comida que será
+	 *                       utilizada no evento.
+	 * @param valorTotal.    Double que indica o valor total das comidas para o
+	 *                       evento.
+	 * @param principal.     Boolean que indica se a comida é o prato principal ou
+	 *                       não.
+	 * @param degustativo.   Boolean que indica se a comida é um prato degustativo
+	 *                       ou não.
+	 * @param sobremesa.     Boolean que indica se a comida é uma sobremessa ou não.
 	 */
+
 	public Comida(int tipo, String descricao, int quantidade, double valorUnitario, double valorTotal,
 			boolean principal, boolean degustativo, boolean sobremesa) {
 		super(tipo, descricao, valorTotal);
@@ -34,11 +58,10 @@ public class Comida extends Orcamento {
 		this.sobremesa = sobremesa;
 	}
 
-	/*
-	 * Objetivo: Construtor da Classe Comida (sobrecarga) Entrada : sem entrada
-	 * 
+	/**
+	 * Construtor padrão da Classe Comida. Sem parâmetros de entradas.
 	 */
-
+	
 	public Comida() {
 	}
 

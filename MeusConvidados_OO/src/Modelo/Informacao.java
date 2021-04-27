@@ -1,9 +1,15 @@
 package Modelo;
 
-/*
-Sintese
-Objetivo: Classe abstrata denominada Informacao para ser o endereço do evento e dos convidados; 
-*/
+/**
+ * Classe denominada Informacao. Tem como objetivo descrever as informações dos
+ * endereços do evento e dos convidados. É a classe pai das classes
+ * informacaoConvidado e informacaoEvento. Ela também é uma classe abstrata.
+ * 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
+
 
 public abstract class Informacao {
 
@@ -45,7 +51,5 @@ public abstract class Informacao {
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
 	}
-	
-	
 
 }
