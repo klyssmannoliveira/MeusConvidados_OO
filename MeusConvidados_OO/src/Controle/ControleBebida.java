@@ -6,75 +6,120 @@ Objetivo: Classe denominada Controle Bebida para controlar a classe bebida do pa
 */
 
 import Modelo.Bebida;
+/**
+ * Classe denominada Controle Bebida, tem como função ligar os atributos 
+ * da classe bebida no pacote modelo
+ * com o pacote View.
+ * 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
 
 public class ControleBebida {
 
 	private Bebida bebida = new Bebida(); // Instanciação da classe bebida do pacote modelo
 
-	/*
-	 * Objetivo: Construtor da Classe controle Bebida. Entrada : Bebida bebida;
-	 * 
+	/**
+	 * Construtor da Classe controle Bebida.
+	 * @param bebida Classe bebida
 	 */
 	public ControleBebida(Bebida bebida) {
 		this.bebida = bebida;
 	}
 
-	// get Descrição
+	/**
+	 * Retorna a descrição da bebida.
+	 * @return Retorna uma String com a descrição da bebida.
+	 */
 	public String getDescricao() {
 		return bebida.getDescricao();
 	}
 
-	// get Valor Total Orcamento
+	/**
+	 * Retorna o valor total da bebida.
+	 * @return Retorna um double com a o valor total da bebida.
+	 */
 	public double getValorTotalOrcamento() {
 		return bebida.getValorTotal();
 	}
 
-	// set da descricao
+	/**
+	 * Insere uma descrição na bebida selecionada.
+	 * @param descricao String que descreve a bebida.
+	 */
 	public void setDescricao(String descricao) {
 		bebida.setDescricao(descricao);
 	}
 
-	// set do valor total
+	/**
+	 * Insere o valor total da bebida selecionada.
+	 * @param valorTotal Double com o valor total da bebida.
+	 */
 	public void setValorTotal(double valorTotal) {
 		bebida.setValorTotal(valorTotal);
 	}
 
-	// Is Bebida quente
+	/**
+	 * Retorna se a bebida é quente ou não.
+	 * @return Retorna verdadeiro ou false caso a bebida seja quente.
+	 */
 	public boolean isBebidaQuente() {
 		return bebida.isBebidaQuente();
 	}
 
-	// set Bebida Quente
+	/**
+	 * Insere se a bebida é quente ou não.
+	 * @param bebidaQuente Boolean que configura se a bebida é quente ou não.
+	 */
 	public void setBebidaQuente(boolean bebidaQuente) {
 		bebida.setBebidaQuente(bebidaQuente);
 	}
 
-	// get Valor Unitario Orcamento
+	/**
+	 * Retorna o valor unitário da bebida selecionada.
+	 * @return Retorna um double com o valor unitário da bebida.
+	 */
 	public double getValorUnitarioOrcamento() {
 		return bebida.getValorUnitario();
 	}
 
-	// set do valor unitario;
+	/**
+	 * Insere o valor unitáro da bebida selecionada.
+	 * @param valorUnitario Double com o valor unitário da bebida.
+	 */
 	public void setValorUnitario(double valorUnitario) {
 		bebida.setValorUnitario(valorUnitario);
 	}
 
-	// get Valor quantidade Orcamento
+	/**
+	 * Retorna a quantidade da bebida selecionada.
+	 * @return Retorna um inteiro com a quantidade da bebida selecionada.
+	 */
 	public int getValorQuantidadeOrcamento() {
 		return bebida.getQuantidade();
 	}
 
-	// set da quantidade de bebida;
+	/**
+	 * Insere a quantiade da bebida selecionada.
+	 * @param quantidade Inteiro com a quantidade de bebida.
+	 */
 	public void setQuantidade(int quantidade) {
 		bebida.setQuantidade(quantidade);
 	}
 
-	// Is alcoolico refeente a bebida
+	/**
+	 * Retorna se a bebida é considerada alcoólica ou não.
+	 * @return Retorna verdadeiro se a bebida for alcoólica e falso se não.
+	 */
 	public boolean isAlcoolico() {
 		return bebida.isAlcoolico();
 	}
 
-	// set do boolean alcoolico referente a bebida;
+	/**
+	 * Insere se a bebida é alcoólica ou não.
+	 * @param alcoolico Boolean com verdadeiro se a bebida for alcoólica e falso caso contrário.
+	 */
 	public void setAlcoolico(boolean alcoolico) {
 		bebida.setAlcoolico(alcoolico);
 	}
