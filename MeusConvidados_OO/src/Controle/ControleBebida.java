@@ -21,8 +21,8 @@ public class ControleBebida {
 	private Bebida bebida = new Bebida(); // Instanciação da classe bebida do pacote modelo
 
 	/**
-	 * Construtor da Classe controle Bebida.
-	 * @param bebida Classe bebida
+	 * Construtor da Classe Controle Bebida.
+	 * @param bebida Bebida selecionada para adicionar/editar os atributos.
 	 */
 	public ControleBebida(Bebida bebida) {
 		this.bebida = bebida;
@@ -101,7 +101,7 @@ public class ControleBebida {
 	}
 
 	/**
-	 * Insere a quantiade da bebida selecionada.
+	 * Insere a quantidade da bebida selecionada.
 	 * @param quantidade Inteiro com a quantidade de bebida.
 	 */
 	public void setQuantidade(int quantidade) {

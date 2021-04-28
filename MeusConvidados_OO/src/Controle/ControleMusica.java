@@ -7,68 +7,110 @@ Objetivo: Classe denominada Controle Musica para controlar a classe Musica do pa
 
 import Modelo.Musica;
 
+/**
+ * Classe denominada Controle Música, tem como função ligar os atributos 
+ * da classe Infraestrutura no pacote modelo
+ * com o pacote View.
+ * 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
 public class ControleMusica {
 	private Musica musica = new Musica(); // Instanciação da classe musica do paconte modelo
 
-	/*
-	 * Objetivo: Construtor da Classe controle Musica. Entrada : Musica musica;
-	 * 
+	/**
+	 * Construtor da Classe Controle Infraestrutura.
+	 * @param musica Música selecionada para adicionar/editar os atributos.
 	 */
 	public ControleMusica(Musica musica) {
 		this.musica = musica;
 	}
 
-	// get Descrição
+	/**
+	 * Retorna a descrição da música.
+	 * @return String com a descrição da música.
+	 */
 	public String getDescricao() {
 		return musica.getDescricao();
 	}
 
-	// get Valor Total Orcamento
+	/**
+	 * Retorna o valor total da música.
+	 * @return Double com o valor total da música.
+	 */
 	public double getValorTotalOrcamento() {
 		return musica.getValorTotal();
 	}
 
-	// set da Descricao
+	/**
+	 * Insere a descrição da música do evento.
+	 * @param descricao String com a descrição do evento.
+	 */
 	public void setDescricao(String descricao) {
 		musica.setDescricao(descricao);
 	}
 
-	// set do Valor total
+	/**
+	 * Insere o valor total da música no evento.
+	 * @param valorTotal Double com o valor total.
+	 */
 	public void setValorTotal(double valorTotal) {
 		musica.setValorTotal(valorTotal);
 	}
 
-	// get Genero Musical
+	/**
+	 * Retorna o gênero musical da música cadastrada (Rock, forró e etc).
+	 * @return String com o gênero musical.
+	 */
 	public String getGeneroMusical() {
 		return musica.getGeneroMusical();
 	}
 
-	// set do Genero musical
+	/**
+	 * Insere o gênero musical da música cadastrada (Rock, forró e etc).
+	 * @param generoMusical String com o gênero musical.
+	 */
 	public void setGeneroMusical(String generoMusical) {
 		musica.setGeneroMusical(generoMusical);
 	}
 
-	// Is Dj
+	/**
+	 * Retorna se a música é um DJ ou não.
+	 * @return Boolean se é um DJ ou não.
+	 */
 	public boolean isDj() {
 		return musica.isDj();
 	}
 
-	// set do DJ:
+	/**
+	 * Insere se a música é um DJ ou não.
+	 * @param dj Boolean se é um DJ ou não.
+	 */
 	public void setDj(boolean dj) {
 		musica.setDj(dj);
 	}
 
-	// Is Banda
+	/**
+	 * Retorna se a música é uma banda ou não.
+	 * @return Boolean se é uma banda ou não.
+	 */
 	public boolean isBanda() {
 		return musica.isBanda();
 	}
 
-	// set da banda
+	/**
+	 * Insere se a música é uma banda ou não.
+	 * @param banda Boolean se é uma banda ou não.
+	 */
 	public void setBanda(boolean banda) {
 		musica.setBanda(banda);
 	}
 
-	// get Valor Total Musica
+	/**
+	 * Retorna o valor total da música no evento.
+	 * @return
+	 */
 	public double getValorTotalMusica() {
 
 		return musica.getValorTotal();

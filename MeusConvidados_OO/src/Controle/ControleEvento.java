@@ -9,13 +9,22 @@ import java.util.ArrayList;
 
 import Modelo.*;
 
+/**
+ * Classe denominada Controle Evento, tem como função ligar os atributos 
+ * da classe Evento no pacote modelo
+ * com o pacote View.
+ * 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
 public class ControleEvento {
 
 	private Evento evento = new Evento(); // instanciação da classe evento que está no pacote modelo
 
-	/*
-	 * Objetivo: Construtor da Classe Controle Evento; Entrada : Evento evento;
-	 * 
+	/**
+	 * Construtor da Classe Controle Evento.
+	 * @param evento Evento selecionado para adicionar/editar os atributos.
 	 */
 	public ControleEvento(Evento evento) {
 		this.evento = evento;
@@ -24,168 +33,268 @@ public class ControleEvento {
 	/*
 	 * Objetivo: Getters e Setters referentes ao Controle evento;
 	 */
-	// get Evento;
+	/**
+	 * Retorna o Evento selecionado.
+	 * @return Retorna o Evento.
+	 */
 	public Evento getEvento() {
 		return evento;
 	}
 
-	// set Evento
+	/**
+	 * Insere o evento selecionado para adicionar/editar os atributos.
+	 * @param evento Evento selecionado.
+	 */
 	public void setEvento(Evento evento) {
 		this.evento = evento;
 	}
 
-	// get Nome Evento
+	/**
+	 * Retorna o nome do evento selecionado.
+	 * @return String com o nome do Evento.
+	 */
 	public String getNomeEvento() {
 		return evento.getNomeEvento();
 	}
 
-	// set Nome Evento
+	/**
+	 * Insere o nome do evento.
+	 * @param nome String com o nome do Evento.
+	 */
 	public void setNomeEvento(String nome) {
 		evento.setNomeEvento(nome);
 	}
 
-	// get Data Evento
+	/**
+	 * Retorna a data do evento selecionado.
+	 * @return String com a data do evento.
+	 */
 	public String getDataEvento() {
 		return evento.getInformacaoEvento().getDataEvento();
 	}
 
-	// set Data Evento
+	/**
+	 * Insere a data do evento.
+	 * @param data String com a data do evento.
+	 */
 	public void setDataEvento(String data) {
 		evento.getInformacaoEvento().setDataEvento(data);
 	}
 
-	// get Hora Inicio Evento
+	/**
+	 * Retorna a hora de início do evento selecionado.
+	 * @return String com a hora de início do evento.
+	 */
 	public String getHoraiEvento() {
 		return evento.getInformacaoEvento().getHoraInicio();
 	}
 
-	// set Horai Evento
+	/**
+	 * Insere a hora de início do evento.
+	 * @param horai String com a hora de início do evento.
+	 */
 	public void setHoraiEvento(String horai) {
 		evento.getInformacaoEvento().setHoraInicio(horai);
 	}
 
-	// get Hora Evento
+	/**
+	 * Retorna a hora de término do evento selecionado.
+	 * @return String com a hora de término do evento.
+	 */
 	public String getHorafEvento() {
 		return evento.getInformacaoEvento().getHoraTermino();
 	}
 
-	// set Hora Evento
+	/**
+	 * Insere a hora de término do evento.
+	 * @param horaf String com a hora de término do evento.
+	 */
 	public void setHorafEvento(String horaf) {
 		evento.getInformacaoEvento().setHoraTermino(horaf);
 	}
 
-	// get Endereço
+	/**
+	 * Retorna o endereço de onde será o evento.
+	 * @return String com o endereço do evento.
+	 */
 	public String getEndereco() {
 		return evento.getInformacaoEvento().getEndereco();
 	}
 
-	// set Endereço
+	/**
+	 * Insere o endereço do evento.
+	 * @param end String com o endereço do evento.
+	 */
 	public void setEndereco(String end) {
 		evento.getInformacaoEvento().setEndereco(end);
 	}
 
-	// get CEP
+	/**
+	 * Retorna o Código de Endereçamento Postal do Evento.
+	 * @return String com o CEP do Evento.
+	 */
 	public String getCep() {
 		return evento.getInformacaoEvento().getCep();
 	}
 
-	// set CEP
+	/**
+	 * Insere o Código de Endereçamento Postal do Evento.
+	 * @param cep String com o CEP do evento.
+	 */
 	public void setCep(String cep) {
 		evento.getInformacaoEvento().setCep(cep);
 	}
 
-	// get Complemento
+	/**
+	 * Retorna o complemento do endereço do evento.
+	 * @return String com o complemento do evento.
+	 */
 	public String getComplemento() {
 		return evento.getInformacaoEvento().getComplemento();
 	}
 
-	// set Complemento
+	/**
+	 * Insere o complemento do endereço do evento.
+	 * @param complemen String com o complemento do evento.
+	 */
 	public void setComplemento(String complemen) {
 		evento.getInformacaoEvento().setComplemento(complemen);
 	}
 
-	// get Total Convidado
+	/**
+	 * Retorna a quantidade total de convidados e acompanhantes no evento selecionado.
+	 * @return Inteiro com a quantidade de participantes do evento.
+	 */
 	public int getTotalConvidados() {
 		return evento.getTotalConvidados();
 	}
 
-	// get Taxa Tarefas
+	/**
+	 * Retorna a taxa de realização de tarefas do evento.
+	 * @return Double com a porcentagem da realização das tarefas.
+	 */
 	public double getTaxaTarefas() {
 		return evento.getTaxaTarefas();
 	}
 
-	// get Orçamento Previsto
+	/**
+	 * Retorna o valor do orçamento previsto para a realização do evento.
+	 * @return Double com o valor do orçamento previsto.
+	 */
 	public double getOrcamentoPrevisto() {
 		return evento.getOrcamentoPrevisto();
 	}
 
-	// set orcamento Previsto
+	/**
+	 * Insere o orçamento previsto para a realização do evento.
+	 * @param orcamentoPrevisto Double com o valor do orçamento previsto.
+	 */
 	public void setOrcamentoPrevisto(double orcamentoPrevisto) {
 		evento.setOrcamentoPrevisto(orcamentoPrevisto);
 	}
 
-	// get Total Gasto
+	/**
+	 * Retorna o valor total de gastos para a realização do evento.
+	 * @return Double com o valor total de gastos.
+	 */
 	public double getTotalGasto() {
 		return evento.getTotalGasto();
 	}
 
-	// get Nomes convidados
+	/**
+	 * Retorna um vetor de String com os nomes dos 
+	 * convidados do evento. É utilizado no JList da lista de convidados.
+	 * @return Vetor de String com os nomes dos convidados.
+	 */
 	public String[] getNomesConvidados() {
 		return evento.listarConvidados();
 	}
 
-	// get Nomes Tarefas
+	/**
+	 * Retorna um vetor de String com as descrições das 
+	 * tarefas para a realização do evento. É utilizado no JList da lista de tarefas.
+	 * @return Vetor de String com as descrições das tarefas.
+	 */
 	public String[] getNomesTarefas() {
 		return evento.listarTarefas();
 	}
 
-	// get Nomes Orcamento
+	/**
+	 * Retorna um vetor de String com as descrições dos 
+	 * orçamentos para a realização do evento. É utilizado no JList da lista de orçamentos.
+	 * @return Vetor de String com as descrições dos orçamentos.
+	 */
 	public String[] getNomesOrcamento() {
 		return evento.listarOrcamentos();
 	}
 
-	// get banco convidados
+	/**
+	 * Retorna um ArrayList de Convidados do Evento.
+	 * @return ArrayList dos convidados.
+	 */
 	public ArrayList<Convidado> getBdConvidados() {
 		return evento.getBdConvidados();
 	}
 
-	// get banco tarefas
+	/**
+	 * Retorna um ArrayList de Tarefas do Evento.
+	 * @return ArrayList das tarefas.
+	 */
 	public ArrayList<Tarefa> getBdTarefas() {
 		return evento.getBdTarefas();
 	}
 
-	// get banco orcamentos
+	/**
+	 * Retorna um ArrayList de Orcamento do Evento.
+	 * @return ArrayList dos orçamentos.
+	 */
 	public ArrayList<Orcamento> getBdOrcamentos() {
 		return evento.getBdOrcamentos();
 	}
 
-	// get banco bebidas
+	/**
+	 * Retorna um ArrayList de Bebida do Evento.
+	 * @return ArrayList das bebidas.
+	 */
 	public ArrayList<Bebida> getBdBebida() {
 		return evento.getBdBebida();
 	}
 
-	// get banco comida
+	/**
+	 * Retorna um ArrayList de Comida do Evento.
+	 * @return ArrayList das comidas.
+	 */
 	public ArrayList<Comida> getBdComida() {
 		return evento.getBdComida();
 	}
 
-	// get banco infraestrutura
+	/**
+	 * Retorna um ArrayList de Infraestrutura do Evento.
+	 * @return ArrayList da infraestrutura.
+	 */
 	public ArrayList<Infraestrutura> getBdInfraestrutura() {
 		return evento.getBdInfraestrutura();
 	}
 
-	// get banco musica
+	/**
+	 * Retorna um ArrayList de Musica do Evento.
+	 * @return ArrayList da Musica.
+	 */
 	public ArrayList<Musica> getBdMusica() {
 		return evento.getBdMusica();
 	}
 
-	// get banco programação
+	/**
+	 * Retorna um ArrayList de Programacao do Evento.
+	 * @return ArrayList da Programação.
+	 */
 	public ArrayList<Programacao> getBdProgramacao() {
 		return evento.getBdProgramacao();
 	}
 
-	/*
-	 * Objetivo: Adicionar convidados ; Entrada: Convidado convidado;
+	/**
+	 * Adiciona o convidado dentro do ArrayList BdConvidados.
+	 * @param convidado Convidado a ser adicionado.
 	 */
 	public void adicionarConvidado(Convidado convidado) {
 
@@ -193,8 +302,9 @@ public class ControleEvento {
 
 	}
 
-	/*
-	 * Objetivo: Adicionar Tarefas ; Entrada: Tarefa tarefa;
+	/**
+	 * Adiciona a tarefa dentro do ArrayList BdTarefas.
+	 * @param Tarefa Tarefa a ser adicionada.
 	 */
 	public void adicionarTarefa(Tarefa tarefa) {
 
@@ -202,8 +312,9 @@ public class ControleEvento {
 
 	}
 
-	/*
-	 * Objetivo: Adicionar Orcamentos ; Entrada: Orcamento orcamento;
+	/**
+	 * Adiciona o orçamento dentro do ArrayList BdOrcamentos.
+	 * @param orcamento Orçamento a ser adicionado.
 	 */
 	public void adicionarOrcamento(Orcamento orcamento) {
 
@@ -211,8 +322,9 @@ public class ControleEvento {
 
 	}
 
-	/*
-	 * Objetivo: Adicionar Bebidas ; Entrada: Bebida bebida;
+	/**
+	 * Adiciona a bebida dentro do ArrayList BdBebidas.
+	 * @param bebida Bebida a ser adicionada.
 	 */
 	public void adicionarBebida(Bebida bebida) {
 
@@ -220,8 +332,9 @@ public class ControleEvento {
 
 	}
 
-	/*
-	 * Objetivo: Adicionar Comida ; Entrada: Comida comida;
+	/**
+	 * Adiciona a comida dentro do ArrayList BdComidas.
+	 * @param comida Comida a ser adicionada.
 	 */
 	public void adicionarComida(Comida comida) {
 
@@ -229,8 +342,9 @@ public class ControleEvento {
 
 	}
 
-	/*
-	 * Objetivo: Adicionar Infraestrutura ; Entrada: Infraestrutura infraestrutura;
+	/**
+	 * Adiciona a infraestrutura dentro do ArrayList BdInfraestrutura.
+	 * @param infraestrutura Infraestrutura a ser adicionada.
 	 */
 	public void adicionarInfraestrutura(Infraestrutura infraestrutura) {
 
@@ -238,8 +352,9 @@ public class ControleEvento {
 
 	}
 
-	/*
-	 * Objetivo: Adicionar Musica ; Entrada: Musica musica;
+	/**
+	 * Adiciona a música dentro do ArrayList BdMusicas.
+	 * @param musica Música a ser adicionada.
 	 */
 	public void adicionarMusica(Musica musica) {
 
@@ -247,8 +362,9 @@ public class ControleEvento {
 
 	}
 
-	/*
-	 * Objetivo: Adicionar Programacao ; Entrada: Programacao programacao;
+	/**
+	 * Adiciona a programação dentro do ArrayList BdProgramacao.
+	 * @param programacao Programação a ser adicionada.
 	 */
 	public void adicionarProgramacao(Programacao programacao) {
 
@@ -256,8 +372,10 @@ public class ControleEvento {
 
 	}
 
-	/*
-	 * Objetivo:Remover Convidado ; Entrada: posConvidado;
+	/**
+	 * Remove o convidado selecionado.
+	 * @param posConvidado Inteiro com a posição do convidado no ArrayList bdConvidados.
+	 * @return Verdadeiro se o convidado foi excluído e falso caso contrário.
 	 */
 	public boolean removerConvidado(int posConvidado) {
 
@@ -268,8 +386,10 @@ public class ControleEvento {
 
 	}
 
-	/*
-	 * Objetivo:Remover Tarefa; Entrada: posTarefa;
+	/**
+	 * Remove a tarefa selecionada.
+	 * @param posTarefa Inteiro com a posição da tarefa no ArrayList bdTarefas.
+	 * @return Verdadeiro se a tarefa foi excluída e falso caso contrário.
 	 */
 	public boolean removerTarefa(int posTarefa) {
 
@@ -280,8 +400,10 @@ public class ControleEvento {
 
 	}
 
-	/*
-	 * Objetivo:Remover Orcamento ; Entrada: posOrcamento;
+	/**
+	 * Remove o orçamento selecionado.
+	 * @param posOrcamento Inteiro com a posição do orcamento no ArrayList bdOrcamento.
+	 * @return Verdadeiro se o orcamento foi excluído e falso caso contrário.
 	 */
 	public boolean removerOrcamento(int posOrcamento) {
 
@@ -292,8 +414,10 @@ public class ControleEvento {
 
 	}
 
-	/*
-	 * Objetivo:Remover Bebida ; Entrada: posBebida;
+	/**
+	 * Remove a bebida selecionada.
+	 * @param posBebida Inteiro com a posição da bebida no ArrayList bdBebida.
+	 * @return Verdadeiro se a bebida foi excluída e falso caso contrário.
 	 */
 	public boolean removerBebida(int posBebida) {
 
@@ -304,8 +428,10 @@ public class ControleEvento {
 
 	}
 
-	/*
-	 * Objetivo: Remover Comida ; Entrada: posComida;
+	/**
+	 * Remove a comida selecionada.
+	 * @param posComida Inteiro com a posição da comida no ArrayList bdComida.
+	 * @return Verdadeiro se a comida foi excluída e falso caso contrário.
 	 */
 	public boolean removerComida(int posComida) {
 
@@ -316,8 +442,11 @@ public class ControleEvento {
 
 	}
 
-	/*
-	 * Objetivo:Remover Infraestrutura ; Entrada: posInfraestrutura;
+	/**
+	 * Remove a infraestrutura selecionada.
+	 * @param posInfraestrutura Inteiro com a posição da 
+	 * infraestrutura no ArrayList bdInfraestrutura.
+	 * @return Verdadeiro se a infraestrutura foi excluída e falso caso contrário.
 	 */
 	public boolean removerInfraestrutura(int posInfraestrutura) {
 
@@ -328,8 +457,10 @@ public class ControleEvento {
 
 	}
 
-	/*
-	 * Objetivo:Remover Musica ; Entrada: posMusica;
+	/**
+	 * Remove a música selecionada.
+	 * @param posMusica Inteiro com a posição da música no ArrayList bdMusica.
+	 * @return Verdadeiro se a Música foi excluída e falso caso contrário.
 	 */
 	public boolean removerMusica(int posMusica) {
 
@@ -340,8 +471,10 @@ public class ControleEvento {
 
 	}
 
-	/*
-	 * Objetivo:Remover Programacao ; Entrada: posProgramacao;
+	/**
+	 * Remove a programação selecionada.
+	 * @param posProgramacao Inteiro com a posição da programação no ArrayList bdProgramacao.
+	 * @return Verdadeiro se a Programação foi excluída e falso caso contrário.
 	 */
 	public boolean removerProgramacao(int posProgramacao) {
 
@@ -352,12 +485,18 @@ public class ControleEvento {
 
 	}
 
-	// get Descricao Programacao
+	/**
+	 * Retorna um vetor de String com a descrição da programação do evento.
+	 * @return Vetor de String com a descrição.
+	 */
 	public String[] getDescricaoProgramacao() {
 		return evento.listarProgramacaoDescricao();
 	}
 
-	// get Hora Programacao
+	/**
+	 * Retorna um vetor de Strng com a hora da programação do evento.
+	 * @return Vetor de String com a hora.
+	 */
 	public String[] getHoraProgramacao() {
 		return evento.listarProgramacaoHora();
 	}
