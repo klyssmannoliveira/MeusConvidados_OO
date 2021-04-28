@@ -1,7 +1,7 @@
 package Modelo;
 
 /**
- * Classe denominada Condidado, tem como objetivo descrever as informações dos
+ * Classe denominada Convidado, tem como objetivo descrever as informações dos
  * convidados do evento, por exemplo: nome, quantidade de acompanhante,
  * além das informações da classe InformacaoConvidado.
  * 
