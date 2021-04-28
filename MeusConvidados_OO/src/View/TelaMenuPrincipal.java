@@ -9,6 +9,14 @@ import java.awt.event.*;
 import javax.swing.*;
 import Controle.*;
 
+/**
+ * Classe denominada TelaMenuPrincipal, tem como função 
+ * apresentar a tela de menu principal, é a classe main do programa.
+ * 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
 public class TelaMenuPrincipal implements ActionListener {
 	// instancia os objetos da tela
 	private static JFrame janela = new JFrame("Meus Convidados");
@@ -18,10 +26,8 @@ public class TelaMenuPrincipal implements ActionListener {
 	private static JButton relatorio = new JButton("Relatorio");
 	public static ControleBancoEvento dados = new ControleBancoEvento();
 
-	/*
-	 * Objetivo: Método para layout da tela principal do programa. Entrada : sem
-	 * entrada
-	 * 
+	/**
+	 * Método para layout da tela principal do programa.
 	 */
 	public TelaMenuPrincipal() {
 		// Layout da janela: posicionamento, fonte e etc
@@ -42,10 +48,10 @@ public class TelaMenuPrincipal implements ActionListener {
 		janela.setVisible(true);
 	}
 
-	/*
-	 * Objetivo: Método para Tela menu principal com os seguintes botões: gerenciar
+	/**
+	 * Método para Tela menu principal com os seguintes botões: gerenciar
 	 * evento, criar evento e relatorio.
-	 * 
+	 * @param args Main
 	 */
 	public static void main(String[] args) {
 		TelaMenuPrincipal menu = new TelaMenuPrincipal();
@@ -55,9 +61,9 @@ public class TelaMenuPrincipal implements ActionListener {
 		relatorio.addActionListener(menu);
 	}
 
-	/*
-	 * Objetivo: Método para clicar no botão da interface gráfica.
-	 * 
+	
+	/**
+	 * Método para clicar no botão da interface gráfica.
 	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();

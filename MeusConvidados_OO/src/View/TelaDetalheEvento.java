@@ -15,6 +15,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import Controle.*;
 
+/**
+ * Classe denominada TelaDetalheEvento, tem como função Criar, Ler (read), 
+ * atualizar (update) e deletar (CRUD) um Evento.
+ * 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
 public class TelaDetalheEvento implements ActionListener {
 
 	private JFrame janela;
@@ -46,6 +54,12 @@ public class TelaDetalheEvento implements ActionListener {
 	 * Objetivo: Método para inserir e editar Evento. Entrada : op, pos,
 	 * ControleBancoEvento;
 	 * 
+	 */
+	/**
+	 * Método para inserir e editar Evento.
+	 * @param op Operação que indica se cadastra um novo evento ou edita um evento já cadastrado.
+	 * @param pos Posição do evento.
+	 * @param d Dados inicializados no menu principal.
 	 */
 	public void inserirEditar(int op, int pos, ControleBancoEvento d) {
 
@@ -135,11 +149,9 @@ public class TelaDetalheEvento implements ActionListener {
 		botaoExcluir.addActionListener(this);
 	}
 
-	/*
-	 * Objetivo: Método para clicar no botão da interface gráfica.
-	 * 
+	/**
+	 * Método para clicar no botão da interface gráfica.
 	 */
-
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if (src == botaoSalvar) {
@@ -187,9 +199,8 @@ public class TelaDetalheEvento implements ActionListener {
 		}
 	}
 
-	/*
-	 * Objetivo: Método para mensagem de exclusão com sucesso
-	 * 
+	/**
+	 * Método para mensagem de exclusão com sucesso.
 	 */
 	public void mensagemSucessoExclusao() {
 		JOptionPane.showMessageDialog(null, "Os dados foram excluidos com sucesso!", null,
@@ -207,9 +218,8 @@ public class TelaDetalheEvento implements ActionListener {
 		janela.dispose();
 	}
 
-	/*
-	 * Objetivo: Método para mensagem de erro de Cadastro
-	 * 
+	/**
+	 * Método para mensagem de erro de Cadastro.
 	 */
 	public void mensagemErroCadastro() {
 		JOptionPane.showMessageDialog(null,
@@ -222,9 +232,9 @@ public class TelaDetalheEvento implements ActionListener {
 				null, JOptionPane.ERROR_MESSAGE);
 	}
 
-	/*
-	 * Objetivo: Método para mensagem de erro de exclusao do evento
-	 * 
+	
+	/**
+	 * Método para mensagem de erro de exclusao do evento.
 	 */
 	public void mensagemErroExclusaoEvento() {
 		JOptionPane.showMessageDialog(null,

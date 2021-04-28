@@ -11,6 +11,13 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+/**
+ * Classe denominada TelaEvento, tem como função listar 
+ * todos os eventos cadastrados no banco evento.
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
 public class TelaEvento implements ActionListener, ListSelectionListener {
 
 	private JFrame janela;
@@ -22,10 +29,12 @@ public class TelaEvento implements ActionListener, ListSelectionListener {
 	private String[] listaNomesEvento = new String[50];
 	private int op;
 
-	/*
-	 * Objetivo: Método que mostra os dados do Evento. Entrada : ControleBancoEvento
-	 * , op;
-	 * 
+	/**
+	 * Listar todos os eventos cadastrados.
+	 * @param d Dados inicializados no menu principal.
+	 * @param op Operação para listar os eventos cadastrados com os botões de
+	 * Cadastrar e Atualzar e a operação que mostra os eventos cadastrados sem
+	 * estes botões.
 	 */
 	public void mostrarDadosEventos(ControleBancoEvento d, int op) {
 		dados = d;
@@ -92,7 +101,9 @@ public class TelaEvento implements ActionListener, ListSelectionListener {
 
 	}
 
-	// Captura eventos relacionados aos botões da interface
+	/**
+	 * Captura eventos relacionados aos botões da interface.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		// Cadastro do novo evento
@@ -107,7 +118,9 @@ public class TelaEvento implements ActionListener, ListSelectionListener {
 
 	}
 
-	// Captura eventos relacionados ao JList
+	/**
+	 * Captura eventos relacionados ao JList.
+	 */
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 

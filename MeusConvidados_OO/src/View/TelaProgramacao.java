@@ -19,6 +19,14 @@ import javax.swing.event.ListSelectionListener;
 
 import Controle.ControleBancoEvento;
 
+/**
+ * Classe denominada TelaProgramacao, tem como função 
+ * listar a programação de um evento.
+ * 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
 public class TelaProgramacao implements ActionListener, ListSelectionListener {
 
 	private JFrame janela;
@@ -37,6 +45,11 @@ public class TelaProgramacao implements ActionListener, ListSelectionListener {
 	 * Objetivo: Método para mostrar a programação do evento. Entrada : pos,
 	 * ControleBancoEvento d;
 	 * 
+	 */
+	/**
+	 * Método para mostrar a programação do evento.
+	 * @param pos Posição do Evento selecionado.
+	 * @param d Dados inicializados no menu principal.
 	 */
 	public void mostrarProgramacao(int pos, ControleBancoEvento d) {
 		dados = d;
@@ -84,7 +97,9 @@ public class TelaProgramacao implements ActionListener, ListSelectionListener {
 
 	}
 
-	// Captura eventos relacionados aos botões da interface
+	/**
+	 * Captura eventos relacionados aos botões da interface.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		// Cadastro do novo evento
@@ -104,7 +119,9 @@ public class TelaProgramacao implements ActionListener, ListSelectionListener {
 
 	}
 
-	// Captura eventos relacionados ao JList
+	/**
+	 * Captura eventos relacionados ao JList.
+	 */
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 

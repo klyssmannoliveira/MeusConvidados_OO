@@ -15,6 +15,14 @@ import javax.swing.JTextField;
 
 import Controle.ControleBancoEvento;
 
+/**
+ * Classe denominada TelaDetalheProgramacao, tem como função Criar, Ler (read), 
+ * atualizar (update) e deletar (CRUD) uma programação de um Evento.
+ * 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
 public class TelaDetalheProgramacao implements ActionListener {
 
 	private JFrame janela;
@@ -35,6 +43,14 @@ public class TelaDetalheProgramacao implements ActionListener {
 	 * Objetivo: Método para inserir e editar Programação. Entrada : op, posEvento,
 	 * posObjeto, ControleBancoEvento;
 	 * 
+	 */
+	/**
+	 * Método para inserir ou editar Programação.
+	 * @param op Operação que indica se cadastra uma nova progrmação
+	 * ou edita uma programação já cadastrada.
+	 * @param pos Posição do Evento.
+	 * @param posObjeto Posição da programação.
+	 * @param d Dados inicializados no menu principal.
 	 */
 	public void inserirEditar(int op, int pos, int posObjeto, ControleBancoEvento d) {
 
@@ -89,9 +105,8 @@ public class TelaDetalheProgramacao implements ActionListener {
 		botaoExcluir.addActionListener(this);
 	}
 
-	/*
-	 * Objetivo: Método para clicar no botão da interface gráfica.
-	 * 
+	/**
+	 * Método para clicar no botão da interface gráfica.
 	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
@@ -130,9 +145,9 @@ public class TelaDetalheProgramacao implements ActionListener {
 		}
 	}
 
-	/*
-	 * Objetivo: Método para mensagem de exclusão com sucesso
-	 * 
+	
+	/**
+	 * Método para mensagem de exclusão com sucesso.
 	 */
 	public void mensagemSucessoExclusao() {
 		JOptionPane.showMessageDialog(null, "Os dados foram excluidos com sucesso!", null,
@@ -140,9 +155,8 @@ public class TelaDetalheProgramacao implements ActionListener {
 		janela.dispose();
 	}
 
-	/*
-	 * Objetivo: Método para mensagem de Cadastro com sucesso
-	 * 
+	/**
+	 * Método para mensagem de Cadastro com sucesso.
 	 */
 	public void mensagemSucessoCadastro() {
 		JOptionPane.showMessageDialog(null, "Os dados foram salvos com sucesso!", null,
@@ -150,9 +164,8 @@ public class TelaDetalheProgramacao implements ActionListener {
 		janela.dispose();
 	}
 
-	/*
-	 * Objetivo: Método para mensagem de erro de Cadastro
-	 * 
+	/**
+	 * Método para mensagem de erro de Cadastro.
 	 */
 	public void mensagemErroCadastro() {
 		JOptionPane.showMessageDialog(null,
@@ -164,9 +177,8 @@ public class TelaDetalheProgramacao implements ActionListener {
 				null, JOptionPane.ERROR_MESSAGE);
 	}
 
-	/*
-	 * Objetivo: Método para mensagem de erro de exclusao do evento
-	 * 
+	/**
+	 * Método para mensagem de erro de exclusao do evento.
 	 */
 	public void mensagemErroExclusaoEvento() {
 		JOptionPane.showMessageDialog(null,

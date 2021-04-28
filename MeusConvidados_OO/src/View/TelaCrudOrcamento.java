@@ -17,6 +17,15 @@ import javax.swing.JTextField;
 
 import Controle.ControleBancoEvento;
 
+
+/**
+ * Classe denominada TelaCrudOrcamento, tem como função Criar, Ler (read), 
+ * atualizar (update) e deletar (CRUD) um orcamento de um evento.
+ * 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
 public class TelaCrudOrcamento implements ActionListener {
 
 	private JFrame janela;
@@ -58,6 +67,14 @@ public class TelaCrudOrcamento implements ActionListener {
 	 * Objetivo: Método para inserir e editar Orcamento. Entrada : op, tipo
 	 * ,posEvento, posObjeto, ControleBancoEvento d;
 	 * 
+	 */
+	/**
+	 * Insere ou edita um orçamento de um evento.
+	 * @param op Operação: Criar um novo orçamento ou editar um orçamento.
+	 * @param tipo Define o tipo de orçamento: 1 - Bebida, 2 - Comida, 3 - Infraestrutura e 4 - Música
+	 * @param posEvento Inteiro que indica a posição do evento selecionado.
+	 * @param posObjeto Inteiro que indica a posção do orçamento selecionado.
+	 * @param d Dados inicializados no menu principal.
 	 */
 	public void inserirEditarOrcamento(int op, int tipo, int posEvento, int posObjeto, ControleBancoEvento d) {
 
@@ -420,11 +437,9 @@ public class TelaCrudOrcamento implements ActionListener {
 
 	}
 
-	/*
-	 * Objetivo: Método para clicar no botão da interface gráfica.
-	 * 
+	/**
+	 * Método para clicar no botão da interface gráfica.
 	 */
-
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if (src == botaoSalvar) {
@@ -542,9 +557,8 @@ public class TelaCrudOrcamento implements ActionListener {
 
 	}
 
-	/*
-	 * Objetivo: Método para mensagem de exclusão com sucesso
-	 * 
+	/**
+	 * Método para mensagem de exclusão com sucesso.
 	 */
 	public void mensagemSucessoExclusao() {
 		JOptionPane.showMessageDialog(null, "Os dados foram excluidos com sucesso!", null,
@@ -562,9 +576,8 @@ public class TelaCrudOrcamento implements ActionListener {
 		janela.dispose();
 	}
 
-	/*
-	 * Objetivo: Método para mensagem de erro de Cadastro
-	 * 
+	/**
+	 * Método para mensagem de erro de Cadastro.
 	 */
 	public void mensagemErroCadastro() {
 		if (tipo == 1 || tipo == 2) { // bebida
@@ -593,9 +606,8 @@ public class TelaCrudOrcamento implements ActionListener {
 		}
 	}
 
-	/*
-	 * Objetivo: Método para mensagem de erro de exclusao do evento
-	 * 
+	/**
+	 * Método para mensagem de erro de exclusao do evento.
 	 */
 	public void mensagemErroExclusaoEvento() {
 		JOptionPane.showMessageDialog(null,
