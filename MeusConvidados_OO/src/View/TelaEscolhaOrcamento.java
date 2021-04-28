@@ -1,9 +1,12 @@
 package View;
 
-/*
-Sintese
-Objetivo: Classe denominada Tela Escolha Orcamento para mostrar a interface gráfica para escolha do orcamento do evento; 
-*/
+/**
+ * Classe denominada Tela Escolha Orcamento para mostrar a interface gráfica para escolha do tipo do orcamento do evento; 
+ * 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
 
 import java.awt.*;
 import java.awt.event.*;
@@ -21,11 +24,13 @@ public class TelaEscolhaOrcamento implements ActionListener {
 	private int posEvento;
 	private static ControleBancoEvento dados;
 
-	/*
-	 * Objetivo: Método da tela menu do orcamento. Entrada : posEvento,
-	 * ControleBancoEvento d;
+	/**
+	 * Método da tela menu do orcamento.
 	 * 
+	 * @param posEvento Posição do evento.
+	 * @param d         Dados inicializados no menu principal.
 	 */
+
 	public void TelaMenuOrcamento(int posEvento, ControleBancoEvento d) {
 
 		this.posEvento = posEvento;
@@ -56,9 +61,8 @@ public class TelaEscolhaOrcamento implements ActionListener {
 		musica.addActionListener(this);
 	}
 
-	/*
-	 * Objetivo: Método para clicar no botão da interface gráfica.
-	 * 
+	/**
+	 * Método para clicar no botão da interface gráfica do icones do orçamento.
 	 */
 
 	public void actionPerformed(ActionEvent e) {

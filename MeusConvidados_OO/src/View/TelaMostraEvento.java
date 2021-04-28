@@ -1,8 +1,12 @@
 package View;
-/*
-Sintese
-Objetivo: Classe denominada Tela mostra Evento mostrar a interface gráfica do evento; 
-*/
+
+/**
+ * Classe denominada Tela mostra Evento, tem o obejetivo mostrar a interface gráfica das informações do evento.
+ * 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
 
 import java.awt.Color;
 import java.awt.Font;
@@ -49,11 +53,17 @@ public class TelaMostraEvento implements ActionListener {
 	private int posicao;
 	private String s;
 
-	/*
-	 * Objetivo: Método para mostrar o Evento. Entrada : op, pos, TelaEvento p,
-	 * ControleBancoEvento d;
+	/**
+	 * Método para mostrar as informações do evento
 	 * 
+	 * @param op  tipo de operação. A opção de editar os convidados, tarefas,
+	 *            orçamentos e programação através de botões ou a opção de colocar
+	 *            somente as informções do evento.
+	 * @param pos Posição do evento.
+	 * @param p   Entrada os atributos da classe tela evento.
+	 * @param d   Dados inicializados no menu principal.
 	 */
+
 	public void mostrarEvento(int op, int pos, TelaEvento p, ControleBancoEvento d) {
 
 		posicao = pos;
@@ -220,10 +230,11 @@ public class TelaMostraEvento implements ActionListener {
 
 	}
 
-	/*
-	 * Objetivo: Método para clicar no botão da interface gráfica.
-	 * 
+	/**
+	 * Método para clicar no botão da interface gráfica. Botão editar, convidados,
+	 * tarefas, orçamento e programação.
 	 */
+
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if (src == botaoEditar) {

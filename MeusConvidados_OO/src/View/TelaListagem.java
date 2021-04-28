@@ -1,9 +1,13 @@
 package View;
 
-/*
-Sintese
-Objetivo: Classe denominada Tela Listagem para mostrar a interface gráfica das listas dos eventos; 
-*/
+/**
+ * Classe denominada Tela Listagem para mostrar a interface gráfica das listas dos eventos;
+ * 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
+
 import Controle.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -27,11 +31,15 @@ public class TelaListagem implements ActionListener, ListSelectionListener {
 	private int posicao;
 	private int opcao;
 
-	/*
-	 * Objetivo: Método para mostrar dos dados das listas do eventod. Entrada : op,
-	 * pos, ControleBancoEvento d;
+	/**
+	 * Método para mostrar os dados das listas dos eventos.
 	 * 
+	 * @param op  Operação se (1) - Lista de convidados (2)- Lista de tarefas (3) -
+	 *            Lista de gastos
+	 * @param pos posição do evento.
+	 * @param d   Dados inicializados no menu principal.
 	 */
+
 	public void mostrarDados(int op, int pos, ControleBancoEvento d) {
 		dados = d;
 		posicao = pos;
@@ -165,7 +173,10 @@ public class TelaListagem implements ActionListener, ListSelectionListener {
 
 	}
 
-	// Captura eventos relacionados aos botões da interface
+	/**
+	 * Método que captura eventos relacionados aos botões da interface.
+	 */
+
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		// Cadastro do novo evento
@@ -210,7 +221,10 @@ public class TelaListagem implements ActionListener, ListSelectionListener {
 
 	}
 
-	// Captura eventos relacionados ao JList
+	/**
+	 * Método que captura eventos relacionados ao JList.
+	 */
+
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 
