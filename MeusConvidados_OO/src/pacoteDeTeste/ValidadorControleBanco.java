@@ -4,7 +4,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 import Controle.*;
-
+/**
+ * Classe denominada ValidadorControleBanco, tem como função 
+ * realizar o teste unitário para alguns métodos do programa.
+ * 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
 class ValidadorControleBanco {
 	ControleBancoEvento c = new ControleBancoEvento();
 

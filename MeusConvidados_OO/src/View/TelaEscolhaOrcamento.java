@@ -1,5 +1,10 @@
 package View;
 
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import Controle.*;
+
 /**
  * Classe denominada Tela Escolha Orcamento para mostrar a interface gráfica para escolha do tipo do orcamento do evento; 
  * 
@@ -7,12 +12,6 @@ package View;
  * @version 1.0 [Maio 2021]
  * 
  */
-
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import Controle.*;
-
 public class TelaEscolhaOrcamento implements ActionListener {
 
 	private static JFrame janela = new JFrame("Meus Convidados");

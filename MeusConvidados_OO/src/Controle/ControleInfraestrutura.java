@@ -156,7 +156,7 @@ public class ControleInfraestrutura {
 
 	/**
 	 * Insere se a infraestrutura é relacionada à gastos com toalete do evento ou não.
-	 * @param toalete
+	 * @param toalete Boolean se é toalete ou não.
 	 */
 	public void setToalete(boolean toalete) {
 		infraestrutura.setToalete(toalete);

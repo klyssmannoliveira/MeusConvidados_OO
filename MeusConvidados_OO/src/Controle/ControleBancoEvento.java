@@ -1,12 +1,5 @@
 package Controle;
 
-/**
- * Classe denominada Controle Banco Evento, tem como função controlar os dados dos eventos. 
- * @author HITER E KLYSSMANN
- * @version 1.0 [Maio 2021]
- * 
- */
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -17,6 +10,12 @@ import java.util.regex.Pattern;
 
 import Modelo.*;
 
+/**
+ * Classe denominada Controle Banco Evento, tem como função controlar os dados dos eventos. 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
 public class ControleBancoEvento {
 
 	private BancoEvento banco = new BancoEvento(); // instanciação da classe banco evento
@@ -327,8 +326,8 @@ public class ControleBancoEvento {
 	 *                    Cadastro novo, se não, edita um cadastro existente do
 	 *                    convidado.
 	 * 
-	 * @param pos         Posição do evento.
-	 * @param dadosEvento Dados preenchidos na janela View e eles são armazenados no
+	 * @param posEvento         Posição do evento.
+	 * @param dadosConvidados Dados preenchidos na janela View e eles são armazenados no
 	 *                    banco de dados da classe evento.
 	 * @return Retorna verdadeiro ou falso referente ao cadastro ou edição correta
 	 *         do convidado.
@@ -405,8 +404,8 @@ public class ControleBancoEvento {
 	 *                    Cadastro novo, se não, edita um cadastro existente da
 	 *                    tarefa.
 	 * 
-	 * @param pos         Posição do evento.
-	 * @param dadosEvento Dados preenchidos na janela View e eles são armazenados no
+	 * @param posEvento         Posição do evento.
+	 * @param dadosTarefa Dados preenchidos na janela View e eles são armazenados no
 	 *                    banco de dados da classe evento.
 	 * @return Retorna verdadeiro ou falso referente ao cadastro ou edição correta.
 	 */
@@ -447,8 +446,8 @@ public class ControleBancoEvento {
 	 *                    Cadastro novo, se não, edita um cadastro existente da
 	 *                    bebida.
 	 * 
-	 * @param pos         Posição do evento.
-	 * @param dadosEvento Dados preenchidos na janela View e eles são armazenados no
+	 * @param posEvento         Posição do evento.
+	 * @param dadosBebida Dados preenchidos na janela View e eles são armazenados no
 	 *                    banco de dados da classe evento.
 	 * @return Retorna verdadeiro ou falso referente ao cadastro ou edição correta
 	 *         da bebida.
@@ -511,8 +510,8 @@ public class ControleBancoEvento {
 	 *                    Cadastro novo, se não, edita um cadastro existente da
 	 *                    comida.
 	 * 
-	 * @param pos         Posição do evento.
-	 * @param dadosEvento Dados preenchidos na janela View e eles são armazenados no
+	 * @param posEvento         Posição do evento.
+	 * @param dadosComida Dados preenchidos na janela View e eles são armazenados no
 	 *                    banco de dados da classe evento.
 	 * @return Retorna verdadeiro ou falso referente ao cadastro ou edição correta
 	 *         da comida.
@@ -581,8 +580,8 @@ public class ControleBancoEvento {
 	 *                    infraestrutura, (1) - Cadastro novo, se não, edita um
 	 *                    cadastro existente da infraestrutura.
 	 * 
-	 * @param pos         Posição do evento.
-	 * @param dadosEvento Dados preenchidos na janela View e eles são armazenados no
+	 * @param posEvento         Posição do evento.
+	 * @param dadosInfraestrutura Dados preenchidos na janela View e eles são armazenados no
 	 *                    banco de dados da classe evento.
 	 * @return Retorna verdadeiro ou falso referente ao cadastro ou edição correta
 	 *         da infraestrutura.
@@ -647,8 +646,8 @@ public class ControleBancoEvento {
 	 *                    Cadastro novo, se não, edita um cadastro existente da
 	 *                    musica.
 	 * 
-	 * @param pos         Posição do evento.
-	 * @param dadosEvento Dados preenchidos na janela View e eles são armazenados no
+	 * @param posEvento         Posição do evento.
+	 * @param dadosMusica Dados preenchidos na janela View e eles são armazenados no
 	 *                    banco de dados da classe evento.
 	 * @return Retorna verdadeiro ou falso referente ao cadastro ou edição correta
 	 *         da musica.
@@ -703,8 +702,8 @@ public class ControleBancoEvento {
 	 *                    - Cadastro novo, se não, edita um cadastro existente da
 	 *                    programação.
 	 * 
-	 * @param pos         Posição do evento.
-	 * @param dadosEvento Dados preenchidos na janela View e eles são armazenados no
+	 * @param posEvento         Posição do evento.
+	 * @param dadosProgramacao Dados preenchidos na janela View e eles são armazenados no
 	 *                    banco de dados da classe evento.
 	 * @return Retorna verdadeiro ou falso referente ao cadastro ou edição correta
 	 *         da programação.

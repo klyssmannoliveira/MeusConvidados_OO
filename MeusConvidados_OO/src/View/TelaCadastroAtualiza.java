@@ -1,12 +1,5 @@
 package View;
 
-/**
- * Classe denominada Tela Cadastro Atualiza, tem como objetivo criar, ler, atualizar e deletar um convidado ou tarefa numa interface gráfica.
- * 
- * @author HITER E KLYSSMANN
- * @version 1.0 [Maio 2021]
- * 
- */
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,6 +11,16 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import Controle.*;
+
+/**
+ * Classe denominada Tela Cadastro Atualiza, 
+ * tem como objetivo criar, ler, atualizar e 
+ * deletar um convidado ou tarefa numa interface gráfica.
+ * 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
 
 public class TelaCadastroAtualiza implements ActionListener {
 

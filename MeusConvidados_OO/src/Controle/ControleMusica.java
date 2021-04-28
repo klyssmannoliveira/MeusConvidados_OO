@@ -110,7 +110,7 @@ public class ControleMusica {
 
 	/**
 	 * Retorna o valor total da música no evento.
-	 * @return
+	 * @return Double com o valor total da música
 	 */
 	public double getValorTotalMusica() {
 

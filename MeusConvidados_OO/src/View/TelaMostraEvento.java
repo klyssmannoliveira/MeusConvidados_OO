@@ -1,13 +1,5 @@
 package View;
 
-/**
- * Classe denominada Tela mostra Evento, tem o obejetivo mostrar a interface gráfica das informações do evento.
- * 
- * @author HITER E KLYSSMANN
- * @version 1.0 [Maio 2021]
- * 
- */
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -17,6 +9,14 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import Controle.*;
+
+/**
+ * Classe denominada Tela mostra Evento, tem o obejetivo mostrar a interface gráfica das informações do evento.
+ * 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
 
 public class TelaMostraEvento implements ActionListener {
 

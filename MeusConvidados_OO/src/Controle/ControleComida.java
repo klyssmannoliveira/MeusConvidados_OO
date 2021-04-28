@@ -70,7 +70,7 @@ public class ControleComida {
 
 	/**
 	 * Insere se a comida é um prato principal ou não.
-	 * @param bebidaQuente Boolean que configura se a comida é um prato principal ou não.
+	 * @param principal Boolean que configura se a comida é um prato principal ou não.
 	 */
 	public void setPrincipal(boolean principal) {
 		comida.setPrincipal(principal);
@@ -118,7 +118,7 @@ public class ControleComida {
 
 	/**
 	 * Insere se a comida é considerada um prato degustativo ou não.
-	 * @param alcoolico Boolean com verdadeiro se a comida
+	 * @param degustativo Boolean com verdadeiro se a comida
 	 * for um prato degustativo e falso caso contrário.
 	 */
 	public void setDegustativo(boolean degustativo) {
@@ -135,7 +135,7 @@ public class ControleComida {
 
 	/**
 	 * Insere se a comida é considerada uma sobremesa ou não.
-	 * @param alcoolico Boolean com verdadeiro se a comida
+	 * @param sobremesa Boolean com verdadeiro se a comida
 	 * for uma sobremesa e falso caso contrário.
 	 */
 	public void setSobremesa(boolean sobremesa) {

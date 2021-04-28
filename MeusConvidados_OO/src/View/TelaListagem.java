@@ -1,12 +1,5 @@
 package View;
 
-/**
- * Classe denominada Tela Listagem para mostrar a interface gráfica das listas dos eventos;
- * 
- * @author HITER E KLYSSMANN
- * @version 1.0 [Maio 2021]
- * 
- */
 
 import Controle.*;
 import java.awt.*;
@@ -15,6 +8,14 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+
+/**
+ * Classe denominada Tela Listagem para mostrar a interface gráfica das listas dos eventos;
+ * 
+ * @author HITER E KLYSSMANN
+ * @version 1.0 [Maio 2021]
+ * 
+ */
 public class TelaListagem implements ActionListener, ListSelectionListener {
 	private JFrame janela;
 	private JLabel titulo;

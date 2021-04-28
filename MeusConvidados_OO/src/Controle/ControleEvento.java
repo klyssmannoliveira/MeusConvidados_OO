@@ -305,7 +305,7 @@ public class ControleEvento {
 
 	/**
 	 * Adiciona a tarefa dentro do ArrayList BdTarefas.
-	 * @param Tarefa Tarefa a ser adicionada.
+	 * @param tarefa Tarefa a ser adicionada.
 	 */
 	public void adicionarTarefa(Tarefa tarefa) {
 
