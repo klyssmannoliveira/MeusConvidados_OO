@@ -346,7 +346,7 @@ public class TelaCrudOrcamento implements ActionListener {
 			if (dados.getEstacionamento(posEvento, posObjeto)) {
 				valorEstacionamento.setSelected(true);
 			}
-			if (dados.getImobiliario(posEvento, posObjeto)) {
+			if (dados.getMobiliario(posEvento, posObjeto)) {
 				valorImobiliario.setSelected(true);
 			}
 			if (dados.getInternet(posEvento, posObjeto)) {

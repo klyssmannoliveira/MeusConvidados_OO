@@ -99,8 +99,8 @@ public class ControleInfraestrutura {
 	 * Retorna se a infraestrutura é relacionada à mobiliário do evento ou não.
 	 * @return Retorna verdadeiro se for mobiliário e falso caso contrário.
 	 */
-	public boolean isImobiliario() {
-		return infraestrutura.isImobiliario();
+	public boolean isMobiliario() {
+		return infraestrutura.isMobiliario();
 	}
 
 	/**
@@ -108,8 +108,8 @@ public class ControleInfraestrutura {
 	 * @param imobiliario Boolean para definir se é relacionado à mobiliário
 	 * e falso caso contrário.
 	 */
-	public void setImobiliario(boolean imobiliario) {
-		infraestrutura.setImobiliario(imobiliario);
+	public void setMobiliario(boolean imobiliario) {
+		infraestrutura.setMobiliario(imobiliario);
 	}
 
 	/**

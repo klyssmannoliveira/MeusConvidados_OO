@@ -627,7 +627,7 @@ public class ControleBancoEvento {
 				controlInfraestrutura.setValorTotal(Double.parseDouble(dadosInfraestrutura[2]));
 				controlInfraestrutura.setDecoracao(Boolean.parseBoolean(dadosInfraestrutura[3]));
 				controlInfraestrutura.setEstacionamento(Boolean.parseBoolean(dadosInfraestrutura[4]));
-				controlInfraestrutura.setImobiliario(Boolean.parseBoolean(dadosInfraestrutura[5]));
+				controlInfraestrutura.setMobiliario(Boolean.parseBoolean(dadosInfraestrutura[5]));
 				controlInfraestrutura.setInternet(Boolean.parseBoolean(dadosInfraestrutura[6]));
 				controlInfraestrutura.setEquipamento(Boolean.parseBoolean(dadosInfraestrutura[7]));
 				controlInfraestrutura.setToalete(Boolean.parseBoolean(dadosInfraestrutura[8]));
@@ -1502,7 +1502,7 @@ public class ControleBancoEvento {
 	 *         infraestrutura.
 	 * 
 	 */
-	public boolean getImobiliario(int posEvento, int posOrcamento) {
+	public boolean getMobiliario(int posEvento, int posOrcamento) {
 		int aux;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
@@ -1511,7 +1511,7 @@ public class ControleBancoEvento {
 		ControleInfraestrutura controlInfraestrutura = new ControleInfraestrutura(
 				controlEvento.getBdInfraestrutura().get(aux));
 
-		return controlInfraestrutura.isImobiliario();
+		return controlInfraestrutura.isMobiliario();
 	}
 
 	/**

@@ -12,7 +12,7 @@ package Modelo;
 public class Infraestrutura extends Orcamento {
 	private boolean decoracao; // decoração do evento
 	private boolean estacionamento; // estacionamento do evento
-	private boolean imobiliario;// imobiliario do evento;
+	private boolean mobiliario;// imobiliario do evento;
 	private boolean internet; // internet do evento;
 	private boolean equipamento; // equipamento do evento;
 	private boolean toalete; // toalete do evento;
@@ -58,7 +58,7 @@ public class Infraestrutura extends Orcamento {
 		super(tipo, descricao, valorTotal);
 		this.decoracao = decoracao;
 		this.estacionamento = estacionamento;
-		this.imobiliario = imobiliario;
+		this.mobiliario = imobiliario;
 		this.internet = internet;
 		this.equipamento = equipamento;
 		this.toalete = toalete;
@@ -97,13 +97,13 @@ public class Infraestrutura extends Orcamento {
 	}
 
 	// get do imobiliario: True se tiver imobiliario e false se não tiver;
-	public boolean isImobiliario() {
-		return imobiliario;
+	public boolean isMobiliario() {
+		return mobiliario;
 	}
 
 	// set do imobiliario;
-	public void setImobiliario(boolean imobiliario) {
-		this.imobiliario = imobiliario;
+	public void setMobiliario(boolean imobiliario) {
+		this.mobiliario = imobiliario;
 	}
 
 	// get da internet: True se tiver internet e false se não tiver;
