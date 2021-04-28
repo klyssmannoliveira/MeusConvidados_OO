@@ -6,6 +6,7 @@ Objetivo: Classe denominada Controle Tarefa para controlar a classe Tarefa do pa
 */
 import Modelo.*;
 
+
 /**
  * Classe denominada Controle Tarefa, tem como função ligar os atributos 
  * da classe Tarefa no pacote modelo

@@ -7,6 +7,7 @@ Objetivo: Classe denominada Controle Convidado para controlar a classe Convidado
 
 import Modelo.*;
 
+
 /**
  * Classe denominada Controle Convidado, tem como função ligar os atributos 
  * da classe Convidado no pacote modelo
