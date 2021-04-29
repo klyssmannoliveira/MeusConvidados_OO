@@ -84,28 +84,58 @@ public class BancoEvento {
 				"@klyssmannoliveira", "Santa Maria", "72583-250", "Norte");
 		Convidado c2 = new Convidado("Hiterson", 5, "(61)983490979", "klyssmannoliveira@gmail.com",
 				"@klyssmannoliveira", "Santa Maria", "72583-250", "Norte");
+		Convidado c3 = new Convidado("Fernanda", 6, "(62) 99489-7473", "fernandaNog@gmail.com",
+				"@nandinha_Sd", "Novo Gama (GO)", "72860-609", "proximo ao supermecadro Nosso Lar");
 		Tarefa t1 = new Tarefa("Buscar flores", "30/05/2021");
 		Tarefa t2 = new Tarefa("Buscar alianças", "20/05/2021", true);
 		Tarefa t3 = new Tarefa("Pegar o uber", "10/05/2021");
 		Orcamento g1 = new Bebida(1, "Cervejas", 22, 22.50, 0.0, false, true);
 		Bebida b1 = new Bebida(1, "Cervejas", 22, 22.50, 0.0, false, true);
-		Orcamento g2 = new Comida(2, "Salgados", 100.00);
-		Comida cc2 = new Comida(2, "Salgados", 100.00);
-		Orcamento g3 = new Musica(4, "The Beatles", 100.00);
-		Musica m3 = new Musica(4, "The Beatles", 100.00);
+		Orcamento g2 = new Comida(2, "Salgados", 1000, 1.50, 1500.00, false,true,false );
+		Comida cc2 = new Comida(2, "Salgados", 1000, 1.50, 1500.00, false,true,false );
+		
+		Orcamento g6 = new Infraestrutura(3,"Ornamentação", 1000.00, true, false, false, false, false,false);
+		Infraestrutura ii3 = new Infraestrutura(3,"Ornamentação", 1000.00, true, false, false, false, false, false);
+        
+		Orcamento g5 = new Infraestrutura(3,"sabonete", 20.00, false, false, false, false, false, true);
+		Infraestrutura ii2 = new Infraestrutura(3,"sabonete", 20.00, false, false, false, false, false, true);
+		
+		
+		
+		Orcamento g3 = new Musica(4, "The Beatles", 900.00, "Rock", true, false);
+		Musica m3 = new Musica(4, "The Beatles", 900.00, "Rock", true, false);
+		Programacao p2 = new Programacao("Inicio", "19:00");
+		Programacao p3 = new Programacao("Entradas dos padrinhos", "20:00");
+		Programacao p4 = new Programacao("Entradas do padre", "21:00");
 		Programacao p1 = new Programacao("Casamento", "22:00");
+		Programacao p5 = new Programacao("Festa", "23:00");
+		Programacao p6 = new Programacao("Fim", "3:00");
+		
+		
+		e1.adicionarProgramacao(p2);
+		e1.adicionarProgramacao(p3);
+		e1.adicionarProgramacao(p4);
 		e1.adicionarProgramacao(p1);
+		e1.adicionarProgramacao(p5);
+		e1.adicionarProgramacao(p6);
+		
 		e1.adicionarConvidado(c1);
 		e1.adicionarConvidado(c2);
+		e1.adicionarConvidado(c3);
 		e1.adicionarTarefa(t1);
 		e1.adicionarTarefa(t2);
 		e1.adicionarTarefa(t3);
 		e1.adicionarOrcamento(g1);
 		e1.adicionarOrcamento(g2);
 		e1.adicionarOrcamento(g3);
+		e1.adicionarOrcamento(g6);
+		e1.adicionarOrcamento(g5);
+		
 		e1.adicionarBebida(b1);
 		e1.adicionarComida(cc2);
 		e1.adicionarMusica(m3);
+		e1.adicionarInfraestrutura(ii3);
+		e1.adicionarInfraestrutura(ii2);
 
 		// Evento 2
 		Evento e2 = new Evento("churrasco", "30/05/2021", "19:00", "24:00", "Alvorada24", "70000-260", "Sudeste",
