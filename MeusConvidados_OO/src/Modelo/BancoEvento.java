@@ -94,8 +94,8 @@ public class BancoEvento {
 		Orcamento g2 = new Comida(2, "Salgados", 1000, 1.50, 1500.00, false,true,false );
 		Comida cc2 = new Comida(2, "Salgados", 1000, 1.50, 1500.00, false,true,false );
 		
-		Orcamento g6 = new Infraestrutura(3,"Ornamentação", 1000.00, true, false, false, false, false,false);
-		Infraestrutura ii3 = new Infraestrutura(3,"Ornamentação", 1000.00, true, false, false, false, false, false);
+		Orcamento g6 = new Infraestrutura(3,"Ornamentacao", 1000.00, true, false, false, false, false,false);
+		Infraestrutura ii3 = new Infraestrutura(3,"Ornamentacao", 1000.00, true, false, false, false, false, false);
         
 		Orcamento g5 = new Infraestrutura(3,"sabonete", 20.00, false, false, false, false, false, true);
 		Infraestrutura ii2 = new Infraestrutura(3,"sabonete", 20.00, false, false, false, false, false, true);

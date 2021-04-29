@@ -194,6 +194,7 @@ public class TelaListagem implements ActionListener, ListSelectionListener {
 			if (opcao == 3) // Orçamento
 
 				new TelaEscolhaOrcamento().TelaMenuOrcamento(posicao, dados);
+				
 
 		}
 		// Atualiza a lista de nomes dos eventos mostrada no JList

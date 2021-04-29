@@ -456,7 +456,7 @@ public class ControleBancoEvento {
 	public boolean adicionarEditarBebida(int op, int posEvento, int posOrcamento, String[] dadosBebida) {
 
 		int aux;
-		int tipo = getTipoOrcamento(posEvento, posOrcamento);
+		
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 
 		if (!validaCampo(dadosBebida[1])) { // Descricao
@@ -483,6 +483,7 @@ public class ControleBancoEvento {
 				controlEvento.adicionarOrcamento(o);
 
 			} else {
+				int tipo = getTipoOrcamento(posEvento, posOrcamento);
 				ControleOrcamento controlOrcamento = new ControleOrcamento(
 						controlEvento.getBdOrcamentos().get(posOrcamento));
 				aux = validaOrcamento(tipo, controlEvento.getEvento(), controlOrcamento.getOrcamento());
@@ -520,7 +521,6 @@ public class ControleBancoEvento {
 	public boolean adicionarEditarComida(int op, int posEvento, int posOrcamento, String[] dadosComida) {
 
 		int aux;
-		int tipo = getTipoOrcamento(posEvento, posOrcamento);
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 
 		if (!validaCampo(dadosComida[1])) { // Descricao
@@ -551,6 +551,7 @@ public class ControleBancoEvento {
 				controlEvento.adicionarOrcamento(o);
 
 			} else {
+				int tipo = getTipoOrcamento(posEvento, posOrcamento);
 				ControleOrcamento controlOrcamento = new ControleOrcamento(
 						controlEvento.getBdOrcamentos().get(posOrcamento));
 				aux = validaOrcamento(tipo, controlEvento.getEvento(), controlOrcamento.getOrcamento());
@@ -591,7 +592,7 @@ public class ControleBancoEvento {
 			String[] dadosInfraestrutura) {
 
 		int aux;
-		int tipo = getTipoOrcamento(posEvento, posOrcamento);
+		
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 
 		if (!validaCampo(dadosInfraestrutura[1])) { // Descricao
@@ -615,6 +616,7 @@ public class ControleBancoEvento {
 				controlEvento.adicionarOrcamento(o);
 
 			} else {
+				int tipo = getTipoOrcamento(posEvento, posOrcamento);
 				ControleOrcamento controlOrcamento = new ControleOrcamento(
 						controlEvento.getBdOrcamentos().get(posOrcamento));
 				aux = validaOrcamento(tipo, controlEvento.getEvento(), controlOrcamento.getOrcamento());
@@ -655,7 +657,7 @@ public class ControleBancoEvento {
 	public boolean adicionarEditarMusica(int op, int posEvento, int posOrcamento, String[] dadosMusica) {
 
 		int aux;
-		int tipo = getTipoOrcamento(posEvento, posOrcamento);
+		
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 
 		if (!validaCampo(dadosMusica[1])) {
@@ -677,6 +679,7 @@ public class ControleBancoEvento {
 				controlEvento.adicionarOrcamento(o);
 
 			} else {
+				int tipo = getTipoOrcamento(posEvento, posOrcamento);
 				ControleOrcamento controlOrcamento = new ControleOrcamento(
 						controlEvento.getBdOrcamentos().get(posOrcamento));
 				aux = validaOrcamento(tipo, controlEvento.getEvento(), controlOrcamento.getOrcamento());
@@ -1092,15 +1095,16 @@ public class ControleBancoEvento {
 
 	public int validaOrcamento(int tipo, Evento evento, Orcamento orcamento) {
 		int i;
-		int retorno = -1;
+		int retorno=-1;
 		if (tipo == 1) {
 
 			ArrayList<Bebida> bdBebida = evento.getBdBebida();
 			for (i = 0; i < bdBebida.size(); i++) {
 
-				if (orcamento.getDescricao() == bdBebida.get(i).getDescricao())
+				if (orcamento.getDescricao() == bdBebida.get(i).getDescricao()) {
 					retorno = i;
-
+					break;
+				}
 				else
 					retorno = -1;
 
@@ -1111,22 +1115,24 @@ public class ControleBancoEvento {
 			ArrayList<Comida> bdComida = evento.getBdComida();
 			for (i = 0; i < bdComida.size(); i++) {
 
-				if (orcamento.getDescricao() == bdComida.get(i).getDescricao())
+				if (orcamento.getDescricao() == bdComida.get(i).getDescricao()) {
 					retorno = i;
-
+					break;
+				}
 				else
 					retorno = -1;
 
 			}
 
 		} else if (tipo == 3) {
-
+			
 			ArrayList<Infraestrutura> bdInfraestrutura = evento.getBdInfraestrutura();
 			for (i = 0; i < bdInfraestrutura.size(); i++) {
 
-				if (orcamento.getDescricao() == bdInfraestrutura.get(i).getDescricao())
+				if (orcamento.getDescricao() == bdInfraestrutura.get(i).getDescricao()) {
 					retorno = i;
-
+					break;
+				}
 				else
 					retorno = -1;
 
@@ -1137,9 +1143,10 @@ public class ControleBancoEvento {
 			ArrayList<Musica> bdMusica = evento.getBdMusica();
 			for (i = 0; i < bdMusica.size(); i++) {
 
-				if (orcamento.getDescricao() == bdMusica.get(i).getDescricao())
+				if (orcamento.getDescricao() == bdMusica.get(i).getDescricao()) {
 					retorno = i;
-
+					break;
+				}
 				else
 					retorno = -1;
 
@@ -1147,6 +1154,7 @@ public class ControleBancoEvento {
 
 		} else
 			retorno = -1;
+		
 		return retorno;
 
 	}
@@ -1422,7 +1430,7 @@ public class ControleBancoEvento {
 	 * 
 	 */
 	public String getDescricaoInfraestrutura(int posEvento, int posOrcamento) {
-		int aux;
+		int aux=0;
 		int tipo = getTipoOrcamento(posEvento, posOrcamento);
 		ControleEvento controlEvento = new ControleEvento(banco.getBdEventos().get(posEvento));
 		ControleOrcamento controlOrcamento = new ControleOrcamento(controlEvento.getBdOrcamentos().get(posOrcamento));

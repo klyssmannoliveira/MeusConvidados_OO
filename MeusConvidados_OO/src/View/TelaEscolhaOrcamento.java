@@ -6,7 +6,8 @@ import javax.swing.*;
 import Controle.*;
 
 /**
- * Classe denominada Tela Escolha Orcamento para mostrar a interface gráfica para escolha do tipo do orcamento do evento; 
+ * Classe denominada Tela Escolha Orcamento para mostrar a interface gráfica
+ * para escolha do tipo do orcamento do evento;
  * 
  * @author HITER E KLYSSMANN
  * @version 1.0 [Maio 2021]
@@ -14,12 +15,12 @@ import Controle.*;
  */
 public class TelaEscolhaOrcamento implements ActionListener {
 
-	private static JFrame janela = new JFrame("Meus Convidados");
-	private static JLabel titulo = new JLabel("Menu Orçamento");
-	private static JButton comida = new JButton("Comida");
-	private static JButton bebida = new JButton("Bebida");
-	private static JButton musica = new JButton("Música");
-	private static JButton infraestrutura = new JButton("Infraestrutura");
+	private JFrame janela = new JFrame("Meus Convidados");
+	private JLabel titulo = new JLabel("Menu Orçamento");
+	private JButton comida = new JButton("Comida");
+	private JButton bebida = new JButton("Bebida");
+	private JButton musica = new JButton("Música");
+	private JButton infraestrutura = new JButton("Infraestrutura");
 	private int posEvento;
 	private static ControleBancoEvento dados;
 
@@ -31,7 +32,6 @@ public class TelaEscolhaOrcamento implements ActionListener {
 	 */
 
 	public void TelaMenuOrcamento(int posEvento, ControleBancoEvento d) {
-
 		this.posEvento = posEvento;
 
 		dados = d;
@@ -51,7 +51,7 @@ public class TelaEscolhaOrcamento implements ActionListener {
 		janela.add(infraestrutura);
 
 		janela.setSize(400, 250);
-		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		// janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		janela.setVisible(true);
 
 		bebida.addActionListener(this);
